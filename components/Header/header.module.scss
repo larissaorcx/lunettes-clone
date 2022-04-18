@@ -1,0 +1,51 @@
+.logo {
+  width: 245.3px;
+  height: 108.4px;
+  margin: 0 718.3px 381.8px 735.5px;
+}
+
+.header {
+  max-width: 1920px;
+  height: 100vh;
+
+  background-image: url('../../public/background.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  object-fit: contain;
+
+  .itens {
+    display: grid;
+    grid-template-areas: 'menu logo shop';
+    grid-template-columns: 42px 245.3px 58.8px / auto-flow;
+
+    margin-left: 60px;
+    margin-right: 60.2px;
+
+    button {
+      cursor: pointer;
+      background-color: transparent;
+      border: none;
+    }
+
+    .menu {
+      grid-area: menu;
+      margin-top: 60.5px;
+      width: 42px;
+      height: 26px;
+    }
+
+    .logo {
+      grid-area: logo;
+      margin-top: 33.8px;
+      width: 245.3px;
+      height: 108.4px;
+    }
+
+    .sacola {
+      grid-area: shop;
+      margin-top: 42.3px;
+      width: 58.8px;
+      height: 55.7px;
+    }
+  }
+}
