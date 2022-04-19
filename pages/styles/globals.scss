@@ -1,3 +1,8 @@
+@font-face {
+  font-family: MonumentExtended;
+  src: url('../../public/font/MonumentBold.otf') format('opentype');
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -5,7 +10,6 @@
 }
 
 body {
-  width: 1920px;
-  height: 4467px;
-  overflow: hidden scroll;
+  height: 100%;
+  overflow-x: hidden;
 }
