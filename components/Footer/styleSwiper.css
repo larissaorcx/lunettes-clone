@@ -40,6 +40,22 @@ body {
   -webkit-align-items: center;
   align-items: center;
 }
+.swiper-button-next,
+.swiper-button-prev {
+  position: absolute;
+  top: 50%;
+  width: 50px !important;
+  height: 20px !important;
+  margin-top: calc(0px - (var(--swiper-navigation-size) / 2));
+  z-index: 10;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white !important;
+  margin-left: 50px;
+  margin-right: 50px;
+}
 
 .swiper-slide img {
   display: block;

@@ -127,6 +127,68 @@ export default function Footer() {
           </SwiperSlide>
         </Swiper>
       </div>
+      <div className={style.infos}>
+        <Image alt="logo" src="/Logo-Lunettes.png" width={138} height={61} />
+        <div className={style.oculosSolar}>
+          <h2 className={style.titulo}>solar</h2>
+          <a href="">Aviador</a>
+          <a href="">Quadrado</a>
+          <a href="">Vintage</a>
+          <a href="">Espelho</a>
+          <a href="">Gatinho</a>
+        </div>
+        <div className={style.oculosGrau}>
+          <h2 className={style.titulo}>grau</h2>
+          <a href="">Aviador</a>
+          <a href="">Quadrado</a>
+          <a href="">Vintage</a>
+          <a href="">Espelho</a>
+          <a href="">Gatinho</a>
+          <a href="">Oval</a>
+          <a href="">Retangular</a>
+        </div>
+        <div className={style.contatos}>
+          <h2 className={style.titulo}>contato</h2>
+          <span>
+            Rua Nilza, 480 - São Paulo | 03651-120 <br /> CNPJ:
+            20.050.347/0001-56 <br />
+            Whatsapp: (11) 97452-3425 <br /> E-mail: contato@lunettes.com.br
+          </span>
+          <div className={style.redesSociais}>
+            <h2 className={style.titulo}>redes sociais</h2>
+            <button type="button">
+              <Image
+                alt="whatsapp"
+                src="/redesSociais/whats.png"
+                width={42}
+                height={42}
+              />
+            </button>
+            <button type="button">
+              <Image
+                alt="instagram"
+                src="/redesSociais/insta.png"
+                width={42}
+                height={42}
+              />
+            </button>
+            <button type="button">
+              <Image
+                alt="facebook"
+                src="/redesSociais/facebook.png"
+                width={42}
+                height={42}
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+      <div className={style.regras}>
+        <span>
+          © 2020 Todos os direitos reservados. | Política de privacidade |
+          Termos de uso
+        </span>
+      </div>
     </div>
   );
 }
