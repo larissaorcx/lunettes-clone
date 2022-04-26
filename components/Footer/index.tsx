@@ -22,7 +22,7 @@ export default function Footer() {
       <div className={style.slide}>
         <Swiper
           slidesPerView={4}
-          spaceBetween={0.2}
+          spaceBetween={0.1}
           autoplay={{
             delay: 2500,
             disableOnInteraction: false,
