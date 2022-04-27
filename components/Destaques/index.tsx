@@ -1,15 +1,17 @@
 import style from './destaques.module.scss';
 import Image from 'next/image';
 
+import { FaRegHeart } from 'react-icons/fa';
+
 export default function Destaques() {
   return (
     <div className={style.destaques}>
       <h2>Prodrutos em destaque</h2>
       <div className={style.produto}>
         <Image alt="foto1" src="/foto1.png" width={360} height={360} />
-        <div className={style.cores}>
-          <button type="button"></button>
-          <button type="button"></button>
+        <div className={style.opcaoesCores}>
+          <button type="button" className={style.color1}></button>
+          <button type="button" className={style.color2}></button>
         </div>
         <div className={style.infosProdutos}>
           <h3>CLASSIC LINE</h3>
@@ -18,10 +20,12 @@ export default function Destaques() {
         <div className={style.price}>
           <span>R$ 120,00</span>
         </div>
-        <button type="button">
-          <Image alt="iconeBotão" src="/ibotao.png" width={33} height={30} />
-          <span>Reservar</span>
-        </button>
+        <div className={style.reserva}>
+          <button type="button">
+            <FaRegHeart />
+            <span>Reservar</span>
+          </button>
+        </div>
       </div>
     </div>
   );
