@@ -1,56 +1,57 @@
 import Image from 'next/image';
-import style from './contatos.module.scss';
+import {
+  ContatoContainer,
+  TextContainer,
+  Titulo,
+  Paragrafo,
+  Container,
+  InfosContatos,
+  TituloContato,
+  TextContato,
+} from './style';
 
 export default function Contatos() {
   return (
     <>
-      <div className={style.atendimento}>
+      <ContatoContainer>
         <Image
           alt="contacts-img"
           src="/contatos-img.png"
           width={960}
           height={540}
         />
-        <div className={style.text}>
-          <h2>Atendimento personalizado</h2>
-          <p>
+        <TextContainer>
+          <Titulo>Atendimento personalizado</Titulo>
+          <Paragrafo>
             A Lunettes by Lari é uma ótica que leva seus óculos na porta da sua
             casa. Nosso atendimento é uma consultoria de estilo exclusiva.
-          </p>
-        </div>
-      </div>
-      <div className={style.contatos}>
-        <h2>Como funciona?</h2>
-
-        <div className={style.infosContacts}>
-          <div className={style.info1}>
+          </Paragrafo>
+        </TextContainer>
+      </ContatoContainer>
+      <Container>
+        <Titulo>Como funciona?</Titulo>
+        <InfosContatos>
+          <div>
             <Image alt="coracao" src="/coracao.png" width={80.4} height={72} />
-
-            <span>
-              <strong>Escolha</strong>
-              Você escolhe seus óculos por aqui
-            </span>
+            <TituloContato>Escolha</TituloContato>
+            <TextContato>Você escolhe seus óculos por aqui</TextContato>
           </div>
-
-          <div className={style.info2}>
+          <div>
             <Image alt="whats" src="/whats.png" width={72.6} height={73.3} />
-
-            <span>
-              <strong>Avise a Lunettes</strong>
+            <TituloContato>Avise a Lunettes</TituloContato>
+            <TextContato>
               Avise a Lunettes quais óculos quer experimentar
-            </span>
+            </TextContato>
           </div>
-
-          <div className={style.info3}>
+          <div>
             <Image alt="agenda" src="/agenda.png" width={78.2} height={72.2} />
-
-            <span>
-              <strong>Agende</strong>
+            <TituloContato>Agende</TituloContato>
+            <TextContato>
               Vamos agendar uma visita e levar os óculos até você
-            </span>
+            </TextContato>
           </div>
-        </div>
-      </div>
+        </InfosContatos>
+      </Container>
     </>
   );
 }
