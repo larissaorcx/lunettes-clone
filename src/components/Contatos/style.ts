@@ -21,6 +21,7 @@ export const Titulo = styled.h2`
   line-height: 1.21;
   text-align: left;
   color: #000;
+  margin: 5px;
 
   padding-top: 50px;
 `;
@@ -57,6 +58,7 @@ export const InfosContatos = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  margin-top: 60px;
 
   div {
     display: flex;

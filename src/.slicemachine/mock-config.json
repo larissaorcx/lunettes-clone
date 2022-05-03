@@ -1,0 +1,13 @@
+{
+  "slices": {
+    "Produtos": {
+      "default": {
+        "primary": {},
+        "items": {}
+      }
+    }
+  },
+  "_cts": {
+    "products": {}
+  }
+}
