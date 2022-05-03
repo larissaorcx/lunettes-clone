@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Background from '../../public/background.jpg';
+// import Background from '../../assets/header/background.jpg';
 
 export const HeaderContainer = styled.div`
   display: flex;
@@ -9,7 +9,7 @@ export const HeaderContainer = styled.div`
   justify-content: space-between;
   padding: 33.8px 60.2px 0px 60px;
 
-  background: url(${Background});
+  background: url('../../assets/header/background.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
