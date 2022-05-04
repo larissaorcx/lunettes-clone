@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { animationRedes } from './animacao';
 
 export const Hashtag = styled.div`
   display: flex;
@@ -135,6 +136,9 @@ export const BotaoRedes = styled.button`
   background-color: transparent;
   border: none;
   padding-right: 18px;
+  &:hover {
+    animation: ${animationRedes} 0.8s ease 0s 1 normal both;
+  }
 `;
 
 export const TextoContato = styled.span`
@@ -160,4 +164,5 @@ export const TextoRegras = styled.span`
   line-height: 2.25;
   font-weight: 200;
   color: #fff;
+  font-weight: bold;
 `;

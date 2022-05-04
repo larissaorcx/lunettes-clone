@@ -92,4 +92,5 @@ export const TextContato = styled.span`
   font-weight: 200;
   text-align: center;
   line-height: 1.5;
+  color: #9a9a9a;
 `;

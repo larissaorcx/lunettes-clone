@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 import {
   Hashtag,
@@ -91,28 +92,37 @@ export default function Footer() {
             <TituloInfo>redes sociais</TituloInfo>
             <BotaoContainer>
               <BotaoRedes type="button">
-                <Image
-                  alt="whatsapp"
-                  src="/redesSociais/whats.png"
-                  width={42}
-                  height={42}
-                />
+                <Link
+                  href="https://api.whatsapp.com/send/?phone=5511974523425&text=Ol%C3%A1+Lunettes%2C+estou+vindo+do+site+e+gostaria+de+informa%C3%A7%C3%B5es.&app_absent=0"
+                  passHref
+                >
+                  <Image
+                    alt="whatsapp"
+                    src="/redesSociais/whats.png"
+                    width={42}
+                    height={42}
+                  />
+                </Link>
               </BotaoRedes>
               <BotaoRedes type="button">
-                <Image
-                  alt="instagram"
-                  src="/redesSociais/insta.png"
-                  width={42}
-                  height={42}
-                />
+                <Link href="https://www.instagram.com/lunettesbylari/" passHref>
+                  <Image
+                    alt="instagram"
+                    src="/redesSociais/facebook.png"
+                    width={42}
+                    height={42}
+                  />
+                </Link>
               </BotaoRedes>
               <BotaoRedes type="button">
-                <Image
-                  alt="facebook"
-                  src="/redesSociais/facebook.png"
-                  width={42}
-                  height={42}
-                />
+                <Link href="https://www.facebook.com/lunettesbylari/" passHref>
+                  <Image
+                    alt="facebook"
+                    src="/redesSociais/insta.png"
+                    width={42}
+                    height={42}
+                  />
+                </Link>
               </BotaoRedes>
             </BotaoContainer>
           </RedesContainer>
