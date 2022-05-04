@@ -1,13 +1,5 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-
-// import required modules
-import { Autoplay, Navigation } from 'swiper';
-
 import Image from 'next/image';
+
 import {
   Hashtag,
   TituloHastag,
@@ -26,6 +18,7 @@ import {
   RedesContainer,
   BotaoContainer,
 } from './style';
+import SwiperSlides from './Swiper';
 
 export default function Footer() {
   return (
@@ -37,112 +30,7 @@ export default function Footer() {
         </TextoHashtag>
       </Hashtag>
       <Slider>
-        <Swiper
-          slidesPerView={4}
-          spaceBetween={0.1}
-          autoplay={{
-            delay: 2500,
-            disableOnInteraction: false,
-          }}
-          breakpoints={{
-            640: {
-              slidesPerView: 2,
-              spaceBetween: 20,
-            },
-            768: {
-              slidesPerView: 4,
-              spaceBetween: 40,
-            },
-            1024: {
-              slidesPerView: 5,
-              spaceBetween: 50,
-            },
-          }}
-          navigation={true}
-          modules={[Autoplay, Navigation]}
-          className="mySwiper"
-        >
-          <SwiperSlide>
-            <Image
-              alt="contacts-img"
-              src="/slider/img1.png"
-              width={960}
-              height={1450}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              alt="contacts-img"
-              src="/slider/img2.png"
-              width={960}
-              height={1450}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              alt="contacts-img"
-              src="/slider/img3.png"
-              width={960}
-              height={1450}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              alt="img4"
-              src="/slider/img4.png"
-              width={960}
-              height={1450}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              alt="img4"
-              src="/slider/img5.png"
-              width={960}
-              height={1450}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              alt="contacts-img"
-              src="/slider/img1.png"
-              width={960}
-              height={1450}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              alt="contacts-img"
-              src="/slider/img2.png"
-              width={960}
-              height={1450}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              alt="contacts-img"
-              src="/slider/img3.png"
-              width={960}
-              height={1450}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              alt="img4"
-              src="/slider/img4.png"
-              width={960}
-              height={1450}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              alt="img4"
-              src="/slider/img5.png"
-              width={960}
-              height={1450}
-            />
-          </SwiperSlide>
-        </Swiper>
+        <SwiperSlides />
       </Slider>
       <InfosProduto>
         <Image alt="logo" src="/Logo-Lunettes.png" width={138} height={61} />

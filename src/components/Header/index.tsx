@@ -19,6 +19,7 @@ export default function Header() {
           src="/Logo-Lunettes.png"
           width={245.3}
           height={108.4}
+          priority
         />
       </Logo>
       <BotaoSacola type="button">

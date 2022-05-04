@@ -89,6 +89,10 @@ export const BotaoReserva = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  &:hover {
+    background: rgb(133, 133, 133);
+  }
 `;
 export const TextoBotao = styled.span`
   margin-left: 13px;
