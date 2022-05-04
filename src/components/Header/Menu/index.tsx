@@ -11,7 +11,12 @@ export default function MenuHeader() {
   return (
     <Menu>
       <BotaoMenu type="button" onClick={() => handleOpenMenu()}>
-        <Image alt="menu-categorias" src="/menu.png" width={42} height={26} />
+        <Image
+          alt="menu-categorias"
+          src="/header/menu.png"
+          width={42}
+          height={26}
+        />
       </BotaoMenu>
       <Logo>
         <Image
@@ -23,7 +28,12 @@ export default function MenuHeader() {
         />
       </Logo>
       <BotaoSacola type="button">
-        <Image alt="sacola" src="/sacola.png" width={58.8} height={55.7} />
+        <Image
+          alt="sacola"
+          src="/header/sacola.png"
+          width={58.8}
+          height={55.7}
+        />
       </BotaoSacola>
     </Menu>
   );

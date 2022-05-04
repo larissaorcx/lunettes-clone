@@ -34,7 +34,12 @@ export default function Footer() {
         <SwiperSlides />
       </Slider>
       <InfosProduto>
-        <Image alt="logo" src="/Logo-Lunettes.png" width={138} height={61} />
+        <Image
+          alt="logo"
+          src="/header/Logo-Lunettes.png"
+          width={138}
+          height={61}
+        />
         <SolarContainer>
           <TituloInfo>solar</TituloInfo>
           <ul>

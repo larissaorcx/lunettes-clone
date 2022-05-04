@@ -16,7 +16,7 @@ export default function Contatos() {
       <ContatoContainer>
         <Image
           alt="contacts-img"
-          src="/contatos-img.png"
+          src="/contatos/contatos-img.png"
           width={960}
           height={540}
         />
@@ -32,19 +32,34 @@ export default function Contatos() {
         <Titulo>Como funciona?</Titulo>
         <InfosContatos>
           <div>
-            <Image alt="coracao" src="/coracao.png" width={80.4} height={72} />
+            <Image
+              alt="coracao"
+              src="/contatos/coracao.png"
+              width={80.4}
+              height={72}
+            />
             <TituloContato>Escolha</TituloContato>
             <TextContato>Você escolhe seus óculos por aqui</TextContato>
           </div>
           <div>
-            <Image alt="whats" src="/whats.png" width={72.6} height={73.3} />
+            <Image
+              alt="whats"
+              src="/contatos/whats.png"
+              width={72.6}
+              height={73.3}
+            />
             <TituloContato>Avise a Lunettes</TituloContato>
             <TextContato>
               Avise a Lunettes quais óculos quer experimentar
             </TextContato>
           </div>
           <div>
-            <Image alt="agenda" src="/agenda.png" width={78.2} height={72.2} />
+            <Image
+              alt="agenda"
+              src="/contatos/agenda.png"
+              width={78.2}
+              height={72.2}
+            />
             <TituloContato>Agende</TituloContato>
             <TextContato>
               Vamos agendar uma visita e levar os óculos até você

@@ -20,7 +20,7 @@ export default function Destaques() {
     <DestaquesContainer>
       <Titulo>Prodrutos em destaque</Titulo>
       <ProdutoContainer>
-        <Image alt="foto1" src="/foto1.png" width={360} height={360} />
+        <Image alt="foto1" src="/assets/foto1.png" width={360} height={360} />
         <CoresContainer>
           <BotaoCores type="button"></BotaoCores>
         </CoresContainer>
