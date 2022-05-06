@@ -1,15 +1,35 @@
 import { BotaoMenu, Logo, BotaoSacola, Menu } from './style';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 export default function MenuHeader() {
   const [openMenu, setOpenMenu] = useState(false);
+  const [scroll, setScroll] = useState(false);
 
   function handleOpenMenu() {
     return console.log('click');
   }
+
+  const handleScrollMenu = useCallback(() => {
+    if (
+      document.body.scrollTop > 100 ||
+      document.documentElement.scrollTop > 100
+    ) {
+      setScroll(true);
+    } else {
+      setScroll(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScrollMenu);
+    return () => {
+      window.removeEventListener('scroll', handleScrollMenu);
+    };
+  }, [handleScrollMenu]);
+
   return (
-    <Menu>
+    <Menu scroll={scroll}>
       <BotaoMenu type="button" onClick={() => handleOpenMenu()}>
         <Image
           alt="menu-categorias"
@@ -18,14 +38,24 @@ export default function MenuHeader() {
           height={26}
         />
       </BotaoMenu>
-      <Logo>
-        <Image
-          alt="logo"
-          src="/Logo-Lunettes.png"
-          width={245.3}
-          height={108.4}
-          priority
-        />
+      <Logo scroll={scroll}>
+        {scroll ? (
+          <Image
+            alt="logo"
+            src="/header/logotipo-negativo.png"
+            width={50}
+            height={50}
+            priority
+          />
+        ) : (
+          <Image
+            alt="logo"
+            src="/header/Logo-Lunettes.png"
+            width={245.3}
+            height={108.4}
+            priority
+          />
+        )}
       </Logo>
       <BotaoSacola type="button">
         <Image

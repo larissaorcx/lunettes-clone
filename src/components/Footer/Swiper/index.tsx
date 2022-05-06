@@ -12,7 +12,7 @@ export default function SwiperSlides() {
   return (
     <Swiper
       slidesPerView={4}
-      spaceBetween={1}
+      spaceBetween={0.1}
       autoplay={{
         delay: 2500,
         disableOnInteraction: false,
