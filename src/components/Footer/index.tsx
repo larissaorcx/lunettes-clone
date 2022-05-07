@@ -36,7 +36,7 @@ export default function Footer() {
       <InfosProduto>
         <Image
           alt="logo"
-          src="/header/Logo-Lunettes.png"
+          src="/assets/header/Logo-Lunettes.png"
           width={138}
           height={61}
         />

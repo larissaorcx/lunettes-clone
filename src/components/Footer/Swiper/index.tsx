@@ -36,37 +36,92 @@ export default function SwiperSlides() {
       className="mySwiper"
     >
       <SwiperSlide>
-        <Image alt="img1" src="/slider/img1.png" width={960} height={1450} />
+        <Image
+          alt="img1"
+          src="/assets/slider/img1.png"
+          width={960}
+          height={1450}
+        />
       </SwiperSlide>
       <SwiperSlide>
-        <Image alt="img2" src="/slider/img2.png" width={960} height={1450} />
+        <Image
+          alt="img2"
+          src="/assets/slider/img2.png"
+          width={960}
+          height={1450}
+        />
       </SwiperSlide>
       <SwiperSlide>
-        <Image alt="img3" src="/slider/img3.png" width={960} height={1450} />
+        <Image
+          alt="img3"
+          src="/assets/slider/img3.png"
+          width={960}
+          height={1450}
+        />
       </SwiperSlide>
       <SwiperSlide>
-        <Image alt="img4" src="/slider/img4.png" width={960} height={1450} />
+        <Image
+          alt="img4"
+          src="/assets/slider/img4.png"
+          width={960}
+          height={1450}
+        />
       </SwiperSlide>
       <SwiperSlide>
-        <Image alt="img5" src="/slider/img5.png" width={960} height={1450} />
+        <Image
+          alt="img5"
+          src="/assets/slider/img5.png"
+          width={960}
+          height={1450}
+        />
       </SwiperSlide>
       <SwiperSlide>
-        <Image alt="img1" src="/slider/img1.png" width={960} height={1450} />
+        <Image
+          alt="img1"
+          src="/assets/slider/img1.png"
+          width={960}
+          height={1450}
+        />
       </SwiperSlide>
       <SwiperSlide>
-        <Image alt="img1" src="/slider/img1.png" width={960} height={1450} />
+        <Image
+          alt="img1"
+          src="/assets/slider/img1.png"
+          width={960}
+          height={1450}
+        />
       </SwiperSlide>
       <SwiperSlide>
-        <Image alt="img2" src="/slider/img2.png" width={960} height={1450} />
+        <Image
+          alt="img2"
+          src="/assets/slider/img2.png"
+          width={960}
+          height={1450}
+        />
       </SwiperSlide>
       <SwiperSlide>
-        <Image alt="img3" src="/slider/img3.png" width={960} height={1450} />
+        <Image
+          alt="img3"
+          src="/assets/slider/img3.png"
+          width={960}
+          height={1450}
+        />
       </SwiperSlide>
       <SwiperSlide>
-        <Image alt="img4" src="/slider/img4.png" width={970} height={1450} />
+        <Image
+          alt="img4"
+          src="/assets/slider/img4.png"
+          width={970}
+          height={1450}
+        />
       </SwiperSlide>
       <SwiperSlide>
-        <Image alt="img5" src="/slider/img5.png" width={960} height={1450} />
+        <Image
+          alt="img5"
+          src="/assets/slider/img5.png"
+          width={960}
+          height={1450}
+        />
       </SwiperSlide>
     </Swiper>
   );
