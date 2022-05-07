@@ -46,7 +46,7 @@ export default function MenuHeader() {
           {scroll ? (
             <Image
               alt="logo"
-              src="/header/logotipo-negativo.png"
+              src="/assets/header/logotipo-negativo.png"
               width={50}
               height={50}
               priority

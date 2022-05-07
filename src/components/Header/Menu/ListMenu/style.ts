@@ -7,7 +7,8 @@ export const ListMenuContainer = styled.div`
   height: 100vh;
   display: flex;
 
-  background: rgb(0, 0, 0); ;
+  background: rgb(0, 0, 0);
+  z-index: 50; ;
 `;
 
 export const Button = styled.button`
@@ -22,6 +23,7 @@ export const Button = styled.button`
   text-transform: uppercase;
   background: rgb(0, 0, 0);
   cursor: pointer;
+  margin-top: 100px;
 `;
 export const ContainerButtonGrau = styled.div`
   display: flex;
@@ -32,6 +34,13 @@ export const ContainerButtonGrau = styled.div`
     display: flex;
     flex-direction: row;
   }
+  span {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    margin-bottom: 20px;
+    line-height: 3.13;
+  }
 `;
 
 export const ContainerButtonSol = styled.div`
@@ -41,5 +50,13 @@ export const ContainerButtonSol = styled.div`
   ul {
     display: flex;
     flex-direction: row;
+  }
+
+  span {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    margin-bottom: 20px;
+    line-height: 3.13;
   }
 `;

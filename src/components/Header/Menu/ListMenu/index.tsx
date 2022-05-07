@@ -18,8 +18,8 @@ export default function ListMenu() {
             <Image
               alt="aviador"
               src="/assets/oculos/aviador.png"
-              width={42}
-              height={26}
+              width={150}
+              height={49}
             />
             <span>Aviador</span>
           </li>
@@ -27,8 +27,8 @@ export default function ListMenu() {
             <Image
               alt="quadrado"
               src="/assets/oculos/quadrado.png"
-              width={42}
-              height={26}
+              width={150}
+              height={49}
             />
             <span>Quadrado</span>
           </li>
@@ -36,8 +36,8 @@ export default function ListMenu() {
             <Image
               alt="vintage"
               src="/assets/oculos/vintage.png"
-              width={42}
-              height={26}
+              width={150}
+              height={49}
             />
             <span>Vintage</span>
           </li>
@@ -45,8 +45,8 @@ export default function ListMenu() {
             <Image
               alt="redondo"
               src="/assets/oculos/redondo.png"
-              width={42}
-              height={26}
+              width={150}
+              height={49}
             />
             <span>Redondo</span>
           </li>
@@ -54,8 +54,8 @@ export default function ListMenu() {
             <Image
               alt="gatinho"
               src="/assets/oculos/gatinho.png"
-              width={42}
-              height={26}
+              width={150}
+              height={49}
             />
             <span>Gatinho</span>
           </li>
@@ -63,8 +63,8 @@ export default function ListMenu() {
             <Image
               alt="oval"
               src="/assets/oculos/oval.png"
-              width={42}
-              height={26}
+              width={150}
+              height={49}
             />
             <span>Oval</span>
           </li>
@@ -72,8 +72,8 @@ export default function ListMenu() {
             <Image
               alt="retangular"
               src="/assets/oculos/retangular.png"
-              width={42}
-              height={26}
+              width={150}
+              height={49}
             />
             <span>Retangular</span>
           </li>
@@ -86,8 +86,8 @@ export default function ListMenu() {
             <Image
               alt="aviador"
               src="/assets/oculos/aviador.png"
-              width={42}
-              height={26}
+              width={150}
+              height={49}
             />
             <span>Aviador</span>
           </li>
@@ -95,8 +95,8 @@ export default function ListMenu() {
             <Image
               alt="quadrado"
               src="/assets/oculos/quadrado.png"
-              width={42}
-              height={26}
+              width={150}
+              height={49}
             />
             <span>Quadrado</span>
           </li>
@@ -104,8 +104,8 @@ export default function ListMenu() {
             <Image
               alt="vintage"
               src="/assets/oculos/vintage.png"
-              width={42}
-              height={26}
+              width={150}
+              height={49}
             />
             <span>Vintage</span>
           </li>
@@ -113,8 +113,8 @@ export default function ListMenu() {
             <Image
               alt="oval"
               src="/assets/oculos/redondo.png"
-              width={42}
-              height={26}
+              width={150}
+              height={49}
             />
             <span>Redondo</span>
           </li>
@@ -122,17 +122,17 @@ export default function ListMenu() {
             <Image
               alt="gatinho"
               src="/assets/oculos/gatinho.png"
-              width={42}
-              height={26}
+              width={150}
+              height={49}
             />
             <span>Gatinho</span>
           </li>
           <li>
             <Image
               alt="espelho"
-              src="/assets/oculos/espelho.png"
-              width={42}
-              height={26}
+              src="/assets/oculos/espelhado.png"
+              width={150}
+              height={49}
             />
             <span>Espelho</span>
           </li>
