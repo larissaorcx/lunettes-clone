@@ -21,7 +21,6 @@ export const Titulo = styled.h2`
   line-height: 1.21;
   text-align: left;
   color: #000;
-  margin: 5px;
 
   padding-top: 50px;
 `;

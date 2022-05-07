@@ -16,7 +16,7 @@ export default function Contatos() {
       <ContatoContainer>
         <Image
           alt="contacts-img"
-          src="/contatos/contatos-img.png"
+          src="/assets/contatos/contatos-img.png"
           width={960}
           height={540}
         />
@@ -34,7 +34,7 @@ export default function Contatos() {
           <div>
             <Image
               alt="coracao"
-              src="/contatos/coracao.png"
+              src="/assets/contatos/coracao.png"
               width={80.4}
               height={72}
             />
@@ -44,7 +44,7 @@ export default function Contatos() {
           <div>
             <Image
               alt="whats"
-              src="/contatos/whats.png"
+              src="/assets/contatos/whats.png"
               width={72.6}
               height={73.3}
             />
@@ -56,7 +56,7 @@ export default function Contatos() {
           <div>
             <Image
               alt="agenda"
-              src="/contatos/agenda.png"
+              src="/assets/contatos/agenda.png"
               width={78.2}
               height={72.2}
             />

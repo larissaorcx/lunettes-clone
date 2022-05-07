@@ -1,13 +1,14 @@
-import { BotaoMenu, Logo, BotaoSacola, Menu } from './style';
+import { BotaoMenu, Logo, BotaoSacola, Menu, MenuContainer } from './style';
 import Image from 'next/image';
 import { useCallback, useEffect, useState } from 'react';
+import ListMenu from './ListMenu';
 
 export default function MenuHeader() {
   const [openMenu, setOpenMenu] = useState(false);
   const [scroll, setScroll] = useState(false);
 
   function handleOpenMenu() {
-    return console.log('click');
+    setOpenMenu(!openMenu);
   }
 
   const handleScrollMenu = useCallback(() => {
@@ -29,42 +30,47 @@ export default function MenuHeader() {
   }, [handleScrollMenu]);
 
   return (
-    <Menu scroll={scroll}>
-      <BotaoMenu type="button" onClick={() => handleOpenMenu()}>
-        <Image
-          alt="menu-categorias"
-          src="/header/menu.png"
-          width={42}
-          height={26}
-        />
-      </BotaoMenu>
-      <Logo scroll={scroll}>
-        {scroll ? (
+    <Menu>
+      <MenuContainer scroll={scroll}>
+        <BotaoMenu type="button" onClick={() => handleOpenMenu()}>
           <Image
-            alt="logo"
-            src="/header/logotipo-negativo.png"
-            width={50}
-            height={50}
-            priority
+            alt="menu-categorias"
+            src={
+              openMenu ? '/assets/oculos/fecha.png' : '/assets/header/menu.png'
+            }
+            width={42}
+            height={26}
           />
-        ) : (
+        </BotaoMenu>
+        <Logo scroll={scroll}>
+          {scroll ? (
+            <Image
+              alt="logo"
+              src="/assets/header/logotipo-negativo.png"
+              width={50}
+              height={50}
+              priority
+            />
+          ) : (
+            <Image
+              alt="logo"
+              src="/assets/header/Logo-Lunettes.png"
+              width={245.3}
+              height={108.4}
+              priority
+            />
+          )}
+        </Logo>
+        <BotaoSacola type="button">
           <Image
-            alt="logo"
-            src="/header/Logo-Lunettes.png"
-            width={245.3}
-            height={108.4}
-            priority
+            alt="sacola"
+            src="/assets/header/sacola.png"
+            width={58.8}
+            height={55.7}
           />
-        )}
-      </Logo>
-      <BotaoSacola type="button">
-        <Image
-          alt="sacola"
-          src="/header/sacola.png"
-          width={58.8}
-          height={55.7}
-        />
-      </BotaoSacola>
+        </BotaoSacola>
+      </MenuContainer>
+      {openMenu && <ListMenu />}
     </Menu>
   );
 }
