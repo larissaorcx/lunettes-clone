@@ -1,16 +1,16 @@
-import MenuHeader from '../index';
 import {
   Button,
   ListMenuContainer,
   ContainerButtonSol,
   ContainerButtonGrau,
+  ButtonHome,
 } from './style';
 import Image from 'next/image';
 
 export default function ListMenu() {
   return (
     <ListMenuContainer>
-      <Button type="button">Home</Button>
+      <ButtonHome type="button">Home</ButtonHome>
       <ContainerButtonGrau>
         <Button type="button">Óculos de grau</Button>
         <ul>
@@ -19,16 +19,17 @@ export default function ListMenu() {
               alt="aviador"
               src="/assets/oculos/aviador.png"
               width={150}
-              height={49}
+              height={50}
             />
             <span>Aviador</span>
           </li>
+          S
           <li>
             <Image
               alt="quadrado"
               src="/assets/oculos/quadrado.png"
               width={150}
-              height={49}
+              height={50}
             />
             <span>Quadrado</span>
           </li>
@@ -37,7 +38,7 @@ export default function ListMenu() {
               alt="vintage"
               src="/assets/oculos/vintage.png"
               width={150}
-              height={49}
+              height={50}
             />
             <span>Vintage</span>
           </li>
@@ -46,7 +47,7 @@ export default function ListMenu() {
               alt="redondo"
               src="/assets/oculos/redondo.png"
               width={150}
-              height={49}
+              height={50}
             />
             <span>Redondo</span>
           </li>
@@ -55,7 +56,7 @@ export default function ListMenu() {
               alt="gatinho"
               src="/assets/oculos/gatinho.png"
               width={150}
-              height={49}
+              height={50}
             />
             <span>Gatinho</span>
           </li>
@@ -64,7 +65,7 @@ export default function ListMenu() {
               alt="oval"
               src="/assets/oculos/oval.png"
               width={150}
-              height={49}
+              height={50}
             />
             <span>Oval</span>
           </li>
@@ -73,7 +74,7 @@ export default function ListMenu() {
               alt="retangular"
               src="/assets/oculos/retangular.png"
               width={150}
-              height={49}
+              height={50}
             />
             <span>Retangular</span>
           </li>
@@ -87,7 +88,7 @@ export default function ListMenu() {
               alt="aviador"
               src="/assets/oculos/aviador.png"
               width={150}
-              height={49}
+              height={50}
             />
             <span>Aviador</span>
           </li>
@@ -96,7 +97,7 @@ export default function ListMenu() {
               alt="quadrado"
               src="/assets/oculos/quadrado.png"
               width={150}
-              height={49}
+              height={50}
             />
             <span>Quadrado</span>
           </li>
@@ -105,7 +106,7 @@ export default function ListMenu() {
               alt="vintage"
               src="/assets/oculos/vintage.png"
               width={150}
-              height={49}
+              height={50}
             />
             <span>Vintage</span>
           </li>
@@ -114,7 +115,7 @@ export default function ListMenu() {
               alt="oval"
               src="/assets/oculos/redondo.png"
               width={150}
-              height={49}
+              height={50}
             />
             <span>Redondo</span>
           </li>
@@ -123,7 +124,7 @@ export default function ListMenu() {
               alt="gatinho"
               src="/assets/oculos/gatinho.png"
               width={150}
-              height={49}
+              height={50}
             />
             <span>Gatinho</span>
           </li>
@@ -132,7 +133,7 @@ export default function ListMenu() {
               alt="espelho"
               src="/assets/oculos/espelhado.png"
               width={150}
-              height={49}
+              height={50}
             />
             <span>Espelho</span>
           </li>

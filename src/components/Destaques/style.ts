@@ -18,6 +18,11 @@ export const Titulo = styled.h2`
   padding-top: 70px;
 `;
 export const ProdutoContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+`;
+export const Produto = styled.div`
   margin-top: 50px;
   display: flex;
   justify-content: center;
@@ -55,14 +60,14 @@ export const Preço = styled.span`
   line-height: 1.5;
   color: black;
 `;
-export const BotaoCores = styled.button`
+export const BotaoCores = styled.button<{ color: string }>`
   width: 32px;
   height: 32px;
   border: none;
   border-radius: 4px;
   margin: 10px 20px 0px 0px;
   cursor: pointer;
-  background-color: #7c1c36;
+  background: ${props => props.color};
 
   margin-top: 15px;
 

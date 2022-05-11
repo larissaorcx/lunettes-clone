@@ -13,8 +13,8 @@ export default function MenuHeader() {
 
   const handleScrollMenu = useCallback(() => {
     if (
-      document.body.scrollTop > 100 ||
-      document.documentElement.scrollTop > 100
+      document.body.scrollTop > 75 ||
+      document.documentElement.scrollTop > 75
     ) {
       setScroll(true);
     } else {

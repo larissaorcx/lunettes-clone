@@ -12,11 +12,13 @@ export const Menu = styled.div`
 
 export const MenuContainer = styled.div<MenuProps>`
   display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  height: 15vh;
+  height: ${props => (props.scroll ? '65px' : '100px')};
   flex-direction: row;
   justify-content: space-between;
-  padding: 30px 60.2px 0px 60px;
+  padding: 0px 60.2px 0px 60px;
 
   position: fixed;
   top: 0;
@@ -37,10 +39,14 @@ export const BotaoMenu = styled.button`
   height: 26px;
 `;
 export const Logo = styled.div<MenuProps>`
+  display: flex;
+
   width: 245.3px;
   height: ${props => (props.scroll ? '50px' : '108.4px')};
   display: flex;
   justify-content: center;
+
+  padding-top: ${props => (props.scroll ? '0px' : '20px')};
 `;
 export const BotaoSacola = styled.button`
   cursor: pointer;
