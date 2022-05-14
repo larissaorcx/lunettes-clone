@@ -17,12 +17,11 @@ import {
 } from './style';
 
 import config from './config';
+import { useEffect, useState } from 'react';
 
 interface DestaquesProps {
   product: [
-    subcategories: string[],
     status: string,
-    highlighted: boolean,
     isNewCollection: boolean,
     images: [
       id: number,
@@ -30,16 +29,13 @@ interface DestaquesProps {
       color?: {
         name: string;
         background: string;
-      },
-      allImages?: string
+      }
     ],
-    favorite: number,
-    viewDetails: number,
     _id: string,
-    category: string,
     code: string,
     discount: number,
     price: number,
+    priceFormatted: number,
     productName: string,
     createdAt: string,
     __v: number
@@ -47,46 +43,65 @@ interface DestaquesProps {
 }
 
 export default function Destaques({ product }: DestaquesProps) {
+  const [hover, setHover] = useState({ id1: { hover: false } });
+  const [click, setClick] = useState(false);
+  const [productID, setProductID] = useState(config.map(id => id._id));
+
+  function handleClickColor() {
+    setClick(!click);
+  }
+
+  function handleMouseOver() {
+    setProductID(config.map(id => id._id));
+    setClick(!click);
+  }
+  function handleMouseOut() {
+    setProductID(config.map(id => id._id));
+  }
+
   return (
     <DestaquesContainer>
       <Titulo>Prodrutos em destaque</Titulo>
       <ProdutoContainer>
-        <Produto>
-          {config.map(product => (
-            <>
-              <Image
-                key={product._id}
-                alt="product"
-                src={product.images[1].url}
-                width={360}
-                height={360}
-              />
-              <CoresContainer>
-                {/* <BotaoCores type="button">
-                  {product.images.map(image => image.color?.background)}
-                </BotaoCores> */}
-                {product.images.map(
-                  image =>
-                    image.color?.background && (
-                      <BotaoCores
-                        type="button"
-                        color={image.color.background}
-                      />
-                    )
-                )}
-              </CoresContainer>
-              <InfosProduto>
-                <NomeProduto>{product.productName}</NomeProduto>
-                <CodigoProduto>{product.code}</CodigoProduto>
-              </InfosProduto>
-              <Preço>{product.price}</Preço>
-              <BotaoReserva type="button">
-                <FaRegHeart />
-                <TextoBotao>Reservar</TextoBotao>
-              </BotaoReserva>
-            </>
-          ))}
-        </Produto>
+        {config.map(product => (
+          <Produto key={product._id}>
+            <Image
+              alt="product"
+              src={click ? product.images[1].url : product.images[0].url}
+              width={360}
+              height={360}
+              onMouseOver={() => handleMouseOver()}
+              onMouseOut={() => handleMouseOut()}
+            />
+            <CoresContainer>
+              {product.images.map(
+                image =>
+                  image.color?.background && (
+                    <BotaoCores
+                      type="button"
+                      color={image.color.background}
+                      onClick={() => handleClickColor()}
+                      click={click}
+                    />
+                  )
+              )}
+            </CoresContainer>
+            <InfosProduto>
+              <NomeProduto>{product.productName}</NomeProduto>
+              <CodigoProduto>{product.code}</CodigoProduto>
+            </InfosProduto>
+            <Preço>
+              {new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'BRL',
+              }).format(product.price)}
+            </Preço>
+            <BotaoReserva type="button">
+              <FaRegHeart />
+              <TextoBotao>Reservar</TextoBotao>
+            </BotaoReserva>
+          </Produto>
+        ))}
       </ProdutoContainer>
     </DestaquesContainer>
   );

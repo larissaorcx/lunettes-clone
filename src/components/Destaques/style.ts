@@ -1,5 +1,10 @@
 import styled from 'styled-components';
 
+interface DestaquesProps {
+  click: boolean;
+  color: string;
+}
+
 export const DestaquesContainer = styled.div`
   width: 100%;
   display: flex;
@@ -18,9 +23,10 @@ export const Titulo = styled.h2`
   padding-top: 70px;
 `;
 export const ProdutoContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 80px;
 `;
 export const Produto = styled.div`
   margin-top: 50px;
@@ -60,21 +66,18 @@ export const Preço = styled.span`
   line-height: 1.5;
   color: black;
 `;
-export const BotaoCores = styled.button<{ color: string }>`
+export const BotaoCores = styled.button<DestaquesProps>`
   width: 32px;
   height: 32px;
   border: none;
-  border-radius: 4px;
-  margin: 10px 20px 0px 0px;
+  border-radius: 8px;
+
   cursor: pointer;
   background: ${props => props.color};
-
-  margin-top: 15px;
-
-  &:hover {
-    border-radius: 8px;
-    border: solid 2px #000;
-  }
+  border: ${props => (props.click ? 'solid 2px #000' : '')};
+  border-radius: ${props => (props.click ? '8px' : '')};
+  width: ${props => (props.click ? '32px' : '')};
+  height: ${props => (props.click ? '32px' : '')};
 `;
 export const BotaoReserva = styled.button`
   width: 248px;
@@ -107,4 +110,6 @@ export const CoresContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: row;
+
+  margin: 10px 10px 0px 10px;
 `;
