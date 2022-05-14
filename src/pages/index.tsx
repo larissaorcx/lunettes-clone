@@ -1,15 +1,31 @@
 import Contatos from '../components/Contatos';
-import Destaques from '../components/Destaques';
+import Destaques, { Products } from '../components/Destaques';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
+import config from '../components/Destaques/config';
+import { useEffect, useState } from 'react';
 
-export default function Home() {
+type HomeProps = {
+  destaques: Products[];
+};
+
+export default function Home(props: HomeProps) {
+  const [destaques] = useState(props.destaques);
+
   return (
     <>
       <Header />
       <Contatos />
-      <Destaques />
+      {!!destaques.length && <Destaques config={destaques} />}
       <Footer />
     </>
   );
+}
+
+export function getServerSideProps() {
+  return {
+    props: {
+      destaques: config,
+    },
+  };
 }
