@@ -9,9 +9,7 @@ type HomeProps = {
   destaques: Products[];
 };
 
-export default function Home(props: HomeProps) {
-  const [destaques] = useState(props.destaques);
-
+export default function Home({ destaques }: HomeProps) {
   return (
     <>
       <Header />
