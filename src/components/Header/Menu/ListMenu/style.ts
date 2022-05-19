@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { animationRedes } from '../../../Footer/animacao';
+import { animationRedes } from '../../../Footer/InfoProdutos/animacao';
 
 export const ListMenuContainer = styled.div`
   display: flex;
@@ -13,6 +13,7 @@ export const ListMenuContainer = styled.div`
   padding: 30px;
   border-top: ;
   overflow-y: scroll;
+  position: fixed;
 `;
 
 export const Button = styled.button`

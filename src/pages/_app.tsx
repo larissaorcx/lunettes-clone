@@ -1,5 +1,5 @@
 import type { AppProps } from 'next/app';
-import './styles/globals.scss';
+import '../../public/styles/globals.scss';
 import '../components/Footer/styleSwiper.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
