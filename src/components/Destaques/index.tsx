@@ -16,7 +16,7 @@ import {
   CoresContainer,
 } from './style';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 type ImageProps = {
   id: string;
@@ -45,7 +45,7 @@ type DestaquesProps = {
 };
 
 export default function Destaques({ config }: DestaquesProps) {
-  const [hover, setHover] = useState({ id1: { hover: false } });
+  const [hover, setHover] = useState();
   const [click, setClick] = useState(false);
   const [productID, setProductID] = useState(config.map(id => id._id));
 

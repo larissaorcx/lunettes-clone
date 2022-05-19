@@ -37,6 +37,8 @@ export const BotaoMenu = styled.button`
   border: none;
   width: 42px;
   height: 26px;
+
+  z-index: 1;
 `;
 export const Logo = styled.div<MenuProps>`
   display: flex;
@@ -47,6 +49,8 @@ export const Logo = styled.div<MenuProps>`
   justify-content: center;
 
   padding-top: ${props => (props.scroll ? '0px' : '20px')};
+
+  z-index: 1;
 `;
 export const BotaoSacola = styled.button`
   cursor: pointer;
@@ -54,4 +58,5 @@ export const BotaoSacola = styled.button`
   border: none;
   width: 42.8px;
   height: 50.3px;
+  z-index: 1;
 `;
