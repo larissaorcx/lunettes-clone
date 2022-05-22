@@ -88,7 +88,7 @@ type Footer = {
 };
 
 export default function Home({ conteudo, destaques, footer }: HomeProps) {
-  const [destaque] = useState(destaques);
+  const [destaque] = useState(destaques); // Por que temos esse use state ?
 
   return (
     <>

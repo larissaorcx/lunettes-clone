@@ -4,6 +4,8 @@ import InfosProduto from './InfoProdutos';
 import { Slider, Regras, TextoRegras } from './style';
 import SwiperSlides from './Swiper';
 
+// Esses types e interface se repete desnecessariamente
+
 type Oculos = {
   title: string;
   category: string[];
@@ -29,7 +31,7 @@ type Image = {
   img: string;
   alt: string;
 };
-
+// Porque repete a interface ?
 interface FooterProps {
   hastag: Text;
   swiper: Image[];
@@ -51,7 +53,7 @@ interface FooterProps {
 }
 
 export default function Footer({ hastag, swiper, info }: FooterProps) {
-  console.log('hastag', hastag, 'swiper', swiper, 'info', info);
+  //console.log('hastag', hastag, 'swiper', swiper, 'info', info); // Não esquecer de tirar os consoles.log
   return (
     <>
       <Hashtag hastag={hastag} />
