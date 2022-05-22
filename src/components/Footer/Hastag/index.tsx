@@ -1,9 +1,5 @@
 import { TextoHashtag, TituloHastag, HashtagContainer } from './style';
-
-type Text = {
-  title: string;
-  description: string;
-};
+import { Text } from '../../../pages';
 
 interface HastagProps {
   hastag: Text;

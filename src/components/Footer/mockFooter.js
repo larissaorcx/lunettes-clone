@@ -59,11 +59,14 @@ const data = {
         'Retangular',
       ],
     },
-    adress: {
-      street: 'Rua Nilza, 480 - São Paulo | 03651-120',
-      CNPJ: '20.050.347/0001-56',
-      whatsapp: '(11) 97452-3425',
-      email: 'contato@lunettes.com.br',
+    contato: {
+      title: 'Contato',
+      adress: {
+        street: 'Rua Nilza, 480 - São Paulo | 03651-120',
+        cnpj: '20.050.347/0001-56',
+        whatsapp: '(11) 97452-3425',
+        email: 'contato@lunettes.com.br',
+      },
     },
     socialMedia: {
       title: 'Redes Sociais',

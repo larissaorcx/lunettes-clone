@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { useCallback, useEffect, useState } from 'react';
 import ListMenu from './ListMenu';
 
-export default function MenuHeader() {
+export default function MenuHeader({logoHome, menu, sacola, listMenu}: any) {
   const [openMenu, setOpenMenu] = useState(false);
   const [scroll, setScroll] = useState(false);
 
@@ -34,9 +34,9 @@ export default function MenuHeader() {
       <MenuContainer scroll={scroll}>
         <BotaoMenu type="button" onClick={() => handleOpenMenu()}>
           <Image
-            alt="menu-categorias"
+            alt={menu.alt}
             src={
-              openMenu ? '/assets/oculos/fecha.png' : '/assets/header/menu.png'
+              openMenu ? {menu.iconClose.img} : {menu.img}
             }
             width={42}
             height={26}
@@ -45,16 +45,16 @@ export default function MenuHeader() {
         <Logo scroll={scroll}>
           {scroll ? (
             <Image
-              alt="logo"
-              src="/assets/header/logotipo-negativo.png"
+              alt={logoHome.logoNegativo.alt}
+              src={logoHome.logoNegativo.img}
               width={50}
               height={50}
               priority
             />
           ) : (
             <Image
-              alt="logo"
-              src="/assets/header/Logo-Lunettes.png"
+              alt={logoHome.alt}
+              src={logoHome.img}
               width={245.3}
               height={108.4}
               priority
@@ -63,14 +63,14 @@ export default function MenuHeader() {
         </Logo>
         <BotaoSacola type="button">
           <Image
-            alt="sacola"
-            src="/assets/header/sacola.png"
+            alt={sacola.alt}
+            src={sacola.img}
             width={58.8}
             height={55.7}
           />
         </BotaoSacola>
       </MenuContainer>
-      {openMenu && <ListMenu />}
+      {openMenu && <ListMenu listMenu={listMenu}/>}
     </Menu>
   );
 }

@@ -7,137 +7,41 @@ import {
 } from './style';
 import Image from 'next/image';
 
-export default function ListMenu() {
+export default function ListMenu({ listMenu }: any) {
   return (
     <ListMenuContainer>
-      <ButtonHome type="button">Home</ButtonHome>
+      <ButtonHome type="button">{listMenu.buttonHome}</ButtonHome>
       <ContainerButtonGrau>
-        <Button type="button">Óculos de grau</Button>
-        <ul>
-          <li>
-            <Image
-              alt="aviador"
-              src="/assets/oculos/aviador.png"
-              width={150}
-              height={50}
-            />
-            <span>Aviador</span>
-          </li>
-          S
-          <li>
-            <Image
-              alt="quadrado"
-              src="/assets/oculos/quadrado.png"
-              width={150}
-              height={50}
-            />
-            <span>Quadrado</span>
-          </li>
-          <li>
-            <Image
-              alt="vintage"
-              src="/assets/oculos/vintage.png"
-              width={150}
-              height={50}
-            />
-            <span>Vintage</span>
-          </li>
-          <li>
-            <Image
-              alt="redondo"
-              src="/assets/oculos/redondo.png"
-              width={150}
-              height={50}
-            />
-            <span>Redondo</span>
-          </li>
-          <li>
-            <Image
-              alt="gatinho"
-              src="/assets/oculos/gatinho.png"
-              width={150}
-              height={50}
-            />
-            <span>Gatinho</span>
-          </li>
-          <li>
-            <Image
-              alt="oval"
-              src="/assets/oculos/oval.png"
-              width={150}
-              height={50}
-            />
-            <span>Oval</span>
-          </li>
-          <li>
-            <Image
-              alt="retangular"
-              src="/assets/oculos/retangular.png"
-              width={150}
-              height={50}
-            />
-            <span>Retangular</span>
-          </li>
-        </ul>
+        <Button type="button">{listMenu.grau.title}</Button>
+        {listMenu.grau.category.map((categories: object) => (
+          <ul key={categories.title}>
+            <li>
+              <Image
+                alt={categories.alt}
+                src={categories.img}
+                width={150}
+                height={50}
+              />
+              <span>{categories.title}</span>
+            </li>
+          </ul>
+        ))}
       </ContainerButtonGrau>
       <ContainerButtonSol>
-        <Button type="button">Óculos de sol</Button>
-        <ul>
-          <li>
-            <Image
-              alt="aviador"
-              src="/assets/oculos/aviador.png"
-              width={150}
-              height={50}
-            />
-            <span>Aviador</span>
-          </li>
-          <li>
-            <Image
-              alt="quadrado"
-              src="/assets/oculos/quadrado.png"
-              width={150}
-              height={50}
-            />
-            <span>Quadrado</span>
-          </li>
-          <li>
-            <Image
-              alt="vintage"
-              src="/assets/oculos/vintage.png"
-              width={150}
-              height={50}
-            />
-            <span>Vintage</span>
-          </li>
-          <li>
-            <Image
-              alt="oval"
-              src="/assets/oculos/redondo.png"
-              width={150}
-              height={50}
-            />
-            <span>Redondo</span>
-          </li>
-          <li>
-            <Image
-              alt="gatinho"
-              src="/assets/oculos/gatinho.png"
-              width={150}
-              height={50}
-            />
-            <span>Gatinho</span>
-          </li>
-          <li>
-            <Image
-              alt="espelho"
-              src="/assets/oculos/espelhado.png"
-              width={150}
-              height={50}
-            />
-            <span>Espelho</span>
-          </li>
-        </ul>
+        <Button type="button">{listMenu.solar.title}</Button>
+        {listMenu.solar.category.map((categories: object) => (
+          <ul key={categories.title}>
+            <li>
+              <Image
+                alt={categories.alt}
+                src={categories.img}
+                width={150}
+                height={50}
+              />
+              <span>{categories.title}</span>
+            </li>
+          </ul>
+        ))}
       </ContainerButtonSol>
     </ListMenuContainer>
   );

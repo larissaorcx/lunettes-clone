@@ -4,9 +4,10 @@ import Footer from '../components/Footer';
 import Header from '../components/Header';
 import dataHome from '../api/mockHome';
 import { useState } from 'react';
-import { GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 import config from '../components/Destaques/dataDestaques';
-import data from '../components/Footer/dataFooter';
+import data from '../components/Footer/mockFooter';
+import dataListMenu from '../components/Header/Menu/ListMenu/mockListMenu';
 
 type HomeProps = {
   conteudo: {
@@ -15,63 +16,64 @@ type HomeProps = {
   };
   destaques: Products[];
   footer: Footer;
+  ListMenu: any;
 };
 
-type Image = {
+export type Images = {
   img: string;
   alt: string;
 };
 
-type Icon = {
+export type Icon = {
   img: string;
   alt: string;
   title: string;
   description: string;
 };
 
-type Text = {
+export type Text = {
   title: string;
   description: string;
 };
 
-type Oculos = {
+export type Oculos = {
   title: string;
   category: string[];
 };
 
-type Media = {
+export type Media = {
   title: string;
   itens: Itens[];
 };
 
-type Itens = {
+export type Itens = {
   img: string;
   alt: string;
   link: string;
 };
 
-type Header = {
-  imgBackgroung: Image;
-  logo: Image;
-  menu: Image;
-  sacola: Image;
-};
+export interface Header {
+  imgBackgroung: Images;
+  logo: Images;
+  menu: Images;
+  sacola: Images;
+}
 
-type About = {
-  atendimento: Image;
+export interface About {
+  atendimento: Images;
   text: Text;
   aboutAtendimento: {
     iconCoracao: Icon;
     iconWhats: Icon;
     iconAgenda: Icon;
   };
-};
+}
 
-type Footer = {
+export interface Footer {
   hastag: Text;
-  swiper: Image[];
+  swiper: Images[];
   info: {
-    logo: Image;
+    logo: Images;
     solar: Oculos;
     grau: Oculos;
     adress: {
@@ -85,14 +87,25 @@ type Footer = {
       text: string;
     };
   };
-};
+}
 
-export default function Home({ conteudo, destaques, footer }: HomeProps) {
+export default function Home({
+  conteudo,
+  destaques,
+  footer,
+  ListMenu,
+}: HomeProps) {
   const [destaque] = useState(destaques);
 
   return (
     <>
-      <Header />
+      <Header
+        imgBackgroung={conteudo.header.imgBackgroung}
+        logoHome={conteudo.header.logo}
+        menu={conteudo.header.menu}
+        sacola={conteudo.header.sacola}
+        ListMenu={ListMenu}
+      />
       <About
         atendimento={conteudo.about.atendimento}
         text={conteudo.about.text}
@@ -108,12 +121,13 @@ export default function Home({ conteudo, destaques, footer }: HomeProps) {
   );
 }
 
-export const getServerSideProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   return {
     props: {
       conteudo: dataHome,
       destaques: config,
       footer: data,
+      ListMenu: dataListMenu,
     },
   };
 };
