@@ -7,10 +7,18 @@ const dataHome = {
     logoHome: {
       img: '/assets/header/Logo-Lunettes.png',
       alt: 'Logo Lunetts',
+      logoNegativo: {
+        img: '/assets/header/logotipo-negativo.png',
+        alt: 'Logo Lunetts negativo',
+      },
     },
     menu: {
       img: '/assets/header/menu.png',
       alt: 'icone menu',
+      iconClose: {
+        img: '/assets/oculos/fecha.png',
+        alt: 'close',
+      },
     },
     sacola: {
       img: '/assets/header/Logo-Lunettes.png',
