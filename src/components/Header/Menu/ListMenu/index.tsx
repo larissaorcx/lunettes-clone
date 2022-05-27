@@ -6,14 +6,19 @@ import {
   ButtonHome,
 } from './style';
 import Image from 'next/image';
+import { MenuFloating } from '../../../../pages';
 
-export default function ListMenu({ listMenu }: any) {
+interface ListMenuProps {
+  listMenu: MenuFloating;
+}
+
+export default function ListMenu({ listMenu }: ListMenuProps) {
   return (
     <ListMenuContainer>
       <ButtonHome type="button">{listMenu.buttonHome}</ButtonHome>
       <ContainerButtonGrau>
         <Button type="button">{listMenu.grau.title}</Button>
-        {listMenu.grau.category.map((categories: object) => (
+        {listMenu.grau.category.map(categories => (
           <ul key={categories.title}>
             <li>
               <Image
@@ -29,7 +34,7 @@ export default function ListMenu({ listMenu }: any) {
       </ContainerButtonGrau>
       <ContainerButtonSol>
         <Button type="button">{listMenu.solar.title}</Button>
-        {listMenu.solar.category.map((categories: object) => (
+        {listMenu.solar.category.map(categories => (
           <ul key={categories.title}>
             <li>
               <Image

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 interface DestaquesProps {
   color: string;
+  clickButton: boolean;
 }
 
 export const DestaquesContainer = styled.div`
@@ -73,6 +74,10 @@ export const BotaoCores = styled.button<DestaquesProps>`
 
   cursor: pointer;
   background: ${props => props.color};
+  border: ${props => (props.clickButton ? 'solid 2px #000' : '')};
+  border-radius: ${props => (props.clickButton ? '8px' : '')};
+  width: ${props => (props.clickButton ? '32px' : '')};
+  height: ${props => (props.clickButton ? '32px' : '')};
 `;
 export const BotaoReserva = styled.button`
   width: 248px;

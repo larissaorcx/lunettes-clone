@@ -16,12 +16,29 @@ type HomeProps = {
   };
   destaques: Products[];
   footer: Footer;
-  ListMenu: any;
+  listMenu: any;
 };
 
 export type Images = {
   img: string;
   alt: string;
+};
+
+export type ImageLogo = {
+  img: string;
+  alt: string;
+  logoNegativo: {
+    img: string;
+    alt: string;
+  };
+};
+export type ImageMenu = {
+  img: string;
+  alt: string;
+  iconClose: {
+    img: string;
+    alt: string;
+  };
 };
 
 export type Icon = {
@@ -52,10 +69,16 @@ export type Itens = {
   link: string;
 };
 
+export type ImagesCategories = {
+  title: string;
+  img: string;
+  alt: string;
+};
+
 export interface Header {
-  imgBackgroung: Images;
-  logo: Images;
-  menu: Images;
+  imgBackground: Images;
+  logoHome: ImageLogo;
+  menu: ImageMenu;
   sacola: Images;
 }
 
@@ -89,22 +112,34 @@ export interface Footer {
   };
 }
 
+export interface MenuFloating {
+  buttonHome: string;
+  grau: {
+    title: string;
+    category: ImagesCategories[];
+  };
+  solar: {
+    title: string;
+    category: ImagesCategories[];
+  };
+}
+
 export default function Home({
   conteudo,
   destaques,
   footer,
-  ListMenu,
+  listMenu,
 }: HomeProps) {
   const [destaque] = useState(destaques);
 
   return (
     <>
       <Header
-        imgBackgroung={conteudo.header.imgBackgroung}
-        logoHome={conteudo.header.logo}
+        imgBackground={conteudo.header.imgBackground}
+        logoHome={conteudo.header.logoHome}
         menu={conteudo.header.menu}
         sacola={conteudo.header.sacola}
-        ListMenu={ListMenu}
+        listMenu={listMenu}
       />
       <About
         atendimento={conteudo.about.atendimento}
@@ -127,7 +162,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
       conteudo: dataHome,
       destaques: config,
       footer: data,
-      ListMenu: dataListMenu,
+      listMenu: dataListMenu,
     },
   };
 };

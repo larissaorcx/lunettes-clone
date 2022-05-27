@@ -1,7 +1,7 @@
-const dataHome = {
+export default {
   header: {
-    imgBackgroung: {
-      img: '../../public/background.png',
+    imgBackground: {
+      img: '/background.jpg',
       alt: 'background',
     },
     logoHome: {
@@ -21,7 +21,7 @@ const dataHome = {
       },
     },
     sacola: {
-      img: '/assets/header/Logo-Lunettes.png',
+      img: '/assets/header/sacola.png',
       alt: 'icone sacola',
     },
   },
@@ -56,6 +56,4 @@ const dataHome = {
       },
     },
   },
-};
-
-export default dataHome;
+} as const;

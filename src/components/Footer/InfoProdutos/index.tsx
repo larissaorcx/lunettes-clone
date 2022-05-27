@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { Images, Media, Oculos } from '../../../pages';
 
 import {
   InfosProdutoContainer,
@@ -14,7 +15,28 @@ import {
   BotaoContainer,
 } from './style';
 
-export default function InfosProduto({ info }: any) {
+interface InfosProdutoProps {
+  info: {
+    logo: Images;
+    solar: Oculos;
+    grau: Oculos;
+    contato: {
+      title: string;
+      adress: {
+        street: string;
+        cnpj: string;
+        whatsapp: string;
+        email: string;
+      };
+    };
+    socialMedia: Media;
+    termos: {
+      text: string;
+    };
+  };
+}
+
+export default function InfosProduto({ info }: InfosProdutoProps) {
   return (
     <InfosProdutoContainer>
       <Image alt={info.logo.alt} src={info.logo.img} width={138} height={61} />
@@ -48,7 +70,7 @@ export default function InfosProduto({ info }: any) {
         <RedesContainer>
           <TituloInfo>{info.socialMedia.title}</TituloInfo>
           <BotaoContainer>
-            {info.socialMedia.itens.map((button: object) => (
+            {info.socialMedia.itens.map(button => (
               <BotaoRedes type="button" key={button.alt}>
                 <Link href={button.link} passHref>
                   <Image

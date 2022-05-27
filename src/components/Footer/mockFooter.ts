@@ -1,4 +1,4 @@
-const data = {
+export default {
   hastag: {
     title: '#LunettesByLari',
     description:
@@ -72,17 +72,17 @@ const data = {
       title: 'Redes Sociais',
       itens: [
         {
-          img: '/redesSociais/whats',
+          img: '/redesSociais/whats.png',
           alt: 'whatsapp',
           link: 'https://api.whatsapp.com/send/?phone=5511974523425&text=Ol%C3%A1+Lunettes%2C+estou+vindo+do+site+e+gostaria+de+informa%C3%A7%C3%B5es.&app_absent=0',
         },
         {
-          img: '/redesSociais/facebook',
+          img: '/redesSociais/facebook.png',
           alt: 'facebook',
           link: 'https://www.facebook.com/lunettesbylari/',
         },
         {
-          img: '/redesSociais/instagram',
+          img: '/redesSociais/insta.png',
           alt: 'instagram',
           link: 'https://www.instagram.com/lunettesbylari/',
         },
@@ -92,6 +92,4 @@ const data = {
       text: '© 2020 Todos os direitos reservados. | Política de privacidade | Termos de uso',
     },
   },
-};
-
-export default data;
+} as const;

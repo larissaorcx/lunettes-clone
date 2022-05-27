@@ -10,6 +10,7 @@ type ImagesProps = {
 
 export default function Images({ data }: ImagesProps) {
   const [image, setImage] = useState(data[0].url);
+  const [clickButton, setClickButton] = useState(false);
 
   return (
     <>
@@ -22,7 +23,11 @@ export default function Images({ data }: ImagesProps) {
                 key={image.id}
                 type="button"
                 color={image.color.background}
-                onClick={() => setImage(image.url)}
+                clickButton={clickButton}
+                onClick={() => {
+                  setClickButton(!clickButton);
+                  setImage(image.url);
+                }}
               />
             )
         )}

@@ -1,4 +1,4 @@
-const dataListMenu = {
+export default {
   buttonHome: 'Home',
   grau: {
     title: 'Óculos de grau',
@@ -75,6 +75,4 @@ const dataListMenu = {
       },
     ],
   },
-};
-
-export default dataListMenu;
+} as const;
