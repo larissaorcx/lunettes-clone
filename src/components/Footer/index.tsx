@@ -1,4 +1,4 @@
-import { Images, Media, Oculos } from '../../pages';
+import { Images, Media, Oculos, Text } from '../../pages';
 import Hashtag from '../Footer/Hastag/index';
 import InfosProduto from './InfoProdutos';
 
@@ -12,11 +12,14 @@ interface FooterProps {
     logo: Images;
     solar: Oculos;
     grau: Oculos;
-    adress: {
-      street: string;
-      CNPJ: string;
-      whatsapp: string;
-      email: string;
+    contato: {
+      title: string;
+      adress: {
+        street: string;
+        cnpj: string;
+        whatsapp: string;
+        email: string;
+      };
     };
     socialMedia: Media;
     termos: {
@@ -25,7 +28,7 @@ interface FooterProps {
   };
 }
 
-export default function Footer({ hastag, swiper, info }: any) {
+export default function Footer({ hastag, swiper, info }: FooterProps) {
   return (
     <>
       <Hashtag hastag={hastag} />

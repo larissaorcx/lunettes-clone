@@ -8,11 +8,17 @@ import 'swiper/css/navigation';
 import { Autoplay, Navigation } from 'swiper';
 import Image from 'next/image';
 
-export default function SwiperSlides({ swiper }: any) {
+import { Images } from '../../../pages';
+
+interface SwiperProps {
+  swiper: Images[];
+}
+
+export default function SwiperSlides({ swiper }: SwiperProps) {
   return (
     <Swiper
-      slidesPerView={4}
-      spaceBetween={0.2}
+      slidesPerView={1}
+      spaceBetween={0.1}
       autoplay={{
         delay: 2500,
         disableOnInteraction: false,
@@ -20,22 +26,22 @@ export default function SwiperSlides({ swiper }: any) {
       breakpoints={{
         640: {
           slidesPerView: 2,
-          spaceBetween: 20,
+          spaceBetween: 0.1,
         },
         768: {
           slidesPerView: 4,
-          spaceBetween: 40,
+          spaceBetween: 0.1,
         },
         1024: {
           slidesPerView: 5,
-          spaceBetween: 50,
+          spaceBetween: 0.1,
         },
       }}
       navigation={true}
       modules={[Autoplay, Navigation]}
       className="mySwiper"
     >
-      {swiper.map((image: typeof Image) => (
+      {swiper.map(image => (
         <SwiperSlide key={image.alt}>
           <Image alt={image.alt} src={image.img} width={960} height={1450} />
         </SwiperSlide>

@@ -39,7 +39,7 @@ export default function Images({ data }: ImagesProps) {
   return (
     <>
       <Swiper
-        className="mySwiper"
+        className="image"
         direction={'horizontal'}
         mousewheel={true}
         modules={[Mousewheel]}
