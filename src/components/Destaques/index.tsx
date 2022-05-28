@@ -13,7 +13,7 @@ import {
   TextoBotao,
 } from './style';
 
-import Images from './Images';
+import Images from './Carrosel/Images';
 
 export type ImageProps = {
   id: string;

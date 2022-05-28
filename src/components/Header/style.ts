@@ -8,7 +8,7 @@ interface BackgroundProp {
 export const BackgroundImg = styled.div<BackgroundProp>`
   width: 100%;
   height: 100vh;
-  background-image: ${props => props.imgBackground};
+  background: url(${props => props.imgBackground.img});
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
