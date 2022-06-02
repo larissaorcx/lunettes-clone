@@ -7,10 +7,15 @@ export const ContatoContainer = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #fff;
+
+  @media screen and (max-width: 720px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 export const TextContainer = styled.div`
-  padding-left: 120px;
-  width: 960px;
+  margin-left: 120px;
+  max-width: 960px;
 `;
 
 export const Titulo = styled.h2`
@@ -23,10 +28,14 @@ export const Titulo = styled.h2`
   color: #000;
 
   padding-top: 50px;
+
+  @media screen and (max-width: 720px) {
+    font-size: 24px;
+  }
 `;
 export const Paragrafo = styled.p`
-  width: 546px;
-  height: 144px;
+  max-width: 546px;
+  max-height: 144px;
 
   font-family: 'Roboto Mono', monospace;
   font-size: 16px;
@@ -39,4 +48,12 @@ export const Paragrafo = styled.p`
   padding-top: 30px;
   padding-right: 200px;
   padding-bottom: 106px;
+
+  @media screen and (max-width: 1170px) {
+    font-size: 14px;
+  }
+
+  @media screen and (max-width: 720px) {
+    font-size: 14px;
+  }
 `;

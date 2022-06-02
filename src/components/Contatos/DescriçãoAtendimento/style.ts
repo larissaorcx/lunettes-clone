@@ -11,7 +11,7 @@ export const Container = styled.div`
   padding: 60px 0px;
 `;
 export const Titulo = styled.h2`
-  font-family: 'MonumentExtended', monospace;
+  font-family: 'MonumentExtended';
   text-transform: uppercase;
   font-size: 42px;
 
@@ -46,8 +46,10 @@ export const InfosContatos = styled.div`
 `;
 
 export const TituloContato = styled.h3`
+  font-family: 'Roboto Mono', monospace;
+  font-weight: bold;
   font-size: 24px;
-  font-weight: 600;
+  line-height: 1.5;
   margin-bottom: 40px;
   text-transform: uppercase;
   color: #000;
