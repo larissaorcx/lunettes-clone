@@ -6,7 +6,8 @@ import React, { useState } from 'react';
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Mousewheel } from 'swiper';
+import { Mousewheel, Keyboard } from 'swiper';
+
 import { useSwiper } from 'swiper/react';
 
 // Import Swiper styles
@@ -41,9 +42,15 @@ export default function Images({ data }: ImagesProps) {
       <Swiper
         className="image"
         direction={'horizontal'}
-        mousewheel={true}
-        modules={[Mousewheel]}
+        mousewheel={{
+          invert: false,
+        }}
+        modules={[Mousewheel, Keyboard]}
         grabCursor={true}
+        keyboard={{
+          enabled: true,
+          onlyInViewport: false,
+        }}
       >
         {data.map(img => (
           <SwiperSlide key={img.id}>
@@ -56,7 +63,7 @@ export default function Images({ data }: ImagesProps) {
           image =>
             image.color?.background && (
               <BotaoCores
-                key={image.id}
+                key={image.url}
                 type="button"
                 color={image.color.background}
                 clickButton={clickButton}

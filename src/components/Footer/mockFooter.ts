@@ -27,15 +27,15 @@ export default {
     },
     {
       img: '/assets/slider/img1.png',
-      alt: 'imagem 1',
+      alt: 'imagem 6',
     },
     {
       img: '/assets/slider/img2.png',
-      alt: 'imagem 2',
+      alt: 'imagem 7',
     },
     {
       img: '/assets/slider/img3.png',
-      alt: 'imagem 3',
+      alt: 'imagem 8',
     },
   ],
   info: {
