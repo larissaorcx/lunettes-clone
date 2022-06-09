@@ -13,6 +13,9 @@ export const DestaquesContainer = styled.div`
   background-color: #fff;
 
   flex-direction: column;
+  @media screen and (max-width: 740px) {
+    width: 100vw;
+  }
 `;
 
 export const Titulo = styled.h2`
@@ -21,12 +24,29 @@ export const Titulo = styled.h2`
   font-size: 42px;
   font-weight: 800;
   padding-top: 70px;
+
+  @media screen and (max-width: 740px) {
+    width: 250px;
+    height: 100px;
+
+    display: flex;
+    justify-content: Center;
+    font-size: 24px;
+    text-align: center;
+
+    margin-bottom: 70px;
+  }
 `;
 export const ProdutoContainer = styled.div`
   display: grid;
 
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 80px;
+
+  @media screen and (max-width: 740px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 export const Produto = styled.div`
   margin-top: 50px;
@@ -34,6 +54,10 @@ export const Produto = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  @media screen and (max-width: 740px) {
+    margin: 0px;
+  }
 `;
 export const InfosProduto = styled.div`
   display: flex;
@@ -42,6 +66,9 @@ export const InfosProduto = styled.div`
   flex-direction: column;
 
   padding-bottom: 25px;
+  @media screen and (max-width: 740px) {
+    padding-bottom: 10px;
+  }
 `;
 export const NomeProduto = styled.h3`
   font-family: 'Roboto Mono', monospace;
@@ -50,6 +77,10 @@ export const NomeProduto = styled.h3`
   line-height: 1.5;
   color: #000;
   margin-top: 10px;
+
+  @media screen and (max-width: 740px) {
+    font-size: 16px;
+  }
 `;
 export const CodigoProduto = styled.p`
   font-family: 'Roboto Mono', monospace;
@@ -57,6 +88,9 @@ export const CodigoProduto = styled.p`
 
   line-height: 1.25;
   color: #9a9a9a;
+  @media screen and (max-width: 740px) {
+    font-size: 10px;
+  }
 `;
 export const Preço = styled.span`
   font-family: 'Roboto Mono', monospace;
@@ -65,6 +99,9 @@ export const Preço = styled.span`
 
   line-height: 1.5;
   color: black;
+  @media screen and (max-width: 740px) {
+    font-size: 16px;
+  }
 `;
 export const BotaoCores = styled.button<DestaquesProps>`
   width: 32px;
@@ -100,6 +137,13 @@ export const BotaoReserva = styled.button`
 
   &:hover {
     background: rgb(133, 133, 133);
+  }
+
+  @media screen and (max-width: 740px) {
+    width: 165px;
+    height: 49px;
+    font-size: 16px;
+    margin: 20px 0px 10px 0px;
   }
 `;
 export const TextoBotao = styled.span`

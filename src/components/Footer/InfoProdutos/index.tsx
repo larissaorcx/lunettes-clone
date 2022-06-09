@@ -13,6 +13,8 @@ import {
   BotaoRedes,
   RedesContainer,
   BotaoContainer,
+  Category,
+  ImageLogo,
 } from './style';
 
 interface InfosProdutoProps {
@@ -39,27 +41,36 @@ interface InfosProdutoProps {
 export default function InfosProduto({ info }: InfosProdutoProps) {
   return (
     <InfosProdutoContainer>
-      <Image alt={info.logo.alt} src={info.logo.img} width={138} height={61} />
-      <SolarContainer>
-        <TituloInfo>{info.solar.title}</TituloInfo>
-        {info.solar.category.map((prod: string) => (
-          <ul key={prod}>
-            <li>
-              <LinkCategorias href="">{prod}</LinkCategorias>
-            </li>
-          </ul>
-        ))}
-      </SolarContainer>
-      <GrauContainer>
-        <TituloInfo>grau</TituloInfo>
-        {info.grau.category.map((prod: string) => (
-          <ul key={prod}>
-            <li>
-              <LinkCategorias href="">{prod}</LinkCategorias>
-            </li>
-          </ul>
-        ))}
-      </GrauContainer>
+      <ImageLogo>
+        <Image
+          alt={info.logo.alt}
+          src={info.logo.img}
+          width={138}
+          height={61}
+        />
+      </ImageLogo>
+      <Category>
+        <SolarContainer>
+          <TituloInfo>{info.solar.title}</TituloInfo>
+          {info.solar.category.map((prod: string) => (
+            <ul key={prod}>
+              <li>
+                <LinkCategorias href="">{prod}</LinkCategorias>
+              </li>
+            </ul>
+          ))}
+        </SolarContainer>
+        <GrauContainer>
+          <TituloInfo>grau</TituloInfo>
+          {info.grau.category.map((prod: string) => (
+            <ul key={prod}>
+              <li>
+                <LinkCategorias href="">{prod}</LinkCategorias>
+              </li>
+            </ul>
+          ))}
+        </GrauContainer>
+      </Category>
       <ContatoContainer>
         <TituloInfo>{info.contato.title}</TituloInfo>
         <TextoContato>

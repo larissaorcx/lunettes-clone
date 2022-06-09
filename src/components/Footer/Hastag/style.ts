@@ -26,6 +26,10 @@ export const HashtagContainer = styled.div`
       #b72dc3 49%,
       #fe4c64 97%
     );
+    @media screen and (max-width: 740px) {
+      width: 100vw;
+      height: 186px;
+    }
   }
 
   &:hover {
@@ -35,8 +39,16 @@ export const HashtagContainer = styled.div`
 
     &::before {
       opacity: 1;
-      width: 150%;
+      width: 100%;
     }
+  }
+
+  @media screen and (max-width: 740px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0px;
   }
 `;
 export const TituloHastag = styled.h2`
@@ -47,6 +59,12 @@ export const TituloHastag = styled.h2`
   color: rgb(255, 255, 255);
   margin-bottom: 20px;
   z-index: 2;
+
+  @media screen and (max-width: 740px) {
+    width: 280px;
+    height: 29px;
+    font-size: 24px;
+  }
 `;
 export const TextoHashtag = styled.span`
   max-width: 460px;
@@ -56,4 +74,10 @@ export const TextoHashtag = styled.span`
   text-align: center;
   margin: 0px 20px;
   z-index: 2;
+
+  @media screen and (max-width: 740px) {
+    width: 319px;
+    height: 46px;
+    font-size: 14px;
+  }
 `;

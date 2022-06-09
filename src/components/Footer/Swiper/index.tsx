@@ -24,11 +24,15 @@ export default function SwiperSlides({ swiper }: SwiperProps) {
         disableOnInteraction: false,
       }}
       breakpoints={{
-        640: {
+        350: {
+          slidesPerView: 2,
+          spaceBetween: 0,
+        },
+        680: {
           slidesPerView: 2,
           spaceBetween: 0.1,
         },
-        768: {
+        740: {
           slidesPerView: 4,
           spaceBetween: 0.1,
         },

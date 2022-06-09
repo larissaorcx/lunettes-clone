@@ -14,4 +14,9 @@ export const BackgroundImg = styled.div<BackgroundProp>`
   background-position: center;
 
   background-attachment: fixed;
+
+  @media screen and (max-width: 740px) {
+    width: 100vw;
+    height: 80rem;
+  }
 `;

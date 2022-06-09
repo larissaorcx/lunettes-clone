@@ -23,4 +23,9 @@
   display: inline-flex;
   width: 360px !important;
   height: 360px !important;
+
+  @media screen and (max-width: 740px) {
+    width: 300px !important;
+    height: 300px !important;
+  }
 }
