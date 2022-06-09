@@ -30,6 +30,12 @@ export const MenuContainer = styled.div<MenuProps>`
     `}
   background: ${props => (props.scroll ? 'black' : '')};
   z-index: 99;
+
+  @media screen and (max-width: 740px) {
+    width: 100vw;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
 `;
 export const BotaoMenu = styled.button`
   cursor: pointer;
@@ -39,6 +45,10 @@ export const BotaoMenu = styled.button`
   height: 26px;
 
   z-index: 1;
+  @media screen and (max-width: 740px) {
+    width: 25px;
+    height: 25px;
+  }
 `;
 export const Logo = styled.div<MenuProps>`
   display: flex;
@@ -51,6 +61,12 @@ export const Logo = styled.div<MenuProps>`
   padding-top: ${props => (props.scroll ? '0px' : '20px')};
 
   z-index: 1;
+
+  @media screen and (max-width: 740px) {
+    width: 150px;
+    height: ${props => (props.scroll ? '50px' : '80px')};
+    padding: 0px;
+  }
 `;
 export const BotaoSacola = styled.button`
   cursor: pointer;
@@ -59,4 +75,9 @@ export const BotaoSacola = styled.button`
   width: 42.8px;
   height: 50.3px;
   z-index: 1;
+
+  @media screen and (max-width: 740px) {
+    width: 26.9px;
+    height: 31.6px;
+  }
 `;

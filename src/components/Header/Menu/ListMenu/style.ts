@@ -14,6 +14,12 @@ export const ListMenuContainer = styled.div`
   border-top: ;
   overflow-y: scroll;
   position: fixed;
+
+  @media screen and (max-width: 740px) {
+    width: 100vw;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
 `;
 
 export const Button = styled.button`
@@ -28,11 +34,26 @@ export const Button = styled.button`
   text-transform: uppercase;
   background: rgb(0, 0, 0);
   cursor: pointer;
+  width: 370px;
+  border: none;
+
+  &:hover {
+    opacity: 0.5;
+  }
+
+  @media screen and (max-width: 740px) {
+    width: 290px;
+    height: 40px;
+    font-size: 24px;
+    padding-left: 0px;
+  }
 `;
 export const ContainerButtonGrau = styled.div`
   display: flex;
   flex-direction: column;
   cursor: pointer;
+  animation: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s 1 normal both
+    running vmYox;
 
   ul {
     display: flex;
@@ -45,6 +66,20 @@ export const ContainerButtonGrau = styled.div`
 
     :hover {
       animation: ${animationRedes} 0.8s ease 0s 1 normal both;
+      span {
+        background: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+        transition: color 0.2s linear 0s;
+      }
+    }
+
+    @media screen and (max-width: 740px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 160px;
+      height: 130px;
     }
 
     span {
@@ -63,10 +98,17 @@ export const ContainerButtonGrau = styled.div`
 
       margin-top: 15px;
 
-      &:hover {
-        color: rgb(0, 0, 0);
-        background: rgb(255, 255, 255);
-        z-index: -1;
+      color: #9a9a9a;
+
+      z-index: -1;
+
+      @media screen and (max-width: 740px) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+        background: rgb(0, 0, 0);
+        color: #9a9a9a;
       }
     }
   }
@@ -75,38 +117,61 @@ export const ContainerButtonGrau = styled.div`
 export const ContainerButtonSol = styled.div`
   display: flex;
   flex-direction: column;
-
   cursor: pointer;
 
   ul {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-
-    li {
-      padding-right: 40px;
-    }
   }
-  span {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  li {
+    padding-right: 40px;
+    padding-bottom: 30px;
 
-    font-family: 'Roboto Mono', monospace;
-    font-size: 16px;
-    color: rgb(255, 255, 255);
-    margin-bottom: 20px;
-    line-height: 3.13;
-    margin-bottom: 50px;
+    :hover {
+      animation: ${animationRedes} 0.8s ease 0s 1 normal both;
+      span {
+        background: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+      }
+    }
 
-    width: 150px;
-    height: 18px;
-    margin-top: 15px;
+    @media screen and (max-width: 740px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 160px;
+      height: 130px;
+    }
 
-    &:hover {
-      color: rgb(0, 0, 0);
-      background: rgb(255, 255, 255);
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-family: 'Roboto Mono', monospace;
+      font-size: 16px;
+      color: rgb(255, 255, 255);
+      margin-bottom: 20px;
+      line-height: 3.13;
+
+      width: 150px;
+      height: 18px;
+
+      margin-top: 15px;
+
+      color: #9a9a9a;
       z-index: -1;
+
+      @media screen and (max-width: 740px) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgb(0, 0, 0);
+        color: #9a9a9a;
+        font-size: 16px;
+      }
     }
   }
 `;
@@ -124,4 +189,13 @@ export const ButtonHome = styled.button`
   background: rgb(0, 0, 0);
   cursor: pointer;
   padding-top: 100px;
+  border: none;
+
+  &:hover {
+    opacity: 0.5;
+  }
+
+  @media screen and (max-width: 740px) {
+    font-size: 24px;
+  }
 `;

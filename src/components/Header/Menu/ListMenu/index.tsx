@@ -18,9 +18,9 @@ export default function ListMenu({ listMenu }: ListMenuProps) {
       <ButtonHome type="button">{listMenu.buttonHome}</ButtonHome>
       <ContainerButtonGrau>
         <Button type="button">{listMenu.grau.title}</Button>
-        {listMenu.grau.category.map(categories => (
-          <ul key={categories.title}>
-            <li>
+        <ul>
+          {listMenu.grau.category.map(categories => (
+            <li key={categories.title}>
               <Image
                 alt={categories.alt}
                 src={categories.img}
@@ -29,14 +29,14 @@ export default function ListMenu({ listMenu }: ListMenuProps) {
               />
               <span>{categories.title}</span>
             </li>
-          </ul>
-        ))}
+          ))}
+        </ul>
       </ContainerButtonGrau>
       <ContainerButtonSol>
         <Button type="button">{listMenu.solar.title}</Button>
-        {listMenu.solar.category.map(categories => (
-          <ul key={categories.title}>
-            <li>
+        <ul>
+          {listMenu.solar.category.map(categories => (
+            <li key={categories.title}>
               <Image
                 alt={categories.alt}
                 src={categories.img}
@@ -45,8 +45,8 @@ export default function ListMenu({ listMenu }: ListMenuProps) {
               />
               <span>{categories.title}</span>
             </li>
-          </ul>
-        ))}
+          ))}
+        </ul>
       </ContainerButtonSol>
     </ListMenuContainer>
   );
