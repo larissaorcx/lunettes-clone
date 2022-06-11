@@ -27,7 +27,7 @@ export default function ListMenu({ listMenu }: ListMenuProps) {
                 width={150}
                 height={50}
               />
-              <span>{categories.title}</span>
+              <p>{categories.title}</p>
             </li>
           ))}
         </ul>

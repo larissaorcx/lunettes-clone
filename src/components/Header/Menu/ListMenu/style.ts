@@ -52,8 +52,6 @@ export const ContainerButtonGrau = styled.div`
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  animation: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s 1 normal both
-    running vmYox;
 
   ul {
     display: flex;
@@ -66,11 +64,6 @@ export const ContainerButtonGrau = styled.div`
 
     :hover {
       animation: ${animationRedes} 0.8s ease 0s 1 normal both;
-      span {
-        background: rgb(255, 255, 255);
-        color: rgb(0, 0, 0);
-        transition: color 0.2s linear 0s;
-      }
     }
 
     @media screen and (max-width: 740px) {
@@ -82,7 +75,7 @@ export const ContainerButtonGrau = styled.div`
       height: 130px;
     }
 
-    span {
+    p {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -95,12 +88,27 @@ export const ContainerButtonGrau = styled.div`
 
       width: 150px;
       height: 18px;
-
       margin-top: 15px;
 
       color: #9a9a9a;
+      transition: all 0.3s linear;
+      position: relative;
 
-      z-index: -1;
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        width: 0%;
+        height: 20px;
+        background: rgb(255, 255, 255);
+        transition: all 0.2s linear 0s;
+      }
+
+      &:hover {
+        background-color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+      }
 
       @media screen and (max-width: 740px) {
         display: flex;

@@ -19,6 +19,7 @@ export const MenuContainer = styled.div<MenuProps>`
   flex-direction: row;
   justify-content: space-between;
   padding: 0px 60.2px 0px 60px;
+  background: black;
 
   position: fixed;
   top: 0;
