@@ -4,6 +4,10 @@ export default {
       img: '/background.jpg',
       alt: 'background',
     },
+    backgroundMobile: {
+      img: '/backMobile.png',
+      alt: 'background',
+    },
     logoHome: {
       img: '/assets/header/Logo-Lunettes.png',
       alt: 'Logo Lunetts',

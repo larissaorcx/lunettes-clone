@@ -3,6 +3,7 @@ import { animationMenu } from './animacao';
 
 interface MenuProps {
   scroll: boolean;
+  openMenu: boolean;
 }
 
 export const Menu = styled.div`
@@ -18,8 +19,7 @@ export const MenuContainer = styled.div<MenuProps>`
   height: ${props => (props.scroll ? '65px' : '100px')};
   flex-direction: row;
   justify-content: space-between;
-  padding: 0px 60.2px 0px 60px;
-  background: black;
+  margin: 0px 735.5px 437.5px 0;
 
   position: fixed;
   top: 0;
@@ -29,7 +29,8 @@ export const MenuContainer = styled.div<MenuProps>`
     css`
       animation: ${animationMenu} 0.3s ease 0s 1 normal both;
     `}
-  background: ${props => (props.scroll ? 'black' : '')};
+  background-color: ${props => (props.scroll ? 'black' : '')};
+  background-color: ${props => (props.openMenu ? 'black' : '')};
   z-index: 99;
 
   @media screen and (max-width: 740px) {
@@ -44,18 +45,20 @@ export const BotaoMenu = styled.button`
   border: none;
   width: 42px;
   height: 26px;
+  margin-left: 60px;
 
   z-index: 1;
   @media screen and (max-width: 740px) {
     width: 25px;
     height: 25px;
+    margin: 0px;
   }
 `;
 export const Logo = styled.div<MenuProps>`
   display: flex;
 
-  width: 245.3px;
-  height: ${props => (props.scroll ? '50px' : '108.4px')};
+  width: 210px;
+  height: ${props => (props.scroll ? '50px' : '100px')};
   display: flex;
   justify-content: center;
 
@@ -65,7 +68,7 @@ export const Logo = styled.div<MenuProps>`
 
   @media screen and (max-width: 740px) {
     width: 150px;
-    height: ${props => (props.scroll ? '50px' : '80px')};
+    height: ${props => (props.scroll ? '50px' : '60px')};
     padding: 0px;
   }
 `;
@@ -75,10 +78,12 @@ export const BotaoSacola = styled.button`
   border: none;
   width: 42.8px;
   height: 50.3px;
+  margin-right: 60.2px;
   z-index: 1;
 
   @media screen and (max-width: 740px) {
     width: 26.9px;
     height: 31.6px;
+    margin: 0px;
   }
 `;

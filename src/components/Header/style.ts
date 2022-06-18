@@ -3,6 +3,7 @@ import { Images } from '../../pages';
 
 interface BackgroundProp {
   imgBackground: Images;
+  backgroundMobile: Images;
 }
 
 export const BackgroundImg = styled.div<BackgroundProp>`
@@ -16,7 +17,10 @@ export const BackgroundImg = styled.div<BackgroundProp>`
   background-attachment: fixed;
 
   @media screen and (max-width: 740px) {
+    background: url(${props => props.backgroundMobile.img});
+    background-size: cover;
+    background-position: center;
     width: 360px;
-    height: 80rem;
+    height: 640px;
   }
 `;

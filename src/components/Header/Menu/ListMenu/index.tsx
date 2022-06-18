@@ -1,8 +1,7 @@
 import {
   Button,
   ListMenuContainer,
-  ContainerButtonSol,
-  ContainerButtonGrau,
+  ContainerCagtegories,
   ButtonHome,
 } from './style';
 import Image from 'next/image';
@@ -16,7 +15,7 @@ export default function ListMenu({ listMenu }: ListMenuProps) {
   return (
     <ListMenuContainer>
       <ButtonHome type="button">{listMenu.buttonHome}</ButtonHome>
-      <ContainerButtonGrau>
+      <ContainerCagtegories>
         <Button type="button">{listMenu.grau.title}</Button>
         <ul>
           {listMenu.grau.category.map(categories => (
@@ -31,11 +30,11 @@ export default function ListMenu({ listMenu }: ListMenuProps) {
             </li>
           ))}
         </ul>
-      </ContainerButtonGrau>
-      <ContainerButtonSol>
+      </ContainerCagtegories>
+      <ContainerCagtegories>
         <Button type="button">{listMenu.solar.title}</Button>
         <ul>
-          {listMenu.solar.category.map(categories => (
+          {listMenu.solar.category.map((categories, index) => (
             <li key={categories.title}>
               <Image
                 alt={categories.alt}
@@ -43,11 +42,11 @@ export default function ListMenu({ listMenu }: ListMenuProps) {
                 width={150}
                 height={50}
               />
-              <span>{categories.title}</span>
+              <p>{categories.title}</p>
             </li>
           ))}
         </ul>
-      </ContainerButtonSol>
+      </ContainerCagtegories>
     </ListMenuContainer>
   );
 }
