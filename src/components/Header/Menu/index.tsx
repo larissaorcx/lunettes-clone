@@ -9,6 +9,8 @@ interface MenuProps {
   menu: ImageMenu;
   sacola: Images;
   listMenu: any;
+  openMenu: boolean;
+  handleOpenMenu: () => void;
 }
 
 export default function MenuHeader({
@@ -16,13 +18,10 @@ export default function MenuHeader({
   menu,
   sacola,
   listMenu,
+  openMenu,
+  handleOpenMenu,
 }: MenuProps) {
-  const [openMenu, setOpenMenu] = useState(false);
   const [scroll, setScroll] = useState(false);
-
-  function handleOpenMenu() {
-    setOpenMenu(!openMenu);
-  }
 
   const handleScrollMenu = useCallback(() => {
     if (
@@ -44,7 +43,7 @@ export default function MenuHeader({
 
   return (
     <Menu>
-      <MenuContainer scroll={scroll}>
+      <MenuContainer scroll={scroll} openMenu={openMenu}>
         <BotaoMenu type="button" onClick={() => handleOpenMenu()}>
           <Image
             alt={menu.alt}
@@ -53,14 +52,13 @@ export default function MenuHeader({
             height={26}
           />
         </BotaoMenu>
-        <Logo scroll={scroll}>
+        <Logo scroll={scroll} openMenu={openMenu}>
           {scroll ? (
             <Image
               alt={logoHome.logoNegativo.alt}
               src={logoHome.logoNegativo.img}
               width={50}
               height={50}
-              priority
             />
           ) : (
             <Image
@@ -68,7 +66,6 @@ export default function MenuHeader({
               src={logoHome.img}
               width={245.3}
               height={108.4}
-              priority
             />
           )}
         </Logo>

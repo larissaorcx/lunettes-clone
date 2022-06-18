@@ -17,6 +17,8 @@ type HomeProps = {
   destaques: Products[];
   footer: Footer;
   listMenu: any;
+  openMenu: boolean;
+  handleOpenMenu: () => void;
 };
 
 export type Images = {
@@ -77,6 +79,7 @@ export type ImagesCategories = {
 
 export interface Header {
   imgBackground: Images;
+  backgroundMobile: Images;
   logoHome: ImageLogo;
   menu: ImageMenu;
   sacola: Images;
@@ -129,6 +132,8 @@ export default function Home({
   destaques,
   footer,
   listMenu,
+  openMenu,
+  handleOpenMenu,
 }: HomeProps) {
   const [destaque] = useState(destaques);
 
@@ -136,10 +141,13 @@ export default function Home({
     <>
       <Header
         imgBackground={conteudo.header.imgBackground}
+        backgroundMobile={conteudo.header.backgroundMobile}
         logoHome={conteudo.header.logoHome}
         menu={conteudo.header.menu}
         sacola={conteudo.header.sacola}
         listMenu={listMenu}
+        openMenu={openMenu}
+        handleOpenMenu={handleOpenMenu}
       />
       <About
         atendimento={conteudo.about.atendimento}

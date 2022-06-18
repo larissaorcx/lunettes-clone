@@ -1,10 +1,32 @@
 import type { AppProps } from 'next/app';
-import '../../public/styles/globals.scss';
 import '../components/Footer/styleSwiper.scss';
 import '../components/Destaques/Carrosel/style.scss';
+import { GlobalStyle } from '../../public/styles/globals';
+import { ThemeProvider } from 'styled-components';
+import { useState } from 'react';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  const [openMenu, setOpenMenu] = useState(false);
+
+  function handleOpenMenu() {
+    setOpenMenu(!openMenu);
+  }
+
+  const theme = {
+    open: openMenu,
+  };
+  return (
+    <>
+      <ThemeProvider theme={theme}>
+        <Component
+          {...pageProps}
+          openMenu={openMenu}
+          handleOpenMenu={handleOpenMenu}
+        />
+        <GlobalStyle />
+      </ThemeProvider>
+    </>
+  );
 }
 
 export default MyApp;
