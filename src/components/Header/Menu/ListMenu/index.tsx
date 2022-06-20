@@ -5,7 +5,7 @@ import {
   ButtonHome,
 } from './style';
 import Image from 'next/image';
-import { MenuFloating } from '../../../../pages';
+import { MenuFloating } from '../../../../pages/types';
 
 interface ListMenuProps {
   listMenu: MenuFloating;

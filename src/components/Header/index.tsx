@@ -1,4 +1,4 @@
-import { Images, ImageLogo, ImageMenu } from '../../pages';
+import { Images, ImageLogo, ImageMenu, MenuFloating } from '../../pages/types';
 import MenuHeader from './Menu';
 import { BackgroundImg } from './style';
 
@@ -8,7 +8,7 @@ interface HeaderProps {
   logoHome: ImageLogo;
   menu: ImageMenu;
   sacola: Images;
-  listMenu: any;
+  listMenu: MenuFloating;
   openMenu: boolean;
   handleOpenMenu: () => void;
 }

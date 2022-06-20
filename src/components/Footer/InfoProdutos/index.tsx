@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Images, Media, Oculos } from '../../../pages';
+import { Images, Media, Oculos } from '../../../pages/types';
 
 import {
   InfosProdutoContainer,

@@ -2,13 +2,18 @@ import { BotaoMenu, Logo, BotaoSacola, Menu, MenuContainer } from './style';
 import Image from 'next/image';
 import { useCallback, useEffect, useState } from 'react';
 import ListMenu from './ListMenu';
-import { Images, ImageLogo, ImageMenu } from '../../../pages';
+import {
+  Images,
+  ImageLogo,
+  ImageMenu,
+  MenuFloating,
+} from '../../../pages/types';
 
 interface MenuProps {
   logoHome: ImageLogo;
   menu: ImageMenu;
   sacola: Images;
-  listMenu: any;
+  listMenu: MenuFloating;
   openMenu: boolean;
   handleOpenMenu: () => void;
 }

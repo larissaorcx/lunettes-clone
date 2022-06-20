@@ -1,18 +1,9 @@
 import Image from 'next/image';
+import { Images, Text } from '../../../pages/types';
 import { ContatoContainer, Paragrafo, TextContainer, Titulo } from './style';
 
-type Image = {
-  img: string;
-  alt: string;
-};
-
-type Text = {
-  title: string;
-  description: string;
-};
-
 type AtendimentoProps = {
-  atendimento: Image;
+  atendimento: Images;
   text: Text;
 };
 
