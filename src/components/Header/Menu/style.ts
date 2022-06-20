@@ -43,11 +43,10 @@ export const BotaoMenu = styled.button`
   cursor: pointer;
   background-color: transparent;
   border: none;
-  width: 42px;
-  height: 26px;
   margin-left: 60px;
 
   z-index: 1;
+
   @media screen and (max-width: 740px) {
     width: 25px;
     height: 25px;
@@ -56,7 +55,6 @@ export const BotaoMenu = styled.button`
 `;
 export const Logo = styled.div<MenuProps>`
   display: flex;
-
   width: 210px;
   height: ${props => (props.scroll ? '50px' : '100px')};
   display: flex;
