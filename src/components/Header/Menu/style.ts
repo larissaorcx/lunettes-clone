@@ -6,6 +6,10 @@ interface MenuProps {
   openMenu: boolean;
 }
 
+interface ButtonProps {
+  openMenu: boolean;
+}
+
 export const Menu = styled.div`
   display: flex;
   flex-direction: column;
@@ -39,7 +43,7 @@ export const MenuContainer = styled.div<MenuProps>`
     padding-left: 20px;
   }
 `;
-export const BotaoMenu = styled.button`
+export const BotaoMenu = styled.button<ButtonProps>`
   cursor: pointer;
   background-color: transparent;
   border: none;
@@ -48,8 +52,8 @@ export const BotaoMenu = styled.button`
   z-index: 1;
 
   @media screen and (max-width: 740px) {
-    width: 25px;
-    height: 25px;
+    width: ${props => (props.openMenu ? '20.4px' : '26.9px')};
+    height: ${props => (props.openMenu ? '20.4px' : '31.6px')};
     margin: 0px;
   }
 `;

@@ -49,12 +49,16 @@ export default function MenuHeader({
   return (
     <Menu>
       <MenuContainer scroll={scroll} openMenu={openMenu}>
-        <BotaoMenu type="button" onClick={() => handleOpenMenu()}>
+        <BotaoMenu
+          type="button"
+          onClick={() => handleOpenMenu()}
+          openMenu={openMenu}
+        >
           <Image
             alt={menu.alt}
             src={openMenu ? menu.iconClose.img : menu.img}
-            width={openMenu ? 20.4 : 42}
-            height={openMenu ? 20.4 : 26}
+            width={openMenu ? 32 : 42}
+            height={openMenu ? 32 : 26}
           />
         </BotaoMenu>
         <Logo scroll={scroll} openMenu={openMenu}>
