@@ -49,6 +49,7 @@ export type Itens = {
 };
 
 export type ImagesCategories = {
+  id: number;
   title: string;
   img: string;
   alt: string;

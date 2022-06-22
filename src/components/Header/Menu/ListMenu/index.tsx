@@ -34,7 +34,7 @@ export default function ListMenu({ listMenu }: ListMenuProps) {
       <ContainerCagtegories>
         <Button type="button">{listMenu.solar.title}</Button>
         <ul>
-          {listMenu.solar.category.map((categories, index) => (
+          {listMenu.solar.category.map(categories => (
             <li key={categories.title}>
               <Image
                 alt={categories.alt}
