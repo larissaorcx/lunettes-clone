@@ -32,7 +32,7 @@ export const MenuContainer = styled.div<MenuProps>`
     props.scroll &&
     css`
       animation: ${animationMenu} 0.3s ease 0s 1 normal both;
-    `}
+    `};
   background-color: ${props => (props.scroll ? 'black' : '')};
   background-color: ${props => (props.openMenu ? 'black' : '')};
   z-index: 99;

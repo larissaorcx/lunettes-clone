@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { animationRedes } from '../../../Footer/InfoProdutos/animacao';
-import { animationList } from './animationList';
+import { animationContainer, animationList } from './animationList';
 
 interface ListProps {
   position: number;
@@ -10,7 +10,11 @@ export const ListMenuContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100vh;
+  height: ${props =>
+    props.theme.open &&
+    css`
+      animation: ${animationContainer} 2s ease-in;
+    `};
   display: flex;
 
   background: rgb(0, 0, 0);
