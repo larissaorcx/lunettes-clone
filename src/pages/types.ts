@@ -49,7 +49,6 @@ export type Itens = {
 };
 
 export type ImagesCategories = {
-  id: number;
   title: string;
   img: string;
   alt: string;
@@ -58,9 +57,9 @@ export type ImagesCategories = {
 export interface HeaderType {
   imgBackground: Images;
   backgroundMobile: Images;
-  logoHome: ImageLogo;
-  menu: ImageMenu;
-  sacola: Images;
+  // logoHome: ImageLogo;
+  // menu: ImageMenu;
+  // sacola: Images;
 }
 
 export interface AboutType {
@@ -94,6 +93,12 @@ export interface FooterType {
       text: string;
     };
   };
+}
+
+export interface Menu {
+  logoHome: ImageLogo;
+  menu: ImageMenu;
+  sacola: Images;
 }
 
 export interface MenuFloating {
