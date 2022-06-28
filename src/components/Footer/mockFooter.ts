@@ -92,4 +92,4 @@ export default {
       text: '© 2020 Todos os direitos reservados. | Política de privacidade | Termos de uso',
     },
   },
-} as const;
+};
