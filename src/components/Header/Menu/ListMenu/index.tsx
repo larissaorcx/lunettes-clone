@@ -3,6 +3,7 @@ import {
   ListMenuContainer,
   ContainerCagtegories,
   ButtonHome,
+  ListCategory,
 } from './style';
 import Image from 'next/image';
 import { MenuFloating } from '../../../../pages/types';
@@ -18,8 +19,8 @@ export default function ListMenu({ listMenu }: ListMenuProps) {
       <ContainerCagtegories>
         <Button type="button">{listMenu.grau.title}</Button>
         <ul>
-          {listMenu.grau.category.map(categories => (
-            <li key={categories.title}>
+          {listMenu.grau.category.map((categories, index) => (
+            <ListCategory key={categories.title} position={index + 2}>
               <Image
                 alt={categories.alt}
                 src={categories.img}
@@ -27,15 +28,15 @@ export default function ListMenu({ listMenu }: ListMenuProps) {
                 height={50}
               />
               <p>{categories.title}</p>
-            </li>
+            </ListCategory>
           ))}
         </ul>
       </ContainerCagtegories>
       <ContainerCagtegories>
         <Button type="button">{listMenu.solar.title}</Button>
         <ul>
-          {listMenu.solar.category.map(categories => (
-            <li key={categories.title}>
+          {listMenu.solar.category.map((categories, index) => (
+            <ListCategory key={categories.title} position={index + 2}>
               <Image
                 alt={categories.alt}
                 src={categories.img}
@@ -43,7 +44,7 @@ export default function ListMenu({ listMenu }: ListMenuProps) {
                 height={50}
               />
               <p>{categories.title}</p>
-            </li>
+            </ListCategory>
           ))}
         </ul>
       </ContainerCagtegories>

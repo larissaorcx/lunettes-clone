@@ -1,5 +1,6 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { animationRedes } from '../../../Footer/InfoProdutos/animacao';
+import { animationList } from './animationList';
 
 interface ListProps {
   position: number;
@@ -57,74 +58,81 @@ export const Button = styled.button`
     padding-left: 0px;
   }
 `;
-export const ListCategory = styled.li`
-  li {
-    padding-right: 40px;
-    padding-bottom: 30px;
+export const ListCategory = styled.li<ListProps>`
+  padding-right: 40px;
+  padding-bottom: 30px;
+  position: relative;
+  ${({ position }) => {
+    return css`
+      animation: ${animationList} 0.5s cubic-bezier(0.2, 0.36, 0.45, 0.94)
+        ${`0.${position}s`} both;
+    `;
+  }};
 
+  p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'Roboto Mono', monospace;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    margin-bottom: 20px;
+    line-height: 3.13;
+
+    width: 150px;
+    height: 18px;
+
+    margin-top: 15px;
+
+    color: #9a9a9a;
+    z-index: 1;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      width: 0%;
+      height: 20px;
+      background-color: rgb(255, 255, 255);
+      transition: all 0.2s linear 0s;
+    }
+  }
+
+  &:hover {
+    span {
+      animation: ${animationRedes} 0.8s ease 0s 1 normal both;
+    }
     p {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      font-family: 'Roboto Mono', monospace;
-      font-size: 16px;
-      color: rgb(255, 255, 255);
-      margin-bottom: 20px;
-      line-height: 3.13;
-
-      width: 150px;
-      height: 18px;
-
-      margin-top: 15px;
-
-      color: #9a9a9a;
+      color: rgb(0, 0, 0);
       z-index: 1;
-      position: relative;
 
       &::before {
-        content: '';
-        position: absolute;
-        left: 0px;
-        top: 0px;
-        width: 0%;
-        height: 20px;
-        background-color: rgb(255, 255, 255);
-        transition: all 0.2s linear 0s;
+        opacity: 1;
+        width: 100%;
+        z-index: -1;
       }
     }
+  }
 
-    &:hover {
-      animation: ${animationRedes} 0.8s ease 0s 1 normal both;
-      p {
-        color: rgb(0, 0, 0);
-        z-index: 1;
+  @media screen and (max-width: 740px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 160px;
+    height: 130px;
+  }
 
-        &::before {
-          opacity: 1;
-          width: 100%;
-          z-index: -1;
-        }
-      }
-    }
-
-    @media screen and (max-width: 740px) {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      width: 160px;
-      height: 130px;
-    }
-
-    @media screen and (max-width: 740px) {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: rgb(0, 0, 0);
-      color: #9a9a9a;
-      font-size: 16px;
-    }
+  @media screen and (max-width: 740px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(0, 0, 0);
+    color: #9a9a9a;
+    font-size: 16px;
   }
 `;
 export const ContainerCagtegories = styled.div`
@@ -133,77 +141,13 @@ export const ContainerCagtegories = styled.div`
   cursor: pointer;
 
   ul {
+    width: 90%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-  }
-
-  li {
-    padding-right: 40px;
-    padding-bottom: 30px;
-
-    p {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      font-family: 'Roboto Mono', monospace;
-      font-size: 16px;
-      color: rgb(255, 255, 255);
-      margin-bottom: 20px;
-      line-height: 3.13;
-
-      width: 150px;
-      height: 18px;
-
-      margin-top: 15px;
-
-      color: #9a9a9a;
-      z-index: 1;
-      position: relative;
-
-      &::before {
-        content: '';
-        position: absolute;
-        left: 0px;
-        top: 0px;
-        width: 0%;
-        height: 20px;
-        background-color: rgb(255, 255, 255);
-        transition: all 0.2s linear 0s;
-      }
-    }
-
-    &:hover {
-      animation: ${animationRedes} 0.8s ease 0s 1 normal both;
-      p {
-        color: rgb(0, 0, 0);
-        z-index: 1;
-
-        &::before {
-          opacity: 1;
-          width: 100%;
-          z-index: -1;
-        }
-      }
-    }
 
     @media screen and (max-width: 740px) {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      width: 160px;
-      height: 130px;
-    }
-
-    @media screen and (max-width: 740px) {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: rgb(0, 0, 0);
-      color: #9a9a9a;
-      font-size: 16px;
+      width: 100%;
     }
   }
 `;

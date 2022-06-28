@@ -23,7 +23,7 @@ export const MenuContainer = styled.div<MenuProps>`
   height: ${props => (props.scroll ? '65px' : '100px')};
   flex-direction: row;
   justify-content: space-between;
-  margin: 0px 735.5px 437.5px 0;
+  margin: 0px 735.5px 0px 0px;
 
   position: fixed;
   top: 0;
@@ -47,7 +47,7 @@ export const BotaoMenu = styled.button<ButtonProps>`
   cursor: pointer;
   background-color: transparent;
   border: none;
-  margin-left: 60px;
+  margin-left: 30px;
 
   z-index: 1;
 
