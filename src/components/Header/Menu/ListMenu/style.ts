@@ -1,6 +1,10 @@
 import styled, { css } from 'styled-components';
 import { animationRedes } from '../../../Footer/InfoProdutos/animacao';
-import { animationContainer, animationList } from './animationList';
+import {
+  animationContainer,
+  animationList,
+  animationContainerClose,
+} from './animationList';
 
 interface ListProps {
   position: number;
@@ -9,21 +13,32 @@ interface ListProps {
 export const ListMenuContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: ${props =>
-    props.theme.open &&
-    css`
-      animation: ${animationContainer} 2s ease-in;
-    `};
+  width: ${props => (props.theme.open ? '100%' : '0')};
+  height: 0;
+  padding: ${props => (props.theme.open ? '30px' : '0')};
   display: flex;
 
   background: rgb(0, 0, 0);
   z-index: 50;
-  padding: 30px;
-  border-top: ;
-  overflow: hidden;
+
   overflow-y: scroll;
   position: fixed;
+  /* ${props =>
+    props.theme.open &&
+    css`
+      animation: ${animationContainer} 1s cubic-bezier(0.3, 0.35, 0.45, 0.95) 0s
+        both;
+    `}; */
+  ${props =>
+    props.theme.open
+      ? css`
+          animation: ${animationContainer} 1s
+            cubic-bezier(0.3, 0.35, 0.45, 0.95) 0s both;
+        `
+      : css`
+          animation: ${animationContainerClose} 1s
+            cubic-bezier(0.3, 0.35, 0.45, 0.95) 0s both;
+        `};
 
   ::-webkit-scrollbar {
     display: none;
@@ -33,6 +48,7 @@ export const ListMenuContainer = styled.div`
     width: 100vw;
     padding-right: 10px;
     padding-left: 10px;
+    overflow-y: scroll;
   }
 `;
 
@@ -68,7 +84,7 @@ export const ListCategory = styled.li<ListProps>`
   position: relative;
   ${({ position }) => {
     return css`
-      animation: ${animationList} 0.5s cubic-bezier(0.2, 0.36, 0.45, 0.94)
+      animation: ${animationList} 2s cubic-bezier(0.2, 0.36, 0.45, 0.94)
         ${`0.${position}s`} both;
     `;
   }};

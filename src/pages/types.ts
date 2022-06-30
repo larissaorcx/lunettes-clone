@@ -56,7 +56,6 @@ export type ImagesCategories = {
 
 export interface HeaderType {
   imgBackground: Images;
-  backgroundMobile: Images;
   // logoHome: ImageLogo;
   // menu: ImageMenu;
   // sacola: Images;

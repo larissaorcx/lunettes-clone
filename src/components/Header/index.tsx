@@ -4,19 +4,10 @@ import { BackgroundImg } from './style';
 
 interface HeaderProps {
   imgBackground: Images;
-  backgroundMobile: Images;
 }
 
-export default function Header({
-  imgBackground,
-  backgroundMobile,
-}: HeaderProps) {
-  return (
-    <BackgroundImg
-      imgBackground={imgBackground}
-      backgroundMobile={backgroundMobile}
-    ></BackgroundImg>
-  );
+export default function Header({ imgBackground }: HeaderProps) {
+  return <BackgroundImg imgBackground={imgBackground}></BackgroundImg>;
 }
 
 // import { Images, ImageLogo, ImageMenu, MenuFloating } from '../../pages/types';

@@ -54,10 +54,6 @@ export default function Layout({
 
   return (
     <>
-      <Header
-        imgBackground={conteudoHeader.imgBackground}
-        backgroundMobile={conteudoHeader.backgroundMobile}
-      />
       <MenuHeader
         logoHome={conteudoMenu.logoHome}
         menu={conteudoMenu.menu}
@@ -66,6 +62,7 @@ export default function Layout({
         openMenu={openMenu}
         handleOpenMenu={handleOpenMenu}
       />
+      <Header imgBackground={conteudoHeader.imgBackground} />
       {children}
       <Footer
         hastag={conteudoFooter.hastag}

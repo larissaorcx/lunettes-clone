@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { animationMenu } from './animacao';
+import { animationContainer } from './ListMenu/animationList';
 
 interface MenuProps {
   scroll: boolean;
@@ -24,17 +25,24 @@ export const MenuContainer = styled.div<MenuProps>`
   flex-direction: row;
   justify-content: space-between;
   margin: 0px 735.5px 0px 0px;
+  /* ${props =>
+    props.theme.open &&
+    css`
+      animation: ${animationContainer} 1s cubic-bezier(0.25, 0.35, 0.45, 0.95)
+        0s both;
+    `}; */
 
   position: fixed;
   top: 0;
 
-  ${props =>
+  /* ${props =>
     props.scroll &&
     css`
-      animation: ${animationMenu} 0.3s ease 0s 1 normal both;
-    `};
+      animation: ${animationMenu} 3s ease-in 0s 1 normal both;
+    `}; */
   background-color: ${props => (props.scroll ? 'black' : '')};
   background-color: ${props => (props.openMenu ? 'black' : '')};
+
   z-index: 99;
 
   @media screen and (max-width: 740px) {

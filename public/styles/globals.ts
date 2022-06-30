@@ -22,7 +22,7 @@ export const GlobalStyle = createGlobalStyle<GlobalProps>`
 body {
   width: 100%;
   height: 100%;
-  overflow: ${props => (props.theme.open ? 'hidden' : 'hidden scroll')}
+  overflow: ${props => (props.theme.open ? 'hidden' : 'hidden scroll')};
 }
 
 li {
