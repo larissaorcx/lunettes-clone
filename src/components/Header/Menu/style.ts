@@ -4,11 +4,11 @@ import { animationContainer } from './ListMenu/animationList';
 
 interface MenuProps {
   scroll: boolean;
-  openMenu: boolean;
+  openMenu: boolean | null;
 }
 
 interface ButtonProps {
-  openMenu: boolean;
+  openMenu: boolean | null;
 }
 
 export const Menu = styled.div`
@@ -25,21 +25,10 @@ export const MenuContainer = styled.div<MenuProps>`
   flex-direction: row;
   justify-content: space-between;
   margin: 0px 735.5px 0px 0px;
-  /* ${props =>
-    props.theme.open &&
-    css`
-      animation: ${animationContainer} 1s cubic-bezier(0.25, 0.35, 0.45, 0.95)
-        0s both;
-    `}; */
 
   position: fixed;
   top: 0;
 
-  /* ${props =>
-    props.scroll &&
-    css`
-      animation: ${animationMenu} 3s ease-in 0s 1 normal both;
-    `}; */
   background-color: ${props => (props.scroll ? 'black' : '')};
   background-color: ${props => (props.openMenu ? 'black' : '')};
 

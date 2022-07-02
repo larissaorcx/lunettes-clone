@@ -18,7 +18,7 @@ type HomeProps = {
   openMenu: boolean;
   handleOpenMenu: () => void;
   loading: boolean;
-  setLoading: () => void;
+  setLoading: (loading: boolean) => void;
 };
 
 export default function Home({
@@ -36,7 +36,13 @@ export default function Home({
         text={conteudo.about.text}
         aboutAtendimento={conteudo.about.aboutAtendimento}
       />
-      {!!destaque.length && <Destaques config={destaque} />}
+      {!!destaque.length && (
+        <Destaques
+          config={destaque}
+          loading={loading}
+          setLoading={setLoading}
+        />
+      )}
     </>
   );
 }

@@ -14,7 +14,7 @@ interface MenuProps {
   menu: ImageMenu;
   sacola: Images;
   listMenu: MenuFloating;
-  openMenu: boolean;
+  openMenu: boolean | null;
   handleOpenMenu: () => void;
 }
 

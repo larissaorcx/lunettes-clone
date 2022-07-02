@@ -13,32 +13,48 @@ interface ListProps {
 export const ListMenuContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: ${props => (props.theme.open ? '100%' : '0')};
-  height: 0;
+  height: 100vh;
   padding: ${props => (props.theme.open ? '30px' : '0')};
   display: flex;
-
-  background: rgb(0, 0, 0);
+  background: #000;
   z-index: 50;
 
   overflow-y: scroll;
   position: fixed;
-  /* ${props =>
-    props.theme.open &&
-    css`
-      animation: ${animationContainer} 1s cubic-bezier(0.3, 0.35, 0.45, 0.95) 0s
-        both;
-    `}; */
-  ${props =>
-    props.theme.open
-      ? css`
-          animation: ${animationContainer} 1s
-            cubic-bezier(0.3, 0.35, 0.45, 0.95) 0s both;
-        `
-      : css`
-          animation: ${animationContainerClose} 1s
-            cubic-bezier(0.3, 0.35, 0.45, 0.95) 0s both;
-        `};
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #000;
+    z-index: -1;
+  }
+
+  ${props => {
+    switch (props.theme.open) {
+      case true:
+        return css`
+          -webkit-animation: ${animationContainer} 0.5s
+            cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+          animation: ${animationContainer} 0.5s
+            cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        `;
+      case false:
+        return css`
+          -webkit-animation: ${animationContainerClose} 0.5s
+            cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+          animation: ${animationContainerClose} 0.5s
+            cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+        `;
+      default:
+        return css`
+          height: 0vh;
+        `;
+    }
+  }};
 
   ::-webkit-scrollbar {
     display: none;
@@ -66,6 +82,7 @@ export const Button = styled.button`
   cursor: pointer;
   width: 370px;
   border: none;
+  z-index: ${props => (props.theme.open ? '0' : '-2')};
 
   &:hover {
     opacity: 0.5;
@@ -81,10 +98,14 @@ export const Button = styled.button`
 export const ListCategory = styled.li<ListProps>`
   padding-right: 40px;
   padding-bottom: 30px;
+  z-index: ${props => (props.theme.open ? '0' : '-2')};
+
   position: relative;
   ${({ position }) => {
     return css`
-      animation: ${animationList} 2s cubic-bezier(0.2, 0.36, 0.45, 0.94)
+      -webkit-animation: ${animationList} 1s cubic-bezier(0.2, 0.36, 0.45, 0.94)
+        ${`0.${position}s`} both;
+      animation: ${animationList} 1s cubic-bezier(0.2, 0.36, 0.45, 0.94)
         ${`0.${position}s`} both;
     `;
   }};
@@ -186,6 +207,7 @@ export const ButtonHome = styled.button`
   cursor: pointer;
   padding-top: 100px;
   border: none;
+  z-index: ${props => (props.theme.open ? '0' : '-2')};
 
   &:hover {
     opacity: 0.5;

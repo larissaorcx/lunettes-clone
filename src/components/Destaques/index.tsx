@@ -14,6 +14,8 @@ import {
 } from './style';
 
 import Images from './Carrosel/Images';
+import dataDestaques from './dataDestaques';
+import { useEffect, useState } from 'react';
 
 export type ImageProps = {
   id: string;
@@ -39,14 +41,37 @@ export type Products = {
 
 type DestaquesProps = {
   config: Products[];
+  loading: boolean;
+  setLoading: (loading: boolean) => void;
 };
-// Nome do parametro confuso
-export default function Destaques({ config }: DestaquesProps) {
+
+export default function Destaques({
+  config,
+  setLoading,
+  loading,
+}: DestaquesProps) {
+  const [products, setProducts] = useState<Products[]>([] as Products[]);
+
+  useEffect(() => {
+    async function loadProducts() {
+      setLoading(true);
+      const produtos = await dataDestaques;
+
+      setTimeout(() => {
+        setProducts(produtos);
+
+        setLoading(false);
+      }, 3000);
+      console.log('depois do setTimeout');
+    }
+    loadProducts();
+  }, []);
+
   return (
     <DestaquesContainer>
       <Titulo>Prodrutos em destaque</Titulo>
       <ProdutoContainer>
-        {config.map((product: Products) => (
+        {products.map((product: Products) => (
           <Produto key={product._id}>
             <Images data={product.images} />
             <InfosProduto>

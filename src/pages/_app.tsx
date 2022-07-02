@@ -8,7 +8,7 @@ import Layout from '../components/Layout';
 import Loading from '../components/Loading/Loading';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [openMenu, setOpenMenu] = useState(false);
+  const [openMenu, setOpenMenu] = useState<boolean | null>(null);
   const [loading, setLoading] = useState(false);
 
   function handleOpenMenu() {
@@ -18,13 +18,14 @@ function MyApp({ Component, pageProps }: AppProps) {
   const theme = {
     open: openMenu,
   };
+  console.log('loading', loading);
   return (
     <>
       <ThemeProvider theme={theme}>
-        <Layout openMenu={openMenu} handleOpenMenu={handleOpenMenu}>
-          <Component {...pageProps} setLoading={setLoading} loading={loading} />
-        </Layout>
         {loading && <Loading />}
+        <Layout openMenu={openMenu} handleOpenMenu={handleOpenMenu}>
+          <Component {...pageProps} loading={loading} setLoading={setLoading} />
+        </Layout>
         <GlobalStyle />
       </ThemeProvider>
     </>

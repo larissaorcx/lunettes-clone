@@ -2,36 +2,49 @@ import { keyframes } from 'styled-components';
 
 export const animationList = keyframes`
 0%{
-    -webkit-transform: translateX(-1000px);
-    transform: translateX(-1000px);
+    -webkit-transform: translateX(-1100px);
+    transform: translateX(-1100px);
     opacity: 0;
 }
 100%{
     -webkit-transform: translateX(0px);
     transform: translateX(0px);
-    opacity: 0.9;   
+    opacity: 1;   
 }
+
 `;
 export const animationContainer = keyframes`
 
-\ 0% {
-    height: 0 ;
-    opacity: 0;
+0% {
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+    -webkit-transform-origin: 100% 0%;
+    transform-origin: 100% 0%;
+    opacity: 1;
   }
-  \ 100% {
-    height: 100vh ;
+  100% {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+    -webkit-transform-origin: 100% 0%;
+    transform-origin: 100% 0%;
     opacity: 1;
   }
 `;
 
 export const animationContainerClose = keyframes`
 
-\ 100% {
-    height:100vh;
+0% {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+    -webkit-transform-origin: 100% 0%;
+    transform-origin: 100% 0%;
     opacity: 1;
   }
-  \ 0% {
-    height:0;
-    opacity: 0;
+  100% {
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+    -webkit-transform-origin: 100% 0%;
+     transform-origin: 100% 0%;
+    opacity: 1;
   }
 `;
