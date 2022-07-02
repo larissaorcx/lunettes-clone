@@ -7,11 +7,11 @@ import { ReactNode, useEffect, useState } from 'react';
 import mockHome from '../api/mockHome';
 import mockListMenu from '../components/Header/Menu/ListMenu/mockListMenu';
 import mockFooter from '../components/Footer/mockFooter';
-import Loading from './Loading/Loading';
+
 import MenuHeader from './Header/Menu';
 
 type LayoutProps = {
-  openMenu: boolean;
+  openMenu: boolean | null;
   handleOpenMenu: () => void;
   children: ReactNode;
 };
@@ -30,7 +30,6 @@ export default function Layout({
   const [conteudoFooter, setConteudoFooter] = useState<FooterType>(
     {} as FooterType
   );
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function loadLayout() {
@@ -42,7 +41,6 @@ export default function Layout({
       setConteudoMenu(header);
       setConteudoFloatingMenu(menuFloating);
       setConteudoFooter(footer);
-      setLoading(false);
     }
 
     loadLayout();

@@ -92,4 +92,4 @@ export default [
     createdAt: '2021-08-16T23:30:08.603Z',
     __v: 0,
   },
-] as const;
+];

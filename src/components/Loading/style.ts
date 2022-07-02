@@ -7,9 +7,12 @@ export const ContainerLoading = styled.div`
   justify-content: center;
   width: 100%;
   height: 100vh;
-  background: gray;
+  background-color: gray;
+  position: fixed;
 
-  opacity: 0.7;
+  z-index: 999;
+
+  opacity: 0.9;
 `;
 
 export const Text = styled.h3`
@@ -18,4 +21,5 @@ export const Text = styled.h3`
   line-height: 1.5;
   color: white;
   background-color: rgb(0, 0, 0);
+  opacity: 1;
 `;
