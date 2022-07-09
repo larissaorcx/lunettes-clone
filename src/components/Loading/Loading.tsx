@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import { ImageLogo } from '../../pages/types';
 import { ContainerLoading, Text } from './style';
 
 export default function Loading() {
@@ -7,11 +6,11 @@ export default function Loading() {
     <ContainerLoading>
       <Image
         alt="logoNegativo"
-        src="/assets/header/logotipo-negativo.png"
-        width={50}
-        height={50}
+        src="/logotipo-circle.png"
+        width={80}
+        height={80}
       />
-      <Text>Carregando...</Text>
+      <Text>Carregando</Text>
     </ContainerLoading>
   );
 }
