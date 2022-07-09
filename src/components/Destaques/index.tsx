@@ -45,11 +45,7 @@ type DestaquesProps = {
   setLoading: (loading: boolean) => void;
 };
 
-export default function Destaques({
-  config,
-  setLoading,
-  loading,
-}: DestaquesProps) {
+export default function Destaques({ setLoading }: DestaquesProps) {
   const [products, setProducts] = useState<Products[]>([] as Products[]);
 
   useEffect(() => {
@@ -62,7 +58,6 @@ export default function Destaques({
 
         setLoading(false);
       }, 3000);
-      console.log('depois do setTimeout');
     }
     loadProducts();
   }, []);

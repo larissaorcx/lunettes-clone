@@ -16,11 +16,14 @@ export const animationList = keyframes`
 export const animationContainer = keyframes`
 
 0% {
+  
     -webkit-transform: scaleY(0);
-    transform: scaleY(0);
-    -webkit-transform-origin: 100% 0%;
-    transform-origin: 100% 0%;
-    opacity: 1;
+  transform: scaleY(0);
+  -webkit-transform-origin: 100% 0%;
+  transform-origin: 100% 0%;
+  opacity: 1;
+  
+  
   }
   100% {
     -webkit-transform: scaleY(1);

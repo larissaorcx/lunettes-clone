@@ -13,9 +13,11 @@ interface ListProps {
 export const ListMenuContainer = styled.div`
   display: flex;
   flex-direction: column;
+  /* width: ${props => (props.theme.open ? '100%' : '0')}; */
+  /* height: ${props => (props.theme.open ? '100vh' : '0')}; */
+  width: 100%;
   height: 100vh;
   padding: ${props => (props.theme.open ? '30px' : '0')};
-  display: flex;
   background: #000;
   z-index: 50;
 
@@ -32,7 +34,6 @@ export const ListMenuContainer = styled.div`
     background: #000;
     z-index: -1;
   }
-
   ${props => {
     switch (props.theme.open) {
       case true:
