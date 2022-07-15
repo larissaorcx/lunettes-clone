@@ -1,6 +1,9 @@
 import styled, { css } from 'styled-components';
 import { animationMenu } from './animacao';
-import { animationContainer } from './ListMenu/animationList';
+import {
+  animationContainer,
+  animationContainerClose,
+} from './ListMenu/animationList';
 
 interface MenuProps {
   scroll: boolean;
@@ -14,6 +17,59 @@ interface ButtonProps {
 export const Menu = styled.div`
   display: flex;
   flex-direction: column;
+  /* width: ${props => (props.theme.open ? '100%' : '0')}; */
+  /* height: ${props => (props.theme.open ? '100vh' : '0')}; */
+  width: 100%;
+  height: 100vh;
+  /* padding: ${props => (props.theme.open ? '30px' : '0')}; */
+  /* background: #000; */
+  z-index: 50;
+  overflow-y: scroll;
+  position: fixed;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #000;
+    z-index: -1;
+
+    ${props => {
+      switch (props.theme.open) {
+        case true:
+          return css`
+            -webkit-animation: ${animationContainer} 0.5s
+              cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+            animation: ${animationContainer} 0.5s
+              cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+          `;
+        case false:
+          return css`
+            -webkit-animation: ${animationContainerClose} 0.5s
+              cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+            animation: ${animationContainerClose} 0.5s
+              cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+          `;
+        default:
+          return css`
+            height: 0vh;
+          `;
+      }
+    }}
+  }
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media screen and (max-width: 740px) {
+    width: 100vw;
+    padding-right: 10px;
+    padding-left: 10px;
+    overflow-y: scroll;
+  }
 `;
 
 export const MenuContainer = styled.div<MenuProps>`
@@ -21,7 +77,7 @@ export const MenuContainer = styled.div<MenuProps>`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: ${props => (props.scroll ? '65px' : '100px')};
+  height: ${props => (props.scroll ? '65px' : '120px')};
   flex-direction: row;
   justify-content: space-between;
   margin: 0px 735.5px 0px 0px;
@@ -30,7 +86,12 @@ export const MenuContainer = styled.div<MenuProps>`
   top: 0;
 
   background-color: ${props => (props.scroll ? 'black' : '')};
-  background-color: ${props => (props.openMenu ? 'black' : '')};
+  ${props =>
+    props.openMenu &&
+    css`
+      background-color: rgb(15, 15, 15);
+      border-bottom: 1px solid rgb(30, 30, 30);
+    `}
 
   z-index: 99;
 

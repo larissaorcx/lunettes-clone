@@ -15,12 +15,12 @@ interface ListMenuProps {
 export default function ListMenu({ listMenu }: ListMenuProps) {
   return (
     <ListMenuContainer>
-      <ButtonHome type="button">{listMenu.buttonHome}</ButtonHome>
+      <Button type="button">{listMenu.buttonHome}</Button>
       <ContainerCagtegories>
         <Button type="button">{listMenu.grau.title}</Button>
         <ul>
           {listMenu.grau.category.map((categories, index) => (
-            <ListCategory key={categories.title} position={index + 2}>
+            <ListCategory key={categories.title} position={index + 1}>
               <Image
                 alt={categories.alt}
                 src={categories.img}
