@@ -1,47 +1,25 @@
+import { Images, Media, Oculos, Text } from '../../pages/types';
 import Hashtag from '../Footer/Hastag/index';
 import InfosProduto from './InfoProdutos';
 
 import { Slider, Regras, TextoRegras } from './style';
 import SwiperSlides from './Swiper';
 
-type Oculos = {
-  title: string;
-  category: string[];
-};
-
-type Itens = {
-  img: string;
-  alt: string;
-  link: string;
-};
-
-type Media = {
-  title: string;
-  itens: Itens[];
-};
-
-type Text = {
-  title: string;
-  description: string;
-};
-
-type Image = {
-  img: string;
-  alt: string;
-};
-
 interface FooterProps {
   hastag: Text;
-  swiper: Image[];
+  swiper: Images[];
   info: {
-    logo: Image;
+    logo: Images;
     solar: Oculos;
     grau: Oculos;
-    adress: {
-      street: string;
-      CNPJ: string;
-      whatsapp: string;
-      email: string;
+    contato: {
+      title: string;
+      adress: {
+        street: string;
+        cnpj: string;
+        whatsapp: string;
+        email: string;
+      };
     };
     socialMedia: Media;
     termos: {
@@ -51,19 +29,15 @@ interface FooterProps {
 }
 
 export default function Footer({ hastag, swiper, info }: FooterProps) {
-  console.log('hastag', hastag, 'swiper', swiper, 'info', info);
   return (
     <>
       <Hashtag hastag={hastag} />
       <Slider>
-        <SwiperSlides />
+        <SwiperSlides swiper={swiper} />
       </Slider>
-      <InfosProduto />
+      <InfosProduto info={info} />
       <Regras>
-        <TextoRegras>
-          © 2020 Todos os direitos reservados. | Política de privacidade |
-          Termos de uso
-        </TextoRegras>
+        <TextoRegras>{info.termos.text}</TextoRegras>
       </Regras>
     </>
   );

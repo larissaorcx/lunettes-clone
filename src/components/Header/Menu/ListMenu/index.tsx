@@ -1,144 +1,53 @@
 import {
   Button,
   ListMenuContainer,
-  ContainerButtonSol,
-  ContainerButtonGrau,
+  ContainerCagtegories,
   ButtonHome,
+  ListCategory,
 } from './style';
 import Image from 'next/image';
+import { MenuFloating } from '../../../../pages/types';
 
-export default function ListMenu() {
+interface ListMenuProps {
+  listMenu: MenuFloating;
+}
+
+export default function ListMenu({ listMenu }: ListMenuProps) {
   return (
     <ListMenuContainer>
-      <ButtonHome type="button">Home</ButtonHome>
-      <ContainerButtonGrau>
-        <Button type="button">Óculos de grau</Button>
+      <Button type="button">{listMenu.buttonHome}</Button>
+      <ContainerCagtegories>
+        <Button type="button">{listMenu.grau.title}</Button>
         <ul>
-          <li>
-            <Image
-              alt="aviador"
-              src="/assets/oculos/aviador.png"
-              width={150}
-              height={50}
-            />
-            <span>Aviador</span>
-          </li>
-          S
-          <li>
-            <Image
-              alt="quadrado"
-              src="/assets/oculos/quadrado.png"
-              width={150}
-              height={50}
-            />
-            <span>Quadrado</span>
-          </li>
-          <li>
-            <Image
-              alt="vintage"
-              src="/assets/oculos/vintage.png"
-              width={150}
-              height={50}
-            />
-            <span>Vintage</span>
-          </li>
-          <li>
-            <Image
-              alt="redondo"
-              src="/assets/oculos/redondo.png"
-              width={150}
-              height={50}
-            />
-            <span>Redondo</span>
-          </li>
-          <li>
-            <Image
-              alt="gatinho"
-              src="/assets/oculos/gatinho.png"
-              width={150}
-              height={50}
-            />
-            <span>Gatinho</span>
-          </li>
-          <li>
-            <Image
-              alt="oval"
-              src="/assets/oculos/oval.png"
-              width={150}
-              height={50}
-            />
-            <span>Oval</span>
-          </li>
-          <li>
-            <Image
-              alt="retangular"
-              src="/assets/oculos/retangular.png"
-              width={150}
-              height={50}
-            />
-            <span>Retangular</span>
-          </li>
+          {listMenu.grau.category.map((categories, index) => (
+            <ListCategory key={categories.title} position={index + 1}>
+              <Image
+                alt={categories.alt}
+                src={categories.img}
+                width={150}
+                height={50}
+              />
+              <p>{categories.title}</p>
+            </ListCategory>
+          ))}
         </ul>
-      </ContainerButtonGrau>
-      <ContainerButtonSol>
-        <Button type="button">Óculos de sol</Button>
+      </ContainerCagtegories>
+      <ContainerCagtegories>
+        <Button type="button">{listMenu.solar.title}</Button>
         <ul>
-          <li>
-            <Image
-              alt="aviador"
-              src="/assets/oculos/aviador.png"
-              width={150}
-              height={50}
-            />
-            <span>Aviador</span>
-          </li>
-          <li>
-            <Image
-              alt="quadrado"
-              src="/assets/oculos/quadrado.png"
-              width={150}
-              height={50}
-            />
-            <span>Quadrado</span>
-          </li>
-          <li>
-            <Image
-              alt="vintage"
-              src="/assets/oculos/vintage.png"
-              width={150}
-              height={50}
-            />
-            <span>Vintage</span>
-          </li>
-          <li>
-            <Image
-              alt="oval"
-              src="/assets/oculos/redondo.png"
-              width={150}
-              height={50}
-            />
-            <span>Redondo</span>
-          </li>
-          <li>
-            <Image
-              alt="gatinho"
-              src="/assets/oculos/gatinho.png"
-              width={150}
-              height={50}
-            />
-            <span>Gatinho</span>
-          </li>
-          <li>
-            <Image
-              alt="espelho"
-              src="/assets/oculos/espelhado.png"
-              width={150}
-              height={50}
-            />
-            <span>Espelho</span>
-          </li>
+          {listMenu.solar.category.map((categories, index) => (
+            <ListCategory key={categories.title} position={index + 2}>
+              <Image
+                alt={categories.alt}
+                src={categories.img}
+                width={150}
+                height={50}
+              />
+              <p>{categories.title}</p>
+            </ListCategory>
+          ))}
         </ul>
-      </ContainerButtonSol>
+      </ContainerCagtegories>
     </ListMenuContainer>
   );
 }

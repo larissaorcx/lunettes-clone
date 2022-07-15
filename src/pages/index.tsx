@@ -1,119 +1,130 @@
-import About from '../components/Contatos';
 import Destaques, { Products } from '../components/Destaques';
-import Footer from '../components/Footer';
-import Header from '../components/Header';
+
 import dataHome from '../api/mockHome';
 import { useState } from 'react';
-import { GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 import config from '../components/Destaques/dataDestaques';
-import data from '../components/Footer/dataFooter';
+import { HeaderType, AboutType, FooterType, MenuFloating } from './types';
+import About from '../components/Contatos';
 
 type HomeProps = {
   conteudo: {
-    header: Header;
-    about: About;
+    header: HeaderType;
+    about: AboutType;
   };
   destaques: Products[];
-  footer: Footer;
+  footer: FooterType;
+  listMenu: MenuFloating;
+  openMenu: boolean;
+  handleOpenMenu: () => void;
+  loading: boolean;
+  setLoading: (loading: boolean) => void;
 };
 
-type Image = {
-  img: string;
-  alt: string;
-};
-
-type Icon = {
-  img: string;
-  alt: string;
-  title: string;
-  description: string;
-};
-
-type Text = {
-  title: string;
-  description: string;
-};
-
-type Oculos = {
-  title: string;
-  category: string[];
-};
-
-type Media = {
-  title: string;
-  itens: Itens[];
-};
-
-type Itens = {
-  img: string;
-  alt: string;
-  link: string;
-};
-
-type Header = {
-  imgBackgroung: Image;
-  logo: Image;
-  menu: Image;
-  sacola: Image;
-};
-
-type About = {
-  atendimento: Image;
-  text: Text;
-  aboutAtendimento: {
-    iconCoracao: Icon;
-    iconWhats: Icon;
-    iconAgenda: Icon;
-  };
-};
-
-type Footer = {
-  hastag: Text;
-  swiper: Image[];
-  info: {
-    logo: Image;
-    solar: Oculos;
-    grau: Oculos;
-    adress: {
-      street: string;
-      CNPJ: string;
-      whatsapp: string;
-      email: string;
-    };
-    socialMedia: Media;
-    termos: {
-      text: string;
-    };
-  };
-};
-
-export default function Home({ conteudo, destaques, footer }: HomeProps) {
+export default function Home({
+  conteudo,
+  destaques,
+  loading,
+  setLoading,
+}: HomeProps) {
   const [destaque] = useState(destaques);
 
   return (
     <>
-      <Header />
       <About
         atendimento={conteudo.about.atendimento}
         text={conteudo.about.text}
         aboutAtendimento={conteudo.about.aboutAtendimento}
       />
-      {!!destaque.length && <Destaques config={destaque} />}
-      <Footer
-        hastag={footer.hastag}
-        swiper={footer.swiper}
-        info={footer.info}
-      />
+      {!!destaque.length && (
+        <Destaques
+          config={destaque}
+          loading={loading}
+          setLoading={setLoading}
+        />
+      )}
     </>
   );
 }
 
-export const getServerSideProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   return {
     props: {
       conteudo: dataHome,
       destaques: config,
-      footer: data,
     },
   };
 };
+
+// import Destaques, { Products } from '../components/Destaques';
+
+// import dataHome from '../api/mockHome';
+// import { useState } from 'react';
+// import { GetServerSideProps } from 'next';
+// import config from '../components/Destaques/dataDestaques';
+// import data from '../components/Footer/mockFooter';
+// import dataListMenu from '../components/Header/Menu/ListMenu/mockListMenu';
+// import { HeaderType, AboutType, FooterType, MenuFloating } from './types';
+// import Header from '../components/Header';
+// import About from '../components/Contatos';
+// import Footer from '../components/Footer';
+
+// type HomeProps = {
+//   conteudo: {
+//     header: HeaderType;
+//     about: AboutType;
+//   };
+//   destaques: Products[];
+//   footer: FooterType;
+//   listMenu: MenuFloating;
+//   openMenu: boolean;
+//   handleOpenMenu: () => void;
+// };
+
+// export default function Home({
+//   conteudo,
+//   destaques,
+//   footer,
+//   listMenu,
+//   openMenu,
+//   handleOpenMenu,
+// }: HomeProps) {
+//   const [destaque] = useState(destaques);
+
+//   return (
+//     <>
+//       <Header
+//         imgBackground={conteudo.header.imgBackground}
+//         backgroundMobile={conteudo.header.backgroundMobile}
+//         logoHome={conteudo.header.logoHome}
+//         menu={conteudo.header.menu}
+//         sacola={conteudo.header.sacola}
+//         listMenu={listMenu}
+//         openMenu={openMenu}
+//         handleOpenMenu={handleOpenMenu}
+//       />
+//       <About
+//         atendimento={conteudo.about.atendimento}
+//         text={conteudo.about.text}
+//         aboutAtendimento={conteudo.about.aboutAtendimento}
+//       />
+//       {!!destaque.length && <Destaques config={destaque} />}
+//       <Footer
+//         hastag={footer.hastag}
+//         swiper={footer.swiper}
+//         info={footer.info}
+//       />
+//     </>
+//   );
+// }
+
+// export const getServerSideProps: GetServerSideProps = async () => {
+//   return {
+//     props: {
+//       conteudo: dataHome,
+//       destaques: config,
+//       footer: data,
+//       listMenu: dataListMenu,
+//     },
+//   };
+// };

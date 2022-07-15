@@ -8,121 +8,48 @@ import 'swiper/css/navigation';
 import { Autoplay, Navigation } from 'swiper';
 import Image from 'next/image';
 
-export default function SwiperSlides() {
+import { Images } from '../../../pages/types';
+
+interface SwiperProps {
+  swiper: Images[];
+}
+
+export default function SwiperSlides({ swiper }: SwiperProps) {
   return (
     <Swiper
-      slidesPerView={4}
-      spaceBetween={0.2}
+      slidesPerView={1}
+      spaceBetween={0.1}
       autoplay={{
         delay: 2500,
         disableOnInteraction: false,
       }}
       breakpoints={{
-        640: {
+        350: {
           slidesPerView: 2,
-          spaceBetween: 20,
+          spaceBetween: 0,
         },
-        768: {
+        680: {
+          slidesPerView: 2,
+          spaceBetween: 0.1,
+        },
+        740: {
           slidesPerView: 4,
-          spaceBetween: 40,
+          spaceBetween: 0.1,
         },
         1024: {
           slidesPerView: 5,
-          spaceBetween: 50,
+          spaceBetween: 0.1,
         },
       }}
       navigation={true}
       modules={[Autoplay, Navigation]}
       className="mySwiper"
     >
-      <SwiperSlide>
-        <Image
-          alt="img1"
-          src="/assets/slider/img1.png"
-          width={960}
-          height={1450}
-        />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Image
-          alt="img2"
-          src="/assets/slider/img2.png"
-          width={960}
-          height={1450}
-        />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Image
-          alt="img3"
-          src="/assets/slider/img3.png"
-          width={960}
-          height={1450}
-        />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Image
-          alt="img4"
-          src="/assets/slider/img4.png"
-          width={960}
-          height={1450}
-        />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Image
-          alt="img5"
-          src="/assets/slider/img5.png"
-          width={960}
-          height={1450}
-        />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Image
-          alt="img1"
-          src="/assets/slider/img1.png"
-          width={960}
-          height={1450}
-        />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Image
-          alt="img1"
-          src="/assets/slider/img1.png"
-          width={960}
-          height={1450}
-        />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Image
-          alt="img2"
-          src="/assets/slider/img2.png"
-          width={960}
-          height={1450}
-        />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Image
-          alt="img3"
-          src="/assets/slider/img3.png"
-          width={960}
-          height={1450}
-        />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Image
-          alt="img4"
-          src="/assets/slider/img4.png"
-          width={970}
-          height={1450}
-        />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Image
-          alt="img5"
-          src="/assets/slider/img5.png"
-          width={960}
-          height={1450}
-        />
-      </SwiperSlide>
+      {swiper.map(image => (
+        <SwiperSlide key={image.alt}>
+          <Image alt={image.alt} src={image.img} width={960} height={1450} />
+        </SwiperSlide>
+      ))}
     </Swiper>
   );
 }

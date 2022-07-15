@@ -1,4 +1,4 @@
-const config = [
+export default [
   {
     // subcategories: ['Vintage'],
     status: 'activated',
@@ -93,5 +93,3 @@ const config = [
     __v: 0,
   },
 ];
-
-export default config;

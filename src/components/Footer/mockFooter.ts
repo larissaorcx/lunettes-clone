@@ -1,4 +1,4 @@
-const data = {
+export default {
   hastag: {
     title: '#LunettesByLari',
     description:
@@ -27,15 +27,15 @@ const data = {
     },
     {
       img: '/assets/slider/img1.png',
-      alt: 'imagem 1',
+      alt: 'imagem 6',
     },
     {
       img: '/assets/slider/img2.png',
-      alt: 'imagem 2',
+      alt: 'imagem 7',
     },
     {
       img: '/assets/slider/img3.png',
-      alt: 'imagem 3',
+      alt: 'imagem 8',
     },
   ],
   info: {
@@ -59,27 +59,30 @@ const data = {
         'Retangular',
       ],
     },
-    adress: {
-      street: 'Rua Nilza, 480 - São Paulo | 03651-120',
-      CNPJ: '20.050.347/0001-56',
-      whatsapp: '(11) 97452-3425',
-      email: 'contato@lunettes.com.br',
+    contato: {
+      title: 'Contato',
+      adress: {
+        street: 'Rua Nilza, 480 - São Paulo | 03651-120',
+        cnpj: '20.050.347/0001-56',
+        whatsapp: '(11) 97452-3425',
+        email: 'contato@lunettes.com.br',
+      },
     },
     socialMedia: {
       title: 'Redes Sociais',
       itens: [
         {
-          img: '/redesSociais/whats',
+          img: '/redesSociais/whats.png',
           alt: 'whatsapp',
           link: 'https://api.whatsapp.com/send/?phone=5511974523425&text=Ol%C3%A1+Lunettes%2C+estou+vindo+do+site+e+gostaria+de+informa%C3%A7%C3%B5es.&app_absent=0',
         },
         {
-          img: '/redesSociais/facebook',
+          img: '/redesSociais/facebook.png',
           alt: 'facebook',
           link: 'https://www.facebook.com/lunettesbylari/',
         },
         {
-          img: '/redesSociais/instagram',
+          img: '/redesSociais/insta.png',
           alt: 'instagram',
           link: 'https://www.instagram.com/lunettesbylari/',
         },
@@ -90,5 +93,3 @@ const data = {
     },
   },
 };
-
-export default data;

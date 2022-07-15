@@ -2,14 +2,31 @@ import { BotaoMenu, Logo, BotaoSacola, Menu, MenuContainer } from './style';
 import Image from 'next/image';
 import { useCallback, useEffect, useState } from 'react';
 import ListMenu from './ListMenu';
+import {
+  Images,
+  ImageLogo,
+  ImageMenu,
+  MenuFloating,
+} from '../../../pages/types';
 
-export default function MenuHeader() {
-  const [openMenu, setOpenMenu] = useState(false);
+interface MenuProps {
+  logoHome: ImageLogo;
+  menu: ImageMenu;
+  sacola: Images;
+  listMenu: MenuFloating;
+  openMenu: boolean | null;
+  handleOpenMenu: () => void;
+}
+
+export default function MenuHeader({
+  logoHome,
+  menu,
+  sacola,
+  listMenu,
+  openMenu,
+  handleOpenMenu,
+}: MenuProps) {
   const [scroll, setScroll] = useState(false);
-
-  function handleOpenMenu() {
-    setOpenMenu(!openMenu);
-  }
 
   const handleScrollMenu = useCallback(() => {
     if (
@@ -31,46 +48,45 @@ export default function MenuHeader() {
 
   return (
     <Menu>
-      <MenuContainer scroll={scroll}>
-        <BotaoMenu type="button" onClick={() => handleOpenMenu()}>
+      <MenuContainer scroll={scroll} openMenu={openMenu}>
+        <BotaoMenu
+          type="button"
+          onClick={() => handleOpenMenu()}
+          openMenu={openMenu}
+        >
           <Image
-            alt="menu-categorias"
-            src={
-              openMenu ? '/assets/oculos/fecha.png' : '/assets/header/menu.png'
-            }
-            width={42}
-            height={26}
+            alt={menu.alt}
+            src={openMenu ? menu.iconClose.img : menu.img}
+            width={30}
+            height={25}
           />
         </BotaoMenu>
-        <Logo scroll={scroll}>
+        <Logo scroll={scroll} openMenu={openMenu}>
           {scroll ? (
             <Image
-              alt="logo"
-              src="/assets/header/logotipo-negativo.png"
+              alt={logoHome.logoNegativo.alt}
+              src={logoHome.logoNegativo.img}
               width={50}
               height={50}
-              priority
             />
           ) : (
             <Image
-              alt="logo"
-              src="/assets/header/Logo-Lunettes.png"
+              alt={logoHome.alt}
+              src={logoHome.img}
               width={245.3}
               height={108.4}
-              priority
             />
           )}
         </Logo>
         <BotaoSacola type="button">
-          <Image
-            alt="sacola"
-            src="/assets/header/sacola.png"
-            width={58.8}
-            height={55.7}
-          />
+          {openMenu ? (
+            ''
+          ) : (
+            <Image alt={sacola.alt} src={sacola.img} width={30} height={30} />
+          )}
         </BotaoSacola>
       </MenuContainer>
-      {openMenu && <ListMenu />}
+      {openMenu && <ListMenu listMenu={listMenu} />}
     </Menu>
   );
 }

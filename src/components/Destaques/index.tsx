@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { FaRegHeart } from 'react-icons/fa';
 
 import {
@@ -12,13 +11,13 @@ import {
   Preço,
   BotaoReserva,
   TextoBotao,
-  BotaoCores,
-  CoresContainer,
 } from './style';
 
-import { useState } from 'react';
+import Images from './Carrosel/Images';
+import dataDestaques from './dataDestaques';
+import { useEffect, useState } from 'react';
 
-type ImageProps = {
+export type ImageProps = {
   id: string;
   url: string;
   color?: {
@@ -42,52 +41,34 @@ export type Products = {
 
 type DestaquesProps = {
   config: Products[];
+  loading: boolean;
+  setLoading: (loading: boolean) => void;
 };
 
-export default function Destaques({ config }: DestaquesProps) {
-  const [hover, setHover] = useState();
-  const [click, setClick] = useState(false);
-  const [productID, setProductID] = useState(config.map(id => id._id));
+export default function Destaques({ setLoading }: DestaquesProps) {
+  const [products, setProducts] = useState<Products[]>([] as Products[]);
 
-  function handleClickColor() {
-    setClick(!click);
-  }
+  useEffect(() => {
+    async function loadProducts() {
+      setLoading(true);
+      const produtos = await dataDestaques;
 
-  function handleMouseOver() {
-    setProductID(config.map(id => id._id));
-    setClick(!click);
-  }
-  function handleMouseOut() {
-    setProductID(config.map(id => id._id));
-  }
+      setTimeout(() => {
+        setProducts(produtos);
+
+        setLoading(false);
+      }, 3000);
+    }
+    loadProducts();
+  }, []);
 
   return (
     <DestaquesContainer>
       <Titulo>Prodrutos em destaque</Titulo>
       <ProdutoContainer>
-        {config.map(product => (
+        {products.map((product: Products) => (
           <Produto key={product._id}>
-            <Image
-              alt="product"
-              src={click ? product.images[1].url : product.images[0].url}
-              width={360}
-              height={360}
-              onMouseOver={() => handleMouseOver()}
-              onMouseOut={() => handleMouseOut()}
-            />
-            <CoresContainer>
-              {product.images.map(
-                image =>
-                  image.color?.background && (
-                    <BotaoCores
-                      type="button"
-                      color={image.color.background}
-                      onClick={() => handleClickColor()}
-                      click={click}
-                    />
-                  )
-              )}
-            </CoresContainer>
+            <Images data={product.images} />
             <InfosProduto>
               <NomeProduto>{product.productName}</NomeProduto>
               <CodigoProduto>{product.code}</CodigoProduto>

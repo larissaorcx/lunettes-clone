@@ -1,19 +1,31 @@
-const dataHome = {
+export default {
   header: {
-    imgBackgroung: {
-      img: '../../public/background.png',
+    imgBackground: {
+      img: '/background.jpg',
+      alt: 'background',
+    },
+    backgroundMobile: {
+      img: '/backMobile.png',
       alt: 'background',
     },
     logoHome: {
       img: '/assets/header/Logo-Lunettes.png',
       alt: 'Logo Lunetts',
+      logoNegativo: {
+        img: '/assets/header/logotipo-negativo.png',
+        alt: 'Logo Lunetts negativo',
+      },
     },
     menu: {
       img: '/assets/header/menu.png',
       alt: 'icone menu',
+      iconClose: {
+        img: '/assets/oculos/fecha.png',
+        alt: 'close',
+      },
     },
     sacola: {
-      img: '/assets/header/Logo-Lunettes.png',
+      img: '/assets/header/sacola.png',
       alt: 'icone sacola',
     },
   },
@@ -48,6 +60,4 @@ const dataHome = {
       },
     },
   },
-};
-
-export default dataHome;
+} as const;

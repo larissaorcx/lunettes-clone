@@ -1,25 +1,9 @@
 import Atendimento from './Atendimento';
 import DescricaoAtendimento from './DescriçãoAtendimento';
-
-type Image = {
-  img: string;
-  alt: string;
-};
-
-type Icon = {
-  img: string;
-  alt: string;
-  title: string;
-  description: string;
-};
-
-type Text = {
-  title: string;
-  description: string;
-};
+import { Images, Text, Icon } from '../../pages/types';
 
 interface AboutProps {
-  atendimento: Image;
+  atendimento: Images;
   text: Text;
   aboutAtendimento: {
     iconCoracao: Icon;
