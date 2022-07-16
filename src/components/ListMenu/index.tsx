@@ -6,21 +6,37 @@ import {
   ListCategory,
 } from './style';
 import Image from 'next/image';
-import { MenuFloating } from '../../../../pages/types';
+import { MenuFloating } from '../../pages/types';
+import { useRouter } from 'next/router';
 
 interface ListMenuProps {
   listMenu: MenuFloating;
 }
 
 export default function ListMenu({ listMenu }: ListMenuProps) {
+  const router = useRouter();
+
   return (
     <ListMenuContainer>
-      <ButtonHome type="button">{listMenu.buttonHome}</ButtonHome>
+      <ButtonHome type="button" onClick={() => router.push('/')}>
+        {listMenu.buttonHome}
+      </ButtonHome>
       <ContainerCagtegories>
-        <Button type="button">{listMenu.grau.title}</Button>
+        <Button
+          type="button"
+          onClick={() => {
+            router.push('/produtos/grau');
+          }}
+        >
+          {listMenu.grau.title}
+        </Button>
         <ul>
           {listMenu.grau.category.map((categories, index) => (
-            <ListCategory key={categories.title} position={index + 2}>
+            <ListCategory
+              key={categories.title}
+              position={index + 2}
+              onClick={() => router.push('/produtos/grau')}
+            >
               <Image
                 alt={categories.alt}
                 src={categories.img}
@@ -33,10 +49,16 @@ export default function ListMenu({ listMenu }: ListMenuProps) {
         </ul>
       </ContainerCagtegories>
       <ContainerCagtegories>
-        <Button type="button">{listMenu.solar.title}</Button>
+        <Button type="button" onClick={() => router.push('/produtos/grau')}>
+          {listMenu.solar.title}
+        </Button>
         <ul>
           {listMenu.solar.category.map((categories, index) => (
-            <ListCategory key={categories.title} position={index + 2}>
+            <ListCategory
+              key={categories.title}
+              position={index + 2}
+              onClick={() => router.push('/produtos/grau')}
+            >
               <Image
                 alt={categories.alt}
                 src={categories.img}

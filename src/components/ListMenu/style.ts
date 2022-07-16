@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { animationRedes } from '../../../Footer/InfoProdutos/animacao';
+import { animationRedes } from '../Footer/InfoProdutos/animacao';
 import {
   animationContainer,
   animationList,

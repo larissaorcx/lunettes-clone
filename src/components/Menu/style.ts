@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { animationMenu } from './animacao';
-import { animationContainer } from './ListMenu/animationList';
+import { animationContainer } from '../ListMenu/animationList';
 
 interface MenuProps {
   scroll: boolean;
