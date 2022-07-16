@@ -6,7 +6,9 @@ import {
   Titulo,
   Simbolo,
   ContainerButton,
-  ButtonFilter,
+  ButtonFilterCor,
+  ButtonFilterModelo,
+  ButtonFilterPreco,
 } from './style';
 import dataHome from '../../api/mockHome';
 import { GetServerSideProps } from 'next';
@@ -28,9 +30,9 @@ export default function Products({ background }: ProductsProps) {
       </Container>
       <Titulo>Grau</Titulo>
       <ContainerButton>
-        <ButtonFilter>Cor</ButtonFilter>
-        <ButtonFilter>Modelos</ButtonFilter>
-        <ButtonFilter>Preços</ButtonFilter>
+        <ButtonFilterCor>Cor</ButtonFilterCor>
+        <ButtonFilterModelo>Modelos</ButtonFilterModelo>
+        <ButtonFilterPreco>Preços</ButtonFilterPreco>
       </ContainerButton>
       <ListProducts />
     </>

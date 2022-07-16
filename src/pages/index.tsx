@@ -32,7 +32,7 @@ export default function Home({
 
   return (
     <>
-      <Background backgroundImages={conteudo.header} />;
+      <Background backgroundImages={conteudo.header} />
       <About
         atendimento={conteudo.about.atendimento}
         text={conteudo.about.text}
