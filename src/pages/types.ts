@@ -55,10 +55,14 @@ export type ImagesCategories = {
 };
 
 export interface HeaderType {
-  imgBackground: Images;
-  // logoHome: ImageLogo;
-  // menu: ImageMenu;
-  // sacola: Images;
+  background1: {
+    img: string;
+    alt: string;
+  };
+  background2: {
+    img: string;
+    alt: string;
+  };
 }
 
 export interface AboutType {

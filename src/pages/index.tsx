@@ -6,6 +6,7 @@ import { GetServerSideProps } from 'next';
 import config from '../components/Destaques/dataDestaques';
 import { HeaderType, AboutType, FooterType, MenuFloating } from './types';
 import About from '../components/Contatos';
+import { Background } from '../../public/styles/backgroundStyle';
 
 type HomeProps = {
   conteudo: {
@@ -31,6 +32,7 @@ export default function Home({
 
   return (
     <>
+      <Background backgroundImages={conteudo.header} />;
       <About
         atendimento={conteudo.about.atendimento}
         text={conteudo.about.text}

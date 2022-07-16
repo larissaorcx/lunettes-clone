@@ -1,14 +1,15 @@
 import styled from 'styled-components';
-import { Images } from '../../pages/types';
+import { HeaderType } from '../../src/pages/types';
 
-interface BackgroundProp {
-  imgBackground: Images;
+interface BackgroundProps {
+  backgroundImages: HeaderType;
 }
 
-export const BackgroundImg = styled.div<BackgroundProp>`
+export const Background = styled.div<BackgroundProps>`
   width: 100%;
   height: 100vh;
-  background: url(${props => props.imgBackground.img});
+  background: url(${props => props.backgroundImages.background1.img});
+
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -16,7 +17,7 @@ export const BackgroundImg = styled.div<BackgroundProp>`
   background-attachment: fixed;
 
   @media screen and (max-width: 740px) {
-    background: url(${props => props.imgBackground.img});
+    background: url(${props => props.backgroundImages.background1.img});
     background-size: cover;
     background-position: center;
     width: 360px;

@@ -18,7 +18,6 @@ function MyApp({ Component, pageProps }: AppProps) {
   const theme = {
     open: openMenu,
   };
-  console.log('loading', loading);
   return (
     <>
       <ThemeProvider theme={theme}>

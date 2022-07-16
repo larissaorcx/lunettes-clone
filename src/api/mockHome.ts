@@ -1,8 +1,12 @@
 export default {
   header: {
-    imgBackground: {
+    background1: {
       img: '/background.jpg',
       alt: 'background',
+    },
+    background2: {
+      img: '/backgroundInternal.jpg',
+      alt: 'background2',
     },
     backgroundMobile: {
       img: '/backMobile.png',
