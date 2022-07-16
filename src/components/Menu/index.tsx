@@ -52,8 +52,8 @@ export default function MenuHeader({
           <Image
             alt={menu.alt}
             src={openMenu ? menu.iconClose.img : menu.img}
-            width={openMenu ? 32 : 42}
-            height={openMenu ? 32 : 26}
+            width={30}
+            height={25}
           />
         </BotaoMenu>
         <Logo scroll={scroll} openMenu={openMenu}>
@@ -77,16 +77,11 @@ export default function MenuHeader({
           {openMenu ? (
             ''
           ) : (
-            <Image
-              alt={sacola.alt}
-              src={sacola.img}
-              width={58.8}
-              height={55.7}
-            />
+            <Image alt={sacola.alt} src={sacola.img} width={30} height={30} />
           )}
         </BotaoSacola>
       </MenuContainer>
-      <ListMenu listMenu={listMenu} />
+      {openMenu && <ListMenu listMenu={listMenu} />}
     </Menu>
   );
 }

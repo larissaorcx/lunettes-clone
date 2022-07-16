@@ -11,62 +11,8 @@ interface ListProps {
 }
 
 export const ListMenuContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  /* width: ${props => (props.theme.open ? '100%' : '0')}; */
-  /* height: ${props => (props.theme.open ? '100vh' : '0')}; */
-  width: 100%;
-  height: 100vh;
-  padding: ${props => (props.theme.open ? '30px' : '0')};
-  background: #000;
-  z-index: 50;
-
-  overflow-y: scroll;
-  position: fixed;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: #000;
-    z-index: -1;
-  }
-  ${props => {
-    switch (props.theme.open) {
-      case true:
-        return css`
-          -webkit-animation: ${animationContainer} 0.5s
-            cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-          animation: ${animationContainer} 0.5s
-            cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-        `;
-      case false:
-        return css`
-          -webkit-animation: ${animationContainerClose} 0.5s
-            cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
-          animation: ${animationContainerClose} 0.5s
-            cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
-        `;
-      default:
-        return css`
-          height: 0vh;
-        `;
-    }
-  }};
-
-  ::-webkit-scrollbar {
-    display: none;
-  }
-
-  @media screen and (max-width: 740px) {
-    width: 100vw;
-    padding-right: 10px;
-    padding-left: 10px;
-    overflow-y: scroll;
-  }
+  padding: 20px 30px;
+  margin: 140px 0 30px 0;
 `;
 
 export const Button = styled.button`
@@ -104,9 +50,9 @@ export const ListCategory = styled.li<ListProps>`
   position: relative;
   ${({ position }) => {
     return css`
-      -webkit-animation: ${animationList} 1s cubic-bezier(0.2, 0.36, 0.45, 0.94)
-        ${`0.${position}s`} both;
-      animation: ${animationList} 1s cubic-bezier(0.2, 0.36, 0.45, 0.94)
+      -webkit-animation: ${animationList} 0.5s
+        cubic-bezier(0.2, 0.36, 0.45, 0.94) ${`0.${position}s`} both;
+      animation: ${animationList} 0.5s cubic-bezier(0.2, 0.36, 0.45, 0.94)
         ${`0.${position}s`} both;
     `;
   }};
@@ -203,10 +149,9 @@ export const ButtonHome = styled.button`
   text-align: left;
   color: rgb(255, 255, 255);
   margin-bottom: 50px;
-  text-transform: uppercase;
-  background: rgb(0, 0, 0);
+
   cursor: pointer;
-  padding-top: 100px;
+
   border: none;
   z-index: ${props => (props.theme.open ? '0' : '-2')};
 

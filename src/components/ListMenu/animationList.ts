@@ -1,17 +1,16 @@
 import { keyframes } from 'styled-components';
 
 export const animationList = keyframes`
-0%{
-    -webkit-transform: translateX(-1100px);
-    transform: translateX(-1100px);
-    opacity: 0;
-}
-100%{
+0% {
+    -webkit-transform: translateX(-100px);
+            transform: translateX(-100px);
+            opacity: 0;
+  }
+  100% {
     -webkit-transform: translateX(0px);
-    transform: translateX(0px);
-    opacity: 1;   
-}
-
+            transform: translateX(0px);
+            opacity: 1;
+  }
 `;
 export const animationContainer = keyframes`
 
