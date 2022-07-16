@@ -11,8 +11,9 @@ interface ListProps {
 }
 
 export const ListMenuContainer = styled.div`
-  padding: 20px 30px;
-  margin: 140px 0 30px 0;
+  padding: 20px 20px;
+  margin: 140px 0 0px 0;
+  background: black;
 `;
 
 export const Button = styled.button`
@@ -127,6 +128,7 @@ export const ContainerCagtegories = styled.div`
   display: flex;
   flex-direction: column;
   cursor: pointer;
+  background: black;
 
   ul {
     width: 90%;
@@ -149,6 +151,7 @@ export const ButtonHome = styled.button`
   text-align: left;
   color: rgb(255, 255, 255);
   margin-bottom: 50px;
+  background: black;
 
   cursor: pointer;
 

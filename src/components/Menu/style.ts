@@ -17,12 +17,10 @@ interface ButtonProps {
 export const Menu = styled.div`
   display: flex;
   flex-direction: column;
-  /* width: ${props => (props.theme.open ? '100%' : '0')}; */
-  /* height: ${props => (props.theme.open ? '100vh' : '0')}; */
   width: 100%;
+  /* width: ${props => (props.theme.open ? '100%' : '0')}; */
   height: 100vh;
-  /* padding: ${props => (props.theme.open ? '30px' : '0')}; */
-  /* background: #000; */
+
   z-index: 50;
   overflow-y: scroll;
   position: fixed;
@@ -34,7 +32,7 @@ export const Menu = styled.div`
     left: 0;
     width: 100%;
     height: 100vh;
-    background: #000;
+    background-color: #000;
     z-index: -1;
 
     ${props => {
@@ -66,8 +64,6 @@ export const Menu = styled.div`
 
   @media screen and (max-width: 740px) {
     width: 100vw;
-    padding-right: 10px;
-    padding-left: 10px;
     overflow-y: scroll;
   }
 `;

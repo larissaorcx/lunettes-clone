@@ -60,7 +60,6 @@ export default function Layout({
         openMenu={openMenu}
         handleOpenMenu={handleOpenMenu}
       />
-      {/* <Header backgroundImages={conteudoHeader} setBackground={setBackground} /> */}
       {children}
       <Footer
         hastag={conteudoFooter.hastag}
