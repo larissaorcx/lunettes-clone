@@ -49,12 +49,16 @@ export default function MenuHeader({
           onClick={() => handleOpenMenu()}
           openMenu={openMenu}
         >
-          <Image
-            alt={menu.alt}
-            src={openMenu ? menu.iconClose.img : menu.img}
-            width={30}
-            height={25}
-          />
+          {openMenu ? (
+            <Image
+              alt={menu.alt}
+              src={menu.iconClose.img}
+              width={30}
+              height={30}
+            />
+          ) : (
+            <Image alt={menu.alt} src={menu.img} width={30} height={20} />
+          )}
         </BotaoMenu>
         <Logo scroll={scroll} openMenu={openMenu}>
           {scroll ? (

@@ -14,11 +14,10 @@ interface ButtonProps {
   openMenu: boolean | null;
 }
 
-export const Menu = styled.div`
+export const Menu = styled.div<MenuProps>`
   display: flex;
   flex-direction: column;
   width: 100%;
-  /* width: ${props => (props.theme.open ? '100%' : '0')}; */
   height: 100vh;
 
   z-index: 50;
@@ -41,7 +40,7 @@ export const Menu = styled.div`
           return css`
             -webkit-animation: ${animationContainer} 0.5s
               cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-            animation: ${animationContainer} 0.5s
+            animation: ${animationContainer} 0.2s
               cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
           `;
         case false:
@@ -61,7 +60,6 @@ export const Menu = styled.div`
   ::-webkit-scrollbar {
     display: none;
   }
-
   @media screen and (max-width: 740px) {
     width: 100vw;
     overflow-y: scroll;
@@ -73,10 +71,10 @@ export const MenuContainer = styled.div<MenuProps>`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: ${props => (props.scroll ? '65px' : '120px')};
+  height: ${props => (props.scroll ? '65px' : '130px')};
   flex-direction: row;
   justify-content: space-between;
-  margin: 0px 735.5px 0px 0px;
+  padding: 20px 30px;
 
   position: fixed;
   top: 0;
@@ -93,6 +91,7 @@ export const MenuContainer = styled.div<MenuProps>`
 
   @media screen and (max-width: 740px) {
     width: 100vw;
+    height: ${props => (props.scroll ? '65px' : '83px')};
     padding-right: 20px;
     padding-left: 20px;
   }
@@ -101,13 +100,12 @@ export const BotaoMenu = styled.button<ButtonProps>`
   cursor: pointer;
   background-color: transparent;
   border: none;
-  margin-left: 30px;
 
   z-index: 1;
 
   @media screen and (max-width: 740px) {
-    width: ${props => (props.openMenu ? '20.4px' : '26.9px')};
-    height: ${props => (props.openMenu ? '20.4px' : '31.6px')};
+    width: ${props => (props.openMenu ? '25px' : '25px')};
+    height: ${props => (props.openMenu ? '25px' : '16px')};
     margin: 0px;
   }
 `;
@@ -123,8 +121,8 @@ export const Logo = styled.div<MenuProps>`
   z-index: 1;
 
   @media screen and (max-width: 740px) {
-    width: 150px;
-    height: ${props => (props.scroll ? '50px' : '60px')};
+    width: ${props => (props.scroll ? '43px' : '120px')};
+    height: ${props => (props.scroll ? '43px' : '53px')};
     padding: 0px;
   }
 `;
@@ -138,8 +136,10 @@ export const BotaoSacola = styled.button`
   z-index: 1;
 
   @media screen and (max-width: 740px) {
-    width: 26.9px;
-    height: 31.6px;
+    span {
+      width: 26.9px;
+      height: 30.6px;
+    }
     margin: 0px;
   }
 `;

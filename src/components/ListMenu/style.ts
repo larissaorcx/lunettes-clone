@@ -1,10 +1,6 @@
 import styled, { css } from 'styled-components';
 import { animationRedes } from '../Footer/InfoProdutos/animacao';
-import {
-  animationContainer,
-  animationList,
-  animationContainerClose,
-} from './animationList';
+import { animationList } from './animationList';
 
 interface ListProps {
   position: number;
@@ -12,8 +8,12 @@ interface ListProps {
 
 export const ListMenuContainer = styled.div`
   padding: 20px 20px;
-  margin: 140px 0 0px 0;
+  margin: 130px 0 0 0;
   background: black;
+
+  @media screen and (max-width: 740px) {
+    margin: 80px 0 0 0;
+  }
 `;
 
 export const Button = styled.button`

@@ -22,6 +22,6 @@ export const Internalbg = styled.div<InternalbgProps>`
     background-size: cover;
     background-position: center;
     width: 360px;
-    height: 113px;
+    height: 83px;
   }
 `;

@@ -1,3 +1,5 @@
+import { ButtonFilterCor } from './styleColor';
+
 export default function ColorFilter() {
-  return <button type="button">CORES</button>;
+  return <ButtonFilterCor>COR</ButtonFilterCor>;
 }

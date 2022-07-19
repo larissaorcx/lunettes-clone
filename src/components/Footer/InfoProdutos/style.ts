@@ -76,7 +76,7 @@ export const SolarContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding-left: 70px;
+  padding-left: 30px;
 
   @media screen and (max-width: 740px) {
     margin: 0px;
