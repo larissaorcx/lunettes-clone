@@ -17,7 +17,7 @@ interface ButtonProps {
 export const Menu = styled.div<MenuProps>`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  /* width: 100%; */
   height: 100vh;
 
   z-index: 50;

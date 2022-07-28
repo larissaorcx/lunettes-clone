@@ -1,42 +1,18 @@
 export default [
   {
     subcategories: ['Gatinho'],
-    associated: [
-      {
-        id: '62176f29f7f62a002273c5a1',
-        url: 'https://upload-lunettes.s3.amazonaws.com/159125ea27d5cfe079cffa4be2317dc2-xs',
-      },
-      {
-        id: '621770d3f7f62a002273c5a5',
-        url: 'https://upload-lunettes.s3.amazonaws.com/96a0acbadb2816e8be22578f86a02d0b-xs',
-      },
-      {
-        id: '62176a46f7f62a002273c590',
-        url: 'https://upload-lunettes.s3.amazonaws.com/586a83b8f66c71a6fe1e8b0cdb987a71-xs',
-      },
-    ],
     status: 'activated',
     highlighted: false,
     isNewCollection: true,
     images: [
       {
-        id: '62177257f7f62a002273c5a6',
-        url: 'https://upload-lunettes.s3.amazonaws.com/76ccadd7218dec2a823111c06925b7b1-xs',
-        color: { name: 'NOTCOLOR', background: '' },
-        allImages: {
-          xs: 'https://upload-lunettes.s3.amazonaws.com/76ccadd7218dec2a823111c06925b7b1-xs',
-          md: 'https://upload-lunettes.s3.amazonaws.com/76ccadd7218dec2a823111c06925b7b1-md',
-          lg: 'https://upload-lunettes.s3.amazonaws.com/76ccadd7218dec2a823111c06925b7b1-lg',
-        },
-      },
-      {
         id: '6217725bf7f62a002273c5a7',
         url: 'https://upload-lunettes.s3.amazonaws.com/dbbf9ce7a320725ef8baacdd818a0f1b-xs',
         color: { name: 'Marrom escuro', background: '#8B4513' },
         allImages: {
-          xs: 'https://upload-lunettes.s3.amazonaws.com/dbbf9ce7a320725ef8baacdd818a0f1b-xs',
+          xs: 'https://upload-lunettes.s3.amazonaws.com/dbbf9ce7a320725ef8baacdd818a0f1b-md',
           md: 'https://upload-lunettes.s3.amazonaws.com/dbbf9ce7a320725ef8baacdd818a0f1b-md',
-          lg: 'https://upload-lunettes.s3.amazonaws.com/dbbf9ce7a320725ef8baacdd818a0f1b-lg',
+          lg: 'https://upload-lunettes.s3.amazonaws.com/dbbf9ce7a320725ef8baacdd818a0f1b-md',
         },
       },
       {
@@ -44,9 +20,9 @@ export default [
         url: 'https://upload-lunettes.s3.amazonaws.com/27ceb88808d1eaa6c8afa8acfb0aca65-xs',
         color: { name: 'NOTCOLOR', background: '' },
         allImages: {
-          xs: 'https://upload-lunettes.s3.amazonaws.com/27ceb88808d1eaa6c8afa8acfb0aca65-xs',
+          xs: 'https://upload-lunettes.s3.amazonaws.com/27ceb88808d1eaa6c8afa8acfb0aca65-md',
           md: 'https://upload-lunettes.s3.amazonaws.com/27ceb88808d1eaa6c8afa8acfb0aca65-md',
-          lg: 'https://upload-lunettes.s3.amazonaws.com/27ceb88808d1eaa6c8afa8acfb0aca65-lg',
+          lg: 'https://upload-lunettes.s3.amazonaws.com/27ceb88808d1eaa6c8afa8acfb0aca65-md',
         },
       },
       {
@@ -54,9 +30,9 @@ export default [
         url: 'https://upload-lunettes.s3.amazonaws.com/41f3a130cf343cfc6a5256c8de37dce5-xs',
         color: { name: 'NOTCOLOR', background: '' },
         allImages: {
-          xs: 'https://upload-lunettes.s3.amazonaws.com/41f3a130cf343cfc6a5256c8de37dce5-xs',
+          xs: 'https://upload-lunettes.s3.amazonaws.com/41f3a130cf343cfc6a5256c8de37dce5-md',
           md: 'https://upload-lunettes.s3.amazonaws.com/41f3a130cf343cfc6a5256c8de37dce5-md',
-          lg: 'https://upload-lunettes.s3.amazonaws.com/41f3a130cf343cfc6a5256c8de37dce5-lg',
+          lg: 'https://upload-lunettes.s3.amazonaws.com/41f3a130cf343cfc6a5256c8de37dce5-md',
         },
       },
       {
