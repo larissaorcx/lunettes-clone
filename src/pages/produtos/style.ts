@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+type ButtonColorProps = {
+  openFilter: boolean;
+};
+
 export const Container = styled.div`
   display: flex;
   align-items: center;
@@ -62,9 +66,11 @@ export const Titulo = styled.h2`
   }
 `;
 
-export const ButtonFilterCor = styled.button`
-  background: rgb(238, 238, 238);
+export const ButtonFilterCor = styled.button<ButtonColorProps>`
+  background-color: ${props =>
+    props.openFilter ? 'rgb(238, 238, 238)' : 'rgb(248, 248, 248)'};
   cursor: pointer;
+  transition: all 0.2s linear 0s;
 
   width: 180px;
   height: 70px;
@@ -85,6 +91,11 @@ export const ButtonFilterCor = styled.button`
     height: 35px;
     background: rgb(221, 221, 221);
   }
+
+  &:hover {
+    background: rgb(238, 238, 238);
+    color: rgb(0, 0, 0);
+  }
 `;
 
 export const ContainerButton = styled.div`
@@ -95,9 +106,11 @@ export const ContainerButton = styled.div`
   margin-bottom: 50px;
 `;
 
-export const ButtonFilterModelo = styled.button`
-  background: rgb(248, 248, 248);
+export const ButtonFilterModelo = styled.button<ButtonColorProps>`
+  background-color: ${props =>
+    props.openFilter ? 'rgb(238, 238, 238)' : 'rgb(248, 248, 248)'};
   cursor: pointer;
+  transition: all 0.2s linear 0s;
 
   width: 180px;
   height: 70px;
@@ -125,9 +138,11 @@ export const ButtonFilterModelo = styled.button`
   }
 `;
 
-export const ButtonFilterPreco = styled.button`
-  background: rgb(248, 248, 248);
+export const ButtonFilterPreco = styled.button<ButtonColorProps>`
+  background-color: ${props =>
+    props.openFilter ? 'rgb(238, 238, 238)' : 'rgb(248, 248, 248)'};
   cursor: pointer;
+  transition: all 0.2s linear 0s;
 
   width: 180px;
   height: 70px;

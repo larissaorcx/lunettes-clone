@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 interface BoxProps {
   colorBox: string;
@@ -6,7 +6,7 @@ interface BoxProps {
 
 export const Container = styled.div`
   display: grid;
-  grid-gap: 5px;
+  grid-gap: 10px;
   grid-template-columns: repeat(4, 1fr);
   border: 1px solid rgb(238, 238, 238);
   width: 75%;
@@ -17,11 +17,11 @@ export const Container = styled.div`
 export const ContainerCores = styled.ul`
   display: flex;
   align-items: center;
-  padding: 10px;
 
   &:hover {
     li {
       color: rgb(0, 0, 0);
+      cursor: pointer;
     }
 
     button {
@@ -35,8 +35,6 @@ export const ContainerCores = styled.ul`
 
 export const Item = styled.li`
   list-style: none;
-  width: 183px;
-  height: 28px;
 
   font-family: 'Roboto Mono', monospace;
   text-transform: uppercase;
@@ -50,9 +48,18 @@ export const Item = styled.li`
 export const Box = styled.button<BoxProps>`
   width: 25px;
   height: 25px;
-  background: ${props => props.colorBox};
+
   border: 2px solid rgb(238, 238, 238);
   margin: 2px;
   border-radius: 4px;
   margin-right: 10px;
+
+  ${props =>
+    props.colorBox.charAt(0) === '#'
+      ? css`
+          background: ${props.colorBox};
+        `
+      : css`
+          background-image: url(${props.colorBox});
+        `};
 `;
