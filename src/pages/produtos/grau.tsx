@@ -7,7 +7,8 @@ import ListProducts from '../../components/ListProducts';
 import mocklistproducts from '../../components/ListProducts/mocklistProducts';
 import { Colorproducts } from '../../components/Filters/Color/ColorFilter';
 import React from 'react';
-import Filtrar from '../../components/ButtonFiltrar';
+import Filtrar from '../../components/Filters';
+import Image from 'next/image';
 
 interface ProductsProps {
   background: HeaderType;
@@ -28,60 +29,21 @@ type imagesProps = {
 };
 
 export default function Products({ background, products }: ProductsProps) {
-  // const [openFilter, setOpenFilter] = useState({
-  //   color: true,
-  //   model: false,
-  //   price: false,
-  // });
-
-  // function handleOpenFilter(filter: string) {
-  //   if (filter === 'color') {
-  //     setOpenFilter({
-  //       color: true,
-  //       model: false,
-  //       price: false,
-  //     });
-  //   } else if (filter === 'model') {
-  //     setOpenFilter({
-  //       color: false,
-  //       model: true,
-  //       price: false,
-  //     });
-  //   } else {
-  //     setOpenFilter({
-  //       color: false,
-  //       model: false,
-  //       price: true,
-  //     });
-  //   }
-  // }
-
   return (
     <>
       <InternalBackground background={background} height="200px" />
       <Container>
         <ContainerCaminho>
           <Caminho>Home </Caminho>
-          <Simbolo>&gt; </Simbolo>
+          <Simbolo>
+            <Image alt="next" src="/right.png" width={16} height={16} />
+          </Simbolo>
           <Caminho>Grau </Caminho>
         </ContainerCaminho>
         <Titulo>Grau</Titulo>
       </Container>
+
       <Filtrar products={products} />
-      {/* <ContainerButton>
-        <ButtonFilterCor onClick={() => handleOpenFilter('color')}>
-          Cores
-        </ButtonFilterCor>
-        <ButtonFilterModelo onClick={() => handleOpenFilter('model')}>
-          Modelos
-        </ButtonFilterModelo>
-        <ButtonFilterPreco onClick={() => handleOpenFilter('price')}>
-          Preços
-        </ButtonFilterPreco>
-      </ContainerButton>
-      {openFilter.color && <ColorFilter products={filterColor({ products })} />}
-      {openFilter.model && <ModelFilter products={filterModel({ products })} />}
-      {openFilter.price && <PriceFilter products={filterPrice({ products })} />} */}
 
       <ListProducts />
     </>

@@ -62,6 +62,7 @@ export const Menu = styled.div<MenuProps>`
   }
   @media screen and (max-width: 740px) {
     width: 100vw;
+    height: 0px;
     overflow-y: scroll;
   }
 `;

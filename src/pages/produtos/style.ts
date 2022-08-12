@@ -17,6 +17,7 @@ export const ContainerCaminho = styled.div`
   justify-content: center;
   flex-direction: row;
   margin-top: 50px;
+  margin-bottom: 10px;
 
   @media screen and (max-width: 740px) {
     margin-top: 20px;
@@ -63,98 +64,5 @@ export const Titulo = styled.h2`
   @media screen and (max-width: 740px) {
     font-size: 28px;
     margin-bottom: 20px;
-  }
-`;
-
-export const ButtonFilterCor = styled.button<ButtonColorProps>`
-  background-color: ${props =>
-    props.openFilter ? 'rgb(238, 238, 238)' : 'rgb(248, 248, 248)'};
-  cursor: pointer;
-  transition: all 0.2s linear 0s;
-
-  width: 180px;
-  height: 70px;
-  border: none;
-
-  font-family: 'Roboto Mono', monospace;
-  text-transform: uppercase;
-  font-size: 16px;
-  color: rgb(0, 0, 0);
-  position: relative;
-
-  &::before {
-    content: '';
-    position: absolute;
-    right: 0px;
-    top: 18px;
-    width: 1px;
-    height: 35px;
-    background: rgb(221, 221, 221);
-  }
-
-  &:hover {
-    background: rgb(238, 238, 238);
-    color: rgb(0, 0, 0);
-  }
-`;
-
-export const ContainerButton = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  margin-bottom: 50px;
-`;
-
-export const ButtonFilterModelo = styled.button<ButtonColorProps>`
-  background-color: ${props =>
-    props.openFilter ? 'rgb(238, 238, 238)' : 'rgb(248, 248, 248)'};
-  cursor: pointer;
-  transition: all 0.2s linear 0s;
-
-  width: 180px;
-  height: 70px;
-  border: none;
-
-  font-family: 'Roboto Mono', monospace;
-  text-transform: uppercase;
-  font-size: 16px;
-  color: rgb(154, 154, 154);
-  position: relative;
-
-  &::before {
-    content: '';
-    position: absolute;
-    right: 0px;
-    top: 18px;
-    width: 1px;
-    height: 35px;
-    background: rgb(221, 221, 221);
-  }
-
-  &:hover {
-    background: rgb(238, 238, 238);
-    color: rgb(0, 0, 0);
-  }
-`;
-
-export const ButtonFilterPreco = styled.button<ButtonColorProps>`
-  background-color: ${props =>
-    props.openFilter ? 'rgb(238, 238, 238)' : 'rgb(248, 248, 248)'};
-  cursor: pointer;
-  transition: all 0.2s linear 0s;
-
-  width: 180px;
-  height: 70px;
-  border: none;
-
-  font-family: 'Roboto Mono', monospace;
-  text-transform: uppercase;
-  font-size: 16px;
-  color: rgb(154, 154, 154);
-
-  &:hover {
-    background: rgb(238, 238, 238);
-    color: rgb(0, 0, 0);
   }
 `;

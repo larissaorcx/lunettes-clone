@@ -1,4 +1,4 @@
-import { Item, ContainerCores, Box, Container } from './style';
+import { Item, ContainerFilter, Box, Container } from './style';
 
 export interface ModelFilterProps {
   products: string[];
@@ -8,10 +8,10 @@ export default function ModelFilter({ products }: ModelFilterProps) {
   return (
     <Container>
       {products.map(model => (
-        <ContainerCores key={model}>
+        <ContainerFilter key={model}>
           <Box />
           <Item>{model}</Item>
-        </ContainerCores>
+        </ContainerFilter>
       ))}
     </Container>
   );

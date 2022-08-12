@@ -58,7 +58,6 @@ export const TituloHastag = styled.h2`
   font-size: 42px;
   color: rgb(255, 255, 255);
   margin-bottom: 20px;
-  z-index: 2;
 
   @media screen and (max-width: 740px) {
     width: 280px;
@@ -73,7 +72,7 @@ export const TextoHashtag = styled.span`
   color: rgb(255, 255, 255);
   text-align: center;
   margin: 0px 20px;
-  z-index: 2;
+  /* z-index: 2; */
 
   @media screen and (max-width: 740px) {
     width: 319px;

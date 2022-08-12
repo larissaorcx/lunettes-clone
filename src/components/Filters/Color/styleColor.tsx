@@ -12,6 +12,14 @@ export const Container = styled.div`
   width: 75%;
   margin: 0 auto;
   padding: 20px;
+  margin-bottom: 20px;
+
+  @media screen and (max-width: 740px) {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: none;
+  }
 `;
 
 export const ContainerCores = styled.ul`
