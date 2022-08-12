@@ -1,27 +1,59 @@
 import styled from 'styled-components';
+import { animationCloseFilter, animationOpenFilter } from './animation';
 
 type ButtonColorProps = {
   openFilter: boolean;
 };
 
-export const ContainerButton = styled.div`
+type ButtonOpen = {
+  openButton: boolean;
+};
+
+export const ContainerButton = styled.div<ButtonOpen>`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 
   margin-bottom: 50px;
+
   @media screen and (max-width: 740px) {
-    width: 95%;
-    display: flex;
-    margin: auto;
-    margin-bottom: 50px;
+    width: 100%;
+    height: 100vh;
+    background: rgb(255, 255, 255);
+    position: fixed;
+    justify-content: flex-start;
+    top: 0px;
+    z-index: 1000;
+    display: ${props => (props.openButton ? 'flex' : 'none')};
+    -webkit-animation: ${animationOpenFilter} 1.1s both;
+    animation: ${animationOpenFilter} 1.1s both;
+    overflow: hidden scroll;
   }
 `;
-export const ButtonFilter = styled.div`
+export const ButtonFilter = styled.div<ButtonOpen>`
   display: flex;
   justify-content: flex-end;
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+`;
+
+export const ButtonClose = styled.div<ButtonOpen>`
+  display: none;
+  @media screen and (max-width: 740px) {
+    width: 100%;
+    display: ${props => (props.openButton ? 'flex' : 'none')};
+    justify-content: flex-end;
+    border: none;
+    margin: 21.6px 21.6px 38.3px 0;
+  }
+`;
+
+export const ButtonCloseFilters = styled.button<ButtonOpen>`
+  border: none;
+  background: transparent;
+  -webkit-animation: ${animationCloseFilter} 0.6s ease-out 0.9s both;
+  animation: ${animationCloseFilter} 0.6s ease-out 0.9s both; ;
 `;
 
 export const Button = styled.button`
@@ -35,7 +67,7 @@ export const Button = styled.button`
   border: 1px solid rgb(154, 154, 154);
 
   width: 116px;
-  height: 34px;
+  height: 40px;
 
   @media screen and (max-width: 740px) {
     display: flex;
@@ -59,6 +91,12 @@ export const ContainerFilter = styled.div`
   align-items: center;
   flex-direction: column;
   width: 100%;
+`;
+
+export const Filter = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 49px;
 `;
 
 export const ButtonFilterCor = styled.button<ButtonColorProps>`
@@ -102,6 +140,7 @@ export const ButtonFilterCor = styled.button<ButtonColorProps>`
     width: 114px;
     height: 45px;
     font-size: 14px;
+    margin: 0px;
   }
 `;
 
@@ -145,6 +184,7 @@ export const ButtonFilterModelo = styled.button<ButtonColorProps>`
     width: 114px;
     height: 45px;
     font-size: 14px;
+    margin: 0px;
   }
 `;
 
@@ -172,5 +212,6 @@ export const ButtonFilterPreco = styled.button<ButtonColorProps>`
     width: 114px;
     height: 45px;
     font-size: 14px;
+    margin: 0px;
   }
 `;

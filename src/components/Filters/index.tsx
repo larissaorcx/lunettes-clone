@@ -10,6 +10,9 @@ import {
   ContainerFilter,
   Button,
   Titulo,
+  Filter,
+  ButtonClose,
+  ButtonCloseFilters,
 } from './style';
 import ColorFilter from './Color/ColorFilter';
 import ModelFilter from './Model/ModelFilter';
@@ -21,23 +24,32 @@ interface ButtonFiltrarProps {
 }
 
 export default function Filtrar({ products }: ButtonFiltrarProps) {
+  const [openButton, setOpenButton] = useState(false);
   const [openFilter, setOpenFilter] = useState('color');
+
+  function handleOpenButtonFilter() {
+    setOpenButton(!openButton);
+  }
 
   return (
     <ContainerFilter>
-      <>
-        <ButtonFilter>
-          <Button>
-            <Image
-              alt="filtro"
-              src="/filtro.png"
-              width={17}
-              height={17}
-            ></Image>
-            <Titulo>Filtrar</Titulo>
-          </Button>
-        </ButtonFilter>
-        <ContainerButton>
+      <ButtonFilter openButton={openButton}>
+        <Button type="button" onClick={() => handleOpenButtonFilter()}>
+          <Image alt="filtro" src="/filtro.png" width={17} height={17} />
+          <Titulo>Filtrar</Titulo>
+        </Button>
+      </ButtonFilter>
+      <ContainerButton openButton={openButton}>
+        <ButtonClose openButton={openButton}>
+          <ButtonCloseFilters
+            type="button"
+            onClick={() => handleOpenButtonFilter()}
+            openButton={openButton}
+          >
+            <Image alt="filtroClose" src="/close.png" width={25} height={25} />
+          </ButtonCloseFilters>
+        </ButtonClose>
+        <Filter>
           <ButtonFilterCor
             onClick={() => setOpenFilter('color')}
             openFilter={openFilter === 'color'}
@@ -56,7 +68,7 @@ export default function Filtrar({ products }: ButtonFiltrarProps) {
           >
             Preços
           </ButtonFilterPreco>
-        </ContainerButton>
+        </Filter>
         {openFilter === 'color' && (
           <ColorFilter products={filterColor({ products })} />
         )}
@@ -66,7 +78,7 @@ export default function Filtrar({ products }: ButtonFiltrarProps) {
         {openFilter === 'price' && (
           <PriceFilter products={filterPrice({ products })} />
         )}
-      </>
+      </ContainerButton>
     </ContainerFilter>
   );
 }

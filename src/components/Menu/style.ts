@@ -101,7 +101,6 @@ export const BotaoMenu = styled.button<ButtonProps>`
   cursor: pointer;
   background-color: transparent;
   border: none;
-
   z-index: 1;
 
   @media screen and (max-width: 740px) {
@@ -133,7 +132,6 @@ export const BotaoSacola = styled.button`
   border: none;
   width: 42.8px;
   height: 50.3px;
-  margin-right: 60.2px;
   z-index: 1;
 
   @media screen and (max-width: 740px) {

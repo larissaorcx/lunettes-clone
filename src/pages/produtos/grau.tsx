@@ -42,9 +42,7 @@ export default function Products({ background, products }: ProductsProps) {
         </ContainerCaminho>
         <Titulo>Grau</Titulo>
       </Container>
-
       <Filtrar products={products} />
-
       <ListProducts />
     </>
   );
