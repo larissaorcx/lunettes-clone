@@ -4,12 +4,12 @@ interface BoxProps {
   colorBox: string;
 }
 
-export const Container = styled.div`
+export const Container = styled.ul`
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(4, 1fr);
   border: 1px solid rgb(238, 238, 238);
-  width: 75%;
+  width: 100%;
   margin: 0 auto;
   padding: 20px;
   margin-bottom: 20px;
@@ -22,7 +22,7 @@ export const Container = styled.div`
   }
 `;
 
-export const ContainerCores = styled.ul`
+export const ContainerCores = styled.li`
   display: flex;
   align-items: center;
 
@@ -41,9 +41,7 @@ export const ContainerCores = styled.ul`
   }
 `;
 
-export const Item = styled.li`
-  list-style: none;
-
+export const Item = styled.span`
   font-family: 'Roboto Mono', monospace;
   text-transform: uppercase;
   font-size: 16px;

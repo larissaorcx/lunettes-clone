@@ -17,7 +17,7 @@ interface ButtonProps {
 export const Menu = styled.div<MenuProps>`
   display: flex;
   flex-direction: column;
-  /* width: 100%; */
+  width: auto;
   height: 100vh;
 
   z-index: 50;
@@ -62,7 +62,7 @@ export const Menu = styled.div<MenuProps>`
   }
   @media screen and (max-width: 740px) {
     width: 100vw;
-    height: 0px;
+    height: auto;
     overflow-y: scroll;
   }
 `;

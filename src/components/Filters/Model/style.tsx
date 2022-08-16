@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.ul`
   display: grid;
-  grid-gap: 10px;
+  grid-gap: 40px;
   grid-template-columns: repeat(4, 1fr);
   border: 1px solid rgb(238, 238, 238);
-  width: 75%;
+  width: 100%;
   margin: 0 auto;
-  padding: 20px;
+  padding: 25px;
   margin-bottom: 20px;
 
   @media screen and (max-width: 740px) {
@@ -18,16 +18,18 @@ export const Container = styled.div`
   }
 `;
 
-export const ContainerFilter = styled.ul`
+export const ContainerFilter = styled.li`
   display: flex;
   align-items: center;
   width: auto;
   height: 28px;
 
   &:hover {
-    li {
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+
+    span {
       color: rgb(0, 0, 0);
-      cursor: pointer;
     }
 
     button {
@@ -39,9 +41,7 @@ export const ContainerFilter = styled.ul`
   }
 `;
 
-export const Item = styled.li`
-  list-style: none;
-
+export const Item = styled.span`
   font-family: 'Roboto Mono', monospace;
   text-transform: uppercase;
   font-size: 16px;
