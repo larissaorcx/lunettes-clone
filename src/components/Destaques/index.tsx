@@ -81,7 +81,7 @@ export default function Destaques({ setLoading }: DestaquesProps) {
             </Preço>
             <BotaoReserva type="button">
               <FaRegHeart />
-              <TextoBotao>Reservar</TextoBotao>
+              <TextoBotao>Ver mais</TextoBotao>
             </BotaoReserva>
           </Produto>
         ))}

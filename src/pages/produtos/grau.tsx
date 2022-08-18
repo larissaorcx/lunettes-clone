@@ -13,22 +13,36 @@ import Image from 'next/image';
 interface ProductsProps {
   background: HeaderType;
   products: ProductProps[];
+  setLoading: (loading: boolean) => void;
 }
 export type ProductProps = {
   _id: string;
   subcategories: string[];
   price: number;
-  images: imagesProps[];
+  images: ImagesProps[];
+  productName: string;
+  code: string;
+  isNewCollection: boolean;
 };
 
-type imagesProps = {
+export type ImagesProps = {
   id: string;
   url: string;
   color: Colorproducts;
-  allImages: string;
+  allImages: AllImages;
 };
 
-export default function Products({ background, products }: ProductsProps) {
+type AllImages = {
+  xs: string;
+  md: string;
+  lg: string;
+};
+
+export default function Products({
+  background,
+  products,
+  setLoading,
+}: ProductsProps) {
   return (
     <>
       <InternalBackground background={background} height="200px" />
@@ -43,7 +57,7 @@ export default function Products({ background, products }: ProductsProps) {
         <Titulo>Grau</Titulo>
       </Container>
       <Filtrar products={products} />
-      <ListProducts />
+      <ListProducts setLoading={setLoading} />
     </>
   );
 }
