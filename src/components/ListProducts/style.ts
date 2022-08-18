@@ -16,25 +16,7 @@ export const ContainerProducts = styled.div`
     flex-direction: column;
   }
 `;
-export const Titulo = styled.h2`
-  font-family: MonumentExtended;
-  text-transform: uppercase;
-  font-size: 42px;
-  font-weight: 800;
-  padding-top: 70px;
 
-  @media screen and (max-width: 740px) {
-    width: 250px;
-    height: 100px;
-
-    display: flex;
-    justify-content: Center;
-    font-size: 24px;
-    text-align: center;
-
-    margin-bottom: 70px;
-  }
-`;
 export const ProdutoContainer = styled.div`
   display: grid;
 
@@ -72,7 +54,9 @@ export const NomeProduto = styled.h3`
   font-family: 'Roboto Mono', monospace;
   font-size: 24px;
 
-  line-height: 1.5;
+  line-height: 2.25;
+  text-align: center;
+  font-weight: 500;
   color: #000;
   margin-top: 10px;
 `;
@@ -98,13 +82,22 @@ export const NewCollection = styled.span`
   font-weight: 700;
   font-family: 'Roboto Mono', monospace;
 `;
-export const Preço = styled.span`
+export const ContainerPrecos = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`;
+export const Preco = styled.span`
   font-family: 'Roboto Mono', monospace;
   font-size: 24px;
   font-weight: bold;
 
   line-height: 1.5;
   color: black;
+`;
+export const PriceWithDiscount = styled.span`
+  margin-left: 10px;
 `;
 export const BotaoCores = styled.button<ListImagesProps>`
   width: 32px;

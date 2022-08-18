@@ -6,10 +6,12 @@ import {
   CodigoProduto,
   InfosProduto,
   NomeProduto,
-  Preço,
+  Preco,
   Produto,
   TextoBotao,
   NewCollection,
+  PriceWithDiscount,
+  ContainerPrecos,
 } from './style';
 import ListProductsImages from './CarroselListProducts/ListProductsImages';
 import mocklistProducts from './mocklistProducts';
@@ -49,12 +51,25 @@ export default function ListProducts({ setLoading }: ListProductsProps) {
             )}
           </InfosProduto>
           <CodigoProduto>{product.code}</CodigoProduto>
-          <Preço>
-            {new Intl.NumberFormat('pt-BR', {
-              style: 'currency',
-              currency: 'BRL',
-            }).format(product.price)}
-          </Preço>
+          {product.discount > 0 ? (
+            <ContainerPrecos>
+              <Preco>
+                {new Intl.NumberFormat('pt-BR', {
+                  style: 'currency',
+                  currency: 'BRL',
+                }).format(product.price)}
+              </Preco>
+              <PriceWithDiscount>Preço final</PriceWithDiscount>
+            </ContainerPrecos>
+          ) : (
+            <Preco>
+              {new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'BRL',
+              }).format(product.price)}
+            </Preco>
+          )}
+
           <BotaoReserva type="button">
             <FaRegHeart />
             <TextoBotao>Ver mais</TextoBotao>

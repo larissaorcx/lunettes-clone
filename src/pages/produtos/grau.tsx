@@ -23,6 +23,7 @@ export type ProductProps = {
   productName: string;
   code: string;
   isNewCollection: boolean;
+  discount: number;
 };
 
 export type ImagesProps = {
@@ -69,6 +70,10 @@ export const getServerSideProps: GetServerSideProps = async () => {
       subcategories: product.subcategories,
       price: product.price,
       images: product.images,
+      productName: product.productName,
+      code: product.code,
+      isNewCollection: product.isNewCollection,
+      discount: product.discount,
     };
   });
   return {
