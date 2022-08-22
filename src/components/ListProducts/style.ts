@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 interface ListImagesProps {
   color: string;
   clickButton: boolean;
+  name: string;
 }
 
 export const ContainerProducts = styled.div`
@@ -44,11 +45,6 @@ export const InfosProduto = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: row;
-
-  padding-bottom: 25px;
-  @media screen and (max-width: 740px) {
-    padding-bottom: 10px;
-  }
 `;
 export const NomeProduto = styled.h3`
   font-family: 'Roboto Mono', monospace;
@@ -63,6 +59,7 @@ export const NomeProduto = styled.h3`
 export const CodigoProduto = styled.p`
   font-family: 'Roboto Mono', monospace;
   font-size: 16px;
+  padding-bottom: 25px;
 
   line-height: 1.25;
   color: #9a9a9a;
@@ -121,6 +118,7 @@ export const BotaoCores = styled.button<ListImagesProps>`
   margin-right: 10px;
 
   position: relative;
+
   &:hover {
     &::before {
       content: '';
@@ -132,6 +130,20 @@ export const BotaoCores = styled.button<ListImagesProps>`
       top: -3px;
       left: -2.8px;
       margin-bottom: 5px;
+    }
+  }
+  &:hover {
+    &::after {
+      content: '${props => props.name}';
+      font-size: 12px;
+      position: absolute;
+      width: 100px;
+      top: 40px;
+      margin-left: -50px;
+      padding: 5px;
+      background: rgb(0, 0, 0);
+      color: rgb(255, 255, 255);
+      border-radius: 0px 2px;
     }
   }
 `;

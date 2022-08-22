@@ -73,6 +73,7 @@ export default function ListProductsImages({ products }: ImgProps) {
                 type="button"
                 color={image.color.background}
                 clickButton={clickButton}
+                name={image.color.name}
                 onClick={() => {
                   setClickButton(!clickButton);
                   handleClick();

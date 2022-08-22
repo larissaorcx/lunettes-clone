@@ -3924,7 +3924,11 @@ export default [
       {
         id: '61e59a5fb61dd5002270974a',
         url: 'https://upload-lunettes.s3.amazonaws.com/624c16f18f01508aa6a708a3d263e9bc-xs',
-        color: { name: 'NOTCOLOR', background: '' },
+        color: {
+          name: 'Marrom Tartaruga',
+          background:
+            'https://upload-lunettes.s3.amazonaws.com/dc2fdef026fa88de3e77ccdfc1f162b8-xs',
+        },
         allImages: {
           xs: 'https://upload-lunettes.s3.amazonaws.com/624c16f18f01508aa6a708a3d263e9bc-xs',
           md: 'https://upload-lunettes.s3.amazonaws.com/624c16f18f01508aa6a708a3d263e9bc-md',
