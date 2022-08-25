@@ -49,7 +49,7 @@ export default function ListMenu({ listMenu }: ListMenuProps) {
         </ul>
       </ContainerCagtegories>
       <ContainerCagtegories>
-        <Button type="button" onClick={() => router.push('/produtos/grau')}>
+        <Button type="button" onClick={() => router.push('/produtos/solar')}>
           {listMenu.solar.title}
         </Button>
         <ul>
@@ -57,7 +57,7 @@ export default function ListMenu({ listMenu }: ListMenuProps) {
             <ListCategory
               key={categories.title}
               position={index + 2}
-              onClick={() => router.push('/produtos/grau')}
+              onClick={() => router.push('/produtos/solar')}
             >
               <Image
                 alt={categories.alt}

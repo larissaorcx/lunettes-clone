@@ -35,6 +35,7 @@ export const Produto = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  position: relative;
 
   @media screen and (max-width: 740px) {
     margin: 0px;
@@ -89,12 +90,28 @@ export const Preco = styled.span`
   font-family: 'Roboto Mono', monospace;
   font-size: 24px;
   font-weight: bold;
-
   line-height: 1.5;
   color: black;
 `;
 export const PriceWithDiscount = styled.span`
   margin-left: 10px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 24px;
+  font-weight: bold;
+
+  line-height: 1.5;
+  color: #ef1f5f;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 135px;
+    height: 0.5px;
+    background: rgb(0, 0, 0);
+    margin: 20px;
+    margin-left: -142px;
+  }
 `;
 export const BotaoCores = styled.button<ListImagesProps>`
   width: 32px;
@@ -113,8 +130,8 @@ export const BotaoCores = styled.button<ListImagesProps>`
         `};
   border: ${props => (props.clickButton ? 'solid 2px #000' : '')};
   border-radius: ${props => (props.clickButton ? '8px' : '')};
-  width: ${props => (props.clickButton ? '32px' : '')};
-  height: ${props => (props.clickButton ? '32px' : '')};
+  width: ${props => (props.clickButton ? '36px' : '')};
+  height: ${props => (props.clickButton ? '36px' : '')};
   margin-right: 10px;
 
   position: relative;
@@ -187,4 +204,53 @@ export const CoresContainer = styled.div`
   flex-direction: row;
 
   margin: 10px 10px 0px 10px;
+`;
+
+export const PorcentDiscount = styled.div`
+  width: 64px;
+  height: 64px;
+  border-radius: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px 11px 10px 10px;
+  background: rgb(239, 31, 95);
+  z-index: 3;
+  top: 10px;
+  left: 30px;
+
+  @media screen and (max-width: 740px) {
+    width: 50px;
+    height: 50px;
+    padding: 6px 7px 6px 8px;
+    top: 40px;
+    left: 40px;
+  }
+`;
+export const Text = styled.span`
+  font-family: 'Roboto Mono', monospace;
+  font-size: 16px;
+
+  @media screen and (max-width: 740px) {
+    font-size: 14px;
+    font-weight: 900;
+  }
+`;
+
+export const TitleDiscount = styled.h3`
+  line-height: 24px;
+
+  font-family: 'Roboto Mono', monospace;
+  font-size: 24px;
+  color: rgb(0, 0, 0);
+  font-weight: 900;
+
+  @media screen and (max-width: 740px) {
+    margin-top: 7px;
+    font-size: 18px;
+    line-height: 15px;
+    text-align: left;
+  }
 `;

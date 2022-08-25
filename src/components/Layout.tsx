@@ -4,7 +4,7 @@ import Header from './InternalBackground';
 import { FooterType, HeaderType, Menu, MenuFloating } from '../pages/types';
 
 import { ReactNode, useEffect, useState } from 'react';
-import mockHome from '../api/mockHome';
+import mockHome from '../pages/api/mockHome';
 import mockListMenu from './ListMenu/mockListMenu';
 import mockFooter from '../components/Footer/mockFooter';
 

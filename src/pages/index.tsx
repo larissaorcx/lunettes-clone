@@ -1,6 +1,6 @@
 import Destaques, { Products } from '../components/Destaques';
 
-import dataHome from '../api/mockHome';
+import dataHome from './api/mockHome';
 import { useState } from 'react';
 import { GetServerSideProps } from 'next';
 import config from '../components/Destaques/dataDestaques';

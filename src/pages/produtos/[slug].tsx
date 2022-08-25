@@ -1,7 +1,7 @@
 import InternalBackground from '../../components/InternalBackground';
 import { HeaderType } from '../types';
 import { Caminho, Container, Titulo, Simbolo, ContainerCaminho } from './style';
-import dataHome from '../../api/mockHome';
+import dataHome from '../api/mockHome';
 import { GetServerSideProps } from 'next';
 import ListProducts from '../../components/ListProducts';
 import mocklistproducts from '../../components/ListProducts/mocklistProducts';
@@ -9,6 +9,7 @@ import { Colorproducts } from '../../components/Filters/Color/ColorFilter';
 import React from 'react';
 import Filtrar from '../../components/Filters';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 interface ProductsProps {
   background: HeaderType;
@@ -24,6 +25,7 @@ export type ProductProps = {
   code: string;
   isNewCollection: boolean;
   discount: number;
+  formatedPrice?: string;
 };
 
 export type ImagesProps = {
@@ -44,6 +46,7 @@ export default function Products({
   products,
   setLoading,
 }: ProductsProps) {
+  const router = useRouter();
   return (
     <>
       <InternalBackground background={background} height="200px" />
@@ -53,9 +56,9 @@ export default function Products({
           <Simbolo>
             <Image alt="next" src="/right.png" width={16} height={16} />
           </Simbolo>
-          <Caminho>Grau </Caminho>
+          <Caminho>{router.query.slug}</Caminho>
         </ContainerCaminho>
-        <Titulo>Grau</Titulo>
+        <Titulo>{router.query.slug}</Titulo>
       </Container>
       <Filtrar products={products} />
       <ListProducts setLoading={setLoading} />
