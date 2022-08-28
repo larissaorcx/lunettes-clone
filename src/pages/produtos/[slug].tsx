@@ -52,7 +52,7 @@ export default function Products({
       <InternalBackground background={background} height="200px" />
       <Container>
         <ContainerCaminho>
-          <Caminho>Home </Caminho>
+          <Caminho>Home</Caminho>
           <Simbolo>
             <Image alt="next" src="/right.png" width={16} height={16} />
           </Simbolo>

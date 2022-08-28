@@ -35,6 +35,7 @@ export const Caminho = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 20px;
 
   font-family: 'Roboto Mono', monospace;
   text-transform: uppercase;

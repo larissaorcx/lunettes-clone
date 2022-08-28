@@ -27,7 +27,7 @@ export const ContainerCores = styled.li`
   align-items: center;
 
   &:hover {
-    li {
+    span {
       color: rgb(0, 0, 0);
       cursor: pointer;
     }

@@ -5,21 +5,20 @@ export type DiscountProps = {
 };
 
 export default function discount({ produtos }: DiscountProps) {
-  produtos.map(product => {
-    const price = product.price;
-
+  const prod = produtos.map(product => {
     if (product.discount > 0) {
+      const price = product.price;
       const porcent = product.discount / 100;
       const finalprice = new Intl.NumberFormat('pt-BR', {
         style: 'currency',
         currency: 'BRL',
       }).format(price - price * porcent);
 
-      return (product.formatedPrice = finalprice);
+      return { ...product, formatedPrice: finalprice };
     } else {
-      return;
+      return product;
     }
   });
 
-  return produtos;
+  return prod;
 }

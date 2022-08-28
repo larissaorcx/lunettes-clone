@@ -44,7 +44,7 @@ export default function ListProducts({ setLoading }: ListProductsProps) {
         setloadProducts(productWithformatedPrice);
 
         setLoading(false);
-      }, 3000);
+      }, 1000);
     }
     loadProducts();
   }, []);

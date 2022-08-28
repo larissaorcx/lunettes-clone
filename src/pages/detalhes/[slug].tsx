@@ -4,24 +4,35 @@ import { AboutType, HeaderType } from '../types';
 import mocklistproducts from '../../components/ListProducts/mocklistProducts';
 import dataHome from '../api/mockHome';
 import { ImagesProps } from '../produtos/[slug]';
-import Image from 'next/image';
+
 import { useRouter } from 'next/router';
 import ImagesDetalhes from '../../components/Detalhes/ImagesDetalhes';
 
 import DescricaoAtendimento from '../../components/Contatos/DescriçãoAtendimento';
 import {
   Conteiner,
-  ContainerConteudo,
-  NameProduct,
-  ContainerCaminhoDetalhes,
+  Icon,
+  Message,
+  MessageError,
+  TextDiscount,
+  PorcentDiscountDetalhes,
+  ConteinerDescricao,
+  Descricao,
+  TitleDescricao,
 } from './style';
-import { Caminho, Simbolo } from '../produtos/style';
-import { CodigoProduto } from '../../components/Destaques/style';
+
+import { TitleDiscount } from '../../components/ListProducts/style';
+import { useEffect, useState } from 'react';
+
+import InfosProduto from '../../components/Detalhes/InfoProduto/infoProduto';
+
+import Image from 'next/image';
 
 interface DetalhesProps {
   background: HeaderType;
   products: ProductDetalhesProps[];
   conteudo: AboutType;
+  setLoading: (loading: boolean) => void;
 }
 
 export type ProductDetalhesProps = {
@@ -35,39 +46,66 @@ export type ProductDetalhesProps = {
   isNewCollection: boolean;
   discount: number;
   formatedPrice?: string;
+  description: string;
 };
 
 export default function Detelhes({
   background,
-  products,
   conteudo,
+  setLoading,
 }: DetalhesProps) {
+  const [productSlug, setProductSlug] = useState<
+    ProductDetalhesProps | undefined
+  >({} as ProductDetalhesProps);
   const router = useRouter();
+
+  useEffect(() => {
+    async function loadProducts() {
+      setLoading(true);
+
+      const produtos = await mocklistproducts;
+      const exist = produtos.find(
+        product => product.productName.trim() === router.query.slug
+      );
+      setTimeout(() => {
+        setProductSlug(exist);
+
+        setLoading(false);
+      }, 1000);
+    }
+
+    loadProducts();
+  }, []);
+
   return (
     <>
       <InternalBackground background={background} height="128px" />
-      {products.map(
-        product =>
-          product.productName === router.query.slug && (
-            <Conteiner>
-              <ImagesDetalhes products={product.images} />
-              <ContainerConteudo>
-                <ContainerCaminhoDetalhes>
-                  <Caminho>Home </Caminho>
-                  <Simbolo>
-                    <Image alt="next" src="/right.png" width={16} height={16} />
-                  </Simbolo>
-                  <Caminho>{product.category}</Caminho>
-                  <Simbolo>
-                    <Image alt="next" src="/right.png" width={16} height={16} />
-                  </Simbolo>
-                  <Caminho>{product.subcategories}</Caminho>
-                </ContainerCaminhoDetalhes>
-                <NameProduct>{product.productName}</NameProduct>
-                <CodigoProduto>{product.code}</CodigoProduto>
-              </ContainerConteudo>
-            </Conteiner>
-          )
+      {productSlug === undefined && (
+        <MessageError>
+          <Icon>
+            <Image alt="error" src="/erro.png" width={56} height={56} />
+          </Icon>
+          <Message>
+            {`${router.query.slug} não parece ser o nome de um produto da
+          Lunettes. Abra o menu e escolha um tipo de produto.`}
+          </Message>
+        </MessageError>
+      )}
+      {productSlug && Object.entries(productSlug).length !== 0 && (
+        <Conteiner>
+          {productSlug.discount > 0 && (
+            <PorcentDiscountDetalhes>
+              <TitleDiscount>{productSlug.discount}%</TitleDiscount>
+              <TextDiscount>OFF</TextDiscount>
+            </PorcentDiscountDetalhes>
+          )}
+          <ImagesDetalhes products={productSlug.images} />
+          <InfosProduto product={productSlug} />
+          <ConteinerDescricao>
+            <TitleDescricao>Descrição</TitleDescricao>
+            <Descricao>{productSlug.description}</Descricao>
+          </ConteinerDescricao>
+        </Conteiner>
       )}
       <DescricaoAtendimento aboutAtendimento={conteudo.aboutAtendimento} />
     </>
@@ -86,6 +124,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
       code: product.code,
       isNewCollection: product.isNewCollection,
       discount: product.discount,
+      description: product.description,
     };
   });
   return {

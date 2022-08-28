@@ -6726,7 +6726,7 @@ export default [
     },
     discount: 10,
     price: 140,
-    productName: 'Mada ',
+    productName: 'Mada',
     createdAt: '2021-07-01T19:31:37.384Z',
     __v: 0,
   },
