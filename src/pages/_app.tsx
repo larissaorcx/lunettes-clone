@@ -2,6 +2,7 @@ import type { AppProps } from 'next/app';
 import '../components/Footer/styleSwiper.scss';
 import '../components/Destaques/Carrosel/style.scss';
 import '../components/Detalhes/style.scss';
+import '../components/ListProducts/CarroselListProducts/style.scss';
 import { GlobalStyle } from '../../public/styles/globals';
 import { ThemeProvider } from 'styled-components';
 import { useState } from 'react';

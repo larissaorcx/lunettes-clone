@@ -95,6 +95,7 @@ export const MenuContainer = styled.div<MenuProps>`
     height: ${props => (props.scroll ? '65px' : '83px')};
     padding-right: 20px;
     padding-left: 20px;
+    background-color: rgb(15, 15, 15);
   }
 `;
 export const BotaoMenu = styled.button<ButtonProps>`

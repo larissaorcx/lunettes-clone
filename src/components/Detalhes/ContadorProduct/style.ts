@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const ContainerContador = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
 `;
 
 export const Contador = styled.div`
@@ -12,8 +11,8 @@ export const Contador = styled.div`
   align-items: center;
   border: 2px solid #9a9a9a;
 
-  width: 142px;
-  height: 70px;
+  width: 130px;
+  height: 60px;
   border-radius: 8px;
 `;
 

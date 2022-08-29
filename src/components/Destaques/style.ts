@@ -89,7 +89,7 @@ export const CodigoProduto = styled.p`
   line-height: 1.25;
   color: #9a9a9a;
   @media screen and (max-width: 740px) {
-    font-size: 10px;
+    font-size: 14px;
   }
 `;
 export const Preço = styled.span`

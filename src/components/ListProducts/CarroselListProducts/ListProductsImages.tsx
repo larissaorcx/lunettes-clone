@@ -41,7 +41,7 @@ export default function ListProductsImages({ products }: ImgProps) {
   return (
     <>
       <Swiper
-        className="image"
+        className="imageList"
         direction={'horizontal'}
         mousewheel={{
           invert: false,

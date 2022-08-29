@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const Conteiner = styled.div`
   width: 100%;
-  height: 100vh;
 
   display: grid;
   grid-template-columns: 40% 1fr;
@@ -11,7 +10,16 @@ export const Conteiner = styled.div`
 
   margin-top: 50px;
   margin-left: 15px;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
+
+  @media screen and (max-width: 740px) {
+    display: flex;
+    flex-direction: column;
+    margin-left: 8px;
+    width: 95%;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 export const MessageError = styled.div`
   display: flex;
@@ -70,7 +78,7 @@ export const PorcentDiscountDetalhes = styled.div`
     width: 50px;
     height: 50px;
     padding: 6px 7px 6px 8px;
-    top: 40px;
+    top: 150px;
     left: 40px;
   }
 `;
@@ -88,6 +96,11 @@ export const ConteinerDescricao = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 10px;
+  width: 100%;
+  height: auto;
+  @media screen and (max-width: 740px) {
+    width: 95%;
+  }
 `;
 
 export const TitleDescricao = styled.h4`
@@ -95,9 +108,52 @@ export const TitleDescricao = styled.h4`
   color: #000;
   font-size: 24px;
   line-height: 1.5;
+  margin-bottom: 10px;
 `;
 
 export const Descricao = styled.p`
+  font-family: 'Roboto Mono', monospace;
+  color: #9a9a9a;
+  font-size: 16px;
+  line-height: 1.5;
+
+  @media screen and (max-width: 740px) {
+    width: 360px;
+    text-align: justify;
+  }
+`;
+
+export const ContainerEspecificação = styled.div`
+  display: flex;
+  flex-direction: column;
+  @media screen and (max-width: 740px) {
+    width: 90%;
+  }
+`;
+
+export const Especificacoes = styled.ul`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const ListEspecificacoes = styled.li`
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+`;
+
+export const TitleDetalhes = styled.h4`
+  font-family: 'Roboto Mono', monospace;
+  color: #000;
+  font-size: 16px;
+  line-height: 1.5;
+  width: 50%;
+  @media screen and (max-width: 740px) {
+    width: 40%;
+  }
+`;
+
+export const Value = styled.p`
   font-family: 'Roboto Mono', monospace;
   color: #9a9a9a;
   font-size: 16px;

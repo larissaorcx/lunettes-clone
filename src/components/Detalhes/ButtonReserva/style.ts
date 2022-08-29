@@ -5,6 +5,9 @@ export const ContainerButton = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  @media screen and (max-width: 740px) {
+    flex-direction: column;
+  }
 `;
 
 export const BotaoReservaSacola = styled.button`
@@ -33,8 +36,8 @@ export const BotaoReservaSacola = styled.button`
   }
 
   @media screen and (max-width: 740px) {
-    width: 165px;
-    height: 49px;
+    width: 246px;
+    height: 50px;
     margin: 20px 0px 10px 0px;
     font-size: 20px;
   }
@@ -66,8 +69,8 @@ export const BotaoReservaWhats = styled.button`
   }
 
   @media screen and (max-width: 740px) {
-    width: 165px;
-    height: 49px;
+    width: 246px;
+    height: 50px;
     margin: 20px 0px 10px 0px;
     font-size: 20px;
   }

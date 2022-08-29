@@ -19,6 +19,11 @@ import {
   ConteinerDescricao,
   Descricao,
   TitleDescricao,
+  ContainerEspecificação,
+  ListEspecificacoes,
+  TitleDetalhes,
+  Value,
+  Especificacoes,
 } from './style';
 
 import { TitleDiscount } from '../../components/ListProducts/style';
@@ -47,6 +52,19 @@ export type ProductDetalhesProps = {
   discount: number;
   formatedPrice?: string;
   description: string;
+  details: DetailsProps;
+};
+
+type DetailsProps = {
+  size: string;
+  material: string;
+  accessories: string;
+  front: string;
+  height: string;
+  hast: string;
+  bridge: string;
+  warranty: string;
+  lens: string;
 };
 
 export default function Detelhes({
@@ -105,6 +123,47 @@ export default function Detelhes({
             <TitleDescricao>Descrição</TitleDescricao>
             <Descricao>{productSlug.description}</Descricao>
           </ConteinerDescricao>
+          <ContainerEspecificação>
+            <TitleDescricao>Detalhes</TitleDescricao>
+            <Especificacoes>
+              <ListEspecificacoes>
+                <TitleDetalhes>Tamanho</TitleDetalhes>
+                <Value>{productSlug.details.size}</Value>
+              </ListEspecificacoes>
+              <ListEspecificacoes>
+                <TitleDetalhes>Material</TitleDetalhes>
+                <Value>{productSlug.details.material}</Value>
+              </ListEspecificacoes>
+              <ListEspecificacoes>
+                <TitleDetalhes>Acessórios</TitleDetalhes>
+                <Value>{productSlug.details.accessories}</Value>
+              </ListEspecificacoes>
+              <ListEspecificacoes>
+                <TitleDetalhes>Medida da Frente</TitleDetalhes>
+                <Value>{productSlug.details.front}</Value>
+              </ListEspecificacoes>
+              <ListEspecificacoes>
+                <TitleDetalhes>Medida da Altura</TitleDetalhes>
+                <Value>{productSlug.details.height}</Value>
+              </ListEspecificacoes>
+              <ListEspecificacoes>
+                <TitleDetalhes>Medida da Haste</TitleDetalhes>
+                <Value>{productSlug.details.hast}</Value>
+              </ListEspecificacoes>
+              <ListEspecificacoes>
+                <TitleDetalhes>Medida da Ponte do Nariz</TitleDetalhes>
+                <Value>{productSlug.details.bridge}</Value>
+              </ListEspecificacoes>
+              <ListEspecificacoes>
+                <TitleDetalhes>Garantia</TitleDetalhes>
+                <Value>{productSlug.details.warranty}</Value>
+              </ListEspecificacoes>
+              <ListEspecificacoes>
+                <TitleDetalhes>Lente</TitleDetalhes>
+                <Value>{productSlug.details.lens}</Value>
+              </ListEspecificacoes>
+            </Especificacoes>
+          </ContainerEspecificação>
         </Conteiner>
       )}
       <DescricaoAtendimento aboutAtendimento={conteudo.aboutAtendimento} />

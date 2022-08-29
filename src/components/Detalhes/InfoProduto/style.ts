@@ -3,9 +3,13 @@ import styled from 'styled-components';
 export const ContainerConteudo = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: 65px;
+  /* margin-left: 65px; */
   align-items: start;
   margin-bottom: 30px;
+
+  @media screen and (max-width: 740px) {
+    width: 95%;
+  }
 `;
 
 export const NameProduct = styled.h3`
@@ -36,6 +40,6 @@ export const Text = styled.span`
 
   font-family: 'Roboto Mono', monospace;
   color: rgb(154, 154, 154);
-  font-size: 14px;
+  font-size: 16px;
   line-height: 2.25;
 `;

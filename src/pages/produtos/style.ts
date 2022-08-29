@@ -45,6 +45,7 @@ export const Caminho = styled.span`
 
   @media screen and (max-width: 740px) {
     display: flex;
+    font-size: 16px;
   }
 `;
 

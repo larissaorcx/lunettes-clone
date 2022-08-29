@@ -9,13 +9,19 @@ export const ContainerColor = styled.div`
   flex-direction: column;
 `;
 export const ConteinerBox = styled.ul`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 20px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
   width: 100%;
 
   border: 1px solid rgb(238, 238, 238);
   padding: 10px;
+
+  @media screen and (max-width: 740px) {
+    flex-direction: column;
+    border: none;
+  }
 `;
 
 export const ListButton = styled.li`
@@ -23,6 +29,8 @@ export const ListButton = styled.li`
   flex-direction: row;
   align-items: center;
   position: relative;
+
+  margin-right: 10px;
 
   &:hover {
     span {
@@ -40,9 +48,12 @@ export const ListButton = styled.li`
         border-radius: 8px;
         top: -3px;
         left: -2.8px;
-        margin-bottom: 5px;
+        /* margin-bottom: 5px; */
       }
     }
+  }
+  @media screen and (max-width: 740px) {
+    margin-bottom: 20px;
   }
 `;
 
