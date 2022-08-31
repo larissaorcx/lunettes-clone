@@ -41,6 +41,7 @@ export const animationContainerClose = keyframes`
     -webkit-transform-origin: 100% 0%;
     transform-origin: 100% 0%;
     opacity: 1;
+    
   }
   100% {
     -webkit-transform: scaleY(0);
@@ -48,5 +49,6 @@ export const animationContainerClose = keyframes`
     -webkit-transform-origin: 100% 0%;
      transform-origin: 100% 0%;
     opacity: 1;
+    
   }
 `;

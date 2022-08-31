@@ -39,24 +39,8 @@ export default function InfosProduto({ product }: InfosProdutoProps) {
       <NameProduct>{product.productName}</NameProduct>
       <CodigoProduto>{product.code}</CodigoProduto>
       <ColorProduct color={product.images} />
-      <Text>Preço:</Text>
-      <ContainerPrecos>
-        <Preco>
-          {new Intl.NumberFormat('pt-BR', {
-            style: 'currency',
-            currency: 'BRL',
-          }).format(product.price)}
-        </Preco>
-        {product.discount > 0 && (
-          <PriceWithDiscount>
-            {new Intl.NumberFormat('pt-BR', {
-              style: 'currency',
-              currency: 'BRL',
-            }).format(product.price - product.price * (product.discount / 100))}
-          </PriceWithDiscount>
-        )}
-      </ContainerPrecos>
-      <ContadorProduct />
+
+      <ContadorProduct price={product.price} discount={product.discount} />
       <ButtonReserva />
     </ContainerConteudo>
   );

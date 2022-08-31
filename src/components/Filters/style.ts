@@ -114,6 +114,7 @@ export const ButtonFilterCor = styled.button<ButtonColorProps>`
   font-family: 'Roboto Mono', monospace;
   text-transform: uppercase;
   font-size: 16px;
+
   position: relative;
 
   &::before {

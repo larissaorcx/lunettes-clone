@@ -16,6 +16,7 @@ import {
 import Images from './Carrosel/Images';
 import dataDestaques from './dataDestaques';
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 
 export type ImageProps = {
   id: string;
@@ -47,6 +48,7 @@ type DestaquesProps = {
 
 export default function Destaques({ setLoading }: DestaquesProps) {
   const [products, setProducts] = useState<Products[]>([] as Products[]);
+  const router = useRouter();
 
   useEffect(() => {
     async function loadProducts() {
@@ -79,7 +81,10 @@ export default function Destaques({ setLoading }: DestaquesProps) {
                 currency: 'BRL',
               }).format(product.price)}
             </Preço>
-            <BotaoReserva type="button">
+            <BotaoReserva
+              type="button"
+              onClick={() => router.push(`/detalhes/${product.productName}`)}
+            >
               <FaRegHeart />
               <TextoBotao>Ver mais</TextoBotao>
             </BotaoReserva>

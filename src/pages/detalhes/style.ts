@@ -15,8 +15,8 @@ export const Conteiner = styled.div`
   @media screen and (max-width: 740px) {
     display: flex;
     flex-direction: column;
-    margin-left: 8px;
-    width: 95%;
+    margin: 0px;
+    width: 100%;
     justify-content: center;
     align-items: center;
   }
@@ -158,4 +158,5 @@ export const Value = styled.p`
   color: #9a9a9a;
   font-size: 16px;
   line-height: 1.5;
+  margin-left: 45px;
 `;

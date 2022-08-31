@@ -17,12 +17,13 @@ interface ButtonProps {
 export const Menu = styled.div<MenuProps>`
   display: flex;
   flex-direction: column;
+  /* width: 100%; */
   width: auto;
   height: 100vh;
 
-  z-index: 50;
   overflow-y: scroll;
   position: fixed;
+  z-index: 99;
 
   &::before {
     content: '';
@@ -61,8 +62,6 @@ export const Menu = styled.div<MenuProps>`
     display: none;
   }
   @media screen and (max-width: 740px) {
-    width: 100vw;
-    height: auto;
     overflow-y: scroll;
   }
 `;
@@ -72,6 +71,7 @@ export const MenuContainer = styled.div<MenuProps>`
   justify-content: center;
   align-items: center;
   width: 100%;
+
   height: ${props => (props.scroll ? '65px' : '130px')};
   flex-direction: row;
   justify-content: space-between;

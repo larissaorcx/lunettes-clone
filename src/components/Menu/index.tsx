@@ -42,7 +42,7 @@ export default function MenuHeader({
   }, [handleScrollMenu]);
 
   return (
-    <Menu>
+    <Menu scroll={scroll} openMenu={openMenu}>
       <MenuContainer scroll={scroll} openMenu={openMenu}>
         <BotaoMenu
           type="button"
