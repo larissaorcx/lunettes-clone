@@ -26,15 +26,21 @@ export default function InfosProduto({ product }: InfosProdutoProps) {
   return (
     <ContainerConteudo>
       <ContainerCaminhoDetalhes>
-        <Caminho>Home</Caminho>
-        <Simbolo>
-          <Image alt="next" src="/right.png" width={16} height={16} />
-        </Simbolo>
-        <Caminho>{product.category}</Caminho>
-        <Simbolo>
-          <Image alt="next" src="/right.png" width={16} height={16} />
-        </Simbolo>
-        <Caminho>{product.subcategories}</Caminho>
+        <>
+          <Caminho>Home</Caminho>
+          <Simbolo>
+            <Image alt="next" src="/right.png" width={16} height={16} />
+          </Simbolo>
+          <Caminho>{product.category}</Caminho>
+          {product.subcategories.map(sub => (
+            <>
+              <Simbolo>
+                <Image alt="next" src="/right.png" width={16} height={16} />
+              </Simbolo>
+              <Caminho>{sub}</Caminho>
+            </>
+          ))}
+        </>
       </ContainerCaminhoDetalhes>
       <NameProduct>{product.productName}</NameProduct>
       <CodigoProduto>{product.code}</CodigoProduto>
