@@ -1,5 +1,5 @@
 import { Colorproducts } from '../components/Filters/Color/ColorFilter';
-import { ProductProps } from '../pages/produtos/[slug]';
+import { ProductProps } from '../pages/produtos/[...slug]';
 
 export interface FilterProps {
   products: ProductProps[];

@@ -39,7 +39,6 @@ export default function InfosProduto({ product }: InfosProdutoProps) {
       <NameProduct>{product.productName}</NameProduct>
       <CodigoProduto>{product.code}</CodigoProduto>
       <ColorProduct color={product.images} />
-
       <ContadorProduct price={product.price} discount={product.discount} />
       <ButtonReserva />
     </ContainerConteudo>

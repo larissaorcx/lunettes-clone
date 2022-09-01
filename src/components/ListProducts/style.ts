@@ -9,20 +9,30 @@ interface ListImagesProps {
 export const ContainerProducts = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
   margin-bottom: 80px;
+  /* margin-left: 30px; */
 
   @media screen and (max-width: 740px) {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media screen and (min-width: 741px) and (max-width: 1101px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    margin-bottom: 80px;
   }
 `;
 
 export const ProdutoContainer = styled.div`
+  width: 1260px;
   display: grid;
-
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 80px;
+  place-content: space-around space-between;
 
   @media screen and (max-width: 740px) {
     display: flex;
@@ -36,6 +46,8 @@ export const Produto = styled.div`
   align-items: center;
   flex-direction: column;
   position: relative;
+  width: 370px;
+  margin: auto;
 
   @media screen and (max-width: 740px) {
     margin: 0px;
@@ -206,27 +218,38 @@ export const CoresContainer = styled.div`
   margin: 10px 10px 0px 10px;
 `;
 
+export const ImgDiscount = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 370px;
+  @media screen and (max-width: 740px) {
+    width: 100%;
+  }
+`;
+
 export const PorcentDiscount = styled.div`
   width: 64px;
   height: 64px;
   border-radius: 100%;
   position: absolute;
   display: flex;
-  justify-content: start;
-  align-items: center;
+  justify-content: center;
+  align-items: end;
   flex-direction: column;
   padding: 10px 11px 10px 10px;
   background: rgb(239, 31, 95);
   z-index: 3;
-  top: 10px;
-  left: 30px;
+  top: 15px;
+  left: 15px;
 
   @media screen and (max-width: 740px) {
     width: 50px;
     height: 50px;
     padding: 6px 7px 6px 8px;
-    top: 55px;
-    left: 70px;
+    top: 25px;
+    left: 25px;
   }
 `;
 export const Text = styled.span`

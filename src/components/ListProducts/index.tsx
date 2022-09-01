@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { FaRegHeart } from 'react-icons/fa';
-import { ProductProps } from '../../pages/produtos/[slug]';
+import { ProductProps } from '../../pages/produtos/[...slug]';
 import {
   BotaoReserva,
   CodigoProduto,
@@ -15,6 +15,7 @@ import {
   PorcentDiscount,
   Text,
   TitleDiscount,
+  ImgDiscount,
 } from './style';
 import ListProductsImages from './CarroselListProducts/ListProductsImages';
 import mocklistProducts from './mocklistProducts';
@@ -53,13 +54,18 @@ export default function ListProducts({ setLoading }: ListProductsProps) {
     <ContainerProducts>
       {loadproducts.map(product => (
         <Produto key={product._id}>
-          {product.discount > 0 && (
-            <PorcentDiscount>
-              <TitleDiscount>{product.discount}%</TitleDiscount>
-              <Text>OFF</Text>
-            </PorcentDiscount>
+          {product.discount > 0 ? (
+            <ImgDiscount>
+              <PorcentDiscount>
+                <TitleDiscount>{`${product.discount}%`}</TitleDiscount>
+                <Text>OFF</Text>
+              </PorcentDiscount>
+              <ListProductsImages products={product.images} />
+            </ImgDiscount>
+          ) : (
+            <ListProductsImages products={product.images} />
           )}
-          <ListProductsImages products={product.images} />
+
           <InfosProduto>
             <NomeProduto>{product.productName}</NomeProduto>
             {product.isNewCollection && (

@@ -3,7 +3,7 @@ import InternalBackground from '../../components/InternalBackground';
 import { AboutType, HeaderType } from '../types';
 import mocklistproducts from '../../components/ListProducts/mocklistProducts';
 import dataHome from '../api/mockHome';
-import { ImagesProps } from '../produtos/[slug]';
+import { ImagesProps } from '../produtos/[...slug]';
 
 import { useRouter } from 'next/router';
 import ImagesDetalhes from '../../components/Detalhes/ImagesDetalhes';
@@ -24,6 +24,7 @@ import {
   TitleDetalhes,
   Value,
   Especificacoes,
+  ImgDiscountDetalhes,
 } from './style';
 
 import { TitleDiscount } from '../../components/ListProducts/style';
@@ -111,13 +112,18 @@ export default function Detelhes({
       )}
       {productSlug && Object.entries(productSlug).length !== 0 && (
         <Conteiner>
-          {productSlug.discount > 0 && (
-            <PorcentDiscountDetalhes>
-              <TitleDiscount>{productSlug.discount}%</TitleDiscount>
-              <TextDiscount>OFF</TextDiscount>
-            </PorcentDiscountDetalhes>
+          {productSlug.discount > 0 ? (
+            <ImgDiscountDetalhes>
+              <PorcentDiscountDetalhes>
+                <TitleDiscount>{`${productSlug.discount}%`}</TitleDiscount>
+                <TextDiscount>OFF</TextDiscount>
+              </PorcentDiscountDetalhes>
+              <ImagesDetalhes products={productSlug.images} />
+            </ImgDiscountDetalhes>
+          ) : (
+            <ImagesDetalhes products={productSlug.images} />
           )}
-          <ImagesDetalhes products={productSlug.images} />
+
           <InfosProduto product={productSlug} />
           <ConteinerDescricao>
             <TitleDescricao>Descrição</TitleDescricao>

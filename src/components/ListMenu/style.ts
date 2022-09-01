@@ -43,6 +43,34 @@ export const Button = styled.button`
     padding-left: 0px;
   }
 `;
+
+export const ContainerCategory = styled.ul`
+  display: flex;
+  width: 90%;
+  flex-direction: row;
+  flex-wrap: wrap;
+`;
+
+export const TitleCategory = styled.p`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: 'Roboto Mono', monospace;
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+  margin-bottom: 20px;
+  line-height: 3.13;
+
+  width: 150px;
+  height: 18px;
+
+  margin-top: 15px;
+
+  color: #9a9a9a;
+  z-index: 1;
+`;
+
 export const ListCategory = styled.li<ListProps>`
   padding-right: 40px;
   padding-bottom: 30px;
@@ -59,23 +87,6 @@ export const ListCategory = styled.li<ListProps>`
   }};
 
   p {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-family: 'Roboto Mono', monospace;
-    font-size: 16px;
-    color: rgb(255, 255, 255);
-    margin-bottom: 20px;
-    line-height: 3.13;
-
-    width: 150px;
-    height: 18px;
-
-    margin-top: 15px;
-
-    color: #9a9a9a;
-    z-index: 1;
     position: relative;
 
     &::before {
@@ -130,11 +141,11 @@ export const ContainerCagtegories = styled.div`
   cursor: pointer;
   background: black;
 
-  ul {
+  /* ul {
     width: 90%;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: wrap; */
 
     @media screen and (max-width: 740px) {
       width: 100%;

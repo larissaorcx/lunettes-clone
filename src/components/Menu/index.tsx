@@ -85,7 +85,9 @@ export default function MenuHeader({
           )}
         </BotaoSacola>
       </MenuContainer>
-      {openMenu && <ListMenu listMenu={listMenu} />}
+      {openMenu && (
+        <ListMenu listMenu={listMenu} handleOpenMenu={handleOpenMenu} />
+      )}
     </Menu>
   );
 }

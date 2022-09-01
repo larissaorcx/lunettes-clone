@@ -17,9 +17,8 @@ interface ButtonProps {
 export const Menu = styled.div<MenuProps>`
   display: flex;
   flex-direction: column;
-  /* width: 100%; */
-  width: auto;
-  height: 100vh;
+  width: 100%;
+  /* height: 100vh; */
 
   overflow-y: scroll;
   position: fixed;
@@ -41,7 +40,7 @@ export const Menu = styled.div<MenuProps>`
           return css`
             -webkit-animation: ${animationContainer} 0.5s
               cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-            animation: ${animationContainer} 0.2s
+            animation: ${animationContainer} 0.5s
               cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
           `;
         case false:

@@ -1,4 +1,4 @@
-import { ImagesProps } from '../../pages/produtos/[slug]';
+import { ImagesProps } from '../../pages/produtos/[...slug]';
 
 import Image from 'next/image';
 
@@ -38,7 +38,7 @@ export default function ImagesDetalhes({ products }: ImagesDetalhesProps) {
           <Image
             alt="product"
             src={img.allImages.lg}
-            width={552}
+            width={600}
             height={552}
           />
         </SwiperSlide>

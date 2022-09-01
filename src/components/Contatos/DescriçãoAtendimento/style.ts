@@ -39,7 +39,7 @@ export const InfosContatos = styled.div`
   justify-content: center;
   margin-top: 60px;
 
-  @media screen and (max-width: 720px) {
+  @media screen and (max-width: 740px) {
     display: flex;
     flex-direction: column;
     padding-top: 20px;

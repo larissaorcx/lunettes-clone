@@ -1,11 +1,8 @@
 import styled from 'styled-components';
 
 export const Conteiner = styled.div`
-  width: 100%;
-
   display: grid;
   grid-template-columns: 40% 1fr;
-
   gap: 40px;
 
   margin-top: 50px;
@@ -26,8 +23,9 @@ export const MessageError = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: 150px 0px;
   width: 100%;
-  height: 100vh;
+  min-height: 100px;
 `;
 
 export const Message = styled.p`
@@ -58,6 +56,16 @@ export const Text = styled.span`
   font-size: 14px;
   line-height: 2.25;
 `;
+export const ImgDiscountDetalhes = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  @media screen and (max-width: 740px) {
+    width: 100%;
+  }
+`;
 
 export const PorcentDiscountDetalhes = styled.div`
   width: 64px;
@@ -65,21 +73,21 @@ export const PorcentDiscountDetalhes = styled.div`
   border-radius: 100%;
   position: absolute;
   display: flex;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
   padding: 10px 11px 10px 10px;
   background: rgb(239, 31, 95);
   z-index: 3;
   top: 190px;
-  left: 30px;
+  left: 45px;
 
   @media screen and (max-width: 740px) {
     width: 50px;
     height: 50px;
     padding: 6px 7px 6px 8px;
-    top: 150px;
-    left: 40px;
+    top: 120px;
+    left: 15px;
   }
 `;
 export const TextDiscount = styled.span`
@@ -109,6 +117,7 @@ export const TitleDescricao = styled.h4`
   font-size: 24px;
   line-height: 1.5;
   margin-bottom: 10px;
+  width: 50vw;
 `;
 
 export const Descricao = styled.p`
@@ -118,7 +127,7 @@ export const Descricao = styled.p`
   line-height: 1.5;
 
   @media screen and (max-width: 740px) {
-    width: 360px;
+    width: 100%;
     text-align: justify;
   }
 `;
@@ -126,14 +135,21 @@ export const Descricao = styled.p`
 export const ContainerEspecificação = styled.div`
   display: flex;
   flex-direction: column;
+
   @media screen and (max-width: 740px) {
     width: 90%;
   }
 `;
 
 export const Especificacoes = styled.ul`
+  width: 100%;
   display: flex;
   flex-direction: column;
+  width: 50vw;
+  @media screen and (max-width: 740px) {
+    justify-content: space-between;
+    width: 100%;
+  }
 `;
 
 export const ListEspecificacoes = styled.li`

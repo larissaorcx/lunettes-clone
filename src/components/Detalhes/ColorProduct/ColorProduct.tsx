@@ -1,5 +1,5 @@
 import { Text } from '../../../pages/detalhes/style';
-import { ImagesProps } from '../../../pages/produtos/[slug]';
+import { ImagesProps } from '../../../pages/produtos/[...slug]';
 import {
   Box,
   ContainerColor,
