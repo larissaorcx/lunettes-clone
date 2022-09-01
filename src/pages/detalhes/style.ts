@@ -74,7 +74,7 @@ export const PorcentDiscountDetalhes = styled.div`
   position: absolute;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: end;
   flex-direction: column;
   padding: 10px 11px 10px 10px;
   background: rgb(239, 31, 95);
