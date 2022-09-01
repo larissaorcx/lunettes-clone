@@ -3,7 +3,7 @@ import InternalBackground from '../../components/InternalBackground';
 import { AboutType, HeaderType } from '../types';
 import mocklistproducts from '../../components/ListProducts/mocklistProducts';
 import dataHome from '../api/mockHome';
-import { ImagesProps } from '../produtos/[...slug]';
+import { ImagesProps, ProductProps } from '../produtos/[...slug]';
 
 import { useRouter } from 'next/router';
 import ImagesDetalhes from '../../components/Detalhes/ImagesDetalhes';
@@ -33,6 +33,8 @@ import { useEffect, useState } from 'react';
 import InfosProduto from '../../components/Detalhes/InfoProduto/infoProduto';
 
 import Image from 'next/image';
+import ProdRelacionados from '../../components/Detalhes/Relacionados/ProdRelacionados';
+import mockRelacionados from '../../components/Detalhes/Relacionados/mockRelacionados';
 
 interface DetalhesProps {
   background: HeaderType;
@@ -76,6 +78,11 @@ export default function Detelhes({
   const [productSlug, setProductSlug] = useState<
     ProductDetalhesProps | undefined
   >({} as ProductDetalhesProps);
+
+  const [relacionados, setRelacionados] = useState<ProductProps[]>(
+    {} as ProductProps[]
+  );
+
   const router = useRouter();
 
   useEffect(() => {
@@ -86,9 +93,11 @@ export default function Detelhes({
       const exist = produtos.find(
         product => product.productName.trim() === router.query.slug
       );
+
+      const prodRelacionados = await mockRelacionados;
       setTimeout(() => {
         setProductSlug(exist);
-
+        setRelacionados(prodRelacionados);
         setLoading(false);
       }, 1000);
     }
@@ -100,79 +109,88 @@ export default function Detelhes({
     <>
       <InternalBackground background={background} height="128px" />
       {productSlug === undefined && (
-        <MessageError>
-          <Icon>
-            <Image alt="error" src="/erro.png" width={56} height={56} />
-          </Icon>
-          <Message>
-            {`${router.query.slug} não parece ser o nome de um produto da
+        <>
+          <MessageError>
+            <Icon>
+              <Image alt="error" src="/erro.png" width={56} height={56} />
+            </Icon>
+            <Message>
+              {`${router.query.slug} não parece ser o nome de um produto da
           Lunettes. Abra o menu e escolha um tipo de produto.`}
-          </Message>
-        </MessageError>
+            </Message>
+          </MessageError>
+          <DescricaoAtendimento aboutAtendimento={conteudo.aboutAtendimento} />
+        </>
       )}
       {productSlug && Object.entries(productSlug).length !== 0 && (
-        <Conteiner>
-          {productSlug.discount > 0 ? (
-            <ImgDiscountDetalhes>
-              <PorcentDiscountDetalhes>
-                <TitleDiscount>{`${productSlug.discount}%`}</TitleDiscount>
-                <TextDiscount>OFF</TextDiscount>
-              </PorcentDiscountDetalhes>
+        <>
+          <Conteiner>
+            {productSlug.discount > 0 ? (
+              <ImgDiscountDetalhes>
+                <PorcentDiscountDetalhes>
+                  <TitleDiscount>{`${productSlug.discount}%`}</TitleDiscount>
+                  <TextDiscount>OFF</TextDiscount>
+                </PorcentDiscountDetalhes>
+                <ImagesDetalhes products={productSlug.images} />
+              </ImgDiscountDetalhes>
+            ) : (
               <ImagesDetalhes products={productSlug.images} />
-            </ImgDiscountDetalhes>
-          ) : (
-            <ImagesDetalhes products={productSlug.images} />
-          )}
+            )}
 
-          <InfosProduto product={productSlug} />
-          <ConteinerDescricao>
-            <TitleDescricao>Descrição</TitleDescricao>
-            <Descricao>{productSlug.description}</Descricao>
-          </ConteinerDescricao>
-          <ContainerEspecificação>
-            <TitleDescricao>Detalhes</TitleDescricao>
-            <Especificacoes>
-              <ListEspecificacoes>
-                <TitleDetalhes>Tamanho</TitleDetalhes>
-                <Value>{productSlug.details.size}</Value>
-              </ListEspecificacoes>
-              <ListEspecificacoes>
-                <TitleDetalhes>Material</TitleDetalhes>
-                <Value>{productSlug.details.material}</Value>
-              </ListEspecificacoes>
-              <ListEspecificacoes>
-                <TitleDetalhes>Acessórios</TitleDetalhes>
-                <Value>{productSlug.details.accessories}</Value>
-              </ListEspecificacoes>
-              <ListEspecificacoes>
-                <TitleDetalhes>Medida da Frente</TitleDetalhes>
-                <Value>{productSlug.details.front}</Value>
-              </ListEspecificacoes>
-              <ListEspecificacoes>
-                <TitleDetalhes>Medida da Altura</TitleDetalhes>
-                <Value>{productSlug.details.height}</Value>
-              </ListEspecificacoes>
-              <ListEspecificacoes>
-                <TitleDetalhes>Medida da Haste</TitleDetalhes>
-                <Value>{productSlug.details.hast}</Value>
-              </ListEspecificacoes>
-              <ListEspecificacoes>
-                <TitleDetalhes>Medida da Ponte do Nariz</TitleDetalhes>
-                <Value>{productSlug.details.bridge}</Value>
-              </ListEspecificacoes>
-              <ListEspecificacoes>
-                <TitleDetalhes>Garantia</TitleDetalhes>
-                <Value>{productSlug.details.warranty}</Value>
-              </ListEspecificacoes>
-              <ListEspecificacoes>
-                <TitleDetalhes>Lente</TitleDetalhes>
-                <Value>{productSlug.details.lens}</Value>
-              </ListEspecificacoes>
-            </Especificacoes>
-          </ContainerEspecificação>
-        </Conteiner>
+            <InfosProduto product={productSlug} />
+            <ConteinerDescricao>
+              <TitleDescricao>Descrição</TitleDescricao>
+              <Descricao>{productSlug.description}</Descricao>
+            </ConteinerDescricao>
+            <ContainerEspecificação>
+              <TitleDescricao>Detalhes</TitleDescricao>
+              <Especificacoes>
+                <ListEspecificacoes>
+                  <TitleDetalhes>Tamanho</TitleDetalhes>
+                  <Value>{productSlug.details.size}</Value>
+                </ListEspecificacoes>
+                <ListEspecificacoes>
+                  <TitleDetalhes>Material</TitleDetalhes>
+                  <Value>{productSlug.details.material}</Value>
+                </ListEspecificacoes>
+                <ListEspecificacoes>
+                  <TitleDetalhes>Acessórios</TitleDetalhes>
+                  <Value>{productSlug.details.accessories}</Value>
+                </ListEspecificacoes>
+                <ListEspecificacoes>
+                  <TitleDetalhes>Medida da Frente</TitleDetalhes>
+                  <Value>{productSlug.details.front}</Value>
+                </ListEspecificacoes>
+                <ListEspecificacoes>
+                  <TitleDetalhes>Medida da Altura</TitleDetalhes>
+                  <Value>{productSlug.details.height}</Value>
+                </ListEspecificacoes>
+                <ListEspecificacoes>
+                  <TitleDetalhes>Medida da Haste</TitleDetalhes>
+                  <Value>{productSlug.details.hast}</Value>
+                </ListEspecificacoes>
+                <ListEspecificacoes>
+                  <TitleDetalhes>Medida da Ponte do Nariz</TitleDetalhes>
+                  <Value>{productSlug.details.bridge}</Value>
+                </ListEspecificacoes>
+                <ListEspecificacoes>
+                  <TitleDetalhes>Garantia</TitleDetalhes>
+                  <Value>{productSlug.details.warranty}</Value>
+                </ListEspecificacoes>
+                <ListEspecificacoes>
+                  <TitleDetalhes>Lente</TitleDetalhes>
+                  <Value>{productSlug.details.lens}</Value>
+                </ListEspecificacoes>
+              </Especificacoes>
+            </ContainerEspecificação>
+          </Conteiner>
+          <DescricaoAtendimento aboutAtendimento={conteudo.aboutAtendimento} />
+          <ProdRelacionados product={relacionados} />
+        </>
       )}
-      <DescricaoAtendimento aboutAtendimento={conteudo.aboutAtendimento} />
+      {productSlug && Object.entries(productSlug).length === 0 && (
+        <DescricaoAtendimento aboutAtendimento={conteudo.aboutAtendimento} />
+      )}
     </>
   );
 }

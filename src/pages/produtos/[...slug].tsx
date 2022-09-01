@@ -6,7 +6,7 @@ import { GetServerSideProps } from 'next';
 import ListProducts from '../../components/ListProducts';
 import mocklistproducts from '../../components/ListProducts/mocklistProducts';
 import { Colorproducts } from '../../components/Filters/Color/ColorFilter';
-import React from 'react';
+import React, { useEffect } from 'react';
 import Filtrar from '../../components/Filters';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -47,6 +47,7 @@ export default function Products({
   setLoading,
 }: ProductsProps) {
   const router = useRouter();
+
   return (
     <>
       <InternalBackground background={background} height="200px" />
