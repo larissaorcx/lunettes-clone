@@ -20,35 +20,34 @@ import {
 import ListProductsImages from './CarroselListProducts/ListProductsImages';
 import mocklistProducts from './mocklistProducts';
 import { ContainerProducts } from './style';
-import discount from '../../pages/api/discount';
+
 import { useRouter } from 'next/router';
 
 interface ListProductsProps {
   setLoading: (loading: boolean) => void;
+  products: ProductProps[];
 }
 
-export default function ListProducts({ setLoading }: ListProductsProps) {
+export default function ListProducts({
+  setLoading,
+  products,
+}: ListProductsProps) {
   const router = useRouter();
 
-  const [loadproducts, setloadProducts] = useState<ProductProps[]>(
-    [] as ProductProps[]
-  );
+  const [loadproducts, setloadProducts] = useState<ProductProps[]>(products);
 
   useEffect(() => {
     async function loadProducts() {
       setLoading(true);
-      const produtos = await mocklistProducts;
-
-      const productWithformatedPrice = discount({ produtos });
 
       setTimeout(() => {
-        setloadProducts(productWithformatedPrice);
+        setloadProducts(products);
 
         setLoading(false);
       }, 1000);
     }
     loadProducts();
-  }, []);
+  }, [products]);
 
   return (
     <ContainerProducts>
@@ -81,7 +80,14 @@ export default function ListProducts({ setLoading }: ListProductsProps) {
               }).format(product.price)}
             </Preco>
             {product.discount > 0 && (
-              <PriceWithDiscount>{product?.formatedPrice}</PriceWithDiscount>
+              <PriceWithDiscount>
+                {new Intl.NumberFormat('pt-BR', {
+                  style: 'currency',
+                  currency: 'BRL',
+                }).format(
+                  product.price - product.price * (product.discount / 100)
+                )}
+              </PriceWithDiscount>
             )}
           </ContainerPrecos>
           <BotaoReserva

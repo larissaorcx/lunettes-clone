@@ -32,14 +32,14 @@ export default function InfosProduto({ product }: InfosProdutoProps) {
             <Image alt="next" src="/right.png" width={16} height={16} />
           </Simbolo>
           <Caminho>{product.category}</Caminho>
-          {product.subcategories.map(sub => (
+          {typeof product.subcategories !== 'string' && (
             <>
               <Simbolo>
                 <Image alt="next" src="/right.png" width={16} height={16} />
               </Simbolo>
-              <Caminho>{sub}</Caminho>
+              <Caminho>Multi categorias</Caminho>
             </>
-          ))}
+          )}
         </>
       </ContainerCaminhoDetalhes>
       <NameProduct>{product.productName}</NameProduct>

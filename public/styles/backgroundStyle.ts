@@ -20,7 +20,7 @@ export const Background = styled.div<BackgroundProps>`
     background: url(${props => props.backgroundImages.background1.img});
     background-size: cover;
     background-position: center;
-    width: 360px;
+    width: 100%;
     height: 640px;
   }
 `;
