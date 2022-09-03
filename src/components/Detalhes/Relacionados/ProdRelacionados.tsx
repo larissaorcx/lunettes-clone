@@ -23,6 +23,7 @@ interface ProdRelacionadosProps {
 
 export default function ProdRelacionados({ product }: ProdRelacionadosProps) {
   const router = useRouter();
+
   return (
     <DestaquesContainer>
       <Titulo>Prodrutos Relacionados</Titulo>
