@@ -25,7 +25,7 @@ export const Button = styled.button`
   text-align: left;
   color: rgb(255, 255, 255);
   margin-bottom: 50px;
-  text-transform: uppercase;
+
   background: rgb(0, 0, 0);
   cursor: pointer;
   width: 370px;
@@ -49,6 +49,9 @@ export const ContainerCategory = styled.ul`
   width: 90%;
   flex-direction: row;
   flex-wrap: wrap;
+  @media screen and (max-width: 740px) {
+    width: 100%;
+  }
 `;
 
 export const TitleCategory = styled.p`

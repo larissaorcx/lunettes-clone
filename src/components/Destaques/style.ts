@@ -19,7 +19,7 @@ export const DestaquesContainer = styled.div`
 `;
 
 export const Titulo = styled.h2`
-  font-family: MonumentExtended;
+  font-family: 'MonumentExtended';
   text-transform: uppercase;
   font-size: 42px;
   font-weight: 800;

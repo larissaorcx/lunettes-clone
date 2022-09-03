@@ -108,7 +108,7 @@ export default function Detelhes({
   return (
     <>
       <InternalBackground background={background} height="128px" />
-      {productSlug === undefined && (
+      {!productSlug && (
         <>
           <MessageError>
             <Icon>
@@ -136,7 +136,6 @@ export default function Detelhes({
             ) : (
               <ImagesDetalhes products={productSlug.images} />
             )}
-
             <InfosProduto product={productSlug} />
             <ConteinerDescricao>
               <TitleDescricao>Descrição</TitleDescricao>

@@ -4,7 +4,7 @@ export default {
     title: 'Óculos de grau',
     category: [
       {
-        title: 'avidor',
+        title: 'Aviador',
         img: '/assets/oculos/aviador.png',
         alt: 'aviador',
       },
@@ -44,7 +44,7 @@ export default {
     title: 'Óculos de sol',
     category: [
       {
-        title: 'avidor',
+        title: 'Aviador',
         img: '/assets/oculos/aviador.png',
         alt: 'aviador',
       },
