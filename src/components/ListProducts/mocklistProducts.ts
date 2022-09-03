@@ -370,6 +370,77 @@ export default [
     __v: 0,
   },
   {
+    subcategories: ['Quadrado', 'Espelhado'],
+    associated: [
+      {
+        id: '62dc346dfbe5c2002279fb84',
+        url: 'https://upload-lunettes.s3.amazonaws.com/4b0fdfa3be8c063ede64cf855eee1501-xs',
+      },
+      {
+        id: '62fa9c0c6c381f0022025065',
+        url: 'https://upload-lunettes.s3.amazonaws.com/63695df67608988a3bf96af813e33bdb-xs',
+      },
+    ],
+    status: 'activated',
+    highlighted: false,
+    isNewCollection: true,
+    images: [
+      {
+        id: '62fa811d5c411400222d3e93',
+        url: 'https://upload-lunettes.s3.amazonaws.com/73420135fd07863db91a6f876984d720-xs',
+        color: { name: 'NOTCOLOR', background: '' },
+        allImages: {
+          xs: 'https://upload-lunettes.s3.amazonaws.com/73420135fd07863db91a6f876984d720-xs',
+          md: 'https://upload-lunettes.s3.amazonaws.com/73420135fd07863db91a6f876984d720-md',
+          lg: 'https://upload-lunettes.s3.amazonaws.com/73420135fd07863db91a6f876984d720-lg',
+        },
+      },
+      {
+        id: '62fa81235c411400222d3e94',
+        url: 'https://upload-lunettes.s3.amazonaws.com/53f8613c58833b5bd33dd3aee4d77f23-xs',
+        color: { name: 'Azul', background: '#0000FF' },
+        allImages: {
+          xs: 'https://upload-lunettes.s3.amazonaws.com/53f8613c58833b5bd33dd3aee4d77f23-xs',
+          md: 'https://upload-lunettes.s3.amazonaws.com/53f8613c58833b5bd33dd3aee4d77f23-md',
+          lg: 'https://upload-lunettes.s3.amazonaws.com/53f8613c58833b5bd33dd3aee4d77f23-lg',
+        },
+      },
+      {
+        id: '62fa81275c411400222d3e95',
+        url: 'https://upload-lunettes.s3.amazonaws.com/32ba669bbef6c3828926e1832c3076cf-xs',
+        color: { name: 'NOTCOLOR', background: '' },
+        allImages: {
+          xs: 'https://upload-lunettes.s3.amazonaws.com/32ba669bbef6c3828926e1832c3076cf-xs',
+          md: 'https://upload-lunettes.s3.amazonaws.com/32ba669bbef6c3828926e1832c3076cf-md',
+          lg: 'https://upload-lunettes.s3.amazonaws.com/32ba669bbef6c3828926e1832c3076cf-lg',
+        },
+      },
+    ],
+    favorite: 0,
+    viewDetails: 0,
+    _id: '62faa5266c381f0022025072',
+    category: 'Solar',
+    code: 'LTM124C5',
+    description:
+      'A Lunettes é uma empresa atenta às tendências do mercado ótico trazendo novidades para os mais variados públicos. Escolhendo uma armação Lunettes, você tem garantia do produto e atendimento personalizado direto com a Lari ou seus consultores. Não perca tempo, reserve sua armação e nos avise para poder entregar até você.',
+    details: {
+      size: 'Grande',
+      material: 'Metal',
+      accessories: 'Estojo e flanela',
+      front: '15 cm',
+      height: '5,7 cm',
+      hast: '14,5 cm',
+      bridge: '2 mm',
+      warranty: '6 meses',
+      lens: 'Proteção UV',
+    },
+    discount: 0,
+    price: 140,
+    productName: 'Anelise',
+    createdAt: '2022-08-15T19:57:26.500Z',
+    __v: 0,
+  },
+  {
     subcategories: ['Retangular'],
     associated: [
       {

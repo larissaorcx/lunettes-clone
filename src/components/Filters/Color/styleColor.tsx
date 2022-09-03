@@ -9,8 +9,8 @@ export const Container = styled.ul`
   grid-gap: 10px;
   grid-template-columns: repeat(4, 1fr);
   border: 1px solid rgb(238, 238, 238);
-  width: 100%;
-  margin: 0 auto;
+  /* width: 100%; */
+  margin: auto;
   padding: 20px;
   margin-bottom: 20px;
 

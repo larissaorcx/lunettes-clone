@@ -45,7 +45,7 @@ export default {
     },
     solar: {
       title: 'Solar',
-      category: ['Aviador', 'Quadrado', 'Vintage', 'Espelho', 'Gatinho'],
+      category: ['Aviador', 'Quadrado', 'Vintage', 'Espelhado', 'Gatinho'],
     },
     grau: {
       title: 'Grau',
@@ -53,10 +53,10 @@ export default {
         'Aviador',
         'Quadrado',
         'Vintage',
-        'Espelho',
         'Gatinho',
         'Oval',
         'Retangular',
+        'Redondo',
       ],
     },
     contato: {

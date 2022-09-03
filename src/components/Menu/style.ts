@@ -18,7 +18,7 @@ export const Menu = styled.div<MenuProps>`
   display: flex;
   flex-direction: column;
   width: 100%;
-  /* height: 100vh; */
+  height: ${props => (props.openMenu ? '100vh' : '0')};
 
   overflow-y: scroll;
   position: fixed;

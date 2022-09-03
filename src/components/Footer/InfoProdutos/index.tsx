@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { Images, Media, Oculos } from '../../../pages/types';
 
 import {
@@ -39,6 +40,7 @@ interface InfosProdutoProps {
 }
 
 export default function InfosProduto({ info }: InfosProdutoProps) {
+  const router = useRouter();
   return (
     <InfosProdutoContainer>
       <ImageLogo>
@@ -55,17 +57,35 @@ export default function InfosProduto({ info }: InfosProdutoProps) {
           {info.solar.category.map((prod: string) => (
             <ul key={prod}>
               <li>
-                <LinkCategorias href="">{prod}</LinkCategorias>
+                <LinkCategorias
+                  type="button"
+                  onClick={() =>
+                    router.push(
+                      `/produtos/${info.solar.title.toLowerCase()}/${prod}`
+                    )
+                  }
+                >
+                  {prod}
+                </LinkCategorias>
               </li>
             </ul>
           ))}
         </SolarContainer>
         <GrauContainer>
-          <TituloInfo>grau</TituloInfo>
+          <TituloInfo>{info.grau.title}</TituloInfo>
           {info.grau.category.map((prod: string) => (
             <ul key={prod}>
               <li>
-                <LinkCategorias href="">{prod}</LinkCategorias>
+                <LinkCategorias
+                  type="button"
+                  onClick={() =>
+                    router.push(
+                      `/produtos/${info.grau.title.toLowerCase()}/${prod}`
+                    )
+                  }
+                >
+                  {prod}
+                </LinkCategorias>
               </li>
             </ul>
           ))}

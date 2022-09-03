@@ -86,14 +86,15 @@ export const SolarContainer = styled.div`
     margin: 0px 0px 35px;
   }
 `;
-export const LinkCategorias = styled.a`
+export const LinkCategorias = styled.button`
   font-family: 'Roboto Mono', monospace;
   font-size: 16px;
   line-height: 2.25;
   font-weight: bold;
   color: #9a9a9a;
-  width: 100vw;
-  text-decoration: none;
+  background-color: #2c2a40;
+  border: none;
+  cursor: pointer;
 `;
 export const GrauContainer = styled.div`
   padding-left: 70px;
