@@ -10,7 +10,7 @@ export const GlobalStyle = createGlobalStyle<GlobalProps>`
   
 @font-face {
   font-family: MonumentExtended;
-  src: url('../font/MonumentBold.otf') format('opentype');
+  src: url('/font/MonumentBold.otf') format('opentype');
 }
 
 * {
