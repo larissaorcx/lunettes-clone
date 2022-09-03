@@ -10,7 +10,7 @@ export const ContainerProducts = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   margin-bottom: 80px;
-  /* margin-left: 30px; */
+  grid-gap: 30px;
 
   @media screen and (max-width: 740px) {
     display: flex;

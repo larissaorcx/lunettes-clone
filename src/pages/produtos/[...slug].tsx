@@ -1,6 +1,13 @@
 import InternalBackground from '../../components/InternalBackground';
 import { HeaderType } from '../types';
-import { Caminho, Container, Titulo, Simbolo, ContainerCaminho } from './style';
+import {
+  Caminho,
+  Container,
+  Titulo,
+  Simbolo,
+  ContainerCaminho,
+  ConatinerError,
+} from './style';
 import dataHome from '../api/mockHome';
 import { GetServerSideProps } from 'next';
 import ListProducts from '../../components/ListProducts';
@@ -10,6 +17,7 @@ import React, { useEffect } from 'react';
 import Filtrar from '../../components/Filters';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import { Icon, Message } from '../detalhes/style';
 
 interface ProductsProps {
   background: HeaderType;
@@ -52,6 +60,7 @@ export default function Products({
   subcategory,
 }: ProductsProps) {
   const router = useRouter();
+  const tamSlug = router.query.slug?.length;
 
   // useEffect(() => {}, [router.query.slug]);
 
@@ -66,22 +75,34 @@ export default function Products({
           </Simbolo>
           <Caminho>{category}</Caminho>
         </ContainerCaminho>
-        {subcategory ? (
-          <Titulo>{subcategory}</Titulo>
+        {(tamSlug && tamSlug >= 3) || products.length === 0 ? (
+          <ConatinerError>
+            <Titulo>{router.query?.slug?.slice(1)}</Titulo>
+            <Icon>
+              <Image alt="error" src="/aviso.png" width={56} height={56} />
+            </Icon>
+            <Message>Não encontramos produtos para essa pesquisa</Message>
+          </ConatinerError>
+        ) : subcategory ? (
+          <>
+            <Titulo>{subcategory}</Titulo>
+            <Filtrar products={products} />
+            <ListProducts setLoading={setLoading} products={products} />
+          </>
         ) : (
-          <Titulo>{category}</Titulo>
+          <>
+            <Titulo>{category}</Titulo>
+            <Filtrar products={products} />
+            <ListProducts setLoading={setLoading} products={products} />
+          </>
         )}
       </Container>
-      <Filtrar products={products} />
-      <ListProducts setLoading={setLoading} products={products} />
     </>
   );
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const slugs = params?.slug;
-
-  console.log('slug', slugs);
 
   let filteredProducts: ProductProps[] = [];
   let category: String = '';
