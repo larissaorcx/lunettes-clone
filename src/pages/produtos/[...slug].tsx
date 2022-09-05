@@ -9,7 +9,7 @@ import {
   ConatinerError,
 } from './style';
 import dataHome from '../api/mockHome';
-import { GetServerSideProps } from 'next';
+import { GetServerSideProps, GetStaticProps } from 'next';
 import ListProducts from '../../components/ListProducts';
 import mocklistproducts from '../../components/ListProducts/mocklistProducts';
 import { Colorproducts } from '../../components/Filters/Color/ColorFilter';
@@ -18,6 +18,7 @@ import Filtrar from '../../components/Filters';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { Icon, Message } from '../detalhes/style';
+import mocklistProducts from '../../components/ListProducts/mocklistProducts';
 
 interface ProductsProps {
   background: HeaderType;
@@ -62,8 +63,6 @@ export default function Products({
   const router = useRouter();
   const tamSlug = router.query.slug?.length;
 
-  // useEffect(() => {}, [router.query.slug]);
-
   return (
     <>
       <InternalBackground background={background} height="200px" />
@@ -101,7 +100,24 @@ export default function Products({
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+export async function getStaticPaths() {
+  const products = mocklistProducts;
+  return {
+    paths: products.map(product => ({
+      params: {
+        slug: [
+          product.category.toLowerCase(),
+          ...product.subcategories.map(subcategory =>
+            subcategory.toLowerCase()
+          ),
+        ],
+      },
+    })),
+    fallback: true,
+  };
+}
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const slugs = params?.slug;
 
   let filteredProducts: ProductProps[] = [];
