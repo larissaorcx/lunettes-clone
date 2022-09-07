@@ -13,7 +13,7 @@ import { GetServerSideProps, GetStaticProps } from 'next';
 import ListProducts from '../../components/ListProducts';
 import mocklistproducts from '../../components/ListProducts/mocklistProducts';
 import { Colorproducts } from '../../components/Filters/Color/ColorFilter';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Filtrar from '../../components/Filters';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -63,6 +63,23 @@ export default function Products({
   const router = useRouter();
   const tamSlug = router.query.slug?.length;
 
+  const [loadproducts, setloadProducts] = useState<ProductProps[]>(products);
+  console.log(loadproducts, 'load products', products, 'produtos');
+
+  useEffect(() => {
+    async function loadProducts() {
+      setLoading(true);
+
+      setTimeout(() => {
+        setloadProducts(products);
+
+        setLoading(false);
+      }, 1000);
+    }
+
+    loadProducts();
+  }, [products, setLoading]);
+
   return (
     <>
       <InternalBackground background={background} height="200px" />
@@ -74,7 +91,7 @@ export default function Products({
           </Simbolo>
           <Caminho>{category}</Caminho>
         </ContainerCaminho>
-        {(tamSlug && tamSlug >= 3) || products.length === 0 ? (
+        {(tamSlug && tamSlug >= 3) || loadproducts.length === 0 ? (
           <ConatinerError>
             <Titulo>{router.query?.slug?.slice(1)}</Titulo>
             <Icon>
@@ -85,14 +102,14 @@ export default function Products({
         ) : subcategory ? (
           <>
             <Titulo>{subcategory}</Titulo>
-            <Filtrar products={products} />
-            <ListProducts setLoading={setLoading} products={products} />
+            <Filtrar products={loadproducts} />
+            <ListProducts products={loadproducts} />
           </>
         ) : (
           <>
             <Titulo>{category}</Titulo>
-            <Filtrar products={products} />
-            <ListProducts setLoading={setLoading} products={products} />
+            <Filtrar products={loadproducts} />
+            <ListProducts products={loadproducts} />
           </>
         )}
       </Container>

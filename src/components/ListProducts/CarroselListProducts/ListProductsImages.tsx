@@ -21,6 +21,8 @@ type ImgProps = {
 export default function ListProductsImages({ products }: ImgProps) {
   const [clickButton, setClickButton] = useState(false);
 
+  console.log(products, ' produtos img');
+
   const swiper = useSwiper();
 
   function handleClick() {

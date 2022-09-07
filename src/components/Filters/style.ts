@@ -15,7 +15,7 @@ export const ContainerButton = styled.div<ButtonOpen>`
   justify-content: center;
   flex-direction: column;
 
-  margin-bottom: 50px;
+  /* margin-bottom: 50px; */
 
   @media screen and (max-width: 740px) {
     width: 100%;

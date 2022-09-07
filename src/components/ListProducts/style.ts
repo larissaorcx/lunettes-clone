@@ -10,7 +10,8 @@ export const ContainerProducts = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   margin-bottom: 80px;
-  grid-gap: 30px;
+  margin-top: 80px;
+  grid-gap: 80px;
 
   @media screen and (max-width: 740px) {
     display: flex;
@@ -28,7 +29,6 @@ export const ContainerProducts = styled.div`
 `;
 
 export const ProdutoContainer = styled.div`
-  width: 1260px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 80px;
@@ -276,4 +276,10 @@ export const TitleDiscount = styled.h3`
     line-height: 15px;
     text-align: left;
   }
+`;
+export const RelacionadoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;

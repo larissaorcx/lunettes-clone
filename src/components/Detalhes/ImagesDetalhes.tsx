@@ -38,7 +38,7 @@ export default function ImagesDetalhes({ products }: ImagesDetalhesProps) {
           <Image
             alt="product"
             src={img.allImages.lg}
-            width={600}
+            width={560}
             height={552}
           />
         </SwiperSlide>

@@ -1,11 +1,12 @@
 import { FaRegHeart, FaWhatsapp } from 'react-icons/fa';
-import { TextoBotao } from '../../Destaques/style';
+
 import Link from 'next/link';
 import {
   BotaoReservaSacola,
   BotaoReservaWhats,
   ContainerButton,
 } from './style';
+import { TextoBotao } from '../../ListProducts/style';
 
 export default function ButtonReserva() {
   return (

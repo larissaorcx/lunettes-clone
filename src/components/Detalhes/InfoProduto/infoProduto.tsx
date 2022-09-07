@@ -1,11 +1,7 @@
 import { ProductDetalhesProps } from '../../../pages/detalhes/[slug]';
 import { Caminho, Simbolo } from '../../../pages/produtos/style';
-import { CodigoProduto } from '../../Destaques/style';
-import {
-  ContainerPrecos,
-  Preco,
-  PriceWithDiscount,
-} from '../../ListProducts/style';
+
+import { CodigoProduto } from '../../ListProducts/style';
 import ColorProduct from '../ColorProduct/ColorProduct';
 import {
   ContainerCaminhoDetalhes,

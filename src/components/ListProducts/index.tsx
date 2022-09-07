@@ -18,33 +18,22 @@ import {
   ImgDiscount,
 } from './style';
 import ListProductsImages from './CarroselListProducts/ListProductsImages';
-import mocklistProducts from './mocklistProducts';
 import { ContainerProducts } from './style';
 
 import { useRouter } from 'next/router';
 
 interface ListProductsProps {
-  setLoading: (loading: boolean) => void;
   products: ProductProps[];
 }
 
-export default function ListProducts({
-  setLoading,
-  products,
-}: ListProductsProps) {
+export default function ListProducts({ products }: ListProductsProps) {
   const router = useRouter();
 
   const [loadproducts, setloadProducts] = useState<ProductProps[]>(products);
 
   useEffect(() => {
     async function loadProducts() {
-      setLoading(true);
-
-      setTimeout(() => {
-        setloadProducts(products);
-
-        setLoading(false);
-      }, 1000);
+      setloadProducts(products);
     }
     loadProducts();
   }, [products]);
