@@ -64,7 +64,6 @@ export default function Products({
   const tamSlug = router.query.slug?.length;
 
   const [loadproducts, setloadProducts] = useState<ProductProps[]>(products);
-  console.log(loadproducts, 'load products', products, 'produtos');
 
   useEffect(() => {
     async function loadProducts() {
@@ -130,7 +129,7 @@ export async function getStaticPaths() {
         ],
       },
     })),
-    fallback: true,
+    fallback: 'blocking',
   };
 }
 
