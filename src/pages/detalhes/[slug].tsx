@@ -25,6 +25,7 @@ import {
   Value,
   Especificacoes,
   ImgDiscountDetalhes,
+  ContainerDetalhes,
 } from './style';
 
 import { TitleDiscount } from '../../components/ListProducts/style';
@@ -33,14 +34,14 @@ import { useEffect, useState } from 'react';
 import InfosProduto from '../../components/Detalhes/InfoProduto/infoProduto';
 
 import Image from 'next/image';
-import ProdRelacionados from '../../components/Detalhes/Relacionados/ProdRelacionados';
-import mockRelacionados from '../../components/Detalhes/Relacionados/mockRelacionados';
+import ListProducts from '../../components/ListProducts';
 
 interface DetalhesProps {
   background: HeaderType;
-  products: ProductDetalhesProps[];
+  exist: ProductDetalhesProps;
   conteudo: AboutType;
   setLoading: (loading: boolean) => void;
+  prodRelacionados: ProductDetalhesProps[];
 }
 
 export type ProductDetalhesProps = {
@@ -56,6 +57,12 @@ export type ProductDetalhesProps = {
   formatedPrice?: string;
   description: string;
   details: DetailsProps;
+  associated: AssociatedProps[];
+};
+
+type AssociatedProps = {
+  id: string;
+  url: string;
 };
 
 type DetailsProps = {
@@ -74,6 +81,8 @@ export default function Detelhes({
   background,
   conteudo,
   setLoading,
+  prodRelacionados,
+  exist,
 }: DetalhesProps) {
   const [productSlug, setProductSlug] = useState<
     ProductDetalhesProps | undefined
@@ -89,21 +98,15 @@ export default function Detelhes({
     async function loadProducts() {
       setLoading(true);
 
-      const produtos = await mocklistproducts;
-      const exist = produtos.find(
-        product => product.productName.trim() === router.query.slug
-      );
-
-      const prodRelacionados = await mockRelacionados;
       setTimeout(() => {
-        setProductSlug(exist);
         setRelacionados(prodRelacionados);
+        setProductSlug(exist);
         setLoading(false);
       }, 1000);
     }
 
     loadProducts();
-  }, []);
+  }, [router.query.slug, exist, setLoading, prodRelacionados]);
 
   return (
     <>
@@ -123,7 +126,7 @@ export default function Detelhes({
         </>
       )}
       {productSlug && Object.entries(productSlug).length !== 0 && (
-        <>
+        <ContainerDetalhes>
           <Conteiner>
             {productSlug.discount > 0 ? (
               <ImgDiscountDetalhes>
@@ -184,8 +187,8 @@ export default function Detelhes({
             </ContainerEspecificação>
           </Conteiner>
           <DescricaoAtendimento aboutAtendimento={conteudo.aboutAtendimento} />
-          <ProdRelacionados product={relacionados} />
-        </>
+          <ListProducts products={relacionados} />
+        </ContainerDetalhes>
       )}
       {productSlug && Object.entries(productSlug).length === 0 && (
         <DescricaoAtendimento aboutAtendimento={conteudo.aboutAtendimento} />
@@ -194,26 +197,23 @@ export default function Detelhes({
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const products = mocklistproducts.map(product => {
-    return {
-      id: product._id,
-      category: product.category,
-      subcategories: product.subcategories,
-      price: product.price,
-      images: product.images,
-      productName: product.productName,
-      code: product.code,
-      isNewCollection: product.isNewCollection,
-      discount: product.discount,
-      description: product.description,
-    };
-  });
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+  const name = params?.slug;
+  const produtos = await mocklistproducts;
+  const exist = produtos.find(product => product.productName.trim() === name);
+
+  const prodRelacionados = exist?.associated
+    .map(relacionado => {
+      return produtos.find(product => product._id === relacionado.id);
+    })
+    .filter(prod => prod);
+
   return {
     props: {
       background: dataHome.header,
-      products,
+      exist,
       conteudo: dataHome.about,
+      prodRelacionados,
     },
   };
 };

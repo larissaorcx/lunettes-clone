@@ -1,13 +1,20 @@
 import styled from 'styled-components';
 
+export const ContainerDetalhes = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+`;
+
 export const Conteiner = styled.div`
   display: grid;
   grid-template-columns: 40% 1fr;
   gap: 40px;
 
   margin-top: 50px;
-  margin-left: 15px;
-  margin-bottom: 50px;
+  margin: auto;
 
   @media screen and (max-width: 740px) {
     display: flex;
@@ -106,6 +113,7 @@ export const ConteinerDescricao = styled.div`
   margin-left: 10px;
   width: 100%;
   height: auto;
+  margin-left: 40px;
   @media screen and (max-width: 740px) {
     width: 95%;
   }
@@ -125,7 +133,8 @@ export const Descricao = styled.p`
   color: #9a9a9a;
   font-size: 16px;
   line-height: 1.5;
-
+  text-align: justify;
+  width: 90%;
   @media screen and (max-width: 740px) {
     width: 100%;
     text-align: justify;
