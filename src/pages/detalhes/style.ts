@@ -65,7 +65,7 @@ export const Text = styled.span`
 `;
 export const ImgDiscountDetalhes = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   flex-direction: column;
   width: 100%;
@@ -86,8 +86,8 @@ export const PorcentDiscountDetalhes = styled.div`
   padding: 10px 11px 10px 10px;
   background: rgb(239, 31, 95);
   z-index: 3;
-  top: 190px;
-  left: 45px;
+  top: 200px;
+  left: 30px;
 
   @media screen and (max-width: 740px) {
     width: 50px;

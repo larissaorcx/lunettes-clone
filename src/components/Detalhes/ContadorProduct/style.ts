@@ -50,6 +50,7 @@ export const Sinal = styled.span`
 
 export const ValueContador = styled.span`
   font-family: 'Roboto Mono', monospace;
+  font-weight: 500;
   color: #000;
   font-size: 24px;
   line-height: 1.5;

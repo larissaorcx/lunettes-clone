@@ -5,6 +5,7 @@ export const ContainerConteudo = styled.div`
   flex-direction: column;
   width: 50vw;
   align-items: start;
+
   margin-bottom: 30px;
 
   @media screen and (max-width: 740px) {
@@ -40,6 +41,6 @@ export const Text = styled.span`
 
   font-family: 'Roboto Mono', monospace;
   color: rgb(154, 154, 154);
-  font-size: 16px;
+  font-size: 14px;
   line-height: 2.25;
 `;

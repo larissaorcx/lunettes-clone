@@ -7,11 +7,7 @@ import {
 } from './style';
 import { Text } from '../InfoProduto/style';
 import { useEffect, useState } from 'react';
-import {
-  ContainerPrecos,
-  Preco,
-  PriceWithDiscount,
-} from '../../ListProducts/style';
+import { ContainerPrecos, Preco, PriceWithDiscount } from '../../Product/style';
 
 interface ContadorProductProps {
   price: number;

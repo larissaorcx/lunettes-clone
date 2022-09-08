@@ -1,4 +1,4 @@
-import { BotaoCores, CoresContainer } from '../style';
+import { BotaoCores, CoresContainer } from '../../Product/style';
 import { ImagesProps } from '../../../pages/produtos/[...slug]';
 
 import Image from 'next/image';
