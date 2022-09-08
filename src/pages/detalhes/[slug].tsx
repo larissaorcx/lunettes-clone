@@ -28,7 +28,7 @@ import {
   ContainerDetalhes,
 } from './style';
 
-import { TitleDiscount } from '../../components/ListProducts/style';
+import { TitleDiscount } from '../../components/Product/style';
 import { useEffect, useState } from 'react';
 
 import InfosProduto from '../../components/Detalhes/InfoProduto/infoProduto';
@@ -60,12 +60,12 @@ export type ProductDetalhesProps = {
   associated: AssociatedProps[];
 };
 
-type AssociatedProps = {
+export type AssociatedProps = {
   id: string;
   url: string;
 };
 
-type DetailsProps = {
+export type DetailsProps = {
   size: string;
   material: string;
   accessories: string;
@@ -88,8 +88,8 @@ export default function Detelhes({
     ProductDetalhesProps | undefined
   >({} as ProductDetalhesProps);
 
-  const [relacionados, setRelacionados] = useState<ProductProps[]>(
-    {} as ProductProps[]
+  const [relacionados, setRelacionados] = useState<ProductDetalhesProps[]>(
+    {} as []
   );
 
   const router = useRouter();

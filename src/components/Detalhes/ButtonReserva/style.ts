@@ -1,4 +1,9 @@
 import styled from 'styled-components';
+import { PulseHeart } from './animationIcon';
+
+type ButtonBagProps = {
+  openBag: boolean;
+};
 
 export const ContainerButton = styled.div`
   display: flex;
@@ -10,17 +15,18 @@ export const ContainerButton = styled.div`
   }
 `;
 
-export const BotaoReservaSacola = styled.button`
-  background: black;
+export const BotaoReservaSacola = styled.button<ButtonBagProps>`
+  background: ${props => (props.openBag ? 'rgb(239, 31, 95)' : 'black')};
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
   font-family: 'Roboto Mono', monospace;
   font-size: 24px;
+  width: ${props => (props.openBag ? '248px' : '')};
+  height: ${props => (props.openBag ? '70px' : '')};
 
   line-height: 1.5;
   color: #fff;
   border: none;
-  margin-top: 40px;
-  margin-right: 10px;
+  margin: 40px 10px 0 0;
   border-radius: 8px;
   cursor: pointer;
   padding: 10px 25px;
@@ -40,6 +46,12 @@ export const BotaoReservaSacola = styled.button`
     height: 50px;
     margin: 20px 0px 10px 0px;
     font-size: 20px;
+  }
+
+  .heart{
+    animation: -webkit-animation: ${PulseHeart}-fwd 0.5s ease-in-out infinite both;
+	  animation: ${PulseHeart} 0.5s ease-in-out infinite both;
+    
   }
 `;
 

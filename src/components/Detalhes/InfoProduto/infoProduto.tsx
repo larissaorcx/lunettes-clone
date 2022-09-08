@@ -1,7 +1,7 @@
 import { ProductDetalhesProps } from '../../../pages/detalhes/[slug]';
 import { Caminho, Simbolo } from '../../../pages/produtos/style';
 
-import { CodigoProduto } from '../../ListProducts/style';
+import { CodigoProduto } from '../../Product/style';
 import ColorProduct from '../ColorProduct/ColorProduct';
 import {
   ContainerCaminhoDetalhes,
@@ -42,7 +42,7 @@ export default function InfosProduto({ product }: InfosProdutoProps) {
       <CodigoProduto>{product.code}</CodigoProduto>
       <ColorProduct color={product.images} />
       <ContadorProduct price={product.price} discount={product.discount} />
-      <ButtonReserva />
+      <ButtonReserva product={product} />
     </ContainerConteudo>
   );
 }

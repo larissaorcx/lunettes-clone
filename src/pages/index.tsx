@@ -20,9 +20,15 @@ type HomeProps = {
   openMenu: boolean;
   handleOpenMenu: () => void;
   setLoading: (loading: boolean) => void;
+  openBag: boolean;
 };
 
-export default function Home({ conteudo, destaques, setLoading }: HomeProps) {
+export default function Home({
+  conteudo,
+  destaques,
+  setLoading,
+  openBag,
+}: HomeProps) {
   const [loadproducts, setloadProducts] = useState<ProductProps[]>(destaques);
   useEffect(() => {
     async function loadProducts() {

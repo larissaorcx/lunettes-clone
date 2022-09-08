@@ -7,6 +7,7 @@ import { ThemeProvider } from 'styled-components';
 import { useState } from 'react';
 import Layout from '../components/Layout';
 import Loading from '../components/Loading/Loading';
+import CartProvider, { useCart } from '../components/hooks/useCart';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [openMenu, setOpenMenu] = useState<boolean | null>(null);
@@ -23,10 +24,16 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <ThemeProvider theme={theme}>
         {loading && <Loading />}
-        <Layout openMenu={openMenu} handleOpenMenu={handleOpenMenu}>
-          <Component {...pageProps} loading={loading} setLoading={setLoading} />
-        </Layout>
-        <GlobalStyle />
+        <CartProvider>
+          <Layout openMenu={openMenu} handleOpenMenu={handleOpenMenu}>
+            <Component
+              {...pageProps}
+              loading={loading}
+              setLoading={setLoading}
+            />
+          </Layout>
+          <GlobalStyle />
+        </CartProvider>
       </ThemeProvider>
     </>
   );
