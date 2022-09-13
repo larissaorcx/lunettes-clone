@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { PulseHeart } from './animationIcon';
 
 type ButtonBagProps = {
-  openBag: boolean;
+  productInBag: boolean;
 };
 
 export const ContainerButton = styled.div`
@@ -16,12 +16,12 @@ export const ContainerButton = styled.div`
 `;
 
 export const BotaoReservaSacola = styled.button<ButtonBagProps>`
-  background: ${props => (props.openBag ? 'rgb(239, 31, 95)' : 'black')};
+  background: ${props => (props.productInBag ? 'rgb(239, 31, 95)' : 'black')};
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
   font-family: 'Roboto Mono', monospace;
   font-size: 24px;
-  width: ${props => (props.openBag ? '248px' : '')};
-  height: ${props => (props.openBag ? '70px' : '')};
+  width: ${props => (props.productInBag ? '248px' : '')};
+  height: ${props => (props.productInBag ? '70px' : '')};
 
   line-height: 1.5;
   color: #fff;

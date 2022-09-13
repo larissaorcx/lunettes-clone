@@ -10,24 +10,51 @@ import {
 import { TextoBotao } from '../../Product/style';
 import { useCart } from '../../hooks/useCart';
 import { ProductDetalhesProps } from '../../../pages/detalhes/[slug]';
+import { Colorproducts } from '../../Filters/Color/ColorFilter';
 
 interface ButtonReservaProps {
   product: ProductDetalhesProps;
+  contador: number;
 }
 
-export default function ButtonReserva({ product }: ButtonReservaProps) {
-  const { openBag, addProduct, deleteProduct, cart } = useCart();
+export type ProductCardProps = {
+  id: string;
+  image: string;
+  name: string;
+  code: string;
+  amount: number;
+  price: number;
+  discount: number;
+  color: Colorproducts;
+};
+
+export default function ButtonReserva({
+  product,
+  contador,
+}: ButtonReservaProps) {
+  const productCart: ProductCardProps = {
+    id: product._id,
+    image: product.images[0].allImages.lg,
+    color: product.images[1].color,
+    name: product.productName,
+    code: product.code,
+    amount: contador,
+    price: product.price,
+    discount: product.discount,
+  };
+
+  const { addProduct, deleteProduct, cart } = useCart();
 
   const productInTheBag = cart.find(
-    products => products.product._id === product._id
+    products => products.product.id === product._id
   );
   return (
     <ContainerButton>
       {productInTheBag ? (
         <BotaoReservaSacola
           type="button"
-          onClick={() => deleteProduct(product)}
-          openBag={openBag}
+          onClick={() => deleteProduct(product._id)}
+          productInBag
         >
           <BsFillHeartFill className="heart" />
           <TextoBotao>Na Sacola</TextoBotao>
@@ -36,8 +63,8 @@ export default function ButtonReserva({ product }: ButtonReservaProps) {
         <>
           <BotaoReservaSacola
             type="button"
-            onClick={() => addProduct(product)}
-            openBag={openBag}
+            onClick={() => addProduct(productCart)}
+            productInBag={false}
           >
             <FaRegHeart />
             <TextoBotao>Por na sacola</TextoBotao>

@@ -2,7 +2,8 @@ import { createGlobalStyle } from 'styled-components';
 
 interface GlobalProps {
   theme: {
-    open: boolean;
+    open: boolean | null;
+    openBag: boolean | null;
   };
 }
 
@@ -22,7 +23,8 @@ export const GlobalStyle = createGlobalStyle<GlobalProps>`
 body {
   width: 100%;
   height: 100%;
-  overflow: ${props => (props.theme.open ? 'hidden' : 'hidden scroll')};
+  overflow: ${props =>
+    props.theme.open || props.theme.openBag ? 'hidden' : 'hidden scroll'};
 }
 
 li {

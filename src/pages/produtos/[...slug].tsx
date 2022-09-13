@@ -9,8 +9,8 @@ import {
   ConatinerError,
 } from './style';
 import dataHome from '../api/mockHome';
-import { GetServerSideProps, GetStaticProps } from 'next';
-import ListProducts from '../../components/ListProducts';
+import { GetStaticProps } from 'next';
+import ListProducts, { ProdDetalhe } from '../../components/ListProducts';
 import mocklistproducts from '../../components/ListProducts/mocklistProducts';
 import { Colorproducts } from '../../components/Filters/Color/ColorFilter';
 import React, { useEffect, useState } from 'react';
@@ -22,7 +22,7 @@ import mocklistProducts from '../../components/ListProducts/mocklistProducts';
 
 interface ProductsProps {
   background: HeaderType;
-  products: ProductProps[];
+  products: ProdDetalhe[];
   setLoading: (loading: boolean) => void;
   category: string;
   subcategory: string;
@@ -63,7 +63,7 @@ export default function Products({
   const router = useRouter();
   const tamSlug = router.query.slug?.length;
 
-  const [loadproducts, setloadProducts] = useState<ProductProps[]>(products);
+  const [loadproducts, setloadProducts] = useState<ProdDetalhe[]>(products);
 
   useEffect(() => {
     async function loadProducts() {

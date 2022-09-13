@@ -20,6 +20,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const theme = {
     open: openMenu,
   };
+
   return (
     <>
       <ThemeProvider theme={theme}>

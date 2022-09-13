@@ -13,12 +13,14 @@ import Image from 'next/image';
 import ContadorProduct from '../ContadorProduct/ContadorProduct';
 
 import ButtonReserva from '../ButtonReserva/ButtonReserva';
+import { useState } from 'react';
 
 interface InfosProdutoProps {
   product: ProductDetalhesProps;
 }
 
 export default function InfosProduto({ product }: InfosProdutoProps) {
+  const [contador, setContador] = useState(1);
   return (
     <ContainerConteudo>
       <ContainerCaminhoDetalhes>
@@ -41,8 +43,14 @@ export default function InfosProduto({ product }: InfosProdutoProps) {
       <NameProduct>{product.productName}</NameProduct>
       <CodigoProduto>{product.code}</CodigoProduto>
       <ColorProduct color={product.images} />
-      <ContadorProduct price={product.price} discount={product.discount} />
-      <ButtonReserva product={product} />
+      <ContadorProduct
+        price={product.price}
+        discount={product.discount}
+        contador={contador}
+        setContador={setContador}
+        id={product._id}
+      />
+      <ButtonReserva product={product} contador={contador} />
     </ContainerConteudo>
   );
 }

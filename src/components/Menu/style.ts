@@ -8,34 +8,36 @@ import {
 interface MenuProps {
   scroll: boolean;
   openMenu: boolean | null;
+  openBag: boolean | null;
 }
 
 interface ButtonProps {
   openMenu: boolean | null;
+  openBag: boolean | null;
 }
 
 export const Menu = styled.div<MenuProps>`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: ${props => (props.openMenu ? '100vh' : '0')};
+  height: ${props => (props.openBag || props.openMenu ? '100vh' : '0px')};
 
   overflow-y: scroll;
-  position: fixed;
+  position: absolute;
   z-index: 99;
 
   &::before {
     content: '';
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    background-color: #000;
+    background: rgb(0, 0, 0);
     z-index: -1;
 
     ${props => {
-      switch (props.theme.open) {
+      switch (props.theme.open || props.openBag) {
         case true:
           return css`
             -webkit-animation: ${animationContainer} 0.5s
@@ -67,7 +69,7 @@ export const Menu = styled.div<MenuProps>`
 
 export const MenuContainer = styled.div<MenuProps>`
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   width: 100%;
 
@@ -81,11 +83,12 @@ export const MenuContainer = styled.div<MenuProps>`
 
   background-color: ${props => (props.scroll ? 'black' : '')};
   ${props =>
-    props.openMenu &&
-    css`
-      background-color: rgb(15, 15, 15);
-      border-bottom: 1px solid rgb(30, 30, 30);
-    `}
+    props.theme.open ||
+    (props.openBag &&
+      css`
+        background-color: rgb(15, 15, 15);
+        border-bottom: 1px solid rgb(30, 30, 30);
+      `)}
 
   z-index: 99;
 
@@ -104,8 +107,8 @@ export const BotaoMenu = styled.button<ButtonProps>`
   z-index: 1;
 
   @media screen and (max-width: 740px) {
-    width: ${props => (props.openMenu ? '25px' : '25px')};
-    height: ${props => (props.openMenu ? '25px' : '16px')};
+    width: ${props => (props.openMenu || props.openBag ? '25px' : '25px')};
+    height: ${props => (props.openMenu || props.openBag ? '25px' : '16px')};
     margin: 0px;
   }
 `;

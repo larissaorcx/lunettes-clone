@@ -4,7 +4,7 @@ import { GetServerSideProps } from 'next';
 import { HeaderType, AboutType, FooterType, MenuFloating } from './types';
 import About from '../components/Contatos';
 import { Background } from '../../public/styles/backgroundStyle';
-import ListProducts from '../components/ListProducts';
+import ListProducts, { ProdDetalhe } from '../components/ListProducts';
 import { ProductProps } from './produtos/[...slug]';
 import mocklistProducts from '../components/ListProducts/mocklistProducts';
 import { useEffect, useState } from 'react';
@@ -14,7 +14,7 @@ type HomeProps = {
     header: HeaderType;
     about: AboutType;
   };
-  destaques: ProductProps[];
+  destaques: ProdDetalhe[];
   footer: FooterType;
   listMenu: MenuFloating;
   openMenu: boolean;
@@ -29,7 +29,7 @@ export default function Home({
   setLoading,
   openBag,
 }: HomeProps) {
-  const [loadproducts, setloadProducts] = useState<ProductProps[]>(destaques);
+  const [loadproducts, setloadProducts] = useState<ProdDetalhe[]>(destaques);
   useEffect(() => {
     async function loadProducts() {
       setLoading(true);

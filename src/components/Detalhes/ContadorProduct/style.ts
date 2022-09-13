@@ -1,15 +1,20 @@
 import styled from 'styled-components';
 
+type ContadorProps = {
+  openBag: boolean | null;
+};
+
 export const ContainerContador = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
-export const Contador = styled.div`
+export const Contador = styled.div<ContadorProps>`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 2px solid #9a9a9a;
+  border: ${props =>
+    props.openBag ? '2px solid rgb(255, 255, 255)' : '2px solid #9a9a9a'};
 
   width: 130px;
   height: 60px;
@@ -29,13 +34,13 @@ export const ButtonContador = styled.button`
   background: transparent;
 `;
 
-export const Sinal = styled.span`
+export const Sinal = styled.span<ContadorProps>`
   display: flex;
   justify-content: center;
   align-items: center;
 
   font-family: 'Roboto Mono', monospace;
-  color: #000;
+  color: ${props => (props.openBag ? 'rgb(255, 255, 255)' : '#000')};
   font-size: 24px;
   line-height: 1.5;
 
@@ -48,10 +53,10 @@ export const Sinal = styled.span`
   }
 `;
 
-export const ValueContador = styled.span`
+export const ValueContador = styled.span<ContadorProps>`
   font-family: 'Roboto Mono', monospace;
   font-weight: 500;
-  color: #000;
+  color: ${props => (props.openBag ? 'rgb(255, 255, 255)' : '#000')};
   font-size: 24px;
   line-height: 1.5;
 `;

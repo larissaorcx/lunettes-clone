@@ -31,7 +31,7 @@ export default function Produto({ product }: ProdProps) {
   const { openBag, cart } = useCart();
 
   const productInTheBag = cart.find(
-    products => products.product._id === product._id
+    products => products.product.id === product._id
   );
   return (
     <Prod>
@@ -53,7 +53,7 @@ export default function Produto({ product }: ProdProps) {
       </InfosProduto>
       <CodigoProduto>{product.code}</CodigoProduto>
       <ContainerPrecos>
-        <Preco>
+        <Preco openBag={openBag}>
           {new Intl.NumberFormat('pt-BR', {
             style: 'currency',
             currency: 'BRL',
@@ -72,7 +72,7 @@ export default function Produto({ product }: ProdProps) {
         <BotaoReservaSacola
           type="button"
           onClick={() => router.push(`/detalhes/${product.productName}`)}
-          openBag={openBag}
+          productInBag
         >
           <BsFillHeartFill className="heart" />
           <TextoBotao>Na Sacola</TextoBotao>

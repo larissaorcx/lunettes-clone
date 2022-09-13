@@ -6,13 +6,13 @@ import { ContainerProducts } from './style';
 
 import { DetailsProps, AssociatedProps } from '../../pages/detalhes/[slug]';
 
-interface ProdDetalhe extends ProductProps {
+export interface ProdDetalhe extends ProductProps {
   description: string;
   details: DetailsProps;
   associated: AssociatedProps[];
 }
 
-interface ListProductsProps {
+export interface ListProductsProps {
   products: ProdDetalhe[];
 }
 

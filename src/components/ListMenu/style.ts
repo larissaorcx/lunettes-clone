@@ -8,8 +8,8 @@ interface ListProps {
 
 export const ListMenuContainer = styled.div`
   padding: 20px 20px;
-  margin: 130px 0 0 0;
-  background: black;
+  margin: 175px 0 0 0;
+  /* background: black; */
 
   @media screen and (max-width: 740px) {
     margin: 80px 0 0 0;
@@ -26,7 +26,7 @@ export const Button = styled.button`
   color: rgb(255, 255, 255);
   margin-bottom: 50px;
 
-  background: rgb(0, 0, 0);
+  background: transparent;
   cursor: pointer;
   width: 370px;
   border: none;
@@ -46,7 +46,8 @@ export const Button = styled.button`
 
 export const ContainerCategory = styled.ul`
   display: flex;
-  width: 90%;
+  width: 100%;
+
   flex-direction: row;
   flex-wrap: wrap;
   @media screen and (max-width: 740px) {
@@ -142,7 +143,7 @@ export const ContainerCagtegories = styled.div`
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  background: black;
+  /* background: black; */
 
   /* ul {
     width: 90%;
@@ -150,9 +151,8 @@ export const ContainerCagtegories = styled.div`
     flex-direction: row;
     flex-wrap: wrap; */
 
-    @media screen and (max-width: 740px) {
-      width: 100%;
-    }
+  @media screen and (max-width: 740px) {
+    width: 100%;
   }
 `;
 
@@ -165,7 +165,7 @@ export const ButtonHome = styled.button`
   text-align: left;
   color: rgb(255, 255, 255);
   margin-bottom: 50px;
-  background: black;
+  background: transparent;
 
   cursor: pointer;
 

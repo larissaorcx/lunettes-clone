@@ -1,5 +1,6 @@
 import { createContext, ReactNode, useContext, useState } from 'react';
 import { ProductProps } from '../../pages/produtos/[...slug]';
+import { ProductCardProps } from '../Detalhes/ButtonReserva/ButtonReserva';
 import mocklistProducts from '../ListProducts/mocklistProducts';
 
 interface CartProviderProps {
@@ -7,56 +8,93 @@ interface CartProviderProps {
 }
 
 type CartProps = {
-  product: ProductProps;
+  product: ProductCardProps;
+};
+
+type AmountCart = {
+  productId: string;
   amount: number;
 };
 
 interface CartContextData {
   cart: CartProps[];
-  addProduct: (product: ProductProps) => void;
-  openBag: boolean;
-  deleteProduct: (product: ProductProps) => void;
+  addProduct: (productCart: ProductCardProps) => void;
+  openBag: boolean | null;
+  deleteProduct: (productId: String) => void;
+  setOpenBag: (arg0: boolean) => void;
+  amountBag: ({ productId, amount }: AmountCart) => void;
 }
 
 const CartContext = createContext<CartContextData>({} as CartContextData);
 
 export default function CartProvider({ children }: CartProviderProps) {
   const [cart, setCart] = useState<CartProps[]>([]);
-  const [openBag, setOpenBag] = useState<boolean>(false);
+  const [openBag, setOpenBag] = useState<boolean | null>(null);
+
   console.log(cart, 'carrinho');
 
-  const addProduct = (product: ProductProps) => {
+  const addProduct = (productCart: ProductCardProps) => {
     let newCart: CartProps[] = [...cart];
 
     const productId = newCart.find(
-      products => products.product._id === product._id
+      products => products.product.id === productCart.id
     );
-    if (productId) {
-      productId.amount += 1;
-    } else {
+    if (!productId) {
       newCart.push({
-        product,
-        amount: 1,
+        product: productCart,
       });
     }
     setCart(newCart);
     setOpenBag(true);
   };
 
-  const deleteProduct = (product: ProductProps) => {
+  const deleteProduct = (productId: String) => {
     let newCart: CartProps[] = [...cart];
     const remove = newCart.findIndex(
-      products => products.product._id === product._id
+      products => products.product.id === productId
     );
     if (remove !== -1) {
       newCart.splice(remove, 1);
     }
     setCart(newCart);
-    setOpenBag(false);
+
+    if (newCart.length === 0) {
+      setOpenBag(false);
+    } else {
+      setOpenBag(true);
+    }
+  };
+
+  const amountBag = ({ productId, amount }: AmountCart) => {
+    let newCart: CartProps[] = [...cart];
+
+    const sameProduct = newCart.find(id => id.product.id === productId);
+    console.log(sameProduct, 'sameProduct');
+
+    if (sameProduct) {
+      if (sameProduct.product.amount < amount) {
+        sameProduct.product.amount += 1;
+      } else {
+        if (sameProduct.product.amount >= 2) {
+          sameProduct.product.amount -= 1;
+        }
+      }
+    }
+
+    setCart(newCart);
   };
 
   return (
-    <CartContext.Provider value={{ cart, addProduct, openBag, deleteProduct }}>
+    <CartContext.Provider
+      value={{
+        cart,
+        addProduct,
+        openBag,
+        deleteProduct,
+        setOpenBag,
+        amountBag,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );

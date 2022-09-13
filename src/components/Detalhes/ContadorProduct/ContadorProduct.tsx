@@ -8,17 +8,24 @@ import {
 import { Text } from '../InfoProduto/style';
 import { useEffect, useState } from 'react';
 import { ContainerPrecos, Preco, PriceWithDiscount } from '../../Product/style';
+import { useCart } from '../../hooks/useCart';
 
 interface ContadorProductProps {
   price: number;
   discount: number;
+  contador: number;
+  setContador: (arg: number) => void;
+  id: string;
 }
 
 export default function ContadorProduct({
   price,
   discount,
+  contador,
+  setContador,
+  id,
 }: ContadorProductProps) {
-  const [contador, setContador] = useState(1);
+  const { cart, openBag } = useCart();
   const [value, setValue] = useState(price);
 
   function handleClickIncrement() {
@@ -35,14 +42,15 @@ export default function ContadorProduct({
 
   useEffect(() => {
     setValue(price * contador);
-  }, [contador]);
+  }, [contador, price]);
+
+  const productInTheBag = cart.find(products => products.product.id === id);
 
   return (
     <>
-      {' '}
       <Text>Preço:</Text>
       <ContainerPrecos>
-        <Preco>
+        <Preco openBag={openBag}>
           {new Intl.NumberFormat('pt-BR', {
             style: 'currency',
             currency: 'BRL',
@@ -59,13 +67,20 @@ export default function ContadorProduct({
       </ContainerPrecos>
       <ContainerContador>
         <Text>QTD:</Text>
-        <Contador>
+        <Contador openBag={openBag}>
           <ButtonContador type="button" onClick={() => handleClickDecrement()}>
-            <Sinal>-</Sinal>
+            <Sinal openBag={openBag}>-</Sinal>
           </ButtonContador>
-          <ValueContador>{contador}</ValueContador>
+          {productInTheBag ? (
+            <ValueContador openBag={openBag}>
+              {productInTheBag.product.amount}
+            </ValueContador>
+          ) : (
+            <ValueContador openBag={openBag}>{contador}</ValueContador>
+          )}
+
           <ButtonContador type="button" onClick={() => handleClickIncrement()}>
-            <Sinal>+</Sinal>
+            <Sinal openBag={openBag}>+</Sinal>
           </ButtonContador>
         </Contador>
       </ContainerContador>

@@ -6,6 +6,10 @@ interface ListImagesProps {
   name: string;
 }
 
+type PrecoProps = {
+  openBag: boolean | null;
+};
+
 export const ProdutoContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -77,12 +81,12 @@ export const ContainerPrecos = styled.div`
   justify-content: center;
   align-items: center;
 `;
-export const Preco = styled.span`
+export const Preco = styled.span<PrecoProps>`
   font-family: 'Roboto Mono', monospace;
   font-size: 24px;
   font-weight: bold;
   line-height: 1.5;
-  color: black;
+  color: ${props => (props.openBag ? 'rgb(255, 255, 255)' : '#000')};
 `;
 export const PriceWithDiscount = styled.span`
   margin-left: 10px;
