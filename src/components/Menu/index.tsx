@@ -5,6 +5,8 @@ import {
   Menu,
   MenuContainer,
   ContadorItemBag,
+  BotaoMenuClose,
+  BotaoSacolaClose,
 } from './style';
 import Image from 'next/image';
 import { useCallback, useEffect, useState } from 'react';
@@ -34,6 +36,8 @@ export default function MenuHeader({
 
   const { openBag, setOpenBag, cart } = useCart();
 
+  console.log('open menu', openMenu, 'open bag', openBag);
+
   const handleScrollMenu = useCallback(() => {
     if (
       document.body.scrollTop > 75 ||
@@ -55,25 +59,29 @@ export default function MenuHeader({
   return (
     <Menu scroll={scroll} openMenu={openMenu} openBag={openBag}>
       <MenuContainer scroll={scroll} openMenu={openMenu} openBag={openBag}>
-        <BotaoMenu
-          openBag={openBag}
-          type="button"
-          onClick={() => handleOpenMenu()}
-          openMenu={openMenu}
-        >
-          {openMenu ? (
+        {openMenu ? (
+          <BotaoMenuClose
+            openBag={openBag}
+            type="button"
+            onClick={() => handleOpenMenu()}
+          >
             <Image
               alt={menu.alt}
               src={menu.iconClose.img}
               width={30}
               height={30}
             />
-          ) : openBag ? (
-            ''
-          ) : (
+          </BotaoMenuClose>
+        ) : (
+          <BotaoMenu
+            openBag={openBag}
+            type="button"
+            onClick={() => handleOpenMenu()}
+          >
             <Image alt={menu.alt} src={menu.img} width={30} height={20} />
-          )}
-        </BotaoMenu>
+          </BotaoMenu>
+        )}
+
         <Logo scroll={scroll} openMenu={openMenu} openBag={openBag}>
           {scroll ? (
             <Image
@@ -91,25 +99,33 @@ export default function MenuHeader({
             />
           )}
         </Logo>
-        {openMenu ? (
-          ''
-        ) : openBag ? (
-          <BotaoSacola type="button" onClick={() => setOpenBag(false)}>
+        {openBag ? (
+          <BotaoSacolaClose
+            type="button"
+            onClick={() => setOpenBag(false)}
+            openBag={openBag}
+          >
             <Image
               alt={menu.iconClose.alt}
               src={menu.iconClose.img}
               width={30}
               height={30}
             />
-          </BotaoSacola>
+          </BotaoSacolaClose>
         ) : cart.length === 0 ? (
-          <BotaoSacola type="button">
+          <BotaoSacola type="button" openBag={openBag}>
             <Image alt={sacola.alt} src={sacola.img} width={30} height={30} />
           </BotaoSacola>
         ) : (
-          <BotaoSacola type="button" onClick={() => setOpenBag(true)}>
+          <BotaoSacola
+            type="button"
+            onClick={() => setOpenBag(true)}
+            openBag={!openMenu}
+          >
             <Image alt={sacola.alt} src={sacola.img} width={30} height={30} />
-            <ContadorItemBag scroll={scroll}>{cart.length}</ContadorItemBag>
+            <ContadorItemBag scroll={scroll} openBag={openBag}>
+              {cart.length}
+            </ContadorItemBag>
           </BotaoSacola>
         )}
       </MenuContainer>

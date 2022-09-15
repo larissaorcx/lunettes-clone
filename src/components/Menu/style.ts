@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { animationMenu } from './animacao';
+import { animationClose, animationMenu, animationOpen } from './animacao';
 import {
   animationContainer,
   animationContainerClose,
@@ -12,12 +12,17 @@ interface MenuProps {
 }
 
 interface ButtonProps {
-  openMenu: boolean | null;
+  openBag: boolean | null;
+}
+
+interface ButtonBagProps {
+  animationOpenBag: boolean;
   openBag: boolean | null;
 }
 
 interface ContadorProps {
   scroll: boolean;
+  openBag: boolean | null;
 }
 
 export const Menu = styled.div<MenuProps>`
@@ -86,12 +91,11 @@ export const MenuContainer = styled.div<MenuProps>`
 
   background-color: ${props => (props.scroll ? 'black' : '')};
   ${props =>
-    props.theme.open ||
-    (props.openBag &&
-      css`
-        background-color: rgb(15, 15, 15);
-        border-bottom: 1px solid rgb(30, 30, 30);
-      `)}
+    (props.theme.open || props.openBag) &&
+    css`
+      background-color: rgb(15, 15, 15);
+      border-bottom: 1px solid rgb(30, 30, 30);
+    `}
 
   z-index: 99;
 
@@ -108,13 +112,49 @@ export const BotaoMenu = styled.button<ButtonProps>`
   background-color: transparent;
   border: none;
   z-index: 1;
+  ${props =>
+    !props.theme.open &&
+    css`
+      animation: ${animationOpen} 0.3s cubic-bezier(0.55, 0.085, 0.68, 0.53)
+        both;
+    `}
+
+  ${props =>
+    props.openBag &&
+    css`
+      -webkit-animation: ${animationClose} 0.3s
+        cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+      animation: ${animationClose} 0.3s cubic-bezier(0.55, 0.085, 0.68, 0.53)
+        both;
+    `}
 
   @media screen and (max-width: 740px) {
-    width: ${props => (props.openMenu || props.openBag ? '25px' : '25px')};
-    height: ${props => (props.openMenu || props.openBag ? '25px' : '16px')};
+    width: ${props => (props.theme.open || props.openBag ? '25px' : '25px')};
+    height: ${props => (props.theme.open || props.openBag ? '25px' : '16px')};
     margin: 0px;
   }
 `;
+
+export const BotaoMenuClose = styled.button<ButtonProps>`
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  z-index: 1;
+  ${props =>
+    props.theme.open &&
+    css`
+      -webkit-animation: ${animationOpen} 0.3s
+        cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+      animation: ${animationOpen} 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    `}
+
+  @media screen and (max-width: 740px) {
+    width: ${props => (props.theme.open || props.openBag ? '25px' : '25px')};
+    height: ${props => (props.theme.open || props.openBag ? '25px' : '16px')};
+    margin: 0px;
+  }
+`;
+
 export const Logo = styled.div<MenuProps>`
   display: flex;
   width: 210px;
@@ -122,7 +162,8 @@ export const Logo = styled.div<MenuProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: ${props => (props.openMenu ? '44%' : '')};
+  /* margin-right: ${props => (props.openMenu ? '44%' : '')}; */
+  /* margin-left: ${props => (props.openBag ? '1%' : '')}; */
 
   padding-top: ${props => (props.scroll ? '0px' : '20px')};
 
@@ -134,13 +175,60 @@ export const Logo = styled.div<MenuProps>`
     padding: 0px;
   }
 `;
-export const BotaoSacola = styled.button`
+export const BotaoSacola = styled.button<ButtonProps>`
   cursor: pointer;
   background-color: transparent;
   border: none;
   width: 42.8px;
   height: 50.3px;
   z-index: 1;
+
+  ${props =>
+    props.theme.open
+      ? css`
+          -webkit-animation: ${animationClose} 0.3s
+            cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+          animation: ${animationClose} 0.3s
+            cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+        `
+      : css`
+          -webkit-animation: ${animationOpen} 0.3s
+            cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+          animation: ${animationOpen} 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+            both;
+        `};
+
+  /* ${props =>
+    props.openBag &&
+    css`
+      -webkit-animation: ${animationOpen} 0.3s
+        cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+      animation: ${animationOpen} 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    `}; */
+
+  @media screen and (max-width: 740px) {
+    span {
+      width: 26.9px;
+      height: 30.6px;
+    }
+    margin: 0px;
+  }
+`;
+
+export const BotaoSacolaClose = styled.button<ButtonProps>`
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  width: 42.8px;
+  height: 50.3px;
+  z-index: 1;
+
+  ${props =>
+    props.openBag &&
+    css`
+      animation: ${animationOpen} 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53)
+        both;
+    `}
 
   @media screen and (max-width: 740px) {
     span {
@@ -159,7 +247,8 @@ export const ContadorItemBag = styled.div<ContadorProps>`
   width: 15px;
   height: 15px;
 
-  bottom: ${props => (props.scroll ? '9px' : '43px')};
+  bottom: 2px;
+
   border-radius: 100%;
   background: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
