@@ -6,11 +6,14 @@ export const ContainerDetalhes = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 50px;
+  @media screen and (max-width: 740px) {
+    margin: 0;
+  }
 `;
 
 export const Conteiner = styled.div`
   display: grid;
-  grid-template-columns: 40% 1fr;
+  grid-template-columns: 700px 1fr;
   gap: 40px;
 
   margin-top: 50px;
@@ -87,14 +90,14 @@ export const PorcentDiscountDetalhes = styled.div`
   background: rgb(239, 31, 95);
   z-index: 3;
   top: 200px;
-  left: 30px;
+  left: 80px;
 
   @media screen and (max-width: 740px) {
     width: 50px;
     height: 50px;
     padding: 6px 7px 6px 8px;
-    top: 120px;
-    left: 15px;
+    top: 90px;
+    left: 20px;
   }
 `;
 export const TextDiscount = styled.span`
@@ -111,11 +114,12 @@ export const ConteinerDescricao = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 10px;
-  width: 100%;
+  width: 90%;
   height: auto;
-  margin-left: 40px;
+  margin-left: 80px;
   @media screen and (max-width: 740px) {
     width: 95%;
+    margin: 0px;
   }
 `;
 
@@ -136,7 +140,6 @@ export const Descricao = styled.p`
   text-align: justify;
   width: 90%;
   @media screen and (max-width: 740px) {
-    width: 100%;
     text-align: justify;
   }
 `;

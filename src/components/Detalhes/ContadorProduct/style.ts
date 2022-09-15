@@ -19,6 +19,12 @@ export const Contador = styled.div<ContadorProps>`
   width: 130px;
   height: 60px;
   border-radius: 8px;
+
+  @media screen and (max-width: 740px) {
+    width: ${props => (props.openBag ? '105px' : '130px')};
+    height: ${props => (props.openBag ? '33px' : '60px')};
+    margin-left: ${props => (props.openBag ? '130px' : '')};
+  }
 `;
 
 export const ButtonContador = styled.button`

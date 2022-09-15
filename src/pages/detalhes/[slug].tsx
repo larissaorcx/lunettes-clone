@@ -137,7 +137,9 @@ export default function Detelhes({
                 <ImagesDetalhes products={productSlug.images} />
               </ImgDiscountDetalhes>
             ) : (
-              <ImagesDetalhes products={productSlug.images} />
+              <ImgDiscountDetalhes>
+                <ImagesDetalhes products={productSlug.images} />
+              </ImgDiscountDetalhes>
             )}
             <InfosProduto product={productSlug} />
             <ConteinerDescricao>

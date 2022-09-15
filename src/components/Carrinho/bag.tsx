@@ -13,12 +13,17 @@ import {
   ButtonFinalizarCompra,
   ButtonContinuarComprando,
   ButtonsBag,
+  TitleInfoQTD,
 } from './style';
 import ProductBag from './ProductBag/ProductBag';
 import { FaWhatsapp } from 'react-icons/fa';
 
 export default function Bag() {
-  const { openBag, cart } = useCart();
+  const { openBag, cart, setOpenBag } = useCart();
+
+  const total = cart.reduce((sumTotal, product) => {
+    return sumTotal + product.product.price * product.product.amount;
+  }, 0);
 
   return (
     <ConteinerBag openBag={openBag}>
@@ -26,7 +31,7 @@ export default function Bag() {
       <InfoBag>
         <ContainerTitle>
           <TitleInfo>Produto</TitleInfo>
-          <TitleInfo>Quantidade</TitleInfo>
+          <TitleInfoQTD>Quantidade</TitleInfoQTD>
           <TitleInfo>Preço</TitleInfo>
         </ContainerTitle>
       </InfoBag>
@@ -39,27 +44,25 @@ export default function Bag() {
       <ContainerSumtotal>
         <TitleInfo>Total</TitleInfo>
         <PrecoTotal>
-          {/* {new Intl.NumberFormat('pt-BR', {
-                style: 'currency',
-                currency: 'BRL',
-              }).format(productCart.product.price)} */}
-          valor
+          {new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'BRL',
+          }).format(total)}
         </PrecoTotal>
       </ContainerSumtotal>
       <ButtonsBag>
-        <ButtonContinuarComprando type="button">
-          <RiShoppingCart2Line />
+        <ButtonContinuarComprando
+          type="button"
+          onClick={() => setOpenBag(false)}
+        >
+          <RiShoppingCart2Line className="cart" />
           Continuar Reservando
         </ButtonContinuarComprando>
-        <Link
-          href="https://api.whatsapp.com/send/?phone=5511947584716&text=Lunettes%2C+gostaria+de+ter+informa%C3%A7%C3%B5es+sobre+um+produto.+%0A+%0A1+unidade+do+%C3%B3culos+Dricc+na+cor%3A+Rosa.+%0A&type=phone_number&app_absent=0"
-          passHref
-        >
-          <ButtonFinalizarCompra type="button">
-            <FaWhatsapp />
-            Finalizar Reserva
-          </ButtonFinalizarCompra>
-        </Link>
+
+        <ButtonFinalizarCompra type="button">
+          <FaWhatsapp className="whats" />
+          Finalizar Reserva
+        </ButtonFinalizarCompra>
       </ButtonsBag>
     </ConteinerBag>
   );

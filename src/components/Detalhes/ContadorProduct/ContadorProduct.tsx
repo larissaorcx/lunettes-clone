@@ -49,22 +49,45 @@ export default function ContadorProduct({
   return (
     <>
       <Text>Preço:</Text>
-      <ContainerPrecos>
-        <Preco openBag={openBag}>
-          {new Intl.NumberFormat('pt-BR', {
-            style: 'currency',
-            currency: 'BRL',
-          }).format(value)}
-        </Preco>
-        {discount > 0 && (
-          <PriceWithDiscount>
+      {productInTheBag ? (
+        <ContainerPrecos openBag={openBag}>
+          <Preco openBag={openBag}>
             {new Intl.NumberFormat('pt-BR', {
               style: 'currency',
               currency: 'BRL',
-            }).format(value - value * (discount / 100))}
-          </PriceWithDiscount>
-        )}
-      </ContainerPrecos>
+            }).format(productInTheBag.product.price)}
+          </Preco>
+          {discount > 0 && (
+            <PriceWithDiscount openBag={openBag}>
+              {new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'BRL',
+              }).format(
+                productInTheBag.product.price -
+                  productInTheBag.product.price * (discount / 100)
+              )}
+            </PriceWithDiscount>
+          )}
+        </ContainerPrecos>
+      ) : (
+        <ContainerPrecos openBag={openBag}>
+          <Preco openBag={openBag}>
+            {new Intl.NumberFormat('pt-BR', {
+              style: 'currency',
+              currency: 'BRL',
+            }).format(value)}
+          </Preco>
+          {discount > 0 && (
+            <PriceWithDiscount openBag={openBag}>
+              {new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'BRL',
+              }).format(value - value * (discount / 100))}
+            </PriceWithDiscount>
+          )}
+        </ContainerPrecos>
+      )}
+
       <ContainerContador>
         <Text>QTD:</Text>
         <Contador openBag={openBag}>

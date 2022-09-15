@@ -4,6 +4,7 @@ import {
   CodeBag,
   Container,
   Containerimg,
+  ContainerProdContador,
   ContainerRemove,
   ConteinerInfoProd,
   InfoProdBag,
@@ -14,15 +15,20 @@ import {
 import Image from 'next/image';
 import { useCart } from '../../hooks/useCart';
 import { ProductCardProps } from '../../Detalhes/ButtonReserva/ButtonReserva';
-import { useState } from 'react';
+
 import {
   ButtonContador,
   Contador,
   Sinal,
   ValueContador,
 } from '../../Detalhes/ContadorProduct/style';
-import { ContainerPrecos, Preco, PriceWithDiscount } from '../../Product/style';
-import { ContainerPrecoRemove, ContainerContador } from './style';
+import {
+  ContainerPrecos,
+  Preco,
+  PrecoDiscount,
+  PriceWithDiscount,
+} from '../../Product/style';
+import { ContainerPrecoRemove, ContainerContador, ButtonRemove } from './style';
 
 interface ProductBagProps {
   product: ProductCardProps;
@@ -40,45 +46,64 @@ export default function ProductBag({ product }: ProductBagProps) {
   }
   return (
     <InfoProdBag key={product.id}>
-      <ConteinerInfoProd>
-        <Containerimg>
-          <ImageBag products={product.image} />
-        </Containerimg>
-        <Container>
-          <NameProd>{product.name}</NameProd>
-          <CodeBag>{product.code}</CodeBag>
-          <ColorProdBag color={product.color} />
-        </Container>
-      </ConteinerInfoProd>
-      <ContainerContador>
-        <Contador openBag={openBag}>
-          <ButtonContador type="button" onClick={() => handleClickDecrement()}>
-            <Sinal openBag={openBag}>-</Sinal>
-          </ButtonContador>
-          <ValueContador openBag={openBag}>{product.amount}</ValueContador>
-          <ButtonContador type="button" onClick={() => handleClickIncrement()}>
-            <Sinal openBag={openBag}>+</Sinal>
-          </ButtonContador>
-        </Contador>
-      </ContainerContador>
+      <ContainerProdContador>
+        <ConteinerInfoProd>
+          <Containerimg>
+            <ImageBag products={product.image} />
+          </Containerimg>
+          <Container>
+            <NameProd>{product.name}</NameProd>
+            <CodeBag>{product.code}</CodeBag>
+            <ColorProdBag color={product.color} />
+          </Container>
+        </ConteinerInfoProd>
+        <ContainerContador>
+          <Contador openBag={openBag}>
+            <ButtonContador
+              type="button"
+              onClick={() => handleClickDecrement()}
+            >
+              <Sinal openBag={openBag}>-</Sinal>
+            </ButtonContador>
+            <ValueContador openBag={openBag}>{product.amount}</ValueContador>
+            <ButtonContador
+              type="button"
+              onClick={() => handleClickIncrement()}
+            >
+              <Sinal openBag={openBag}>+</Sinal>
+            </ButtonContador>
+          </Contador>
+          <ButtonRemove type="button" onClick={() => deleteProduct(product.id)}>
+            Remover
+          </ButtonRemove>
+        </ContainerContador>
+      </ContainerProdContador>
       <ContainerPrecoRemove>
-        <ContainerPrecos>
-          <Preco openBag={openBag}>
-            {new Intl.NumberFormat('pt-BR', {
-              style: 'currency',
-              currency: 'BRL',
-            }).format(product.price * product.amount)}
-          </Preco>
-          {product.discount > 0 && (
-            <PriceWithDiscount>
+        <ContainerPrecos openBag={openBag}>
+          {product.discount > 0 ? (
+            <>
+              <PrecoDiscount openBag={openBag}>
+                {new Intl.NumberFormat('pt-BR', {
+                  style: 'currency',
+                  currency: 'BRL',
+                }).format(product.price * product.amount)}
+              </PrecoDiscount>
+              <PriceWithDiscount openBag={openBag}>
+                {new Intl.NumberFormat('pt-BR', {
+                  style: 'currency',
+                  currency: 'BRL',
+                }).format(
+                  product.price - product.price * (product.discount / 100)
+                )}
+              </PriceWithDiscount>
+            </>
+          ) : (
+            <Preco openBag={openBag}>
               {new Intl.NumberFormat('pt-BR', {
                 style: 'currency',
                 currency: 'BRL',
-              }).format(
-                product.price -
-                  product.price * (product.discount / 100) * product.amount
-              )}
-            </PriceWithDiscount>
+              }).format(product.price * product.amount)}
+            </Preco>
           )}
         </ContainerPrecos>
         <ContainerRemove>

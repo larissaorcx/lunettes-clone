@@ -52,7 +52,7 @@ export default function Produto({ product }: ProdProps) {
         {product.isNewCollection && <NewCollection>Nova coleção</NewCollection>}
       </InfosProduto>
       <CodigoProduto>{product.code}</CodigoProduto>
-      <ContainerPrecos>
+      <ContainerPrecos openBag={openBag}>
         <Preco openBag={openBag}>
           {new Intl.NumberFormat('pt-BR', {
             style: 'currency',
@@ -60,7 +60,7 @@ export default function Produto({ product }: ProdProps) {
           }).format(product.price)}
         </Preco>
         {product.discount > 0 && (
-          <PriceWithDiscount>
+          <PriceWithDiscount openBag={openBag}>
             {new Intl.NumberFormat('pt-BR', {
               style: 'currency',
               currency: 'BRL',

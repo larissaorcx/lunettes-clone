@@ -14,7 +14,7 @@ export const ConatinerColor = styled.div`
 export const ContainerColorBag = styled.ul`
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
 `;
 
@@ -23,7 +23,7 @@ export const ListColor = styled.li`
   justify-content: space-around;
   flex-direction: row;
   align-items: center;
-  padding-top: 30px;
+  padding-top: 20px;
 
   @media screen and (max-width: 740px) {
     flex-direction: row;

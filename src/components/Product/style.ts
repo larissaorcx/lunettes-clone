@@ -75,10 +75,10 @@ export const NewCollection = styled.span`
   font-weight: 700;
   font-family: 'Roboto Mono', monospace;
 `;
-export const ContainerPrecos = styled.div`
+export const ContainerPrecos = styled.div<PrecoProps>`
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: ${props => (props.openBag ? 'column' : 'row')};
+  justify-content: ${props => (props.openBag ? 'start' : 'center')};
   align-items: center;
 `;
 export const Preco = styled.span<PrecoProps>`
@@ -86,26 +86,35 @@ export const Preco = styled.span<PrecoProps>`
   font-size: 24px;
   font-weight: bold;
   line-height: 1.5;
-  color: ${props => (props.openBag ? 'rgb(255, 255, 255)' : '#000')};
+  color: ${props => (props.openBag ? 'rgb(255, 255, 255) ' : '#000')};
 `;
-export const PriceWithDiscount = styled.span`
+
+export const PrecoDiscount = styled.span<PrecoProps>`
+  font-family: 'Roboto Mono', monospace;
+  font-size: ${props => (props.openBag ? '14px' : '24px')};
+  font-weight: bold;
+  line-height: 1.5;
+  color: ${props => (props.openBag ? 'rgb(133, 133, 133)' : '#000')};
+`;
+export const PriceWithDiscount = styled.span<PrecoProps>`
   margin-left: 10px;
   font-family: 'Roboto Mono', monospace;
   font-size: 24px;
   font-weight: bold;
 
   line-height: 1.5;
-  color: #ef1f5f;
+  color: ${props => (props.openBag ? 'rgb(255, 255, 255) ' : '#ef1f5f')};
   position: relative;
 
   &::before {
     content: '';
     position: absolute;
-    width: 135px;
+    width: ${props => (props.openBag ? '80px' : '135px')};
     height: 0.5px;
-    background: rgb(0, 0, 0);
-    margin: 20px;
-    margin-left: -142px;
+    background: ${props =>
+      props.openBag ? 'rgb(133, 133, 133)' : 'rgb(0, 0, 0)'};
+    margin: ${props => (props.openBag ? '-10px' : '20px')};
+    margin-left: ${props => (props.openBag ? '20px' : '-142px')};
   }
 `;
 export const BotaoCores = styled.button<ListImagesProps>`

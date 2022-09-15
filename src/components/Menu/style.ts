@@ -32,7 +32,7 @@ export const Menu = styled.div<MenuProps>`
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background: rgb(0, 0, 0);
     z-index: -1;
 
@@ -69,7 +69,6 @@ export const Menu = styled.div<MenuProps>`
 
 export const MenuContainer = styled.div<MenuProps>`
   display: flex;
-  /* justify-content: center; */
   align-items: center;
   width: 100%;
 
@@ -93,7 +92,7 @@ export const MenuContainer = styled.div<MenuProps>`
   z-index: 99;
 
   @media screen and (max-width: 740px) {
-    width: 100vw;
+    width: 100%;
     height: ${props => (props.scroll ? '65px' : '83px')};
     padding-right: 20px;
     padding-left: 20px;
@@ -118,6 +117,8 @@ export const Logo = styled.div<MenuProps>`
   height: ${props => (props.scroll ? '50px' : '100px')};
   display: flex;
   justify-content: center;
+  align-items: center;
+  margin-right: ${props => (props.openMenu ? '44%' : '')};
 
   padding-top: ${props => (props.scroll ? '0px' : '20px')};
 
