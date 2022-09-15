@@ -36,8 +36,6 @@ export default function MenuHeader({
 
   const { openBag, setOpenBag, cart } = useCart();
 
-  console.log('open menu', openMenu, 'open bag', openBag);
-
   const handleScrollMenu = useCallback(() => {
     if (
       document.body.scrollTop > 75 ||

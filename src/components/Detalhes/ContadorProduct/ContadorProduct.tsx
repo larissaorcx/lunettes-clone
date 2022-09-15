@@ -53,7 +53,12 @@ export default function ContadorProduct({
     setValue(price * contador);
   }, [contador, price]);
 
-  console.log(contador, 'contador');
+  console.log(
+    contador,
+    'contador',
+    productInTheBag?.product.amount,
+    'amount bag'
+  );
 
   return (
     <>

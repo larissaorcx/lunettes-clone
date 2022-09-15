@@ -69,15 +69,10 @@ export default function CartProvider({ children }: CartProviderProps) {
     let newCart: CartProps[] = [...cart];
 
     const sameProduct = newCart.find(id => id.product.id === productId);
-    console.log(sameProduct, 'sameProduct');
 
     if (sameProduct) {
-      if (sameProduct.product.amount < amount) {
-        sameProduct.product.amount += 1;
-      } else {
-        if (sameProduct.product.amount >= 2) {
-          sameProduct.product.amount -= 1;
-        }
+      if (amount > 0) {
+        sameProduct.product.amount = amount;
       }
     }
 
