@@ -12,6 +12,9 @@ export const ConteinerBag = styled.div<ConteinerBagProps>`
   height: 100vh;
   padding: 0px 35px 20vh;
   margin: 155px 0 0 0;
+  @media screen and (max-width: 740px) {
+    margin: 100px 0 0 0;
+  }
 `;
 
 export const Title = styled.h2<ConteinerBagProps>`
@@ -49,6 +52,9 @@ export const TitleInfo = styled.h2`
   line-height: 1.5;
   text-align: left;
   color: #fff;
+  @media screen and (max-width: 740px) {
+    margin-right: 55px;
+  }
 `;
 
 export const TitleInfoQTD = styled.h2`

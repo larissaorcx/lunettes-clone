@@ -1,4 +1,11 @@
-import { BotaoMenu, Logo, BotaoSacola, Menu, MenuContainer } from './style';
+import {
+  BotaoMenu,
+  Logo,
+  BotaoSacola,
+  Menu,
+  MenuContainer,
+  ContadorItemBag,
+} from './style';
 import Image from 'next/image';
 import { useCallback, useEffect, useState } from 'react';
 import ListMenu from '../ListMenu';
@@ -102,6 +109,7 @@ export default function MenuHeader({
         ) : (
           <BotaoSacola type="button" onClick={() => setOpenBag(true)}>
             <Image alt={sacola.alt} src={sacola.img} width={30} height={30} />
+            <ContadorItemBag scroll={scroll}>{cart.length}</ContadorItemBag>
           </BotaoSacola>
         )}
       </MenuContainer>

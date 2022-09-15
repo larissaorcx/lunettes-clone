@@ -44,6 +44,9 @@ export default function ProductBag({ product }: ProductBagProps) {
   function handleClickDecrement() {
     amountBag({ productId: product.id, amount: product.amount - 1 });
   }
+
+  const priceDiscount =
+    product.price - product.price * (product.discount / 100);
   return (
     <InfoProdBag key={product.id}>
       <ContainerProdContador>
@@ -86,15 +89,13 @@ export default function ProductBag({ product }: ProductBagProps) {
                 {new Intl.NumberFormat('pt-BR', {
                   style: 'currency',
                   currency: 'BRL',
-                }).format(product.price * product.amount)}
+                }).format(product.price)}
               </PrecoDiscount>
               <PriceWithDiscount openBag={openBag}>
                 {new Intl.NumberFormat('pt-BR', {
                   style: 'currency',
                   currency: 'BRL',
-                }).format(
-                  product.price - product.price * (product.discount / 100)
-                )}
+                }).format(priceDiscount * product.amount)}
               </PriceWithDiscount>
             </>
           ) : (

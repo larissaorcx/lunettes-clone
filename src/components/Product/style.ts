@@ -55,7 +55,6 @@ export const CodigoProduto = styled.p`
   font-family: 'Roboto Mono', monospace;
 
   font-size: 14px;
-  /* padding-bottom: 15px; */
 
   line-height: 2.25;
   color: #9a9a9a;
@@ -79,7 +78,10 @@ export const ContainerPrecos = styled.div<PrecoProps>`
   display: flex;
   flex-direction: ${props => (props.openBag ? 'column' : 'row')};
   justify-content: ${props => (props.openBag ? 'start' : 'center')};
-  align-items: center;
+  align-items: start;
+  /* @media screen and (max-width: 740px) {
+    align-items: ${props => (props.openBag ? 'start' : 'center')};
+  } */
 `;
 export const Preco = styled.span<PrecoProps>`
   font-family: 'Roboto Mono', monospace;
@@ -97,7 +99,7 @@ export const PrecoDiscount = styled.span<PrecoProps>`
   color: ${props => (props.openBag ? 'rgb(133, 133, 133)' : '#000')};
 `;
 export const PriceWithDiscount = styled.span<PrecoProps>`
-  margin-left: 10px;
+  margin-left: ${props => (props.openBag ? '' : '10px')};
   font-family: 'Roboto Mono', monospace;
   font-size: 24px;
   font-weight: bold;
@@ -114,7 +116,7 @@ export const PriceWithDiscount = styled.span<PrecoProps>`
     background: ${props =>
       props.openBag ? 'rgb(133, 133, 133)' : 'rgb(0, 0, 0)'};
     margin: ${props => (props.openBag ? '-10px' : '20px')};
-    margin-left: ${props => (props.openBag ? '20px' : '-142px')};
+    margin-left: ${props => (props.openBag ? '-2px' : '-142px')};
   }
 `;
 export const BotaoCores = styled.button<ListImagesProps>`

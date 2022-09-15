@@ -39,12 +39,21 @@ export default function ContadorProduct({
       setContador(contador - 1);
     }
   }
+  const productInTheBag = cart.find(products => products.product.id === id);
+
+  useEffect(() => {
+    if (productInTheBag) {
+      setContador(productInTheBag.product.amount);
+    } else {
+      setContador(contador);
+    }
+  }, [productInTheBag?.product.amount]);
 
   useEffect(() => {
     setValue(price * contador);
   }, [contador, price]);
 
-  const productInTheBag = cart.find(products => products.product.id === id);
+  console.log(contador, 'contador');
 
   return (
     <>
@@ -55,7 +64,7 @@ export default function ContadorProduct({
             {new Intl.NumberFormat('pt-BR', {
               style: 'currency',
               currency: 'BRL',
-            }).format(productInTheBag.product.price)}
+            }).format(productInTheBag.product.price * contador)}
           </Preco>
           {discount > 0 && (
             <PriceWithDiscount openBag={openBag}>
@@ -63,8 +72,9 @@ export default function ContadorProduct({
                 style: 'currency',
                 currency: 'BRL',
               }).format(
-                productInTheBag.product.price -
-                  productInTheBag.product.price * (discount / 100)
+                (productInTheBag.product.price -
+                  productInTheBag.product.price * (discount / 100)) *
+                  contador
               )}
             </PriceWithDiscount>
           )}
@@ -87,20 +97,14 @@ export default function ContadorProduct({
           )}
         </ContainerPrecos>
       )}
-
       <ContainerContador>
         <Text>QTD:</Text>
         <Contador openBag={openBag}>
           <ButtonContador type="button" onClick={() => handleClickDecrement()}>
             <Sinal openBag={openBag}>-</Sinal>
           </ButtonContador>
-          {productInTheBag ? (
-            <ValueContador openBag={openBag}>
-              {productInTheBag.product.amount}
-            </ValueContador>
-          ) : (
-            <ValueContador openBag={openBag}>{contador}</ValueContador>
-          )}
+
+          <ValueContador openBag={openBag}>{contador}</ValueContador>
 
           <ButtonContador type="button" onClick={() => handleClickIncrement()}>
             <Sinal openBag={openBag}>+</Sinal>

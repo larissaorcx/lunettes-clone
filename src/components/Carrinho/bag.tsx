@@ -22,7 +22,14 @@ export default function Bag() {
   const { openBag, cart, setOpenBag } = useCart();
 
   const total = cart.reduce((sumTotal, product) => {
-    return sumTotal + product.product.price * product.product.amount;
+    const priceDiscount =
+      product.product.price -
+      product.product.price * (product.product.discount / 100);
+    if (product.product.discount > 0) {
+      return sumTotal + priceDiscount * product.product.amount;
+    } else {
+      return sumTotal + product.product.price * product.product.amount;
+    }
   }, 0);
 
   return (

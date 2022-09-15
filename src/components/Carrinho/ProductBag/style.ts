@@ -21,6 +21,8 @@ export const ContainerContador = styled.div`
 
   @media screen and (max-width: 740px) {
     flex-direction: column;
+    align-items: start;
+    margin-left: 5px;
   }
 `;
 

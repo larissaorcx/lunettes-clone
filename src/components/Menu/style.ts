@@ -16,6 +16,10 @@ interface ButtonProps {
   openBag: boolean | null;
 }
 
+interface ContadorProps {
+  scroll: boolean;
+}
+
 export const Menu = styled.div<MenuProps>`
   display: flex;
   flex-direction: column;
@@ -144,5 +148,25 @@ export const BotaoSacola = styled.button`
       height: 30.6px;
     }
     margin: 0px;
+  }
+`;
+
+export const ContadorItemBag = styled.div<ContadorProps>`
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15px;
+  height: 15px;
+
+  bottom: ${props => (props.scroll ? '9px' : '43px')};
+  border-radius: 100%;
+  background: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  font-size: 9px;
+  font-weight: 600;
+
+  @media screen and (max-width: 740px) {
+    bottom: 18px;
   }
 `;
