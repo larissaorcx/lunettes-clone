@@ -13,16 +13,22 @@ import { useRouter } from 'next/router';
 
 interface ListMenuProps {
   listMenu: MenuFloating;
+  openMenu: boolean | null;
   handleOpenMenu: () => void;
 }
 
-export default function ListMenu({ listMenu, handleOpenMenu }: ListMenuProps) {
+export default function ListMenu({
+  listMenu,
+  openMenu,
+  handleOpenMenu,
+}: ListMenuProps) {
   const router = useRouter();
 
   return (
     <ListMenuContainer>
       <ButtonHome
         type="button"
+        openMenu={openMenu}
         onClick={() => {
           router.push('/');
           handleOpenMenu();
@@ -33,6 +39,7 @@ export default function ListMenu({ listMenu, handleOpenMenu }: ListMenuProps) {
       <ContainerCagtegories>
         <Button
           type="button"
+          openMenu={openMenu}
           onClick={() => {
             router.push('/produtos/grau');
             handleOpenMenu();
@@ -44,6 +51,7 @@ export default function ListMenu({ listMenu, handleOpenMenu }: ListMenuProps) {
           {listMenu.grau.category.map((categories, index) => (
             <ListCategory
               key={categories.title}
+              openMenu={openMenu}
               position={index + 2}
               onClick={() => {
                 router.push(`/produtos/grau/${categories.title}`);
@@ -64,6 +72,7 @@ export default function ListMenu({ listMenu, handleOpenMenu }: ListMenuProps) {
       <ContainerCagtegories>
         <Button
           type="button"
+          openMenu={openMenu}
           onClick={() => {
             router.push('/produtos/solar');
             handleOpenMenu();
@@ -75,6 +84,7 @@ export default function ListMenu({ listMenu, handleOpenMenu }: ListMenuProps) {
           {listMenu.solar.category.map((categories, index) => (
             <ListCategory
               key={categories.title}
+              openMenu={openMenu}
               position={index + 2}
               onClick={() => {
                 router.push(`/produtos/solar/${categories.title}`);

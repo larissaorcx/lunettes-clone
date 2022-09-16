@@ -65,7 +65,6 @@ export default function Bag() {
           <RiShoppingCart2Line className="cart" />
           Continuar Reservando
         </ButtonContinuarComprando>
-
         <ButtonFinalizarCompra type="button">
           <FaWhatsapp className="whats" />
           Finalizar Reserva

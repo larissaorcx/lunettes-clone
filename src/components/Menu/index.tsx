@@ -20,8 +20,6 @@ interface MenuProps {
   menu: ImageMenu;
   sacola: Images;
   listMenu: MenuFloating;
-  openMenu: boolean | null;
-  handleOpenMenu: () => void;
 }
 
 export default function MenuHeader({
@@ -29,10 +27,13 @@ export default function MenuHeader({
   menu,
   sacola,
   listMenu,
-  openMenu,
-  handleOpenMenu,
 }: MenuProps) {
   const [scroll, setScroll] = useState(false);
+  const [openMenu, setOpenMenu] = useState<boolean | null>(null);
+
+  function handleOpenMenu() {
+    setOpenMenu(!openMenu);
+  }
 
   const { openBag, setOpenBag, cart } = useCart();
 
@@ -60,6 +61,7 @@ export default function MenuHeader({
         {openMenu ? (
           <BotaoMenuClose
             openBag={openBag}
+            openMenu={openMenu}
             type="button"
             onClick={() => handleOpenMenu()}
           >
@@ -73,6 +75,7 @@ export default function MenuHeader({
         ) : (
           <BotaoMenu
             openBag={openBag}
+            openMenu={openMenu}
             type="button"
             onClick={() => handleOpenMenu()}
           >
@@ -99,8 +102,9 @@ export default function MenuHeader({
         </Logo>
         {openBag ? (
           <BotaoSacolaClose
+            openMenu={openMenu}
             type="button"
-            onClick={() => setOpenBag(false)}
+            onClick={() => setOpenBag(true)}
             openBag={openBag}
           >
             <Image
@@ -111,13 +115,16 @@ export default function MenuHeader({
             />
           </BotaoSacolaClose>
         ) : cart.length === 0 ? (
-          <BotaoSacola type="button" openBag={openBag}>
+          <BotaoSacola type="button" openBag={openBag} openMenu={openMenu}>
             <Image alt={sacola.alt} src={sacola.img} width={30} height={30} />
           </BotaoSacola>
         ) : (
           <BotaoSacola
             type="button"
-            onClick={() => setOpenBag(true)}
+            openMenu={openMenu}
+            onClick={() => {
+              setOpenBag(true);
+            }}
             openBag={!openMenu}
           >
             <Image alt={sacola.alt} src={sacola.img} width={30} height={30} />
@@ -128,7 +135,11 @@ export default function MenuHeader({
         )}
       </MenuContainer>
       {openMenu ? (
-        <ListMenu listMenu={listMenu} handleOpenMenu={handleOpenMenu} />
+        <ListMenu
+          listMenu={listMenu}
+          handleOpenMenu={handleOpenMenu}
+          openMenu={openMenu}
+        />
       ) : (
         openBag && <Bag />
       )}

@@ -11,14 +11,11 @@ import mockFooter from '../components/Footer/mockFooter';
 import MenuHeader from './Menu';
 
 type LayoutProps = {
-  openMenu: boolean | null;
-  handleOpenMenu: () => void;
   children: ReactNode;
 };
 
 export default function Layout({
-  openMenu,
-  handleOpenMenu,
+
   children,
 }: LayoutProps) {
   const [conteudoHeader, setConteudoHeader] = useState<HeaderType>(
@@ -57,8 +54,6 @@ export default function Layout({
         menu={conteudoMenu.menu}
         sacola={conteudoMenu.sacola}
         listMenu={conteudoFloatingMenu}
-        openMenu={openMenu}
-        handleOpenMenu={handleOpenMenu}
       />
       {children}
       <Footer

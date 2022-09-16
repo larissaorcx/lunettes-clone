@@ -4,6 +4,11 @@ import { animationList } from './animationList';
 
 interface ListProps {
   position: number;
+  openMenu: boolean | null;
+}
+
+interface MenuOpenProps {
+  openMenu: boolean | null;
 }
 
 export const ListMenuContainer = styled.div`
@@ -16,7 +21,7 @@ export const ListMenuContainer = styled.div`
   }
 `;
 
-export const Button = styled.button`
+export const Button = styled.button<MenuOpenProps>`
   font-family: 'MonumentExtended', monospace;
   text-transform: uppercase;
   font-size: 32px;
@@ -30,7 +35,7 @@ export const Button = styled.button`
   cursor: pointer;
   width: 370px;
   border: none;
-  z-index: ${props => (props.theme.open ? '0' : '-2')};
+  z-index: ${props => (props.openMenu ? '0' : '-2')};
 
   &:hover {
     opacity: 0.5;
@@ -78,7 +83,7 @@ export const TitleCategory = styled.p`
 export const ListCategory = styled.li<ListProps>`
   padding-right: 40px;
   padding-bottom: 30px;
-  z-index: ${props => (props.theme.open ? '0' : '-2')};
+  z-index: ${props => (props.openMenu ? '0' : '-2')};
 
   position: relative;
   ${({ position }) => {
@@ -156,7 +161,7 @@ export const ContainerCagtegories = styled.div`
   }
 `;
 
-export const ButtonHome = styled.button`
+export const ButtonHome = styled.button<MenuOpenProps>`
   font-family: 'MonumentExtended', monospace;
   text-transform: uppercase;
   font-size: 32px;
@@ -170,7 +175,7 @@ export const ButtonHome = styled.button`
   cursor: pointer;
 
   border: none;
-  z-index: ${props => (props.theme.open ? '0' : '-2')};
+  z-index: ${props => (props.openMenu ? '0' : '-2')};
 
   &:hover {
     opacity: 0.5;

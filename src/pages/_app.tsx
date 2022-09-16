@@ -10,32 +10,17 @@ import Loading from '../components/Loading/Loading';
 import CartProvider, { useCart } from '../components/hooks/useCart';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [openMenu, setOpenMenu] = useState<boolean | null>(null);
   const [loading, setLoading] = useState(false);
-
-  function handleOpenMenu() {
-    setOpenMenu(!openMenu);
-  }
-
-  const theme = {
-    open: openMenu,
-  };
 
   return (
     <>
-      <ThemeProvider theme={theme}>
-        {loading && <Loading />}
-        <CartProvider>
-          <Layout openMenu={openMenu} handleOpenMenu={handleOpenMenu}>
-            <Component
-              {...pageProps}
-              loading={loading}
-              setLoading={setLoading}
-            />
-          </Layout>
-          <GlobalStyle />
-        </CartProvider>
-      </ThemeProvider>
+      {loading && <Loading />}
+      <CartProvider>
+        <Layout>
+          <Component {...pageProps} loading={loading} setLoading={setLoading} />
+        </Layout>
+        <GlobalStyle />
+      </CartProvider>
     </>
   );
 }
