@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { Text } from '../../../pages/detalhes/style';
 import { ImagesProps } from '../../../pages/produtos/[...slug]';
 import {
+  BackgroundColor,
   Box,
   ContainerColor,
   ConteinerBox,
@@ -9,20 +11,33 @@ import {
 } from './style';
 
 interface ColorProductProps {
-  color: ImagesProps[];
+  colors: ImagesProps[];
 }
 
-export default function ColorProduct({ color }: ColorProductProps) {
+export default function ColorProduct({ colors }: ColorProductProps) {
+  const [activeColor, setActiveColor] = useState('');
+
+  console.log(activeColor);
   return (
     <ContainerColor>
       <Text>Cores:</Text>
       <ConteinerBox>
-        {color.map(
-          colors =>
-            colors.color.name !== 'NOTCOLOR' && (
-              <ListButton key={colors.id}>
-                <Box background={colors.color.background} key={colors.id} />
-                <TextBox>{colors.color.name}</TextBox>
+        {colors.map(
+          color =>
+            color.color.name !== 'NOTCOLOR' && (
+              <ListButton key={color.id}>
+                <Box
+                  onClick={() => {
+                    setActiveColor(color.id);
+                  }}
+                  active={activeColor === color.id}
+                >
+                  <BackgroundColor
+                    background={color.color.background}
+                    active={activeColor === color.id}
+                  />
+                  <TextBox>{color.color.name}</TextBox>
+                </Box>
               </ListButton>
             )
         )}

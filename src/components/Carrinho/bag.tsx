@@ -1,5 +1,4 @@
 import { useCart } from '../hooks/useCart';
-import Link from 'next/link';
 import { RiShoppingCart2Line } from 'react-icons/ri';
 
 import {

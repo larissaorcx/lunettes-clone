@@ -104,7 +104,7 @@ export default function MenuHeader({
           <BotaoSacolaClose
             openMenu={openMenu}
             type="button"
-            onClick={() => setOpenBag(true)}
+            onClick={() => setOpenBag(false)}
             openBag={openBag}
           >
             <Image

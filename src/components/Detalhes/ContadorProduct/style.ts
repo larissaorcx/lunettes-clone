@@ -65,4 +65,8 @@ export const ValueContador = styled.span<ContadorProps>`
   color: ${props => (props.openBag ? 'rgb(255, 255, 255)' : '#000')};
   font-size: 24px;
   line-height: 1.5;
+
+  @media screen and (max-width: 740px) {
+    font-size: 18px;
+  }
 `;

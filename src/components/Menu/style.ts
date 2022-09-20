@@ -242,8 +242,4 @@ export const ContadorItemBag = styled.div<ContadorProps>`
   color: rgb(0, 0, 0);
   font-size: 9px;
   font-weight: 600;
-
-  @media screen and (max-width: 740px) {
-    bottom: 18px;
-  }
 `;

@@ -42,7 +42,7 @@ export default function InfosProduto({ product }: InfosProdutoProps) {
       </ContainerCaminhoDetalhes>
       <NameProduct>{product.productName}</NameProduct>
       <CodigoProduto>{product.code}</CodigoProduto>
-      <ColorProduct color={product.images} />
+      <ColorProduct colors={product.images} />
       <ContadorProduct
         price={product.price}
         discount={product.discount}
