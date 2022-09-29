@@ -17,7 +17,6 @@ interface ColorProductProps {
 export default function ColorProduct({ colors }: ColorProductProps) {
   const [activeColor, setActiveColor] = useState('');
 
-  console.log(activeColor);
   return (
     <ContainerColor>
       <Text>Cores:</Text>

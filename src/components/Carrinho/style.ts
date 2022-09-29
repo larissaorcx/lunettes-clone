@@ -3,6 +3,11 @@ import { animationRedes } from '../Footer/InfoProdutos/animacao';
 
 type ConteinerBagProps = {
   openBag: boolean | null;
+  scroll: boolean;
+};
+
+type buttonProps = {
+  buttonBagFinalize: boolean;
 };
 
 export const ConteinerBag = styled.div<ConteinerBagProps>`
@@ -11,7 +16,8 @@ export const ConteinerBag = styled.div<ConteinerBagProps>`
   width: 100%;
   height: 100vh;
   padding: 0px 35px 20vh;
-  margin: 155px 0 0 0;
+  margin: ${props => (props.scroll ? '105px 0 0 0' : '155px 0 0 0')};
+  /* background: #000; */
   @media screen and (max-width: 740px) {
     margin: 100px 0 0 0;
   }
@@ -265,7 +271,7 @@ export const ButtonContinuarComprando = styled.button`
   }
 `;
 
-export const ButtonFinalizarCompra = styled.button`
+export const ButtonFinalizarCompra = styled.button<buttonProps>`
   background: rgb(37, 211, 102);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
   font-family: 'Roboto Mono', monospace;
@@ -288,6 +294,7 @@ export const ButtonFinalizarCompra = styled.button`
   justify-content: center;
   width: 300px;
   height: 60px;
+
   .whats {
     width: 30px;
     height: 30px;

@@ -14,12 +14,15 @@ import ListMenu from '../ListMenu';
 import { Images, ImageLogo, ImageMenu, MenuFloating } from '../../pages/types';
 import { useCart } from '../hooks/useCart';
 import Bag from '../Carrinho/bag';
+import { useScroll } from '../hooks/ProviderscrollPage';
 
 interface MenuProps {
   logoHome: ImageLogo;
   menu: ImageMenu;
   sacola: Images;
   listMenu: MenuFloating;
+  openMenu: boolean | null;
+  setOpenMenu: (arg0: boolean) => void;
 }
 
 export default function MenuHeader({
@@ -27,9 +30,11 @@ export default function MenuHeader({
   menu,
   sacola,
   listMenu,
+  openMenu,
+  setOpenMenu,
 }: MenuProps) {
   const [scroll, setScroll] = useState(false);
-  const [openMenu, setOpenMenu] = useState<boolean | null>(null);
+  // const { openMenu, setOpenMenu } = useScroll();
 
   function handleOpenMenu() {
     setOpenMenu(!openMenu);
@@ -141,7 +146,7 @@ export default function MenuHeader({
           openMenu={openMenu}
         />
       ) : (
-        openBag && <Bag />
+        openBag && <Bag scroll={scroll} />
       )}
     </Menu>
   );

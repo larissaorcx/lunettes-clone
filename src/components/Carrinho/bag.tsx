@@ -16,9 +16,17 @@ import {
 } from './style';
 import ProductBag from './ProductBag/ProductBag';
 import { FaWhatsapp } from 'react-icons/fa';
+import QRCode from './QRCode/QRCode';
+import { useState } from 'react';
+import React, { useRef } from 'react';
 
-export default function Bag() {
+interface BagProps {
+  scroll: boolean;
+}
+
+export default function Bag({ scroll }: BagProps) {
   const { openBag, cart, setOpenBag } = useCart();
+  const [buttonBagFinalize, setButtonBagFinalize] = useState(false);
 
   const total = cart.reduce((sumTotal, product) => {
     const priceDiscount =
@@ -31,9 +39,25 @@ export default function Bag() {
     }
   }, 0);
 
+  const upQRCode = useRef<HTMLDivElement>(null);
+
+  function handleScroll() {
+    upQRCode.current?.scrollIntoView({ block: 'center', behavior: 'smooth' });
+  }
+  // function handleScroll() {
+  //   window.scrollTo({
+  //     top: upQRCode.current?.offsetTop,
+  //     left: 0,
+  //     behavior: 'smooth',
+  //   });
+  // }
+
   return (
-    <ConteinerBag openBag={openBag}>
-      <Title openBag={openBag}>Sacola</Title>
+    <ConteinerBag scroll={scroll} openBag={openBag}>
+      <Title scroll={scroll} openBag={openBag}>
+        Sacola
+      </Title>
+      <QRCode buttonBagFinalize={buttonBagFinalize} upQRCode={upQRCode} />
       <InfoBag>
         <ContainerTitle>
           <TitleInfo>Produto</TitleInfo>
@@ -64,7 +88,14 @@ export default function Bag() {
           <RiShoppingCart2Line className="cart" />
           Continuar Reservando
         </ButtonContinuarComprando>
-        <ButtonFinalizarCompra type="button">
+        <ButtonFinalizarCompra
+          type="button"
+          buttonBagFinalize={buttonBagFinalize}
+          onClick={() => {
+            setButtonBagFinalize(true);
+            handleScroll();
+          }}
+        >
           <FaWhatsapp className="whats" />
           Finalizar Reserva
         </ButtonFinalizarCompra>
