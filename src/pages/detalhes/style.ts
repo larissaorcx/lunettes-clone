@@ -6,6 +6,7 @@ export const ContainerDetalhes = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 50px;
+
   @media screen and (max-width: 740px) {
     margin: 0;
   }

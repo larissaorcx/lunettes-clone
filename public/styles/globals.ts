@@ -1,12 +1,13 @@
 import { createGlobalStyle } from 'styled-components';
 
-// interface GlobalProps {
-//   theme: {
-//     open: boolean | null;
-//   };
-// }
+interface GlobalProps {
+  theme: {
+    menu: boolean | null;
+    bag: boolean | null;
+  };
+}
+export const GlobalStyle = createGlobalStyle<GlobalProps>`
 
-export const GlobalStyle = createGlobalStyle`
   
 @font-face {
   font-family: MonumentExtended;
@@ -22,7 +23,10 @@ export const GlobalStyle = createGlobalStyle`
 body {
   width: 100%;
   height: 100%;
-  overflow: hidden scroll;
+  overflow: ${props =>
+    props.theme.bag || props.theme.menu ? 'hidden' : 'hidden scroll'};
+
+
 }
 
 li {

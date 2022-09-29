@@ -29,7 +29,7 @@ import {
 } from './style';
 
 import { TitleDiscount } from '../../components/Product/style';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import InfosProduto from '../../components/Detalhes/InfoProduto/infoProduto';
 

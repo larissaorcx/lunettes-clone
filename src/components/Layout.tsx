@@ -12,11 +12,14 @@ import MenuHeader from './Menu';
 
 type LayoutProps = {
   children: ReactNode;
+  openMenu: boolean | null;
+  setOpenMenu: (arg0: boolean) => void;
 };
 
 export default function Layout({
-
+  openMenu,
   children,
+  setOpenMenu,
 }: LayoutProps) {
   const [conteudoHeader, setConteudoHeader] = useState<HeaderType>(
     {} as HeaderType
@@ -54,6 +57,8 @@ export default function Layout({
         menu={conteudoMenu.menu}
         sacola={conteudoMenu.sacola}
         listMenu={conteudoFloatingMenu}
+        openMenu={openMenu}
+        setOpenMenu={setOpenMenu}
       />
       {children}
       <Footer

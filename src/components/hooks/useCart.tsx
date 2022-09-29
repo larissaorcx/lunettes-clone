@@ -1,10 +1,13 @@
 import { createContext, ReactNode, useContext, useState } from 'react';
-import { ProductProps } from '../../pages/produtos/[...slug]';
+
 import { ProductCardProps } from '../Detalhes/ButtonReserva/ButtonReserva';
-import mocklistProducts from '../ListProducts/mocklistProducts';
+
+import { useScroll } from './ProviderscrollPage';
 
 interface CartProviderProps {
   children: ReactNode;
+  openBag: boolean | null;
+  setOpenBag: (arg0: boolean) => void;
 }
 
 type CartProps = {
@@ -27,11 +30,13 @@ interface CartContextData {
 
 const CartContext = createContext<CartContextData>({} as CartContextData);
 
-export default function CartProvider({ children }: CartProviderProps) {
+export default function CartProvider({
+  children,
+  openBag,
+  setOpenBag,
+}: CartProviderProps) {
   const [cart, setCart] = useState<CartProps[]>([]);
-  const [openBag, setOpenBag] = useState<boolean | null>(null);
-
-  console.log(cart, 'carrinho');
+  // const { openBag, setOpenBag } = useScroll();
 
   const addProduct = (productCart: ProductCardProps) => {
     let newCart: CartProps[] = [...cart];

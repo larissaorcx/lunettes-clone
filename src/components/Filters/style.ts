@@ -138,7 +138,7 @@ export const ButtonFilterCor = styled.button<ButtonColorProps>`
   }
 
   @media screen and (max-width: 740px) {
-    width: 114px;
+    width: 166px;
     height: 45px;
     font-size: 14px;
     margin: 0px;
@@ -182,7 +182,7 @@ export const ButtonFilterModelo = styled.button<ButtonColorProps>`
     color: rgb(0, 0, 0);
   }
   @media screen and (max-width: 740px) {
-    width: 114px;
+    width: 166px;
     height: 45px;
     font-size: 14px;
     margin: 0px;
@@ -210,7 +210,7 @@ export const ButtonFilterPreco = styled.button<ButtonColorProps>`
     color: rgb(0, 0, 0);
   }
   @media screen and (max-width: 740px) {
-    width: 114px;
+    width: 166px;
     height: 45px;
     font-size: 14px;
     margin: 0px;
