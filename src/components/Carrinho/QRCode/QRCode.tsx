@@ -10,6 +10,7 @@ import {
 
 import Image, { ImageLoaderProps } from 'next/image';
 import { useCart } from '../../hooks/useCart';
+import router from 'next/router';
 
 interface QRCodeProps {
   buttonBagFinalize: boolean;
@@ -17,30 +18,38 @@ interface QRCodeProps {
 }
 
 export default function QRCode({ buttonBagFinalize, upQRCode }: QRCodeProps) {
-  const { cart } = useCart();
+  const { cart, setOpenBag } = useCart();
 
   function productsCart() {
+    let messageWhats = '';
+
+    const initialText =
+      // typeMsg === 'info'
+      //   ? 'Lunettes, gostaria de ter informações sobre um produto. '
+      //   :
+      'Lunettes, foi realizada uma reserva no site. \n';
     const allproductscart = cart
       .map(
         product =>
           `${product.product.amount} ${
             product.product.amount === 1 ? 'unidade' : 'unidades'
-          } do óculos ${product.product.name} na cor: ${
-            product.product.color
-          }. \n`
+          } do óculos ${product.product.name} na cor: 
+        ${product.product.color.name}. `
       )
       .join('');
 
-    const readyText = `${allproductscart}`;
+    messageWhats = `${initialText}${allproductscart}`;
 
-    return window.encodeURIComponent(readyText);
+    return window.encodeURIComponent(messageWhats);
   }
+  const listcart = productsCart();
 
-  const myLoader = ({ src, width, quality }: ImageLoaderProps) => {
-    return `https://chart.googleapis.com/chart?chs=${width}&cht=qr&chl=${src}&q=${
-      quality || 75
-    }`;
+  const urlCart = `https://wa.me/5511974523425?text=${listcart}`;
+
+  const myLoader = () => {
+    return `https://chart.googleapis.com/chart?chs=400x400&cht=qr&chl=${urlCart}`;
   };
+
   return (
     <ContainerQRCode buttonBagFinalize={buttonBagFinalize} ref={upQRCode}>
       <Title>Fale com a Lunettes</Title>
@@ -60,7 +69,14 @@ export default function QRCode({ buttonBagFinalize, upQRCode }: QRCodeProps) {
         />
       </ContainerImgQRCode>
       <ContainerButtonFinalize>
-        <ButtonFinalize type="button">
+        <ButtonFinalize
+          type="button"
+          onClick={() => {
+            router.push('/');
+            setOpenBag(false);
+            cart.splice(0, Number.MAX_VALUE);
+          }}
+        >
           <GiCheckeredFlag className="flag" />
           Pronto, consegui !
         </ButtonFinalize>

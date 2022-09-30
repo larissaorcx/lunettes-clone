@@ -23,21 +23,21 @@ export const ContainerQRCode = styled.div<containerQRCodeProps>`
 `;
 
 export const ContainerImgQRCode = styled.div`
-  max-width: 190px;
-  max-height: 190px;
+  max-width: 210px;
+  max-height: 215px;
 
   display: flex;
   margin: 0px;
   padding: 0px;
-  margin-left: 10px;
+  margin-left: 36px;
   position: relative;
-  margin-top: 20px;
+  margin-top: 35px;
 
   img {
-    min-width: 248px !important;
-    max-width: 248px !important;
-    min-height: 248px !important;
-    max-height: 248px !important;
+    min-width: 220px !important;
+    max-width: 220px !important;
+    min-height: 220px !important;
+    max-height: 220px !important;
     inset: -20px !important;
     margin: 0px !important;
     z-index: -2 !important;
@@ -59,8 +59,8 @@ export const ContainerImgQRCode = styled.div`
     width: 100%;
     height: 100%;
     border: 1px solid rgb(0, 0, 0);
-    bottom: 10px;
-    left: -10px;
+    bottom: 35px;
+    left: -35px;
   }
 `;
 
