@@ -44,13 +44,6 @@ export default function Bag({ scroll }: BagProps) {
   function handleScroll() {
     upQRCode.current?.scrollIntoView({ block: 'center', behavior: 'smooth' });
   }
-  // function handleScroll() {
-  //   window.scrollTo({
-  //     top: upQRCode.current?.offsetTop,
-  //     left: 0,
-  //     behavior: 'smooth',
-  //   });
-  // }
 
   return (
     <ConteinerBag scroll={scroll} openBag={openBag}>

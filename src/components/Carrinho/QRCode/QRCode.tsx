@@ -18,7 +18,7 @@ interface QRCodeProps {
 }
 
 export default function QRCode({ buttonBagFinalize, upQRCode }: QRCodeProps) {
-  const { cart, setOpenBag } = useCart();
+  const { cart, setOpenBag, setCart } = useCart();
 
   function productsCart() {
     let messageWhats = '';
@@ -74,7 +74,7 @@ export default function QRCode({ buttonBagFinalize, upQRCode }: QRCodeProps) {
           onClick={() => {
             router.push('/');
             setOpenBag(false);
-            cart.splice(0, Number.MAX_VALUE);
+            setCart([]);
           }}
         >
           <GiCheckeredFlag className="flag" />
