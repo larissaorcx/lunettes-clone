@@ -38,7 +38,7 @@ import ListProducts from '../../components/ListProducts';
 
 interface DetalhesProps {
   background: HeaderType;
-  exist: ProductDetalhesProps;
+  prodExist: ProductDetalhesProps;
   conteudo: AboutType;
   setLoading: (loading: boolean) => void;
   prodRelacionados: ProductDetalhesProps[];
@@ -77,12 +77,12 @@ export type DetailsProps = {
   lens: string;
 };
 
-export default function Detelhes({
+export default function Detalhes({
   background,
   conteudo,
   setLoading,
   prodRelacionados,
-  exist,
+  prodExist,
 }: DetalhesProps) {
   const [productSlug, setProductSlug] = useState<
     ProductDetalhesProps | undefined
@@ -100,13 +100,13 @@ export default function Detelhes({
 
       setTimeout(() => {
         setRelacionados(prodRelacionados);
-        setProductSlug(exist);
+        setProductSlug(prodExist);
         setLoading(false);
       }, 1000);
     }
 
     loadProducts();
-  }, [router.query.slug, exist, setLoading, prodRelacionados]);
+  }, [router.query.slug, prodExist, setLoading, prodRelacionados]);
 
   return (
     <>
@@ -202,9 +202,11 @@ export default function Detelhes({
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const name = params?.slug;
   const produtos = await mocklistproducts;
-  const exist = produtos.find(product => product.productName.trim() === name);
+  const prodExist = produtos.find(
+    product => product.productName.trim() === name
+  );
 
-  const prodRelacionados = exist?.associated
+  const prodRelacionados = prodExist?.associated
     .map(relacionado => {
       return produtos.find(product => product._id === relacionado.id);
     })
@@ -213,7 +215,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   return {
     props: {
       background: dataHome.header,
-      exist,
+      prodExist,
       conteudo: dataHome.about,
       prodRelacionados,
     },

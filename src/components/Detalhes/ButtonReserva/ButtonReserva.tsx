@@ -15,6 +15,7 @@ import { Colorproducts } from '../../Filters/Color/ColorFilter';
 interface ButtonReservaProps {
   product: ProductDetalhesProps;
   contador: number;
+  activeColor: string;
 }
 
 export type ProductCardProps = {
@@ -31,11 +32,18 @@ export type ProductCardProps = {
 export default function ButtonReserva({
   product,
   contador,
+  activeColor,
 }: ButtonReservaProps) {
+  const selectColor = product.images.filter(
+    product => product.id === activeColor
+  );
+
+  console.log(selectColor, 'select color');
+
   const productCart: ProductCardProps = {
     id: product._id,
     image: product.images[0].allImages.lg,
-    color: product.images[1].color,
+    color: selectColor[0].color,
     name: product.productName,
     code: product.code,
     amount: contador,
@@ -48,6 +56,8 @@ export default function ButtonReserva({
   const productInTheBag = cart.find(
     products => products.product.id === product._id
   );
+
+  console.log(productCart.color, 'color');
   return (
     <ContainerButton>
       {productInTheBag ? (

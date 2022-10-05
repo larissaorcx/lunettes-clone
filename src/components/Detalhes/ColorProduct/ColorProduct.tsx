@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Text } from '../../../pages/detalhes/style';
 import { ImagesProps } from '../../../pages/produtos/[...slug]';
+import { useCart } from '../../hooks/useCart';
 import {
-  BackgroundColor,
+  // BackgroundColor,
   Box,
   ContainerColor,
   ConteinerBox,
@@ -12,34 +13,34 @@ import {
 
 interface ColorProductProps {
   colors: ImagesProps[];
+  activeColor: string;
+  setActiveColor: (arg: string) => void;
+  filteredColors: ImagesProps[];
 }
 
-export default function ColorProduct({ colors }: ColorProductProps) {
-  const [activeColor, setActiveColor] = useState('');
-
+export default function ColorProduct({
+  colors,
+  activeColor,
+  setActiveColor,
+  filteredColors,
+}: ColorProductProps) {
   return (
     <ContainerColor>
       <Text>Cores:</Text>
       <ConteinerBox>
-        {colors.map(
-          color =>
-            color.color.name !== 'NOTCOLOR' && (
-              <ListButton key={color.id}>
-                <Box
-                  onClick={() => {
-                    setActiveColor(color.id);
-                  }}
-                  active={activeColor === color.id}
-                >
-                  <BackgroundColor
-                    background={color.color.background}
-                    active={activeColor === color.id}
-                  />
-                  <TextBox>{color.color.name}</TextBox>
-                </Box>
-              </ListButton>
-            )
-        )}
+        {filteredColors.map(color => (
+          <ListButton key={color.id}>
+            <Box
+              onClick={() => {
+                setActiveColor(color.id);
+              }}
+              active={activeColor === color.id}
+              background={color.color.background}
+            >
+              <TextBox>{color.color.name}</TextBox>
+            </Box>
+          </ListButton>
+        ))}
       </ConteinerBox>
     </ContainerColor>
   );

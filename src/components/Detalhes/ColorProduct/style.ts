@@ -1,9 +1,5 @@
 import styled, { css } from 'styled-components';
 import { AnimationColor } from './animation';
-
-type buttonType = {
-  active: boolean;
-};
 type BoxProps = {
   background: string;
   active: boolean;
@@ -43,7 +39,7 @@ export const ListButton = styled.li`
   }
 `;
 
-export const Box = styled.button<buttonType>`
+export const Box = styled.button<BoxProps>`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -52,45 +48,62 @@ export const Box = styled.button<buttonType>`
   cursor: pointer;
   border-radius: 8px;
   margin-right: 5px;
+  position: relative;
 
-  &:hover {
-    span {
-      color: rgb(0, 0, 0);
-      cursor: pointer;
-    }
+  &::before {
+    content: '';
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    margin-right: 10px;
+    ${props =>
+      props.background.charAt(0) === '#'
+        ? css`
+            background: ${props.background};
+          `
+        : css`
+            background-image: url(${props.background});
+          `};
+    border: 2px solid rgb(238, 238, 238);
 
-    button {
-      &::before {
+    ${props =>
+      props.active &&
+      css`
+        -webkit-animation: ${AnimationColor} 0.9s both;
+        animation: ${AnimationColor} 0.9s both;
+      `}
+  }
+
+  ${props =>
+    props.active &&
+    css`
+      &::after {
         content: '';
         width: 34px;
         height: 34px;
         position: absolute;
         border: solid 2px #000;
         border-radius: 8px;
-        top: -3px;
-        left: -2.8px;
+        /* top: -3px; */
+        left: -1px;
       }
+    `}
+
+  &:hover {
+    &::after {
+      content: '';
+      width: 34px;
+      height: 34px;
+      position: absolute;
+      border: solid 2px #000;
+      border-radius: 8px;
+      /* top: -3px; */
+      left: -1px;
     }
-  }
-
-  div {
-    ${props =>
-      props.active &&
-      css`
-        -webkit-animation: ${AnimationColor} 0.9s both;
-
-        animation: ${AnimationColor} 0.9s both;
-        &::before {
-          content: '';
-          width: 34px;
-          height: 34px;
-          position: absolute;
-          border: solid 2px #000;
-          border-radius: 8px;
-          top: -3px;
-          left: -2.8px;
-        }
-      `}
+    span {
+      color: rgb(0, 0, 0);
+      cursor: pointer;
+    }
   }
 
   span {
@@ -99,25 +112,8 @@ export const Box = styled.button<buttonType>`
       css`
         font-weight: 500;
         color: rgb(0, 0, 0);
-      `}
+      `};
   }
-`;
-
-export const BackgroundColor = styled.div<BoxProps>`
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
-
-  margin-right: 5px;
-
-  ${props =>
-    props.background.charAt(0) === '#'
-      ? css`
-          background: ${props.background};
-        `
-      : css`
-          background-image: url(${props.background});
-        `};
 `;
 
 export const TextBox = styled.span`

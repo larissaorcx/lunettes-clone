@@ -26,6 +26,7 @@ interface CartContextData {
   deleteProduct: (productId: String) => void;
   setOpenBag: (arg0: boolean) => void;
   amountBag: ({ productId, amount }: AmountCart) => void;
+  setCart: (arg0: CartProps[]) => void;
 }
 
 const CartContext = createContext<CartContextData>({} as CartContextData);
@@ -93,6 +94,7 @@ export default function CartProvider({
         deleteProduct,
         setOpenBag,
         amountBag,
+        setCart,
       }}
     >
       {children}

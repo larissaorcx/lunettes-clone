@@ -21,6 +21,13 @@ interface InfosProdutoProps {
 
 export default function InfosProduto({ product }: InfosProdutoProps) {
   const [contador, setContador] = useState(1);
+
+  const filteredColors = product.images.filter(
+    nameColor => nameColor.color.name !== 'NOTCOLOR'
+  );
+
+  const [activeColor, setActiveColor] = useState(filteredColors[0].id);
+
   return (
     <ContainerConteudo>
       <ContainerCaminhoDetalhes>
@@ -42,7 +49,12 @@ export default function InfosProduto({ product }: InfosProdutoProps) {
       </ContainerCaminhoDetalhes>
       <NameProduct>{product.productName}</NameProduct>
       <CodigoProduto>{product.code}</CodigoProduto>
-      <ColorProduct colors={product.images} />
+      <ColorProduct
+        colors={product.images}
+        activeColor={activeColor}
+        setActiveColor={setActiveColor}
+        filteredColors={filteredColors}
+      />
       <ContadorProduct
         price={product.price}
         discount={product.discount}
@@ -50,7 +62,11 @@ export default function InfosProduto({ product }: InfosProdutoProps) {
         setContador={setContador}
         id={product._id}
       />
-      <ButtonReserva product={product} contador={contador} />
+      <ButtonReserva
+        product={product}
+        contador={contador}
+        activeColor={activeColor}
+      />
     </ContainerConteudo>
   );
 }
