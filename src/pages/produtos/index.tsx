@@ -1,14 +1,14 @@
 import { GetStaticProps } from 'next';
 import Filtrar from '../../components/Filters';
 import InternalBackground from '../../components/InternalBackground';
-import ListProducts from '../../components/ListProducts';
+import ListProducts, { ProdDetalhe } from '../../components/ListProducts';
 import mocklistProducts from '../../components/ListProducts/mocklistProducts';
 import { HeaderType } from '../types';
 import { ProductProps } from './[...slug]';
 import dataHome from '../api/mockHome';
 
 interface AllProductsProps {
-  products: ProductProps[];
+  products: ProdDetalhe[];
   setLoading: (loading: boolean) => void;
   background: HeaderType;
 }
@@ -22,7 +22,7 @@ export default function AllProducts({
     <>
       <InternalBackground background={background} height="200px" />
       <Filtrar products={products} />
-      <ListProducts setLoading={setLoading} products={products} />
+      <ListProducts products={products} />
     </>
   );
 }

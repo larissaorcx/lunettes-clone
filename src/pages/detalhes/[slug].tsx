@@ -93,6 +93,8 @@ export default function Detalhes({
   );
 
   const router = useRouter();
+  const [activeColorId, setActiveColorId] = useState('');
+  const [filteredColors, setFilteredColors] = useState<ImagesProps[]>([]);
 
   useEffect(() => {
     async function loadProducts() {
@@ -102,11 +104,19 @@ export default function Detalhes({
         setRelacionados(prodRelacionados);
         setProductSlug(prodExist);
         setLoading(false);
+
+        if (prodExist) {
+          const newFilteredColos = prodExist.images.filter(
+            nameColor => nameColor.color.name !== 'NOTCOLOR'
+          );
+          setFilteredColors(newFilteredColos);
+          setActiveColorId(newFilteredColos[0].id);
+        }
       }, 1000);
     }
 
     loadProducts();
-  }, [router.query.slug, prodExist, setLoading, prodRelacionados]);
+  }, [router.query.slug, prodExist, setLoading, prodRelacionados, productSlug]);
 
   return (
     <>
@@ -134,14 +144,29 @@ export default function Detalhes({
                   <TitleDiscount>{`${productSlug.discount}%`}</TitleDiscount>
                   <TextDiscount>OFF</TextDiscount>
                 </PorcentDiscountDetalhes>
-                <ImagesDetalhes products={productSlug.images} />
+                <ImagesDetalhes
+                  images={productSlug.images}
+                  activeColorId={activeColorId}
+                  setActiveColorId={setActiveColorId}
+                  filteredColors={filteredColors}
+                />
               </ImgDiscountDetalhes>
             ) : (
               <ImgDiscountDetalhes>
-                <ImagesDetalhes products={productSlug.images} />
+                <ImagesDetalhes
+                  images={productSlug.images}
+                  activeColorId={activeColorId}
+                  setActiveColorId={setActiveColorId}
+                  filteredColors={filteredColors}
+                />
               </ImgDiscountDetalhes>
             )}
-            <InfosProduto product={productSlug} />
+            <InfosProduto
+              product={productSlug}
+              activeColorId={activeColorId}
+              setActiveColorId={setActiveColorId}
+              filteredColors={filteredColors}
+            />
             <ConteinerDescricao>
               <TitleDescricao>Descrição</TitleDescricao>
               <Descricao>{productSlug.description}</Descricao>

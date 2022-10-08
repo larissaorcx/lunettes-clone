@@ -41,10 +41,10 @@ export default function Produto({ product }: ProdProps) {
             <TitleDiscount>{`${product.discount}%`}</TitleDiscount>
             <Text>OFF</Text>
           </PorcentDiscount>
-          <ListProductsImages products={product.images} />
+          <ListProductsImages images={product.images} />
         </ImgDiscount>
       ) : (
-        <ListProductsImages products={product.images} />
+        <ListProductsImages images={product.images} />
       )}
 
       <InfosProduto>

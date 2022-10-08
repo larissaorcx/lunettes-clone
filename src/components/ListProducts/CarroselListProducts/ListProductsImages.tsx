@@ -13,75 +13,39 @@ import { useSwiper } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/css';
+import ColorListProduct from '../ColorListProduct';
 
 type ImgProps = {
-  products: ImagesProps[];
+  images: ImagesProps[];
 };
 
-export default function ListProductsImages({ products }: ImgProps) {
-  const [clickButton, setClickButton] = useState(false);
-
-  const swiper = useSwiper();
-
-  function handleClick() {
-    switch (swiper.activeIndex) {
-      case 0:
-        swiper.slideNext();
-        break;
-
-      case 2:
-        swiper.slidePrev();
-        break;
-
-      default:
-        break;
-    }
-  }
-
+export default function ListProductsImages({ images }: ImgProps) {
   return (
-    <>
-      <Swiper
-        className="imageList"
-        direction={'horizontal'}
-        mousewheel={{
-          invert: false,
-        }}
-        modules={[Mousewheel, Keyboard]}
-        grabCursor={true}
-        keyboard={{
-          enabled: true,
-          onlyInViewport: false,
-        }}
-      >
-        {products.map(img => (
-          <SwiperSlide key={img.id}>
-            <Image
-              alt="product"
-              src={img.allImages.lg}
-              width={360}
-              height={360}
-            />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-      <CoresContainer>
-        {products.map(
-          image =>
-            image.color.name !== 'NOTCOLOR' && (
-              <BotaoCores
-                key={image.url}
-                type="button"
-                color={image.color.background}
-                clickButton={clickButton}
-                name={image.color.name}
-                onClick={() => {
-                  setClickButton(!clickButton);
-                  handleClick();
-                }}
-              />
-            )
-        )}
-      </CoresContainer>
-    </>
+    <Swiper
+      className="imageList"
+      direction={'horizontal'}
+      mousewheel={{
+        invert: false,
+      }}
+      modules={[Mousewheel, Keyboard]}
+      grabCursor={true}
+      keyboard={{
+        enabled: true,
+        onlyInViewport: false,
+      }}
+    >
+      {images.map(img => (
+        <SwiperSlide key={img.id}>
+          <Image
+            alt="product"
+            src={img.allImages.lg}
+            width={360}
+            height={360}
+          />
+        </SwiperSlide>
+      ))}
+
+      <ColorListProduct color={images} />
+    </Swiper>
   );
 }

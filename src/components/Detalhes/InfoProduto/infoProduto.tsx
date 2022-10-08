@@ -13,20 +13,26 @@ import Image from 'next/image';
 import ContadorProduct from '../ContadorProduct/ContadorProduct';
 
 import ButtonReserva from '../ButtonReserva/ButtonReserva';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { ImagesProps } from '../../../pages/produtos/[...slug]';
 
 interface InfosProdutoProps {
   product: ProductDetalhesProps;
+  activeColorId: string;
+  setActiveColorId: (arg: string) => void;
+  filteredColors: ImagesProps[];
 }
 
-export default function InfosProduto({ product }: InfosProdutoProps) {
+export default function InfosProduto({
+  product,
+  activeColorId,
+  setActiveColorId,
+  filteredColors,
+}: InfosProdutoProps) {
   const [contador, setContador] = useState(1);
 
-  const filteredColors = product.images.filter(
-    nameColor => nameColor.color.name !== 'NOTCOLOR'
-  );
-
-  const [activeColor, setActiveColor] = useState(filteredColors[0].id);
+  console.log('produtos filtrado', filteredColors);
+  console.log('cor ativa', activeColorId);
 
   return (
     <ContainerConteudo>
@@ -51,8 +57,8 @@ export default function InfosProduto({ product }: InfosProdutoProps) {
       <CodigoProduto>{product.code}</CodigoProduto>
       <ColorProduct
         colors={product.images}
-        activeColor={activeColor}
-        setActiveColor={setActiveColor}
+        activeColorId={activeColorId}
+        setActiveColorId={setActiveColorId}
         filteredColors={filteredColors}
       />
       <ContadorProduct
@@ -65,7 +71,7 @@ export default function InfosProduto({ product }: InfosProdutoProps) {
       <ButtonReserva
         product={product}
         contador={contador}
-        activeColor={activeColor}
+        activeColorId={activeColorId}
       />
     </ContainerConteudo>
   );

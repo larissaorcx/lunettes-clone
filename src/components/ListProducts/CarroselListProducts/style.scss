@@ -1,6 +1,8 @@
 .imageList {
   width: 360px !important;
-  height: 360px !important;
+  height: 440px !important;
+  display: flex !important;
+  justify-content: start !important;
 
   .swiper-slide img {
     display: inline-flex;
@@ -11,20 +13,26 @@
       width: 360px !important;
       height: 360px !important;
     }
+
+    .imageList .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 360px !important;
+    }
   }
   .swiper-slide {
     /* Center slide text vertically */
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
+    height: 360px !important;
+  }
+  .swiper-wrapper {
+    position: relative;
+    width: 100%;
+    height: 10% !important;
+    z-index: 1;
     display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    align-items: center;
+    transition-property: transform;
+    box-sizing: content-box;
+    margin-bottom: 320px !important;
   }
 }

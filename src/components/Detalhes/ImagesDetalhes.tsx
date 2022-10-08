@@ -2,22 +2,33 @@ import { ImagesProps } from '../../pages/produtos/[...slug]';
 
 import Image from 'next/image';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 
 // Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Mousewheel, Keyboard } from 'swiper';
+import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
+import swiper, { Mousewheel, Keyboard } from 'swiper';
 import { Pagination } from 'swiper';
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
+import ColorProduct from './ColorProduct/ColorProduct';
 
 interface ImagesDetalhesProps {
-  products: ImagesProps[];
+  images: ImagesProps[];
+  activeColorId: string;
+  setActiveColorId: (arg: string) => void;
+  filteredColors: ImagesProps[];
 }
 
-export default function ImagesDetalhes({ products }: ImagesDetalhesProps) {
+export default function ImagesDetalhes({
+  images,
+  activeColorId,
+  setActiveColorId,
+  filteredColors,
+}: ImagesDetalhesProps) {
+  const initialIndex = 1;
+
   return (
     <Swiper
       className="detalhes"
@@ -32,8 +43,9 @@ export default function ImagesDetalhes({ products }: ImagesDetalhesProps) {
         onlyInViewport: false,
       }}
       pagination={true}
+      initialSlide={initialIndex}
     >
-      {products.map(img => (
+      {images.map(img => (
         <SwiperSlide key={img.id}>
           <Image
             alt="product"
@@ -43,6 +55,12 @@ export default function ImagesDetalhes({ products }: ImagesDetalhesProps) {
           />
         </SwiperSlide>
       ))}
+      <ColorProduct
+        colors={images}
+        activeColorId={activeColorId}
+        setActiveColorId={setActiveColorId}
+        filteredColors={filteredColors}
+      />
     </Swiper>
   );
 }

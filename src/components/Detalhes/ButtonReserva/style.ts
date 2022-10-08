@@ -26,7 +26,7 @@ export const BotaoReservaSacola = styled.button<ButtonBagProps>`
   line-height: 1.5;
   color: #fff;
   border: none;
-  margin: 40px 10px 0 0;
+  margin: 29px 10px 0 0;
   border-radius: 8px;
   cursor: pointer;
   padding: 10px 25px;
@@ -64,8 +64,7 @@ export const BotaoReservaWhats = styled.button`
   line-height: 1.5;
   color: #fff;
   border: none;
-  margin-top: 40px;
-  margin-right: 10px;
+  margin: 29px 10px 0 0;
   border-radius: 8px;
   cursor: pointer;
   padding: 10px 25px;

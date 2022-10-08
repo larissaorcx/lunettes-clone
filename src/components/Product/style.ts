@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 interface ListImagesProps {
   color: string;
-  clickButton: boolean;
+  active: boolean;
   name: string;
 }
 
@@ -134,13 +134,27 @@ export const BotaoCores = styled.button<ListImagesProps>`
       : css`
           background-image: url(${props.color});
         `};
-  border: ${props => (props.clickButton ? 'solid 2px #000' : '')};
-  border-radius: ${props => (props.clickButton ? '8px' : '')};
-  width: ${props => (props.clickButton ? '36px' : '')};
-  height: ${props => (props.clickButton ? '36px' : '')};
+
   margin-right: 10px;
 
   position: relative;
+
+  ${props =>
+    props.active &&
+    css`
+      &::before {
+        content: '';
+        width: 34px;
+        height: 34px;
+        position: absolute;
+        border: solid 2px #000;
+        border-radius: 8px;
+        top: -3px;
+        left: -2.8px;
+        margin-bottom: 5px;
+        z-index: 10;
+      }
+    `};
 
   &:hover {
     &::before {
@@ -153,6 +167,7 @@ export const BotaoCores = styled.button<ListImagesProps>`
       top: -3px;
       left: -2.8px;
       margin-bottom: 5px;
+      z-index: 10;
     }
   }
   &:hover {
@@ -167,6 +182,7 @@ export const BotaoCores = styled.button<ListImagesProps>`
       background: rgb(0, 0, 0);
       color: rgb(255, 255, 255);
       border-radius: 0px 2px;
+      z-index: 10;
     }
   }
 `;
@@ -181,7 +197,7 @@ export const BotaoReserva = styled.button`
   line-height: 1.5;
   color: #fff;
   border: none;
-  margin: 40px 10px 0 0;
+  margin: 29px 10px 0 0;
   border-radius: 8px;
   cursor: pointer;
 

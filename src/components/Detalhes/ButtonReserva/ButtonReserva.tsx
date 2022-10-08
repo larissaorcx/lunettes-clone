@@ -15,7 +15,7 @@ import { Colorproducts } from '../../Filters/Color/ColorFilter';
 interface ButtonReservaProps {
   product: ProductDetalhesProps;
   contador: number;
-  activeColor: string;
+  activeColorId: string;
 }
 
 export type ProductCardProps = {
@@ -32,10 +32,10 @@ export type ProductCardProps = {
 export default function ButtonReserva({
   product,
   contador,
-  activeColor,
+  activeColorId,
 }: ButtonReservaProps) {
   const selectColor = product.images.filter(
-    product => product.id === activeColor
+    product => product.id === activeColorId
   );
 
   console.log(selectColor, 'select color');
