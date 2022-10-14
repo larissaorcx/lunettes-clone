@@ -42,7 +42,7 @@ export default function ButtonReserva({
 
   const productCart: ProductCardProps = {
     id: product._id,
-    image: product.images[0].allImages.lg,
+    image: selectColor[0].allImages.lg,
     color: selectColor[0].color,
     name: product.productName,
     code: product.code,

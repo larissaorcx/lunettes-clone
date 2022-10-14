@@ -145,6 +145,7 @@ export default function Detalhes({
                   <TextDiscount>OFF</TextDiscount>
                 </PorcentDiscountDetalhes>
                 <ImagesDetalhes
+                  product={productSlug}
                   images={productSlug.images}
                   activeColorId={activeColorId}
                   setActiveColorId={setActiveColorId}
@@ -154,6 +155,7 @@ export default function Detalhes({
             ) : (
               <ImgDiscountDetalhes>
                 <ImagesDetalhes
+                  product={productSlug}
                   images={productSlug.images}
                   activeColorId={activeColorId}
                   setActiveColorId={setActiveColorId}
@@ -161,12 +163,12 @@ export default function Detalhes({
                 />
               </ImgDiscountDetalhes>
             )}
-            <InfosProduto
+            {/* <InfosProduto
               product={productSlug}
               activeColorId={activeColorId}
               setActiveColorId={setActiveColorId}
               filteredColors={filteredColors}
-            />
+            /> */}
             <ConteinerDescricao>
               <TitleDescricao>Descrição</TitleDescricao>
               <Descricao>{productSlug.description}</Descricao>

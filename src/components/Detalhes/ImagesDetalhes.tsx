@@ -13,8 +13,11 @@ import { Pagination } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import ColorProduct from './ColorProduct/ColorProduct';
+import { ProductDetalhesProps } from '../../pages/detalhes/[slug]';
+import InfosProduto from './InfoProduto/infoProduto';
 
 interface ImagesDetalhesProps {
+  product: ProductDetalhesProps;
   images: ImagesProps[];
   activeColorId: string;
   setActiveColorId: (arg: string) => void;
@@ -22,6 +25,7 @@ interface ImagesDetalhesProps {
 }
 
 export default function ImagesDetalhes({
+  product,
   images,
   activeColorId,
   setActiveColorId,
@@ -55,12 +59,21 @@ export default function ImagesDetalhes({
           />
         </SwiperSlide>
       ))}
-      <ColorProduct
+      <div className="info">
+        <InfosProduto
+          product={product}
+          activeColorId={activeColorId}
+          setActiveColorId={setActiveColorId}
+          filteredColors={filteredColors}
+        />
+      </div>
+
+      {/* <ColorProduct
         colors={images}
         activeColorId={activeColorId}
         setActiveColorId={setActiveColorId}
         filteredColors={filteredColors}
-      />
+      /> */}
     </Swiper>
   );
 }
