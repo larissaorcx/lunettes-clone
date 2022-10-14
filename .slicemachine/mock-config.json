@@ -1,0 +1,32 @@
+{
+  "_cts": {
+    "produto": {}
+  },
+  "slices": {
+    "Produto": {
+      "default": {
+        "primary": {},
+        "items": {
+          "tagnovacolecao": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          },
+          "name": {
+            "config": {
+              "patternType": "HEADING",
+              "blocks": 1
+            }
+          },
+          "codigoprod": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        }
+      }
+    }
+  }
+}

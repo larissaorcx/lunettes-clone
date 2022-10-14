@@ -6,6 +6,7 @@ import mocklistProducts from '../../components/ListProducts/mocklistProducts';
 import { HeaderType } from '../types';
 import { ProductProps } from './[...slug]';
 import dataHome from '../api/mockHome';
+import { createClient } from '../../../prismicio';
 
 interface AllProductsProps {
   products: ProdDetalhe[];
@@ -26,13 +27,25 @@ export default function AllProducts({
     </>
   );
 }
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async ({
+  params,
+  previewData,
+}) => {
   const products = await mocklistProducts;
+  const client = createClient({ previewData });
+  // const productsPrismic = await client.getByUID(
+  //   'products',
+  //   params.uid // tipo personalizado params.uid
+  // );
+
+  console.log('params', params);
+  console.log('previewData', previewData);
 
   return {
     props: {
       background: dataHome.header,
       products,
+      // productsPrismic,
     },
   };
 };

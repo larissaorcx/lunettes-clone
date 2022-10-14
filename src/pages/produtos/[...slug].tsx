@@ -19,6 +19,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { Icon, Message } from '../detalhes/style';
 import mocklistProducts from '../../components/ListProducts/mocklistProducts';
+import { createClient } from '../../../prismicio';
 
 interface ProductsProps {
   background: HeaderType;
@@ -118,7 +119,12 @@ export default function Products({
 
 export async function getStaticPaths() {
   const products = mocklistProducts;
+  const client = createClient();
+
+  const productsPrismic = await client.getAllByType('products');
+
   return {
+    // paths: productsPrismic.map((page) => prismicH.asLink(page)),
     paths: products.map(product => ({
       params: {
         slug: [
@@ -133,8 +139,18 @@ export async function getStaticPaths() {
   };
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({
+  params,
+  previewData,
+}) => {
   const slugs = params?.slug;
+
+  const client = createClient({ previewData });
+  // const productsPrismic = await client.getByUID(
+  //   'products',
+  //   params?.uid // tipo personalizado params.uid
+  // );
+  console.log('params', params);
 
   let filteredProducts: ProductProps[] = [];
   let category: String = '';

@@ -9,6 +9,13 @@ import Layout from '../components/Layout';
 import Loading from '../components/Loading/Loading';
 import CartProvider, { useCart } from '../components/hooks/useCart';
 import ScrollPage from '../components/hooks/ProviderscrollPage';
+import Link from 'next/link';
+
+//Prismic
+
+import { PrismicProvider } from '@prismicio/react';
+import { PrismicPreview } from '@prismicio/next';
+import { LunettesClone } from '../../prismicio';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [loading, setLoading] = useState(false);
@@ -23,15 +30,31 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     // <ScrollPage>
-    <ThemeProvider theme={scroltheme}>
-      {loading && <Loading />}
-      <CartProvider openBag={openBag} setOpenBag={setOpenBag}>
-        <Layout openMenu={openMenu} setOpenMenu={setOpenMenu}>
-          <Component {...pageProps} loading={loading} setLoading={setLoading} />
-        </Layout>
-        <GlobalStyle />
-      </CartProvider>
-    </ThemeProvider>
+    <PrismicProvider
+      internalLinkComponent={(
+        { href, ...props } //especifica qual componente usar para links internos
+      ) => (
+        <Link href={href}>
+          <a {...props} />
+        </Link>
+      )}
+    >
+      <ThemeProvider theme={scroltheme}>
+        {loading && <Loading />}
+        <CartProvider openBag={openBag} setOpenBag={setOpenBag}>
+          <Layout openMenu={openMenu} setOpenMenu={setOpenMenu}>
+            <PrismicPreview repositoryName={LunettesClone}>
+              <Component
+                {...pageProps}
+                loading={loading}
+                setLoading={setLoading}
+              />
+            </PrismicPreview>
+          </Layout>
+          <GlobalStyle />
+        </CartProvider>
+      </ThemeProvider>
+    </PrismicProvider>
     // </ScrollPage>
   );
 }

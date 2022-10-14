@@ -1,0 +1,91 @@
+{
+  "id": "produto",
+  "type": "SharedSlice",
+  "name": "Produto",
+  "description": "Produto",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "Produto",
+      "primary": {
+        "idprod": {
+          "type": "Text",
+          "config": {
+            "label": "idProd",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {
+        "images": {
+          "type": "Image",
+          "config": {
+            "label": "Images",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "name": {
+          "type": "StructuredText",
+          "config": {
+            "label": "name",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading3"
+          }
+        },
+        "colorprod": {
+          "type": "Select",
+          "config": {
+            "label": "colorProd",
+            "placeholder": "",
+            "options": [
+              "1",
+              "2"
+            ]
+          }
+        },
+        "tagnovacolecao": {
+          "type": "StructuredText",
+          "config": {
+            "label": "tagNovaColecao",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "codigoprod": {
+          "type": "StructuredText",
+          "config": {
+            "label": "codigoProd",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "price": {
+          "type": "StructuredText",
+          "config": {
+            "label": "price",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "vermais": {
+          "type": "Link",
+          "config": {
+            "label": "verMais",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "select": null
+          }
+        }
+      },
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+    }
+  ]
+}

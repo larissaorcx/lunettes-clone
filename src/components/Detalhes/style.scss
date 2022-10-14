@@ -1,6 +1,11 @@
 .detalhes {
   width: 100% !important;
-  height: 600px;
+  height: 980px;
+  // display: flex !important;
+  // flex-direction: row !important;
+
+  .info {
+  }
 
   .swiper-slide img {
     margin-left: 0px !important;
