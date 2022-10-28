@@ -19,6 +19,8 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { Icon, Message } from '../detalhes/style';
 import mocklistProducts from '../../components/ListProducts/mocklistProducts';
+
+import * as prismicH from '@prismicio/helpers';
 import { createClient } from '../../../prismicio';
 
 interface ProductsProps {
@@ -42,10 +44,11 @@ export type ProductProps = {
 };
 
 export type ImagesProps = {
-  id: string;
-  url: string;
-  color: Colorproducts;
-  allImages: AllImages;
+  idimage: string;
+  backgroundcolor: string;
+  colorname: string;
+  imglg: string;
+  imgxs: string;
 };
 
 type AllImages = {
@@ -119,12 +122,19 @@ export default function Products({
 
 export async function getStaticPaths() {
   const products = mocklistProducts;
-  const client = createClient();
+  // const client = createClient();
 
-  const productsPrismic = await client.getAllByType('products');
+  // const productsPrismic = await client.getAllByType('products');
 
   return {
-    // paths: productsPrismic.map((page) => prismicH.asLink(page)),
+    // paths: productsPrismic.map(prod => prismicH.asLink(params: {
+    //   slug: [
+    //     prod.category.toLowerCase(),
+    //     ...prod.subcategories.map(subcategory =>
+    //       subcategory.toLowerCase()
+    //     ),
+    //   ],
+    // },)),
     paths: products.map(product => ({
       params: {
         slug: [
@@ -146,11 +156,10 @@ export const getStaticProps: GetStaticProps = async ({
   const slugs = params?.slug;
 
   const client = createClient({ previewData });
-  // const productsPrismic = await client.getByUID(
-  //   'products',
-  //   params?.uid // tipo personalizado params.uid
-  // );
-  console.log('params', params);
+  // const productsPrismic = await client.getByUID('products', String(slugs));
+  // console.log('params', productsPrismic);
+
+  console.log('client', client);
 
   let filteredProducts: ProductProps[] = [];
   let category: String = '';

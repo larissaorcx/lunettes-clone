@@ -8,6 +8,7 @@ import ListProducts, { ProdDetalhe } from '../components/ListProducts';
 import { ProductProps } from './produtos/[...slug]';
 import mocklistProducts from '../components/ListProducts/mocklistProducts';
 import { useEffect, useState } from 'react';
+import { createClient } from '../../prismicio';
 
 type HomeProps = {
   conteudo: {
@@ -37,6 +38,8 @@ export default function Home({ conteudo, destaques, setLoading }: HomeProps) {
 
     loadProducts();
   }, [destaques, setLoading]);
+
+  console.log('destacado', destaques);
   return (
     <>
       <Background backgroundImages={conteudo.header} />
@@ -50,20 +53,36 @@ export default function Home({ conteudo, destaques, setLoading }: HomeProps) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const destaque = mocklistProducts.filter(product => {
-    if (product.highlighted) {
+export const getServerSideProps: GetServerSideProps = async ({
+  previewData,
+}) => {
+  const client = createClient({ previewData });
+  const productsPrismic = await client.getAllByType('produto');
+
+  const destacado = productsPrismic.filter(
+    prod => prod.data.highlighted === true
+  );
+
+  const destaque = destacado.flatMap(prod => {
+    let sub: string[] = [];
+
+    prod.data.subcategories.forEach((subcat: any) =>
+      sub.push(subcat.subcategory)
+    );
+
+    if (prod.data.highlighted) {
       return {
-        _id: product._id,
-        subcategories: product.subcategories,
-        price: product.price,
-        images: product.images,
-        productName: product.productName,
-        code: product.code,
-        isNewCollection: product.isNewCollection,
-        discount: product.discount,
-        category: product.category,
-        highlighted: product.highlighted,
+        _id: prod.data.idproduct,
+        subcategories: sub,
+        price: prod.data.price,
+        images: prod.data.images,
+        productName: prod.data.productname,
+        code: prod.data.code,
+        isNewCollection: prod.data.isnewcollection,
+        discount: prod.data.discount,
+        category: prod.data.category,
+        formatedprice: prod.data.formatedprice,
+        highlighted: prod.data.highlighted,
       };
     }
   });

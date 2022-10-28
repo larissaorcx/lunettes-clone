@@ -1,31 +1,76 @@
 {
   "_cts": {
-    "produto": {}
+    "produto": {
+      "images": {},
+      "subcategories": {}
+    }
   },
   "slices": {
     "Produto": {
       "default": {
-        "primary": {},
-        "items": {
-          "tagnovacolecao": {
+        "primary": {
+          "productname": {
             "config": {
               "patternType": "PARAGRAPH",
               "blocks": 1
             }
           },
-          "name": {
+          "code": {
             "config": {
-              "patternType": "HEADING",
+              "patternType": "PARAGRAPH",
               "blocks": 1
             }
           },
-          "codigoprod": {
+          "category": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        },
+        "items": {
+          "subcategories": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          },
+          "backgroundcolor": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          },
+          "colorname": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          },
+          "urlimg": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          },
+          "idimage": {
             "config": {
               "patternType": "PARAGRAPH",
               "blocks": 1
             }
           }
         }
+      }
+    },
+    "Images": {
+      "default": {
+        "primary": {},
+        "items": {}
+      }
+    },
+    "Color": {
+      "default": {
+        "primary": {}
       }
     }
   }

@@ -107,10 +107,10 @@ export default function Detalhes({
 
         if (prodExist) {
           const newFilteredColos = prodExist.images.filter(
-            nameColor => nameColor.color.name !== 'NOTCOLOR'
+            nameColor => nameColor.colorname !== 'NOTCOLOR'
           );
           setFilteredColors(newFilteredColos);
-          setActiveColorId(newFilteredColos[0].id);
+          setActiveColorId(newFilteredColos[0].idimage);
         }
       }, 1000);
     }

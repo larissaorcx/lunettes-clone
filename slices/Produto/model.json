@@ -17,71 +17,111 @@
             "label": "idProd",
             "placeholder": ""
           }
-        }
-      },
-      "items": {
-        "images": {
-          "type": "Image",
-          "config": {
-            "label": "Images",
-            "constraint": {},
-            "thumbnails": []
-          }
-        },
-        "name": {
-          "type": "StructuredText",
-          "config": {
-            "label": "name",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "single": "heading3"
-          }
-        },
-        "colorprod": {
-          "type": "Select",
-          "config": {
-            "label": "colorProd",
-            "placeholder": "",
-            "options": [
-              "1",
-              "2"
-            ]
-          }
-        },
-        "tagnovacolecao": {
-          "type": "StructuredText",
-          "config": {
-            "label": "tagNovaColecao",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "single": "paragraph"
-          }
-        },
-        "codigoprod": {
-          "type": "StructuredText",
-          "config": {
-            "label": "codigoProd",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "single": "paragraph"
-          }
         },
         "price": {
-          "type": "StructuredText",
+          "type": "Number",
           "config": {
             "label": "price",
+            "placeholder": ""
+          }
+        },
+        "productname": {
+          "type": "StructuredText",
+          "config": {
+            "label": "productName",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "code": {
+          "type": "StructuredText",
+          "config": {
+            "label": "code",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "isnewcollection": {
+          "type": "Boolean",
+          "config": {
+            "label": "isNewCollection",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
+        },
+        "discount": {
+          "type": "Number",
+          "config": {
+            "label": "discount",
+            "placeholder": ""
+          }
+        },
+        "category": {
+          "type": "StructuredText",
+          "config": {
+            "label": "category",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "formatedprice": {
+          "type": "StructuredText",
+          "config": {
+            "label": "formatedPrice",
             "placeholder": "",
             "allowTargetBlank": true,
             "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
           }
-        },
-        "vermais": {
-          "type": "Link",
+        }
+      },
+      "items": {
+        "subcategories": {
+          "type": "StructuredText",
           "config": {
-            "label": "verMais",
+            "label": "subcategories",
             "placeholder": "",
-            "allowTargetBlank": false,
-            "select": null
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "idimage": {
+          "type": "StructuredText",
+          "config": {
+            "label": "idImage",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "urlimg": {
+          "type": "StructuredText",
+          "config": {
+            "label": "urlimg",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "colorname": {
+          "type": "StructuredText",
+          "config": {
+            "label": "colorName",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "backgroundcolor": {
+          "type": "StructuredText",
+          "config": {
+            "label": "backgroundcolor",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
           }
         }
       },

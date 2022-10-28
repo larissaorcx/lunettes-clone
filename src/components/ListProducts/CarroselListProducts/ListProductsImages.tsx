@@ -35,13 +35,8 @@ export default function ListProductsImages({ images }: ImgProps) {
       }}
     >
       {images.map(img => (
-        <SwiperSlide key={img.id}>
-          <Image
-            alt="product"
-            src={img.allImages.lg}
-            width={360}
-            height={360}
-          />
+        <SwiperSlide key={img.idimage}>
+          <Image alt="product" src={img.imglg} width={360} height={360} />
         </SwiperSlide>
       ))}
 

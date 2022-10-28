@@ -15,7 +15,7 @@ import Link from 'next/link';
 
 import { PrismicProvider } from '@prismicio/react';
 import { PrismicPreview } from '@prismicio/next';
-import { LunettesClone } from '../../prismicio';
+import { repositoryName } from '../../prismicio';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [loading, setLoading] = useState(false);
@@ -43,7 +43,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         {loading && <Loading />}
         <CartProvider openBag={openBag} setOpenBag={setOpenBag}>
           <Layout openMenu={openMenu} setOpenMenu={setOpenMenu}>
-            <PrismicPreview repositoryName={LunettesClone}>
+            <PrismicPreview repositoryName={repositoryName}>
               <Component
                 {...pageProps}
                 loading={loading}

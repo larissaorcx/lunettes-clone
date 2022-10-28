@@ -11,13 +11,16 @@ export function filterColor({ products }: FilterProps) {
   products.forEach(product => {
     const color = product.images
       .filter(image => {
-        if (image.color.name !== 'NOTCOLOR') {
-          return !Boolean(
-            colors.find(equal => equal.name === image.color.name)
-          );
+        if (image.colorname !== 'NOTCOLOR') {
+          return !Boolean(colors.find(equal => equal.name === image.colorname));
         }
       })
-      .map(arraycolor => arraycolor.color);
+      .map(arraycolor => {
+        return {
+          name: arraycolor.colorname,
+          background: arraycolor.backgroundcolor,
+        };
+      });
 
     colors = [...colors, ...color];
   });

@@ -12,15 +12,221 @@
           "placeholder": ""
         }
       },
+      "productname": {
+        "type": "Text",
+        "config": {
+          "label": "productName",
+          "placeholder": ""
+        }
+      },
+      "category": {
+        "type": "Text",
+        "config": {
+          "label": "category",
+          "placeholder": ""
+        }
+      },
+      "idproduct": {
+        "type": "Text",
+        "config": {
+          "label": "idproduct",
+          "placeholder": ""
+        }
+      },
+      "code": {
+        "type": "Text",
+        "config": {
+          "label": "code",
+          "placeholder": ""
+        }
+      },
+      "description": {
+        "type": "Text",
+        "config": {
+          "label": "description",
+          "placeholder": ""
+        }
+      },
+      "size": {
+        "type": "Text",
+        "config": {
+          "label": "size",
+          "placeholder": ""
+        }
+      },
+      "material": {
+        "type": "Text",
+        "config": {
+          "label": "material",
+          "placeholder": ""
+        }
+      },
+      "accessories": {
+        "type": "Text",
+        "config": {
+          "label": "accessories",
+          "placeholder": ""
+        }
+      },
+      "front": {
+        "type": "Text",
+        "config": {
+          "label": "front",
+          "placeholder": ""
+        }
+      },
+      "height": {
+        "type": "Text",
+        "config": {
+          "label": "height",
+          "placeholder": ""
+        }
+      },
+      "hast": {
+        "type": "Text",
+        "config": {
+          "label": "hast",
+          "placeholder": ""
+        }
+      },
+      "bridge": {
+        "type": "Text",
+        "config": {
+          "label": "bridge",
+          "placeholder": ""
+        }
+      },
+      "warranty": {
+        "type": "Text",
+        "config": {
+          "label": "warranty",
+          "placeholder": ""
+        }
+      },
+      "lens": {
+        "type": "Text",
+        "config": {
+          "label": "lens",
+          "placeholder": ""
+        }
+      },
+      "price": {
+        "type": "Number",
+        "config": {
+          "label": "price",
+          "placeholder": ""
+        }
+      },
+      "discount": {
+        "type": "Number",
+        "config": {
+          "label": "discount",
+          "placeholder": ""
+        }
+      },
+      "formatedprice": {
+        "type": "Number",
+        "config": {
+          "label": "formatedPrice",
+          "placeholder": ""
+        }
+      },
+      "isnewcollection": {
+        "type": "Boolean",
+        "config": {
+          "label": "isNewCollection",
+          "default_value": false,
+          "placeholder_true": "true",
+          "placeholder_false": "false"
+        }
+      },
+      "highlighted": {
+        "type": "Boolean",
+        "config": {
+          "label": "highlighted",
+          "default_value": false,
+          "placeholder_true": "true",
+          "placeholder_false": "false"
+        }
+      },
+      "subcategories": {
+        "type": "Group",
+        "config": {
+          "label": "subcategories",
+          "fields": {
+            "subcategory": {
+              "type": "Text",
+              "config": {
+                "label": "subcategory",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      },
+      "images": {
+        "type": "Group",
+        "config": {
+          "label": "images",
+          "fields": {
+            "idimage": {
+              "type": "Text",
+              "config": {
+                "label": "idImage",
+                "placeholder": ""
+              }
+            },
+            "imgxs": {
+              "type": "Text",
+              "config": {
+                "label": "imgxs",
+                "placeholder": ""
+              }
+            },
+            "imglg": {
+              "type": "Text",
+              "config": {
+                "label": "imglg",
+                "placeholder": ""
+              }
+            },
+            "colorname": {
+              "type": "Text",
+              "config": {
+                "label": "colorName",
+                "placeholder": ""
+              }
+            },
+            "backgroundcolor": {
+              "type": "Text",
+              "config": {
+                "label": "backgroundColor",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      },
+      "associated": {
+        "type": "Group",
+        "config": {
+          "label": "associated",
+          "fields": {
+            "idassociated": {
+              "type": "Text",
+              "config": {
+                "label": "idAssociated",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {
-            "produto": {
-              "type": "SharedSlice"
-            }
-          }
+          "choices": {}
         }
       }
     }

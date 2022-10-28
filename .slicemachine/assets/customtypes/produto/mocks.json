@@ -11,6 +11,44 @@
   "lang": "en-us",
   "alternate_languages": [],
   "data": {
+    "productname": "engine",
+    "category": "valuable",
+    "idproduct": "prevent",
+    "code": "facing",
+    "description": "wrote",
+    "size": "increase",
+    "material": "building",
+    "accessories": "curve",
+    "front": "seat",
+    "height": "community",
+    "hast": "correct",
+    "bridge": "attached",
+    "warranty": "what",
+    "lens": "nails",
+    "price": 96,
+    "discount": 79,
+    "formatedprice": 63,
+    "isnewcollection": true,
+    "highlighted": true,
+    "subcategories": [
+      {
+        "subcategory": "factory"
+      }
+    ],
+    "images": [
+      {
+        "idimage": "using",
+        "imgxs": "atom",
+        "imglg": "hair",
+        "colorname": "exciting",
+        "backgroundcolor": "row"
+      }
+    ],
+    "associated": [
+      {
+        "idassociated": "nearest"
+      }
+    ],
     "slices": []
   }
 }

@@ -7,18 +7,18 @@ import sm from './sm.json';
  * 
 O nome do repositório Prismic do projeto.
  */
-export const LunettesClone = prismic.getRepositoryName(sm.apiEndpoint);
+export const repositoryName = prismic.getRepositoryName(sm.apiEndpoint);
 
 //Atualize a matriz de rotas para corresponder à estrutura de rotas do seu projeto
 /** @type {prismic.ClientConfig['routes']} **/
 const routes = [
   {
-    type: 'homepage',
+    type: 'produto',
     path: '/',
   },
   {
-    type: 'page',
-    path: '/:uid',
+    type: 'produto',
+    path: '/produtos/',
   },
 ];
 

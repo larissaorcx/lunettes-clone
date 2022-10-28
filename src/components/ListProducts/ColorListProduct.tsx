@@ -9,14 +9,16 @@ interface ColorListProductsProps {
 
 export default function ColorListProduct({ color }: ColorListProductsProps) {
   const newFilteredColos = color.filter(
-    nameColor => nameColor.color.name !== 'NOTCOLOR'
+    nameColor => nameColor.colorname !== 'NOTCOLOR'
   );
   const swiper = useSwiper();
   const [activeColorId, setActiveColorId] = useState('');
 
   function handleClickButton(colorId: string) {
     setActiveColorId(colorId);
-    const indexIdColor = color.findIndex(idImage => idImage.id === colorId);
+    const indexIdColor = color.findIndex(
+      idImage => idImage.idimage === colorId
+    );
     if (indexIdColor !== -1) {
       swiper.slideTo(indexIdColor);
     }
@@ -26,13 +28,13 @@ export default function ColorListProduct({ color }: ColorListProductsProps) {
     <CoresContainer>
       {newFilteredColos.map(colors => (
         <BotaoCores
-          key={colors.url}
+          key={colors.imgxs}
           type="button"
-          color={colors.color.background}
-          active={activeColorId === colors.id}
-          name={colors.color.name}
+          color={colors.backgroundcolor}
+          active={activeColorId === colors.idimage}
+          name={colors.colorname}
           onClick={() => {
-            handleClickButton(colors.id);
+            handleClickButton(colors.idimage);
           }}
         />
       ))}

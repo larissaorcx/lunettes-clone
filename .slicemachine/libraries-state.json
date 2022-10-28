@@ -25,71 +25,111 @@
                     "label": "idProd",
                     "placeholder": ""
                   }
-                }
-              },
-              "items": {
-                "images": {
-                  "type": "Image",
-                  "config": {
-                    "label": "Images",
-                    "constraint": {},
-                    "thumbnails": []
-                  }
-                },
-                "name": {
-                  "type": "StructuredText",
-                  "config": {
-                    "label": "name",
-                    "placeholder": "",
-                    "allowTargetBlank": true,
-                    "single": "heading3"
-                  }
-                },
-                "colorprod": {
-                  "type": "Select",
-                  "config": {
-                    "label": "colorProd",
-                    "placeholder": "",
-                    "options": [
-                      "1",
-                      "2"
-                    ]
-                  }
-                },
-                "tagnovacolecao": {
-                  "type": "StructuredText",
-                  "config": {
-                    "label": "tagNovaColecao",
-                    "placeholder": "",
-                    "allowTargetBlank": true,
-                    "single": "paragraph"
-                  }
-                },
-                "codigoprod": {
-                  "type": "StructuredText",
-                  "config": {
-                    "label": "codigoProd",
-                    "placeholder": "",
-                    "allowTargetBlank": true,
-                    "single": "paragraph"
-                  }
                 },
                 "price": {
-                  "type": "StructuredText",
+                  "type": "Number",
                   "config": {
                     "label": "price",
+                    "placeholder": ""
+                  }
+                },
+                "productname": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "productName",
+                    "placeholder": "",
+                    "allowTargetBlank": true,
+                    "single": "paragraph"
+                  }
+                },
+                "code": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "code",
+                    "placeholder": "",
+                    "allowTargetBlank": true,
+                    "single": "paragraph"
+                  }
+                },
+                "isnewcollection": {
+                  "type": "Boolean",
+                  "config": {
+                    "label": "isNewCollection",
+                    "default_value": false,
+                    "placeholder_true": "true",
+                    "placeholder_false": "false"
+                  }
+                },
+                "discount": {
+                  "type": "Number",
+                  "config": {
+                    "label": "discount",
+                    "placeholder": ""
+                  }
+                },
+                "category": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "category",
+                    "placeholder": "",
+                    "allowTargetBlank": true,
+                    "single": "paragraph"
+                  }
+                },
+                "formatedprice": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "formatedPrice",
                     "placeholder": "",
                     "allowTargetBlank": true,
                     "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
                   }
-                },
-                "vermais": {
-                  "type": "Link",
+                }
+              },
+              "items": {
+                "subcategories": {
+                  "type": "StructuredText",
                   "config": {
-                    "label": "verMais",
+                    "label": "subcategories",
                     "placeholder": "",
-                    "allowTargetBlank": false,
-                    "select": null
+                    "allowTargetBlank": true,
+                    "single": "paragraph"
+                  }
+                },
+                "idimage": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "idImage",
+                    "placeholder": "",
+                    "allowTargetBlank": true,
+                    "single": "paragraph"
+                  }
+                },
+                "urlimg": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "urlimg",
+                    "placeholder": "",
+                    "allowTargetBlank": true,
+                    "single": "paragraph"
+                  }
+                },
+                "colorname": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "colorName",
+                    "placeholder": "",
+                    "allowTargetBlank": true,
+                    "single": "paragraph"
+                  }
+                },
+                "backgroundcolor": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "backgroundcolor",
+                    "placeholder": "",
+                    "allowTargetBlank": true,
+                    "single": "paragraph"
                   }
                 }
               },
@@ -103,52 +143,76 @@
             "version": "sktwi1xtmkfgx8626",
             "items": [
               {
-                "images": {
-                  "dimensions": {
-                    "width": 900,
-                    "height": 500
-                  },
-                  "alt": null,
-                  "copyright": null,
-                  "url": "https://images.unsplash.com/photo-1493119508027-2b584f234d6c"
-                },
-                "name": [
-                  {
-                    "type": "heading3",
-                    "text": "Section",
-                    "spans": []
-                  }
-                ],
-                "colorprod": "1",
-                "tagnovacolecao": [
+                "subcategories": [
                   {
                     "type": "paragraph",
-                    "text": "Est voluptate aute ut culpa commodo mollit. Irure ipsum excepteur adipisicing ea do exercitation culpa Lorem ullamco sunt sint duis tempor officia excepteur.",
+                    "text": "Incididunt quis esse in irure cillum mollit qui cillum nostrud in incididunt ipsum et minim labore. Consequat nisi aliqua esse commodo labore do ex enim fugiat minim commodo. Minim quis et reprehenderit adipisicing eu nulla.",
                     "spans": []
                   }
                 ],
-                "codigoprod": [
+                "idimage": [
                   {
                     "type": "paragraph",
-                    "text": "Fugiat fugiat voluptate commodo qui veniam irure aute consequat minim ipsum esse mollit id non est. Culpa voluptate consectetur ea ad.",
+                    "text": "Est aliquip sit minim ullamco ut dolore aliqua.",
                     "spans": []
                   }
                 ],
-                "price": [
+                "urlimg": [
                   {
                     "type": "paragraph",
-                    "text": "Veniam aliquip sunt mollit et fugiat. Aliquip laboris nostrud eiusmod exercitation duis sunt in ea eiusmod magna reprehenderit deserunt anim sint dolor. Veniam adipisicing officia officia labore.",
+                    "text": "Laboris proident elit laboris exercitation culpa in nostrud Lorem sint ad.",
                     "spans": []
                   }
                 ],
-                "vermais": {
-                  "link_type": "Web",
-                  "url": "https://slicemachine.dev"
-                }
+                "colorname": [
+                  {
+                    "type": "paragraph",
+                    "text": "Aute elit culpa Lorem excepteur tempor amet deserunt ipsum veniam amet nulla do velit deserunt aute.",
+                    "spans": []
+                  }
+                ],
+                "backgroundcolor": [
+                  {
+                    "type": "paragraph",
+                    "text": "Ipsum enim ad consectetur ullamco est. Commodo ad voluptate proident sunt non tempor nisi ipsum aute fugiat exercitation eu. Magna sunt culpa irure minim laboris.",
+                    "spans": []
+                  }
+                ]
               }
             ],
             "primary": {
-              "idprod": "frequently"
+              "idprod": "officer",
+              "price": 17,
+              "productname": [
+                {
+                  "type": "paragraph",
+                  "text": "Sunt proident laborum ea non elit minim enim et adipisicing aliqua Lorem laborum est incididunt esse. Officia ipsum magna fugiat ad ut eu cupidatat voluptate irure labore. Sint sit aute minim eu nisi occaecat esse ex sunt exercitation deserunt consequat laboris ipsum.",
+                  "spans": []
+                }
+              ],
+              "code": [
+                {
+                  "type": "paragraph",
+                  "text": "Culpa ipsum mollit cillum sunt ad aliqua ipsum nisi.",
+                  "spans": []
+                }
+              ],
+              "isnewcollection": true,
+              "discount": 46,
+              "category": [
+                {
+                  "type": "paragraph",
+                  "text": "Consequat fugiat reprehenderit aute deserunt dolore dolore proident. Qui et irure pariatur. Eiusmod amet amet nisi deserunt Lorem et dolore voluptate.",
+                  "spans": []
+                }
+              ],
+              "formatedprice": [
+                {
+                  "type": "paragraph",
+                  "text": "Aute laboris mollit ut minim dolore qui sint quis ullamco. Amet minim occaecat reprehenderit excepteur pariatur consectetur dolore do laboris. Aliquip cillum est exercitation ea pariatur.",
+                  "spans": []
+                }
+              ]
             },
             "slice_type": "produto"
           }
