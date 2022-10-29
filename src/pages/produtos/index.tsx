@@ -11,15 +11,16 @@ import * as prismicH from '@prismicio/helpers';
 
 interface AllProductsProps {
   products: ProdDetalhe[];
-
+  productsPrismic: any;
   background: HeaderType;
 }
 
 export default function AllProducts({
   products,
   background,
+  productsPrismic,
 }: AllProductsProps) {
-  console.log('slice', products);
+  console.log('slice', productsPrismic);
   return (
     <>
       <InternalBackground background={background} height="200px" />
@@ -32,7 +33,6 @@ export const getStaticProps: GetStaticProps = async ({
   params,
   previewData,
 }) => {
-  // const products = await mocklistProducts;
   const client = createClient({ previewData });
   const productsPrismic = await client.getAllByType('produto');
 
@@ -76,7 +76,7 @@ export const getStaticProps: GetStaticProps = async ({
     props: {
       background: dataHome.header,
       products,
-      // slices,
+      productsPrismic,
     },
   };
 };

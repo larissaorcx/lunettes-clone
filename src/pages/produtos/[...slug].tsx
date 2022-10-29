@@ -57,6 +57,26 @@ type AllImages = {
   lg: string;
 };
 
+type ProductPropsTESTE = {
+  _id: string;
+  subcategories: string[];
+  price: number;
+  images: testProdImg[];
+  productName: string;
+  code: string;
+  isNewCollection: boolean;
+  discount: number;
+  formatedPrice?: string;
+  category: string;
+};
+
+type testProdImg = {
+  id: string;
+  url: string;
+  color: Colorproducts;
+  allImages: AllImages;
+};
+
 export default function Products({
   background,
   products,
@@ -156,12 +176,12 @@ export const getStaticProps: GetStaticProps = async ({
   const slugs = params?.slug;
 
   const client = createClient({ previewData });
-  // const productsPrismic = await client.getByUID('products', String(slugs));
+  // const productsPrismic = await client.getByUID('produto', String(slugs));
   // console.log('params', productsPrismic);
 
   console.log('client', client);
 
-  let filteredProducts: ProductProps[] = [];
+  let filteredProducts: ProductPropsTESTE[] = [];
   let category: String = '';
   let subcategory: String = '';
 

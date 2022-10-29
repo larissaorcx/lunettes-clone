@@ -35,6 +35,7 @@ import InfosProduto from '../../components/Detalhes/InfoProduto/infoProduto';
 
 import Image from 'next/image';
 import ListProducts from '../../components/ListProducts';
+import { createClient } from '../../../prismicio';
 
 interface DetalhesProps {
   background: HeaderType;
@@ -226,18 +227,30 @@ export default function Detalhes({
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+export const getServerSideProps: GetServerSideProps = async ({
+  params,
+  previewData,
+}) => {
   const name = params?.slug;
-  const produtos = await mocklistproducts;
-  const prodExist = produtos.find(
-    product => product.productName.trim() === name
+  // const produtos = await mocklistproducts;
+
+  const client = createClient({ previewData });
+  const productsPrismic = await client.getByUID('produto', name);
+
+  const prodExist = productsPrismic.find(
+    (product: any) => product.data.productName.trim() === name
   );
 
-  const prodRelacionados = prodExist?.associated
-    .map(relacionado => {
-      return produtos.find(product => product._id === relacionado.id);
+  const prodRelacionados = prodExist?.data.associated
+    .map((relacionado: ProductDetalhesProps) => {
+      return productsPrismic.find(
+        (product: any) => product.data._id === relacionado.id
+      );
     })
-    .filter(prod => prod);
+    .filter((prod: any) => prod);
+
+  console.log('relacionados', prodRelacionados);
+  console.log('prodExist', prodExist);
 
   return {
     props: {

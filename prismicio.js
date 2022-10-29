@@ -3,13 +3,8 @@ import * as prismicH from '@prismicio/helpers';
 import * as prismicNext from '@prismicio/next';
 import sm from './sm.json';
 
-/**
- * 
-O nome do repositório Prismic do projeto.
- */
 export const repositoryName = prismic.getRepositoryName(sm.apiEndpoint);
 
-//Atualize a matriz de rotas para corresponder à estrutura de rotas do seu projeto
 /** @type {prismic.ClientConfig['routes']} **/
 const routes = [
   {
@@ -19,6 +14,10 @@ const routes = [
   {
     type: 'produto',
     path: '/produtos/',
+  },
+  {
+    type: 'produto',
+    path: '/detalhes/:uid',
   },
 ];
 

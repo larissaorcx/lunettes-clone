@@ -57,34 +57,34 @@ export const getServerSideProps: GetServerSideProps = async ({
   previewData,
 }) => {
   const client = createClient({ previewData });
-  const productsPrismic = await client.getAllByType('produto');
 
-  const destacado = productsPrismic.filter(
-    prod => prod.data.highlighted === true
-  );
+  // const productsPrismic = await client.getAllByType('produto', {
+  //   fetch: 'produto.data.highlighted',
+  // });
 
-  const destaque = destacado.flatMap(prod => {
+  // console.log('data', productsPrismic);
+
+  const productsPrismic = await client.getAllByTag('destacado');
+
+  const destaque = productsPrismic.flatMap(prod => {
     let sub: string[] = [];
 
     prod.data.subcategories.forEach((subcat: any) =>
       sub.push(subcat.subcategory)
     );
-
-    if (prod.data.highlighted) {
-      return {
-        _id: prod.data.idproduct,
-        subcategories: sub,
-        price: prod.data.price,
-        images: prod.data.images,
-        productName: prod.data.productname,
-        code: prod.data.code,
-        isNewCollection: prod.data.isnewcollection,
-        discount: prod.data.discount,
-        category: prod.data.category,
-        formatedprice: prod.data.formatedprice,
-        highlighted: prod.data.highlighted,
-      };
-    }
+    return {
+      _id: prod.data.idproduct,
+      subcategories: sub,
+      price: prod.data.price,
+      images: prod.data.images,
+      productName: prod.data.productname,
+      code: prod.data.code,
+      isNewCollection: prod.data.isnewcollection,
+      discount: prod.data.discount,
+      category: prod.data.category,
+      formatedprice: prod.data.formatedprice,
+      highlighted: prod.data.highlighted,
+    };
   });
 
   return {

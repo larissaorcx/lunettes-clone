@@ -35,15 +35,18 @@ export default function ButtonReserva({
   activeColorId,
 }: ButtonReservaProps) {
   const selectColor = product.images.filter(
-    product => product.id === activeColorId
+    product => product.idimage === activeColorId
   );
 
-  console.log(selectColor, 'select color');
+  const colors = {
+    name: selectColor[0].colorname,
+    background: selectColor[0].backgroundcolor,
+  };
 
   const productCart: ProductCardProps = {
     id: product._id,
-    image: selectColor[0].allImages.lg,
-    color: selectColor[0].color,
+    image: selectColor[0].imglg,
+    color: colors,
     name: product.productName,
     code: product.code,
     amount: contador,
@@ -57,7 +60,6 @@ export default function ButtonReserva({
     products => products.product.id === product._id
   );
 
-  console.log(productCart.color, 'color');
   return (
     <ContainerButton>
       {productInTheBag ? (
