@@ -29,10 +29,7 @@ export default function AllProducts({
     </>
   );
 }
-export const getStaticProps: GetStaticProps = async ({
-  params,
-  previewData,
-}) => {
+export const getStaticProps: GetStaticProps = async ({ previewData }) => {
   const client = createClient({ previewData });
   const productsPrismic = await client.getAllByType('produto');
 
@@ -69,8 +66,6 @@ export const getStaticProps: GetStaticProps = async ({
       },
     };
   });
-
-  console.log('dataPrismic', products);
 
   return {
     props: {

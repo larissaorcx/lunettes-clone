@@ -29,7 +29,9 @@ export default function ColorProduct({
 
   function handleClickButton(colorId: string) {
     setActiveColorId(colorId);
-    const indexIdColor = colors.findIndex(idImage => idImage.id === colorId);
+    const indexIdColor = colors.findIndex(
+      idImage => idImage.idimage === colorId
+    );
     if (indexIdColor !== -1) {
       swiper.slideTo(indexIdColor);
     }
@@ -42,15 +44,15 @@ export default function ColorProduct({
       <Text>Cores:</Text>
       <ConteinerBox>
         {filteredColors.map(color => (
-          <ListButton key={color.id}>
+          <ListButton key={color.idimage}>
             <Box
               onClick={() => {
-                handleClickButton(color.id);
+                handleClickButton(color.idimage);
               }}
-              active={activeColorId === color.id}
-              background={color.color.background}
+              active={activeColorId === color.idimage}
+              background={color.backgroundcolor}
             >
-              <TextBox>{color.color.name}</TextBox>
+              <TextBox>{color.colorname}</TextBox>
             </Box>
           </ListButton>
         ))}

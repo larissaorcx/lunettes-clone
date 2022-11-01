@@ -29,6 +29,7 @@ interface ProductsProps {
   setLoading: (loading: boolean) => void;
   category: string;
   subcategory: string;
+  slugs: any;
 }
 export type ProductProps = {
   _id: string;
@@ -83,9 +84,12 @@ export default function Products({
   setLoading,
   category,
   subcategory,
+  slugs,
 }: ProductsProps) {
   const router = useRouter();
   const tamSlug = router.query.slug?.length;
+
+  console.log('querys mandadas', slugs);
 
   const [loadproducts, setloadProducts] = useState<ProdDetalhe[]>(products);
 
@@ -173,13 +177,11 @@ export const getStaticProps: GetStaticProps = async ({
   params,
   previewData,
 }) => {
-  const slugs = params?.slug;
+  const slugs = params?.query;
 
   const client = createClient({ previewData });
   // const productsPrismic = await client.getByUID('produto', String(slugs));
   // console.log('params', productsPrismic);
-
-  console.log('client', client);
 
   let filteredProducts: ProductPropsTESTE[] = [];
   let category: String = '';
@@ -236,6 +238,7 @@ export const getStaticProps: GetStaticProps = async ({
       products: filteredProducts,
       category,
       subcategory,
+      slugs,
     },
   };
 };

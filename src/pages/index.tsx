@@ -58,12 +58,6 @@ export const getServerSideProps: GetServerSideProps = async ({
 }) => {
   const client = createClient({ previewData });
 
-  // const productsPrismic = await client.getAllByType('produto', {
-  //   fetch: 'produto.data.highlighted',
-  // });
-
-  // console.log('data', productsPrismic);
-
   const productsPrismic = await client.getAllByTag('destacado');
 
   const destaque = productsPrismic.flatMap(prod => {
