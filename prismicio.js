@@ -13,7 +13,7 @@ const routes = [
   },
   {
     type: 'produto',
-    path: '/produtos/',
+    path: '/produtos?category=grau',
   },
   {
     type: 'produto',

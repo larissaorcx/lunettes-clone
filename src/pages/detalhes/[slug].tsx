@@ -1,9 +1,10 @@
-import { GetServerSideProps } from 'next';
+import { GetServerSideProps, GetStaticPaths, GetStaticProps } from 'next';
 import InternalBackground from '../../components/InternalBackground';
 import { AboutType, HeaderType } from '../types';
 import mocklistproducts from '../../components/ListProducts/mocklistProducts';
 import dataHome from '../api/mockHome';
 import { ImagesProps, ProductProps } from '../produtos/[...slug]';
+import Prismic from '@prismicio/client';
 
 import { useRouter } from 'next/router';
 import ImagesDetalhes from '../../components/Detalhes/ImagesDetalhes';
@@ -85,6 +86,8 @@ export default function Detalhes({
   prodRelacionados,
   prodExist,
 }: DetalhesProps) {
+  console.log('produto', prodExist);
+
   const [productSlug, setProductSlug] = useState<
     ProductDetalhesProps | undefined
   >({} as ProductDetalhesProps);
@@ -226,31 +229,70 @@ export default function Detalhes({
     </>
   );
 }
+// export const getStaticPaths: GetStaticPaths = async () => {
+//   const client = getPrismicClient();
+//  const produto = await client.getByType('page',{})
 
-export const getServerSideProps: GetServerSideProps = async ({
-  params,
+//   return {
+//     paths: produto.data.map((prod:any) => ({
+//       params: { slug: prod},
+//     })),
+//     fallback: true,
+//   };
+// };
+
+export const getStaticProps: GetStaticProps = async ({
   previewData,
+  params,
 }) => {
-  const name = params?.slug;
-  // const produtos = await mocklistproducts;
-
   const client = createClient({ previewData });
-  const productsPrismic = await client.getByUID('produto', name);
+  // const { uid } = params;
+  // const productsPrismic = await client.getByUID('produto', String(uid), {});
+  const productsPrismic = await client.getByUID('produto', 'filintt');
 
-  const prodExist = productsPrismic.find(
-    (product: any) => product.data.productName.trim() === name
+  let sub: string[] = [];
+
+  productsPrismic.data.subcategories.forEach((subcat: any) =>
+    sub.push(subcat.subcategory)
   );
 
-  const prodRelacionados = prodExist?.data.associated
-    .map((relacionado: ProductDetalhesProps) => {
-      return productsPrismic.find(
-        (product: any) => product.data._id === relacionado.id
-      );
-    })
-    .filter((prod: any) => prod);
+  const prodExist = {
+    _id: productsPrismic.data.idproduct,
+    subcategories: sub,
+    price: productsPrismic.data.price,
+    images: productsPrismic.data.images,
+    productName: productsPrismic.data.productname,
+    code: productsPrismic.data.code,
+    isNewCollection: productsPrismic.data.isnewcollection,
+    discount: productsPrismic.data.discount,
+    category: productsPrismic.data.category,
+    formatedprice: productsPrismic.data.formatedprice,
+    associated: productsPrismic.data.associated,
+    description: productsPrismic.data.description,
+    details: {
+      size: productsPrismic.data.size,
+      material: productsPrismic.data.material,
+      accessories: productsPrismic.data.accessories,
+      front: productsPrismic.data.front,
+      height: productsPrismic.data.height,
+      hast: productsPrismic.data.hast,
+      bridge: productsPrismic.data.bridge,
+      warranty: productsPrismic.data.warranty,
+      lens: productsPrismic.data.lens,
+    },
+  };
 
-  console.log('relacionados', prodRelacionados);
-  console.log('prodExist', prodExist);
+  const prodRelacionados = productsPrismic?.data.associated
+    .map((relacionado: any) => {
+      console.log('relacionados', relacionado);
+      // return productsPrismic.data.associated.find(
+      //   (product: any) => product.data._id === relacionado.idassociated
+      // );
+    })
+    .filter((productsPrismic: any) => productsPrismic);
+
+  // console.log('relacionados', prodRelacionados);
+  console.log('dados do prismic', productsPrismic.data);
 
   return {
     props: {
@@ -261,3 +303,6 @@ export const getServerSideProps: GetServerSideProps = async ({
     },
   };
 };
+function getPrismicClient() {
+  throw new Error('Function not implemented.');
+}
