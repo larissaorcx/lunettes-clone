@@ -45,8 +45,6 @@ export default function ProductBag({ product }: ProductBagProps) {
     amountBag({ productId: product.id, amount: product.amount - 1 });
   }
 
-  const priceDiscount =
-    product.price - product.price * (product.discount / 100);
   return (
     <InfoProdBag key={product.id}>
       <ContainerProdContador>
@@ -95,7 +93,7 @@ export default function ProductBag({ product }: ProductBagProps) {
                 {new Intl.NumberFormat('pt-BR', {
                   style: 'currency',
                   currency: 'BRL',
-                }).format(priceDiscount * product.amount)}
+                }).format(product.formatedPrice * product.amount)}
               </PriceWithDiscount>
             </>
           ) : (

@@ -14,7 +14,7 @@ import ContadorProduct from '../ContadorProduct/ContadorProduct';
 
 import ButtonReserva from '../ButtonReserva/ButtonReserva';
 import { useEffect, useState } from 'react';
-import { ImagesProps } from '../../../pages/produtos/[...slug]';
+import { ImagesProps } from '../../../pages/produtos/[slug]';
 
 interface InfosProdutoProps {
   product: ProductDetalhesProps;
@@ -30,10 +30,6 @@ export default function InfosProduto({
   filteredColors,
 }: InfosProdutoProps) {
   const [contador, setContador] = useState(1);
-
-  console.log('produtos filtrado', filteredColors);
-  console.log('cor ativa', activeColorId);
-
   return (
     <ContainerConteudo>
       <ContainerCaminhoDetalhes>

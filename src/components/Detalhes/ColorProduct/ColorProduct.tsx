@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSwiper } from 'swiper/react';
 import { Text } from '../../../pages/detalhes/style';
-import { ImagesProps } from '../../../pages/produtos/[...slug]';
+import { ImagesProps } from '../../../pages/produtos/[slug]';
 import { useCart } from '../../hooks/useCart';
 import {
   // BackgroundColor,
@@ -36,8 +36,6 @@ export default function ColorProduct({
       swiper.slideTo(indexIdColor);
     }
   }
-
-  console.log(activeColorId, 'active');
 
   return (
     <ContainerColor>

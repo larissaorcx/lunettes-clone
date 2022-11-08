@@ -11,42 +11,51 @@
   "lang": "en-us",
   "alternate_languages": [],
   "data": {
-    "productname": "engine",
-    "category": "valuable",
-    "idproduct": "prevent",
-    "code": "facing",
-    "description": "wrote",
-    "size": "increase",
-    "material": "building",
-    "accessories": "curve",
-    "front": "seat",
-    "height": "community",
-    "hast": "correct",
-    "bridge": "attached",
-    "warranty": "what",
-    "lens": "nails",
-    "price": 96,
-    "discount": 79,
-    "formatedprice": 63,
-    "isnewcollection": true,
+    "productname": "go",
+    "category": "travel",
+    "idproduct": "mass",
+    "code": "chest",
+    "description": "great",
+    "size": "pack",
+    "material": "boat",
+    "accessories": "eager",
+    "front": "than",
+    "height": "shoe",
+    "hast": "classroom",
+    "bridge": "highest",
+    "warranty": "safety",
+    "lens": "problem",
+    "price": 18,
+    "discount": 69,
+    "formatedprice": 61,
+    "isnewcollection": false,
     "highlighted": true,
     "subcategories": [
       {
-        "subcategory": "factory"
+        "subcategory": "declared"
       }
     ],
     "images": [
       {
-        "idimage": "using",
-        "imgxs": "atom",
-        "imglg": "hair",
-        "colorname": "exciting",
-        "backgroundcolor": "row"
+        "idimage": "mostly",
+        "imgxs": "society",
+        "imglg": "spend",
+        "colorname": "route",
+        "backgroundcolor": "kitchen"
       }
     ],
-    "associated": [
+    "associados": [
       {
-        "idassociated": "nearest"
+        "associado": {
+          "id": "mock_document_id",
+          "link_type": "Document",
+          "type": "mock",
+          "tags": [],
+          "lang": "en-us",
+          "slug": null,
+          "first_publication_date": "1970-01-01T00:00:01+0000",
+          "last_publication_date": "1970-01-01T01:00:00+0000"
+        }
       }
     ],
     "slices": []

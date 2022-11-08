@@ -207,16 +207,16 @@
           }
         }
       },
-      "associated": {
+      "associados": {
         "type": "Group",
         "config": {
-          "label": "associated",
+          "label": "associados",
           "fields": {
-            "idassociated": {
-              "type": "Text",
+            "associado": {
+              "type": "Link",
               "config": {
-                "label": "idAssociated",
-                "placeholder": ""
+                "label": "associado",
+                "select": "document"
               }
             }
           }

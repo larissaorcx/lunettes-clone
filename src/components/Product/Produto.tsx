@@ -33,6 +33,7 @@ export default function Produto({ product }: ProdProps) {
   const productInTheBag = cart.find(
     products => products.product.id === product._id
   );
+  console.log('produto', product);
   return (
     <Prod>
       {product.discount > 0 ? (
@@ -64,7 +65,7 @@ export default function Produto({ product }: ProdProps) {
             {new Intl.NumberFormat('pt-BR', {
               style: 'currency',
               currency: 'BRL',
-            }).format(product.price - product.price * (product.discount / 100))}
+            }).format(product.formatedPrice)}
           </PriceWithDiscount>
         )}
       </ContainerPrecos>

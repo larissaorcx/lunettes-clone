@@ -13,6 +13,7 @@ import { useCart } from '../../hooks/useCart';
 interface ContadorProductProps {
   price: number;
   discount: number;
+
   contador: number;
   setContador: (arg: number) => void;
   id: string;
@@ -21,6 +22,7 @@ interface ContadorProductProps {
 export default function ContadorProduct({
   price,
   discount,
+
   contador,
   setContador,
   id,
@@ -69,11 +71,7 @@ export default function ContadorProduct({
               {new Intl.NumberFormat('pt-BR', {
                 style: 'currency',
                 currency: 'BRL',
-              }).format(
-                (productInTheBag.product.price -
-                  productInTheBag.product.price * (discount / 100)) *
-                  contador
-              )}
+              }).format(productInTheBag.product.formatedPrice * contador)}
             </PriceWithDiscount>
           )}
         </ContainerPrecos>

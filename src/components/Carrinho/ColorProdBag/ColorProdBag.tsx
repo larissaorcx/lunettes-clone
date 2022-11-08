@@ -1,4 +1,4 @@
-import { ImagesProps } from '../../../pages/produtos/[...slug]';
+import { ImagesProps } from '../../../pages/produtos/[slug]';
 import { Colorproducts } from '../../Filters/Color/ColorFilter';
 import {
   ConatinerColor,

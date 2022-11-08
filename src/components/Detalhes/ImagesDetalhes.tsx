@@ -1,4 +1,4 @@
-import { ImagesProps } from '../../pages/produtos/[...slug]';
+import { ImagesProps } from '../../pages/produtos/[slug]';
 
 import Image from 'next/image';
 

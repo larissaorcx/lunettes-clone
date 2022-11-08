@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { filterColor, filterModel, filterPrice } from '../../helper/filter';
-import { ProductProps } from '../../pages/produtos/[...slug]';
+import { ProductProps } from '../../pages/produtos/[slug]';
 import {
   ButtonFilterCor,
   ButtonFilterModelo,

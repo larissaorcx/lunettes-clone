@@ -20,7 +20,6 @@ export default function AllProducts({
   background,
   productsPrismic,
 }: AllProductsProps) {
-  console.log('slice', productsPrismic);
   return (
     <>
       <InternalBackground background={background} height="200px" />
@@ -50,20 +49,7 @@ export const getStaticProps: GetStaticProps = async ({ previewData }) => {
       isNewCollection: prod.data.isnewcollection,
       discount: prod.data.discount,
       category: prod.data.category,
-      formatedprice: prod.data.formatedprice,
-      associated: prod.data.associated,
-      description: prod.data.description,
-      details: {
-        size: prod.data.size,
-        material: prod.data.material,
-        accessories: prod.data.accessories,
-        front: prod.data.front,
-        height: prod.data.height,
-        hast: prod.data.hast,
-        bridge: prod.data.bridge,
-        warranty: prod.data.warranty,
-        lens: prod.data.lens,
-      },
+      formatedPrice: prod.data.formatedprice,
     };
   });
 

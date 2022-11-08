@@ -9,7 +9,7 @@ import {
   ConatinerError,
 } from './style';
 import dataHome from '../api/mockHome';
-import { GetStaticProps } from 'next';
+import { GetServerSideProps, GetStaticPaths, GetStaticProps } from 'next';
 import ListProducts, { ProdDetalhe } from '../../components/ListProducts';
 import mocklistproducts from '../../components/ListProducts/mocklistProducts';
 import { Colorproducts } from '../../components/Filters/Color/ColorFilter';
@@ -18,9 +18,7 @@ import Filtrar from '../../components/Filters';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { Icon, Message } from '../detalhes/style';
-import mocklistProducts from '../../components/ListProducts/mocklistProducts';
 
-import * as prismicH from '@prismicio/helpers';
 import { createClient } from '../../../prismicio';
 
 interface ProductsProps {
@@ -29,7 +27,7 @@ interface ProductsProps {
   setLoading: (loading: boolean) => void;
   category: string;
   subcategory: string;
-  slugs: any;
+  query: any;
 }
 export type ProductProps = {
   _id: string;
@@ -40,7 +38,7 @@ export type ProductProps = {
   code: string;
   isNewCollection: boolean;
   discount: number;
-  formatedPrice?: string;
+  formatedPrice: number;
   category: string;
 };
 
@@ -84,12 +82,12 @@ export default function Products({
   setLoading,
   category,
   subcategory,
-  slugs,
+  query,
 }: ProductsProps) {
   const router = useRouter();
   const tamSlug = router.query.slug?.length;
 
-  console.log('querys mandadas', slugs);
+  console.log('querys mandadas', query.slug);
 
   const [loadproducts, setloadProducts] = useState<ProdDetalhe[]>(products);
 
@@ -144,44 +142,16 @@ export default function Products({
   );
 }
 
-export async function getStaticPaths() {
-  const products = mocklistProducts;
-  // const client = createClient();
-
-  // const productsPrismic = await client.getAllByType('products');
-
-  return {
-    // paths: productsPrismic.map(prod => prismicH.asLink(params: {
-    //   slug: [
-    //     prod.category.toLowerCase(),
-    //     ...prod.subcategories.map(subcategory =>
-    //       subcategory.toLowerCase()
-    //     ),
-    //   ],
-    // },)),
-    paths: products.map(product => ({
-      params: {
-        slug: [
-          product.category.toLowerCase(),
-          ...product.subcategories.map(subcategory =>
-            subcategory.toLowerCase()
-          ),
-        ],
-      },
-    })),
-    fallback: 'blocking',
-  };
-}
-
-export const getStaticProps: GetStaticProps = async ({
-  params,
+export const getServerSideProps: GetServerSideProps = async ({
+  query,
   previewData,
+  params,
 }) => {
-  const slugs = params?.query;
+  const slugs = params?.slug;
 
   const client = createClient({ previewData });
-  // const productsPrismic = await client.getByUID('produto', String(slugs));
-  // console.log('params', productsPrismic);
+  const productsPrismic = await client.getAllByType('produto');
+  console.log('querys enviadas', query, 'slugs', slugs);
 
   let filteredProducts: ProductPropsTESTE[] = [];
   let category: String = '';
@@ -238,7 +208,7 @@ export const getStaticProps: GetStaticProps = async ({
       products: filteredProducts,
       category,
       subcategory,
-      slugs,
+      query,
     },
   };
 };

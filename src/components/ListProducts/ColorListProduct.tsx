@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSwiper } from 'swiper/react';
-import { ImagesProps } from '../../pages/produtos/[...slug]';
+import { ImagesProps } from '../../pages/produtos/[slug]';
 import { BotaoCores, CoresContainer } from '../Product/style';
 
 interface ColorListProductsProps {

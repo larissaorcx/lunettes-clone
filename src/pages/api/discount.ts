@@ -1,4 +1,4 @@
-import { ProductProps } from '../produtos/[...slug]';
+import { ProductProps } from '../produtos/[slug]';
 
 export type DiscountProps = {
   produtos: ProductProps[];

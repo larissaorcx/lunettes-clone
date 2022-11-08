@@ -5,7 +5,7 @@ import { HeaderType, AboutType, FooterType, MenuFloating } from './types';
 import About from '../components/Contatos';
 import { Background } from '../../public/styles/backgroundStyle';
 import ListProducts, { ProdDetalhe } from '../components/ListProducts';
-import { ProductProps } from './produtos/[...slug]';
+import { ProductProps } from './produtos/[slug]';
 import mocklistProducts from '../components/ListProducts/mocklistProducts';
 import { useEffect, useState } from 'react';
 import { createClient } from '../../prismicio';

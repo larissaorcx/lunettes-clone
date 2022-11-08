@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ProductProps } from '../../pages/produtos/[...slug]';
+import { ProductProps } from '../../pages/produtos/[slug]';
 import Produto from '../Product/Produto';
 
 import { ContainerProducts } from './style';

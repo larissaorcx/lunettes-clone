@@ -27,6 +27,7 @@ export type ProductCardProps = {
   price: number;
   discount: number;
   color: Colorproducts;
+  formatedPrice: number;
 };
 
 export default function ButtonReserva({
@@ -52,6 +53,7 @@ export default function ButtonReserva({
     amount: contador,
     price: product.price,
     discount: product.discount,
+    formatedPrice: product.formatedPrice,
   };
 
   const { addProduct, deleteProduct, cart } = useCart();
