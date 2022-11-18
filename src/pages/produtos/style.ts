@@ -17,7 +17,7 @@ export const ContainerCaminho = styled.div`
   justify-content: center;
   flex-direction: row;
   margin-top: 50px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 
   @media screen and (max-width: 740px) {
     margin-top: 20px;
@@ -53,10 +53,7 @@ export const Titulo = styled.h2`
   display: flex;
   justify-content: center;
   align-items: center;
-
-  width: 106px;
-  height: 29px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 
   font-family: 'MonumentExtended', monospace;
   text-transform: uppercase;

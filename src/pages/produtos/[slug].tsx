@@ -25,8 +25,6 @@ interface ProductsProps {
   background: HeaderType;
   products: ProdDetalhe[];
   setLoading: (loading: boolean) => void;
-  category: string;
-  subcategory: string;
   query: any;
 }
 export type ProductProps = {
@@ -80,14 +78,10 @@ export default function Products({
   background,
   products,
   setLoading,
-  category,
-  subcategory,
   query,
 }: ProductsProps) {
   const router = useRouter();
   const tamSlug = router.query.slug?.length;
-
-  console.log('querys mandadas', query.slug);
 
   const [loadproducts, setloadProducts] = useState<ProdDetalhe[]>(products);
 
@@ -114,25 +108,25 @@ export default function Products({
           <Simbolo>
             <Image alt="next" src="/right.png" width={16} height={16} />
           </Simbolo>
-          <Caminho>{category}</Caminho>
+          <Caminho>{router.query?.category}</Caminho>
         </ContainerCaminho>
         {(tamSlug && tamSlug >= 3) || loadproducts.length === 0 ? (
           <ConatinerError>
-            <Titulo>{router.query?.slug?.slice(1)}</Titulo>
+            <Titulo>{router.query?.category}</Titulo>
             <Icon>
               <Image alt="error" src="/aviso.png" width={56} height={56} />
             </Icon>
             <Message>Não encontramos produtos para essa pesquisa</Message>
           </ConatinerError>
-        ) : subcategory ? (
+        ) : router.query?.style ? (
           <>
-            <Titulo>{subcategory}</Titulo>
+            <Titulo>{router.query?.style}</Titulo>
             <Filtrar products={loadproducts} />
             <ListProducts products={loadproducts} />
           </>
         ) : (
           <>
-            <Titulo>{category}</Titulo>
+            <Titulo>{router.query?.category}</Titulo>
             <Filtrar products={loadproducts} />
             <ListProducts products={loadproducts} />
           </>
@@ -145,69 +139,38 @@ export default function Products({
 export const getServerSideProps: GetServerSideProps = async ({
   query,
   previewData,
-  params,
 }) => {
-  const slugs = params?.slug;
-
   const client = createClient({ previewData });
-  const productsPrismic = await client.getAllByType('produto');
-  console.log('querys enviadas', query, 'slugs', slugs);
 
-  let filteredProducts: ProductPropsTESTE[] = [];
-  let category: String = '';
-  let subcategory: String = '';
+  const productsPrismic = await client.getAllByEveryTag([
+    String(query.category),
+    String(query?.style),
+  ]);
 
-  if (slugs) {
-    if (slugs.length > 1) {
-      category = slugs[0].toUpperCase();
-      subcategory = slugs[1].toUpperCase();
+  const products = productsPrismic.flatMap(prod => {
+    let sub: string[] = [];
 
-      filteredProducts = mocklistproducts
-        .filter(
-          product =>
-            product.category.toUpperCase() === category &&
-            product.subcategories.find(sub => sub.toUpperCase() === subcategory)
-        )
-        .map(product => {
-          return {
-            _id: product._id,
-            subcategories: product.subcategories,
-            price: product.price,
-            images: product.images,
-            productName: product.productName,
-            code: product.code,
-            isNewCollection: product.isNewCollection,
-            discount: product.discount,
-            category: product.category,
-          };
-        });
-    } else {
-      category = slugs[0].toUpperCase();
-
-      filteredProducts = mocklistproducts
-        .filter(product => product.category.toUpperCase() === category)
-        .map(product => {
-          return {
-            _id: product._id,
-            subcategories: product.subcategories,
-            price: product.price,
-            images: product.images,
-            productName: product.productName,
-            code: product.code,
-            isNewCollection: product.isNewCollection,
-            discount: product.discount,
-            category: product.category,
-          };
-        });
-    }
-  }
-
+    prod.data.subcategories.forEach((subcat: any) =>
+      sub.push(subcat.subcategory)
+    );
+    return {
+      _id: prod.data.idproduct,
+      subcategories: sub,
+      price: prod.data.price,
+      images: prod.data.images,
+      productName: prod.data.productname,
+      code: prod.data.code,
+      isNewCollection: prod.data.isnewcollection,
+      discount: prod.data.discount,
+      category: prod.data.category,
+      formatedprice: prod.data.formatedprice,
+      highlighted: prod.data.highlighted,
+    };
+  });
   return {
     props: {
       background: dataHome.header,
-      products: filteredProducts,
-      category,
-      subcategory,
+      products,
       query,
     },
   };

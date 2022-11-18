@@ -1,4 +1,4 @@
-import { GetStaticProps } from 'next';
+import { GetServerSideProps, GetStaticProps } from 'next';
 import Filtrar from '../../components/Filters';
 import InternalBackground from '../../components/InternalBackground';
 import ListProducts, { ProdDetalhe } from '../../components/ListProducts';
@@ -28,9 +28,14 @@ export default function AllProducts({
     </>
   );
 }
-export const getStaticProps: GetStaticProps = async ({ previewData }) => {
+export const getServerSideProps: GetServerSideProps = async ({
+  previewData,
+  query,
+}) => {
   const client = createClient({ previewData });
   const productsPrismic = await client.getAllByType('produto');
+
+  console.log('querys', query);
 
   const products = productsPrismic.flatMap(prod => {
     let sub: string[] = [];

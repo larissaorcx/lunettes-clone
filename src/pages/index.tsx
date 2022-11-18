@@ -57,6 +57,7 @@ export const getServerSideProps: GetServerSideProps = async ({
   previewData,
 }) => {
   const client = createClient({ previewData });
+  console.log('dados priscmic', client);
 
   const productsPrismic = await client.getAllByTag('destacado');
 

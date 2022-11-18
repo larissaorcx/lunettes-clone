@@ -42,8 +42,8 @@ export default function ListMenu({
           openMenu={openMenu}
           onClick={() => {
             router.push({
-              pathname: '/produtos/',
-              query: { category: 'grau' },
+              pathname: '/produtos/[sepa]',
+              query: { sepa: '1', category: 'Grau' },
             });
             handleOpenMenu();
           }}
@@ -58,8 +58,12 @@ export default function ListMenu({
               position={index + 2}
               onClick={() => {
                 router.push({
-                  pathname: '/produtos/',
-                  query: { category: 'grau', style: categories.title },
+                  pathname: '/produtos/[sepa]',
+                  query: {
+                    sepa: '1',
+                    category: 'Grau',
+                    style: categories.title,
+                  },
                 });
                 handleOpenMenu();
               }}
@@ -81,8 +85,8 @@ export default function ListMenu({
           openMenu={openMenu}
           onClick={() => {
             router.push({
-              pathname: '/produtos/',
-              query: { category: 'grau' },
+              pathname: '/produtos/[sepa]',
+              query: { sepa: '1', category: 'Solar' },
             });
             handleOpenMenu();
           }}
@@ -97,8 +101,12 @@ export default function ListMenu({
               position={index + 2}
               onClick={() => {
                 router.push({
-                  pathname: '/produtos/',
-                  query: { category: 'solar', style: categories.title },
+                  pathname: '/produtos/[sepa]',
+                  query: {
+                    sepa: '1',
+                    category: 'Solar',
+                    style: categories.title,
+                  },
                 });
                 handleOpenMenu();
               }}

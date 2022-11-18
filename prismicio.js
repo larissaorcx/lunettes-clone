@@ -13,7 +13,10 @@ const routes = [
   },
   {
     type: 'produto',
-    path: '/produtos?category=grau',
+    // resolvers: {
+    //   category: 'category',
+    // },
+    path: '/produtos?category=Grau',
   },
   {
     type: 'produto',
@@ -21,13 +24,6 @@ const routes = [
   },
 ];
 
-/**
- * 
-Cria um cliente Prismic para o repositório do projeto. O cliente está acostumado a
- * conteúdo de consulta da API Prismic.
- *
- * @param config {prismicNext.CreateClientConfig} - Configuração para o cliente Prismic.
- */
 export const createClient = (config = {}) => {
   const client = prismic.createClient(sm.apiEndpoint, {
     routes,
