@@ -266,18 +266,20 @@ export const getStaticProps: GetStaticProps = async ({
 
   let associateds: any[] = [];
 
-  productsPrismic.data.associados.forEach((assoc: any) =>
-    associateds.push({
-      _id: assoc.associado.data.idproduct,
-      price: assoc.associado.data.price,
-      images: assoc.associado.data.images,
-      productName: assoc.associado.data.productname,
-      code: assoc.associado.data.code,
-      isNewCollection: assoc.associado.data.isnewcollection,
-      discount: assoc.associado.data.discount,
-      formatedPrice: assoc.associado.data.formatedprice,
-    })
-  );
+  if (productsPrismic.data.associados.length !== 1) {
+    productsPrismic.data.associados.forEach((assoc: any) =>
+      associateds.push({
+        _id: assoc.associado.data.idproduct,
+        price: assoc.associado.data.price,
+        images: assoc.associado.data.images,
+        productName: assoc.associado.data.productname,
+        code: assoc.associado.data.code,
+        isNewCollection: assoc.associado.data.isnewcollection,
+        discount: assoc.associado.data.discount,
+        formatedPrice: assoc.associado.data.formatedprice,
+      })
+    );
+  }
 
   const prodExist = {
     _id: productsPrismic.data.idproduct,

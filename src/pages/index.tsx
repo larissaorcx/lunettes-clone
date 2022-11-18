@@ -77,7 +77,7 @@ export const getServerSideProps: GetServerSideProps = async ({
       isNewCollection: prod.data.isnewcollection,
       discount: prod.data.discount,
       category: prod.data.category,
-      formatedprice: prod.data.formatedprice,
+      formatedPrice: prod.data.formatedprice,
       highlighted: prod.data.highlighted,
     };
   });

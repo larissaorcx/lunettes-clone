@@ -99,6 +99,8 @@ export default function Products({
     loadProducts();
   }, [products, setLoading]);
 
+  console.log(products);
+
   return (
     <>
       <InternalBackground background={background} height="200px" />
@@ -142,11 +144,17 @@ export const getServerSideProps: GetServerSideProps = async ({
 }) => {
   const client = createClient({ previewData });
 
-  const productsPrismic = await client.getAllByEveryTag([
-    String(query.category),
-    String(query?.style),
-  ]);
+  const tags: string[] = [];
 
+  tags.push(String(query.category));
+  if (query.style) {
+    tags.push(String(query.style));
+  }
+
+  const productsPrismic = await client.getAllByEveryTag(tags);
+
+  // client.getAllBySomeTags
+  console.log(tags);
   const products = productsPrismic.flatMap(prod => {
     let sub: string[] = [];
 
@@ -163,7 +171,7 @@ export const getServerSideProps: GetServerSideProps = async ({
       isNewCollection: prod.data.isnewcollection,
       discount: prod.data.discount,
       category: prod.data.category,
-      formatedprice: prod.data.formatedprice,
+      formatedPrice: prod.data.formatedprice,
       highlighted: prod.data.highlighted,
     };
   });
