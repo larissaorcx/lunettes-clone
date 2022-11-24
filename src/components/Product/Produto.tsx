@@ -4,6 +4,7 @@ import { FaRegHeart } from 'react-icons/fa';
 import { ProductDetalhesProps } from '../../pages/detalhes/[slug]';
 import { BotaoReservaSacola } from '../Detalhes/ButtonReserva/style';
 import { useCart } from '../hooks/useCart';
+import { useFilter } from '../hooks/useFilter';
 import ListProductsImages from '../ListProducts/CarroselListProducts/ListProductsImages';
 import {
   BotaoReserva,
@@ -33,7 +34,6 @@ export default function Produto({ product }: ProdProps) {
   const productInTheBag = cart.find(
     products => products.product.id === product._id
   );
-  console.log('produto', product);
   return (
     <Prod>
       {product.discount > 0 ? (

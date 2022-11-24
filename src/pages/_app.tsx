@@ -16,6 +16,7 @@ import Link from 'next/link';
 import { PrismicProvider } from '@prismicio/react';
 import { PrismicPreview } from '@prismicio/next';
 import { repositoryName } from '../../prismicio';
+import FilterProvider from '../components/hooks/useFilter';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [loading, setLoading] = useState(false);
@@ -43,13 +44,15 @@ function MyApp({ Component, pageProps }: AppProps) {
         {loading && <Loading />}
         <CartProvider openBag={openBag} setOpenBag={setOpenBag}>
           <Layout openMenu={openMenu} setOpenMenu={setOpenMenu}>
-            <PrismicPreview repositoryName={repositoryName}>
-              <Component
-                {...pageProps}
-                loading={loading}
-                setLoading={setLoading}
-              />
-            </PrismicPreview>
+            <FilterProvider>
+              <PrismicPreview repositoryName={repositoryName}>
+                <Component
+                  {...pageProps}
+                  loading={loading}
+                  setLoading={setLoading}
+                />
+              </PrismicPreview>
+            </FilterProvider>
           </Layout>
           <GlobalStyle />
         </CartProvider>

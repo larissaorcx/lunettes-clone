@@ -1,8 +1,14 @@
 import styled, { css } from 'styled-components';
+import { animationBackgroundButton } from '../Model/animation';
 
 interface BoxProps {
   colorBox: string;
+  selectColor: boolean;
 }
+
+type SelectColor = {
+  selectColor: boolean;
+};
 
 export const Container = styled.ul`
   display: grid;
@@ -22,9 +28,30 @@ export const Container = styled.ul`
   }
 `;
 
-export const ContainerCores = styled.li`
+export const ContainerCores = styled.li<SelectColor>`
   display: flex;
   align-items: center;
+
+  ${props =>
+    props.selectColor &&
+    css`
+      span {
+        color: rgb(0, 0, 0);
+        cursor: pointer;
+      }
+      button {
+        &::after {
+          content: '';
+          position: absolute;
+          top: -4px;
+          left: -4px;
+          width: 25px;
+          height: 25px;
+          border: 2px solid rgb(0, 0, 0);
+          border-radius: 4px;
+        }
+      }
+    `}
 
   &:hover {
     span {
@@ -33,10 +60,16 @@ export const ContainerCores = styled.li`
     }
 
     button {
-      width: 25px;
-      height: 25px;
-      border: 2px solid rgb(0, 0, 0);
-      border-radius: 4px;
+      &::after {
+        content: '';
+        position: absolute;
+        top: -4px;
+        left: -4px;
+        width: 25px;
+        height: 25px;
+        border: 2px solid rgb(0, 0, 0);
+        border-radius: 4px;
+      }
     }
   }
 `;
@@ -60,12 +93,36 @@ export const Box = styled.button<BoxProps>`
   border-radius: 4px;
   margin-right: 10px;
 
+  position: relative;
+
   ${props =>
     props.colorBox.charAt(0) === '#'
       ? css`
-          background: ${props.colorBox};
+          &::before {
+            content: '';
+            position: absolute;
+            top: 0.2px;
+            left: 0.1px;
+            width: 21px;
+            height: 21px;
+            background: rgb(0, 0, 0);
+            -webkit-animation: ${animationBackgroundButton} 0.9s both;
+            background: ${props.colorBox};
+            animation: background ${animationBackgroundButton} 0.9s both;
+          }
         `
       : css`
-          background-image: url(${props.colorBox});
+          &::before {
+            content: '';
+            position: absolute;
+            top: 0.2px;
+            left: 0.1px;
+            width: 21px;
+            height: 21px;
+            background: rgb(0, 0, 0);
+            -webkit-animation: ${animationBackgroundButton} 0.9s both;
+            background-image: url(${props.colorBox});
+            animation: background ${animationBackgroundButton} 0.9s both;
+          }
         `};
 `;

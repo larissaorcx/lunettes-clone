@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Colorproducts } from '../components/Filters/Color/ColorFilter';
 import { ProductProps } from '../pages/produtos/[slug]';
 

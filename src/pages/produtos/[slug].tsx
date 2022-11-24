@@ -9,9 +9,9 @@ import {
   ConatinerError,
 } from './style';
 import dataHome from '../api/mockHome';
-import { GetServerSideProps, GetStaticPaths, GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 import ListProducts, { ProdDetalhe } from '../../components/ListProducts';
-import mocklistproducts from '../../components/ListProducts/mocklistProducts';
+
 import { Colorproducts } from '../../components/Filters/Color/ColorFilter';
 import React, { useEffect, useState } from 'react';
 import Filtrar from '../../components/Filters';
@@ -20,6 +20,7 @@ import { useRouter } from 'next/router';
 import { Icon, Message } from '../detalhes/style';
 
 import { createClient } from '../../../prismicio';
+import { useFilter } from '../../components/hooks/useFilter';
 
 interface ProductsProps {
   background: HeaderType;
@@ -85,6 +86,10 @@ export default function Products({
 
   const [loadproducts, setloadProducts] = useState<ProdDetalhe[]>(products);
 
+  const { setProdutoFiltered, setBackupProd, backupProd } = useFilter();
+
+  console.log('filtrados prod', backupProd);
+
   useEffect(() => {
     async function loadProducts() {
       setLoading(true);
@@ -99,8 +104,10 @@ export default function Products({
     loadProducts();
   }, [products, setLoading]);
 
-  console.log(products);
-
+  useEffect(() => {
+    setProdutoFiltered(loadproducts);
+    setBackupProd(loadproducts);
+  }, []);
   return (
     <>
       <InternalBackground background={background} height="200px" />
@@ -124,13 +131,13 @@ export default function Products({
           <>
             <Titulo>{router.query?.style}</Titulo>
             <Filtrar products={loadproducts} />
-            <ListProducts products={loadproducts} />
+            <ListProducts products={backupProd} />
           </>
         ) : (
           <>
             <Titulo>{router.query?.category}</Titulo>
             <Filtrar products={loadproducts} />
-            <ListProducts products={loadproducts} />
+            <ListProducts products={backupProd} />
           </>
         )}
       </Container>
@@ -153,7 +160,6 @@ export const getServerSideProps: GetServerSideProps = async ({
 
   const productsPrismic = await client.getAllByEveryTag(tags);
 
-  // client.getAllBySomeTags
   console.log(tags);
   const products = productsPrismic.flatMap(prod => {
     let sub: string[] = [];
