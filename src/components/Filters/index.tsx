@@ -13,11 +13,15 @@ import {
   Filter,
   ButtonClose,
   ButtonCloseFilters,
+  AllFilters,
+  ButtonRemoreveFilter,
+  NameFilter,
 } from './style';
 import ColorFilter from './Color/ColorFilter';
 import ModelFilter from './Model/ModelFilter';
 import PriceFilter from './Price/PriceModel';
 import Image from 'next/image';
+import { useFilter } from '../hooks/useFilter';
 
 interface ButtonFiltrarProps {
   products: ProductProps[];
@@ -30,6 +34,10 @@ export default function Filtrar({ products }: ButtonFiltrarProps) {
   function handleOpenButtonFilter() {
     setOpenButton(!openButton);
   }
+
+  const { activeFilters, setActiveFilters } = useFilter();
+
+  const tam = activeFilters.length;
 
   return (
     <ContainerFilter>
@@ -79,6 +87,17 @@ export default function Filtrar({ products }: ButtonFiltrarProps) {
           <PriceFilter products={filterPrice({ products })} />
         )}
       </ContainerButton>
+      <AllFilters noFilters={tam === 0}>
+        {activeFilters.map(filter => (
+          <NameFilter key={filter}>{filter};</NameFilter>
+        ))}
+        <ButtonRemoreveFilter
+          type="button"
+          onClick={() => setActiveFilters([])}
+        >
+          Limpar filtros
+        </ButtonRemoreveFilter>
+      </AllFilters>
     </ContainerFilter>
   );
 }

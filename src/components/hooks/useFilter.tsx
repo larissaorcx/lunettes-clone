@@ -11,9 +11,11 @@ interface FilterContextData {
   setProdutoFiltered: (produtos: ProdDetalhe[]) => void;
   filterColor: (color: string) => void;
   setBackupProd: (produtos: ProdDetalhe[]) => void;
-  backupProd: ProdDetalhe[];
+  produtoFiltered: ProdDetalhe[];
   filterModel: (model: string) => void;
   filterPrice: (price: number) => void;
+  activeFilters: any[];
+  setActiveFilters: (arg: any[]) => void;
 }
 
 const FilterContext = createContext<FilterContextData>({} as FilterContextData);
@@ -30,14 +32,13 @@ FilterProviderProps) {
 
   const filterColor = (color: string) => {
     let filteredByColor: string[] = [...activeFilters];
-    let listFilterdProducts: ProdDetalhe[] = [...backupProd];
 
-    const sameColor = listFilterdProducts.filter(prod =>
+    const sameColor = backupProd.filter(prod =>
       Boolean(prod.images.find(colors => colors.colorname === color))
     );
 
     if (sameColor) {
-      setBackupProd(sameColor);
+      setProdutoFiltered(sameColor);
     }
 
     filteredByColor.push(color);
@@ -46,14 +47,13 @@ FilterProviderProps) {
 
   const filterModel = (model: string) => {
     let filteredByColor: string[] = [...activeFilters];
-    let listFilterdProducts: ProdDetalhe[] = [...backupProd];
 
-    const sameModel = listFilterdProducts.filter(prod =>
+    const sameModel = backupProd.filter(prod =>
       Boolean(prod.subcategories.find(models => models === model))
     );
 
     if (sameModel) {
-      setBackupProd(sameModel);
+      setProdutoFiltered(sameModel);
     }
 
     filteredByColor.push(model);
@@ -62,18 +62,19 @@ FilterProviderProps) {
 
   const filterPrice = (price: number) => {
     let filteredByColor: number[] = [...activeFilters];
-    let listFilterdProducts: ProdDetalhe[] = [...backupProd];
 
-    const samePrice = listFilterdProducts.filter(
-      prod => prod.formatedPrice === price
-    );
+    const samePrice = backupProd.filter(prod => prod.formatedPrice === price);
 
     if (samePrice) {
-      setBackupProd(samePrice);
+      setProdutoFiltered(samePrice);
     }
 
     filteredByColor.push(price);
     setActiveFilters(filteredByColor);
+  };
+
+  const removeFilters = (buttonSelect: boolean) => {
+    let newActiveFiltered = [];
   };
 
   return (
@@ -82,9 +83,11 @@ FilterProviderProps) {
         setProdutoFiltered,
         filterColor,
         setBackupProd,
-        backupProd,
+        produtoFiltered,
         filterModel,
+        activeFilters,
         filterPrice,
+        setActiveFilters,
       }}
     >
       {children}

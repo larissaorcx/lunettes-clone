@@ -8,6 +8,9 @@ type ButtonColorProps = {
 type ButtonOpen = {
   openButton: boolean;
 };
+type Filters = {
+  noFilters: boolean;
+};
 
 export const ContainerButton = styled.div<ButtonOpen>`
   display: flex;
@@ -38,7 +41,7 @@ export const ButtonFilter = styled.div<ButtonOpen>`
   margin-bottom: 20px;
 `;
 
-export const ButtonClose = styled.div<ButtonOpen>`
+export const ButtonClose = styled.button<ButtonOpen>`
   display: none;
   @media screen and (max-width: 740px) {
     width: 100%;
@@ -215,4 +218,33 @@ export const ButtonFilterPreco = styled.button<ButtonColorProps>`
     font-size: 14px;
     margin: 0px;
   }
+`;
+
+export const AllFilters = styled.div<Filters>`
+  display: ${props => (props.noFilters ? 'none' : 'flex')};
+`;
+
+export const ButtonRemoreveFilter = styled.button`
+  background: transparent;
+  border: none;
+  color: rgb(40, 64, 191);
+  text-decoration: underline;
+  cursor: pointer;
+  margin-left: 10px;
+
+  &:hover {
+    color: rgb(239, 31, 95);
+    transition: all 0.2s linear 0s;
+  }
+
+  font-family: 'Roboto Mono', monospace;
+  font-size: 13px;
+`;
+
+export const NameFilter = styled.p`
+  margin-right: 3px;
+  color: rgb(154, 154, 154);
+  font-size: 14px;
+  font-family: 'Roboto Mono', monospace;
+  text-transform: uppercase;
 `;

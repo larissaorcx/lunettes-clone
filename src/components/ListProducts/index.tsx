@@ -19,8 +19,6 @@ export interface ListProductsProps {
 export default function ListProducts({ products }: ListProductsProps) {
   const [loadproducts, setloadProducts] = useState<ProdDetalhe[]>(products);
 
-  // console.log('filtrados prod', products);
-
   useEffect(() => {
     async function loadProducts() {
       setloadProducts(products);

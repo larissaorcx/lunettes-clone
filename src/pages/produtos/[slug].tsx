@@ -86,9 +86,7 @@ export default function Products({
 
   const [loadproducts, setloadProducts] = useState<ProdDetalhe[]>(products);
 
-  const { setProdutoFiltered, setBackupProd, backupProd } = useFilter();
-
-  console.log('filtrados prod', backupProd);
+  const { setProdutoFiltered, setBackupProd, produtoFiltered } = useFilter();
 
   useEffect(() => {
     async function loadProducts() {
@@ -131,13 +129,13 @@ export default function Products({
           <>
             <Titulo>{router.query?.style}</Titulo>
             <Filtrar products={loadproducts} />
-            <ListProducts products={backupProd} />
+            <ListProducts products={produtoFiltered} />
           </>
         ) : (
           <>
             <Titulo>{router.query?.category}</Titulo>
             <Filtrar products={loadproducts} />
-            <ListProducts products={backupProd} />
+            <ListProducts products={produtoFiltered} />
           </>
         )}
       </Container>
