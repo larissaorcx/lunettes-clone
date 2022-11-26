@@ -13,7 +13,7 @@ export default function ModelFilter({ products }: ModelFilterProps) {
     const model = SelectModel === modelClick ? '' : modelClick;
     setSelectModel(model);
   }
-  const { filterModel } = useFilter();
+  const { filterModel, removeFilters } = useFilter();
 
   return (
     <Container>
@@ -22,12 +22,11 @@ export default function ModelFilter({ products }: ModelFilterProps) {
           key={model}
           onClick={() => {
             handleSelectModel(model);
-            filterModel(model);
+            SelectModel === model ? removeFilters(model) : filterModel(model);
           }}
           select={SelectModel === model}
         >
           <Box />
-
           <Item>{model}</Item>
         </ContainerFilter>
       ))}

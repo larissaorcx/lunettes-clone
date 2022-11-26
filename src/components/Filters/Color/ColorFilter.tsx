@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useFilter } from '../../hooks/useFilter';
+import ItemFilterColor from './ItemFilterColor';
 import { Item, ContainerCores, Box, Container } from './styleColor';
 
 export interface ColorFilterProps {
@@ -18,7 +19,7 @@ export default function ColorFilter({ products }: ColorFilterProps) {
     setClickColor(color);
   }
 
-  const { filterColor } = useFilter();
+  const { filterColor, removeFilters } = useFilter();
 
   return (
     <Container>
@@ -27,15 +28,13 @@ export default function ColorFilter({ products }: ColorFilterProps) {
           key={color.name}
           onClick={() => {
             handleSelectColor(color.name);
-            filterColor(color.name);
+            clickColor === color.name
+              ? removeFilters(color.name)
+              : filterColor(color.name);
           }}
           selectColor={clickColor === color.name}
         >
-          <Box
-            colorBox={color.background}
-            selectColor={clickColor === color.name}
-          />
-          <Item>{color.name}</Item>
+          <ItemFilterColor color={color} clickColor={clickColor} />
         </ContainerCores>
       ))}
     </Container>

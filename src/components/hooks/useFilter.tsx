@@ -16,6 +16,7 @@ interface FilterContextData {
   filterPrice: (price: number) => void;
   activeFilters: any[];
   setActiveFilters: (arg: any[]) => void;
+  removeFilters: (arg: any) => void;
 }
 
 const FilterContext = createContext<FilterContextData>({} as FilterContextData);
@@ -27,8 +28,6 @@ FilterProviderProps) {
   const [produtoFiltered, setProdutoFiltered] = useState<ProdDetalhe[]>([]);
   const [backupProd, setBackupProd] = useState<ProdDetalhe[]>([]);
   const [activeFilters, setActiveFilters] = useState<any[]>([]);
-
-  console.log('estadodos filtrados', activeFilters);
 
   const filterColor = (color: string) => {
     let filteredByColor: string[] = [...activeFilters];
@@ -73,9 +72,20 @@ FilterProviderProps) {
     setActiveFilters(filteredByColor);
   };
 
-  const removeFilters = (buttonSelect: boolean) => {
-    let newActiveFiltered = [];
+  const removeFilters = (buttonSelect: any) => {
+    let newActiveFilter: any[] = [...activeFilters];
+
+    const sameFilter = newActiveFilter.findIndex(
+      filter => filter === buttonSelect
+    );
+
+    if (sameFilter !== -1) {
+      newActiveFilter.splice(sameFilter, 1);
+    }
+
+    setActiveFilters(newActiveFilter);
   };
+  console.log('active', activeFilters);
 
   return (
     <FilterContext.Provider
@@ -88,6 +98,7 @@ FilterProviderProps) {
         activeFilters,
         filterPrice,
         setActiveFilters,
+        removeFilters,
       }}
     >
       {children}

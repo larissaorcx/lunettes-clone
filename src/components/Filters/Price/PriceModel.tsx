@@ -13,7 +13,7 @@ export default function PriceFilter({ products }: PriceFilterProps) {
     const price = priceClick === selectPrice ? '' : priceClick;
     setSelectPrice(price);
   }
-  const { filterPrice } = useFilter();
+  const { filterPrice, removeFilters } = useFilter();
   return (
     <Container>
       {products.map(price => (
@@ -21,7 +21,9 @@ export default function PriceFilter({ products }: PriceFilterProps) {
           key={price}
           onClick={() => {
             handleSelectPrice(String(price));
-            filterPrice(price);
+            selectPrice === String(price)
+              ? removeFilters(price)
+              : filterPrice(price);
           }}
           select={selectPrice === String(price)}
         >
