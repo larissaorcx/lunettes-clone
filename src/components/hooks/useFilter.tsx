@@ -16,6 +16,7 @@ interface FilterContextData {
   filterPrice: (price: number) => void;
   activeFilters: any[];
   setActiveFilters: (arg: any[]) => void;
+  removeAllFilters: (arg: string) => void;
   removeFilters: (arg: any) => void;
 }
 
@@ -85,7 +86,13 @@ FilterProviderProps) {
 
     setActiveFilters(newActiveFilter);
   };
-  console.log('active', activeFilters);
+
+  const removeAllFilters = (remove: string) => {
+    if (remove) {
+      setActiveFilters([]);
+      setProdutoFiltered(backupProd);
+    }
+  };
 
   return (
     <FilterContext.Provider
@@ -99,6 +106,7 @@ FilterProviderProps) {
         filterPrice,
         setActiveFilters,
         removeFilters,
+        removeAllFilters,
       }}
     >
       {children}

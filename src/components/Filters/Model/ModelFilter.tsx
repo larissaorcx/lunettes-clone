@@ -1,34 +1,15 @@
-import { useState } from 'react';
-import { useFilter } from '../../hooks/useFilter';
-import { Item, ContainerFilter, Box, Container } from './style';
+import ItemFilterModel from './ItemFilterModel';
+import { Container } from './style';
 
 export interface ModelFilterProps {
   products: string[];
 }
 
 export default function ModelFilter({ products }: ModelFilterProps) {
-  const [SelectModel, setSelectModel] = useState('');
-
-  function handleSelectModel(modelClick: string) {
-    const model = SelectModel === modelClick ? '' : modelClick;
-    setSelectModel(model);
-  }
-  const { filterModel, removeFilters } = useFilter();
-
   return (
     <Container>
       {products.map(model => (
-        <ContainerFilter
-          key={model}
-          onClick={() => {
-            handleSelectModel(model);
-            SelectModel === model ? removeFilters(model) : filterModel(model);
-          }}
-          select={SelectModel === model}
-        >
-          <Box />
-          <Item>{model}</Item>
-        </ContainerFilter>
+        <ItemFilterModel key={model} model={model} />
       ))}
     </Container>
   );

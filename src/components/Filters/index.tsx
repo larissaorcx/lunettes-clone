@@ -35,9 +35,7 @@ export default function Filtrar({ products }: ButtonFiltrarProps) {
     setOpenButton(!openButton);
   }
 
-  const { activeFilters, setActiveFilters } = useFilter();
-
-  const tam = activeFilters.length;
+  const { activeFilters, removeAllFilters } = useFilter();
 
   return (
     <ContainerFilter>
@@ -87,13 +85,13 @@ export default function Filtrar({ products }: ButtonFiltrarProps) {
           <PriceFilter products={filterPrice({ products })} />
         )}
       </ContainerButton>
-      <AllFilters noFilters={tam === 0}>
+      <AllFilters noFilters={activeFilters.length === 0}>
         {activeFilters.map(filter => (
           <NameFilter key={filter}>{filter};</NameFilter>
         ))}
         <ButtonRemoreveFilter
           type="button"
-          onClick={() => setActiveFilters([])}
+          onClick={() => removeAllFilters('remove')}
         >
           Limpar filtros
         </ButtonRemoreveFilter>

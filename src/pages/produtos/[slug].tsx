@@ -158,7 +158,6 @@ export const getServerSideProps: GetServerSideProps = async ({
 
   const productsPrismic = await client.getAllByEveryTag(tags);
 
-  console.log(tags);
   const products = productsPrismic.flatMap(prod => {
     let sub: string[] = [];
 

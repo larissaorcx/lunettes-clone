@@ -1,27 +1,40 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useFilter } from '../../hooks/useFilter';
 import { Colorproducts } from './ColorFilter';
-import { Box, Item } from './styleColor';
+import { Box, ContainerCores, Item } from './styleColor';
 
 interface ItemFilterColorProps {
   color: Colorproducts;
-  clickColor: string;
 }
 
-export default function ItemFilterColor({
-  color,
-  clickColor,
-}: ItemFilterColorProps) {
-  const [selectedFilterColor, setSelectedFilterColor] = useState<
-    Colorproducts[]
-  >([]);
+export default function ItemFilterColor({ color }: ItemFilterColorProps) {
+  const [selectedFilterColor, setSelectedFilterColor] =
+    useState<boolean>(false);
+
+  const { filterColor, removeFilters, activeFilters } = useFilter();
+
+  function handleActiveFilter() {
+    setSelectedFilterColor(!selectedFilterColor);
+  }
+
+  useEffect(() => {
+    if (activeFilters.length === 0) {
+      setSelectedFilterColor(false);
+    }
+  }, [activeFilters]);
 
   return (
-    <>
-      <Box
-        colorBox={color.background}
-        selectColor={clickColor === color.name}
-      />
+    <ContainerCores
+      onClick={() => {
+        handleActiveFilter();
+        selectedFilterColor
+          ? removeFilters(color.name)
+          : filterColor(color.name);
+      }}
+      selectColor={selectedFilterColor}
+    >
+      <Box colorBox={color.background} selectColor={selectedFilterColor} />
       <Item>{color.name}</Item>
-    </>
+    </ContainerCores>
   );
 }

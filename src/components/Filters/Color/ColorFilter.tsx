@@ -12,30 +12,10 @@ export type Colorproducts = {
 };
 
 export default function ColorFilter({ products }: ColorFilterProps) {
-  const [clickColor, setClickColor] = useState('');
-
-  function handleSelectColor(colorClick: string) {
-    const color = clickColor === colorClick ? '' : colorClick;
-    setClickColor(color);
-  }
-
-  const { filterColor, removeFilters } = useFilter();
-
   return (
     <Container>
       {products.map(color => (
-        <ContainerCores
-          key={color.name}
-          onClick={() => {
-            handleSelectColor(color.name);
-            clickColor === color.name
-              ? removeFilters(color.name)
-              : filterColor(color.name);
-          }}
-          selectColor={clickColor === color.name}
-        >
-          <ItemFilterColor color={color} clickColor={clickColor} />
-        </ContainerCores>
+        <ItemFilterColor key={color.name} color={color} />
       ))}
     </Container>
   );
