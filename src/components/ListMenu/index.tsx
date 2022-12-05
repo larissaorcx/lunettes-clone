@@ -15,17 +15,19 @@ interface ListMenuProps {
   listMenu: MenuFloating;
   openMenu: boolean | null;
   handleOpenMenu: () => void;
+  scroll: boolean;
 }
 
 export default function ListMenu({
   listMenu,
   openMenu,
   handleOpenMenu,
+  scroll,
 }: ListMenuProps) {
   const router = useRouter();
 
   return (
-    <ListMenuContainer>
+    <ListMenuContainer scroll={scroll}>
       <ButtonHome
         type="button"
         openMenu={openMenu}

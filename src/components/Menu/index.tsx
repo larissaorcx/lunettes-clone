@@ -144,6 +144,7 @@ export default function MenuHeader({
           listMenu={listMenu}
           handleOpenMenu={handleOpenMenu}
           openMenu={openMenu}
+          scroll={scroll}
         />
       ) : (
         openBag && <Bag scroll={scroll} />

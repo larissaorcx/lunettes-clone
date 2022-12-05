@@ -20,8 +20,14 @@ export default function ItemFilterModel({ model }: ItemFilterModelProps) {
   useEffect(() => {
     if (activeFilters.length === 0) {
       setSelectedFilterModel(false);
+    } else {
+      const filterFind = activeFilters.find(filter => filter === model);
+
+      if (filterFind) {
+        setSelectedFilterModel(true);
+      }
     }
-  }, [activeFilters]);
+  }, [activeFilters, model]);
 
   return (
     <ContainerFilter

@@ -19,8 +19,14 @@ export default function ItemFilterPrice({ price }: ItemFilterModelProps) {
   useEffect(() => {
     if (activeFilters.length === 0) {
       setSelectedFilterPrice(false);
+    } else {
+      const filterFind = activeFilters.find(filter => filter === price);
+
+      if (filterFind) {
+        setSelectedFilterPrice(true);
+      }
     }
-  }, [activeFilters]);
+  }, [activeFilters, price]);
 
   return (
     <ContainerFilter
@@ -32,7 +38,7 @@ export default function ItemFilterPrice({ price }: ItemFilterModelProps) {
       select={selectedFilterPrice}
     >
       <Box />
-      <Item>{price}</Item>
+      <Item>ATÉ R$ {price}</Item>
     </ContainerFilter>
   );
 }

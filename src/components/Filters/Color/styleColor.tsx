@@ -12,10 +12,10 @@ type SelectColor = {
 
 export const Container = styled.ul`
   display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+  padding: 25px;
   border: 1px solid rgb(238, 238, 238);
-  /* width: 100%; */
+  grid-template-columns: repeat(4, 1fr);
 
   padding: 20px;
   margin-bottom: 20px;
@@ -23,7 +23,7 @@ export const Container = styled.ul`
   @media screen and (max-width: 740px) {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 98%;
     border: none;
   }
 `;
@@ -44,7 +44,7 @@ export const ContainerCores = styled.li<SelectColor>`
           content: '';
           position: absolute;
           top: -4px;
-          left: -4px;
+          left: -4.5px;
           width: 25px;
           height: 25px;
           border: 2px solid rgb(0, 0, 0);
@@ -64,7 +64,7 @@ export const ContainerCores = styled.li<SelectColor>`
         content: '';
         position: absolute;
         top: -4px;
-        left: -4px;
+        left: -4.5px;
         width: 25px;
         height: 25px;
         border: 2px solid rgb(0, 0, 0);
@@ -102,7 +102,7 @@ export const Box = styled.button<BoxProps>`
             content: '';
             position: absolute;
             top: 0.2px;
-            left: 0.1px;
+            left: -0.5px;
             width: 21px;
             height: 21px;
             background: rgb(0, 0, 0);
@@ -116,7 +116,7 @@ export const Box = styled.button<BoxProps>`
             content: '';
             position: absolute;
             top: 0.2px;
-            left: 0.1px;
+            left: -0.5px;
             width: 21px;
             height: 21px;
             background: rgb(0, 0, 0);

@@ -11,11 +11,14 @@ interface MenuOpenProps {
   openMenu: boolean | null;
 }
 
-export const ListMenuContainer = styled.div`
-  padding: 20px 20px;
-  margin: 175px 0 0 0;
-  /* background: black; */
+interface ListMenuProps {
+  scroll: boolean;
+}
 
+export const ListMenuContainer = styled.div<ListMenuProps>`
+  padding: 20px 20px;
+  margin-top: ${props => (props.scroll ? '90px' : '175px')};
+  /* background: black; */
   @media screen and (max-width: 740px) {
     margin: 80px 0 0 0;
   }

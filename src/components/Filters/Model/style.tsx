@@ -41,7 +41,7 @@ export const ContainerFilter = styled.li<ClickItem>`
           content: '';
           position: absolute;
           top: 0.2px;
-          left: 0.1px;
+          left: 1px;
           width: 19px;
           height: 19px;
           background: rgb(0, 0, 0);

@@ -89,10 +89,7 @@ export default function Filtrar({ products }: ButtonFiltrarProps) {
         {activeFilters.map(filter => (
           <NameFilter key={filter}>{filter};</NameFilter>
         ))}
-        <ButtonRemoreveFilter
-          type="button"
-          onClick={() => removeAllFilters('remove')}
-        >
+        <ButtonRemoreveFilter type="button" onClick={() => removeAllFilters()}>
           Limpar filtros
         </ButtonRemoreveFilter>
       </AllFilters>

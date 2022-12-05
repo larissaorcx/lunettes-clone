@@ -20,8 +20,14 @@ export default function ItemFilterColor({ color }: ItemFilterColorProps) {
   useEffect(() => {
     if (activeFilters.length === 0) {
       setSelectedFilterColor(false);
+    } else {
+      const filterFind = activeFilters.find(filter => filter === color.name);
+
+      if (filterFind) {
+        setSelectedFilterColor(true);
+      }
     }
-  }, [activeFilters]);
+  }, [activeFilters, color.name]);
 
   return (
     <ContainerCores
