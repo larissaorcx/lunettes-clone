@@ -72,7 +72,7 @@ export default function FilterProvider({ children }: FilterProviderProps) {
     let filteredByColor: number[] = [...activeFilters];
 
     const samePrice = backupProd.filter(prod => {
-      if (prod.formatedPrice === price) {
+      if (prod.formatedPrice <= price) {
         if (produtoFiltered.find(produto => produto._id === prod._id)) {
           return false;
         } else {
