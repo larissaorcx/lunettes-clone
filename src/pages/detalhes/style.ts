@@ -13,9 +13,13 @@ export const ContainerDetalhes = styled.div`
 `;
 
 export const Conteiner = styled.div`
-  display: grid;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100vw;
+  /* display: grid;
   grid-template-columns: 700px 1fr;
-  gap: 40px;
+  gap: 40px; */
 
   margin-top: 50px;
   margin: auto;
@@ -71,7 +75,7 @@ export const ImgDiscountDetalhes = styled.div`
   display: flex;
   justify-content: start;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
   width: 100%;
   @media screen and (max-width: 740px) {
     width: 100%;
@@ -115,9 +119,9 @@ export const ConteinerDescricao = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 10px;
-  width: 90%;
+  width: 45%;
   height: auto;
-  margin-left: 80px;
+  margin-left: 10px;
   @media screen and (max-width: 740px) {
     width: 95%;
     margin: 0px;
@@ -130,7 +134,7 @@ export const TitleDescricao = styled.h4`
   font-size: 24px;
   line-height: 1.5;
   margin-bottom: 10px;
-  width: 50vw;
+  /* width: 50vw; */
 `;
 
 export const Descricao = styled.p`
@@ -188,4 +192,10 @@ export const Value = styled.p`
   font-size: 16px;
   line-height: 1.5;
   margin-left: 45px;
+`;
+
+export const ContainerInfoProdImage = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 `;

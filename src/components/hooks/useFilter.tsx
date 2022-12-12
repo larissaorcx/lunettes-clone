@@ -1,7 +1,4 @@
 import { createContext, ReactNode, useContext, useState } from 'react';
-import { prototype } from 'react-modal';
-import { ProductProps } from '../../pages/produtos/[slug]';
-import { Colorproducts } from '../Filters/Color/ColorFilter';
 import { ProdDetalhe } from '../ListProducts';
 
 interface FilterProviderProps {
@@ -101,8 +98,6 @@ export default function FilterProvider({ children }: FilterProviderProps) {
         !Boolean(prod.subcategories.find(model => model === buttonSelect)) &&
         Boolean(prod.price !== buttonSelect)
     );
-
-    console.log('prod dif', difProduct);
 
     if (sameFilter !== -1) {
       newActiveFilter.splice(sameFilter, 1);

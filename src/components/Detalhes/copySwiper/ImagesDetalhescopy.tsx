@@ -1,4 +1,4 @@
-import { ImagesProps } from '../../pages/produtos/[slug]';
+import { ImagesProps } from '../../../pages/produtos/[slug]';
 
 import Image from 'next/image';
 
@@ -12,7 +12,9 @@ import { Pagination } from 'swiper';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { ProductDetalhesProps } from '../../pages/detalhes/[slug]';
+import ColorProduct from '../ColorProduct/ColorProduct';
+import { ProductDetalhesProps } from '../../../pages/detalhes/[slug]';
+import InfosProduto from '../InfoProduto/infoProduto';
 
 interface ImagesDetalhesProps {
   product: ProductDetalhesProps;
@@ -44,11 +46,22 @@ export default function ImagesDetalhes({
       pagination={true}
       initialSlide={initialIndex}
     >
-      {images.map(img => (
-        <SwiperSlide key={img.idimage}>
-          <Image alt="product" src={img.imglg} width={560} height={552} />
-        </SwiperSlide>
-      ))}
+      <div className="slidesImage">
+        {images.map(img => (
+          <SwiperSlide key={img.idimage}>
+            <Image alt="product" src={img.imglg} width={560} height={552} />
+          </SwiperSlide>
+        ))}
+      </div>
+
+      <div className="info">
+        <InfosProduto
+          product={product}
+          activeColorId={activeColorId}
+          setActiveColorId={setActiveColorId}
+          filteredColors={filteredColors}
+        />
+      </div>
     </Swiper>
   );
 }

@@ -24,9 +24,6 @@ export default function ListProductsImages({ images }: ImgProps) {
     <Swiper
       className="imageList"
       direction={'horizontal'}
-      mousewheel={{
-        invert: false,
-      }}
       modules={[Mousewheel, Keyboard]}
       grabCursor={true}
       keyboard={{

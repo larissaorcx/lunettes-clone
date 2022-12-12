@@ -72,7 +72,9 @@ export default function Produto({ product }: ProdProps) {
       {productInTheBag ? (
         <BotaoReservaSacola
           type="button"
-          onClick={() => router.push(`/detalhes/${product.productName}`)}
+          onClick={() =>
+            router.push(`/detalhes/${product.productName.replace(/\s/g, '')}`)
+          }
           productInBag
         >
           <BsFillHeartFill className="heart" />
@@ -81,7 +83,9 @@ export default function Produto({ product }: ProdProps) {
       ) : (
         <BotaoReserva
           type="button"
-          onClick={() => router.push(`/detalhes/${product.productName}`)}
+          onClick={() =>
+            router.push(`/detalhes/${product.productName.replace(/\s/g, '')}`)
+          }
         >
           <FaRegHeart />
           <TextoBotao>Ver mais</TextoBotao>

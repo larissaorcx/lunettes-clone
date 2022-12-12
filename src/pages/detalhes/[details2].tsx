@@ -1,8 +1,8 @@
-import { GetStaticPaths, GetStaticProps } from 'next';
+import { GetServerSideProps, GetStaticPaths, GetStaticProps } from 'next';
 import InternalBackground from '../../components/InternalBackground';
 import { AboutType, HeaderType } from '../types';
 import dataHome from '../api/mockHome';
-import { ImagesProps, ProductProps } from '../produtos/[slug]';
+import { ImagesProps } from '../produtos/[slug]';
 
 import { useRouter } from 'next/router';
 import ImagesDetalhes from '../../components/Detalhes/ImagesDetalhes';
@@ -25,16 +25,16 @@ import {
   Especificacoes,
   ImgDiscountDetalhes,
   ContainerDetalhes,
-  ContainerInfoProdImage,
 } from './style';
 
 import { TitleDiscount } from '../../components/Product/style';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+
+import InfosProduto from '../../components/Detalhes/InfoProduto/infoProduto';
 
 import Image from 'next/image';
 import ListProducts from '../../components/ListProducts';
 import { createClient } from '../../../prismicio';
-import InfosProduto from '../../components/Detalhes/InfoProduto/infoProduto';
 
 interface DetalhesProps {
   background: HeaderType;
@@ -139,45 +139,29 @@ export default function Detalhes({
         <ContainerDetalhes>
           <Conteiner>
             {productSlug.discount > 0 ? (
-              <ContainerInfoProdImage>
-                <ImgDiscountDetalhes>
-                  <PorcentDiscountDetalhes>
-                    <TitleDiscount>{`${productSlug.discount}%`}</TitleDiscount>
-                    <TextDiscount>OFF</TextDiscount>
-                  </PorcentDiscountDetalhes>
-                  <ImagesDetalhes
-                    product={productSlug}
-                    images={productSlug.images}
-                    activeColorId={activeColorId}
-                    setActiveColorId={setActiveColorId}
-                    filteredColors={filteredColors}
-                  />
-                </ImgDiscountDetalhes>
-                <InfosProduto
+              <ImgDiscountDetalhes>
+                <PorcentDiscountDetalhes>
+                  <TitleDiscount>{`${productSlug.discount}%`}</TitleDiscount>
+                  <TextDiscount>OFF</TextDiscount>
+                </PorcentDiscountDetalhes>
+                <ImagesDetalhes
                   product={productSlug}
+                  images={productSlug.images}
                   activeColorId={activeColorId}
                   setActiveColorId={setActiveColorId}
                   filteredColors={filteredColors}
                 />
-              </ContainerInfoProdImage>
+              </ImgDiscountDetalhes>
             ) : (
-              <ContainerInfoProdImage>
-                <ImgDiscountDetalhes>
-                  <ImagesDetalhes
-                    product={productSlug}
-                    images={productSlug.images}
-                    activeColorId={activeColorId}
-                    setActiveColorId={setActiveColorId}
-                    filteredColors={filteredColors}
-                  />
-                </ImgDiscountDetalhes>
-                <InfosProduto
+              <ImgDiscountDetalhes>
+                <ImagesDetalhes
                   product={productSlug}
+                  images={productSlug.images}
                   activeColorId={activeColorId}
                   setActiveColorId={setActiveColorId}
                   filteredColors={filteredColors}
                 />
-              </ContainerInfoProdImage>
+              </ImgDiscountDetalhes>
             )}
             <ConteinerDescricao>
               <TitleDescricao>Descrição</TitleDescricao>

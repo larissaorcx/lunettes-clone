@@ -1,0 +1,108 @@
+.detalhes {
+  width: 100% !important;
+  height: 600px;
+  display: grid !important;
+  grid-template-columns: 700px 1fr !important;
+  grid-template-areas: 'imagem descricao' !important;
+  // display: flex !important;
+  // flex-direction: row !important;
+
+  .slidesImage {
+    grid-area: imagem !important;
+  }
+
+  .info {
+    display: flex !important;
+    width: 100%;
+    grid-area: descricao !important;
+  }
+
+  .swiper-wrapper {
+    display: flex !important;
+    // width: 100% !important;
+    // flex-wrap: wrap;
+  }
+
+  .swiper-backface-hidden .swiper-slide {
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    // width: 50% !important;
+  }
+
+  .swiper-slide-active {
+    width: 80% !important;
+  }
+  .swiper-slide-next {
+    width: 0% !important;
+  }
+
+  .swiper-slide img {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+
+    width: 100%;
+    height: 552px;
+    background: transparent;
+
+    @media screen and (max-width: 740px) {
+      width: 100% !important;
+      height: 100% !important;
+    }
+  }
+
+  .swiper-slide {
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: start;
+    width: 100%;
+  }
+  .swiper-horizontal > .swiper-pagination-bullets,
+  .swiper-pagination-bullets.swiper-pagination-horizontal,
+  .swiper-pagination-custom,
+  .swiper-pagination-fraction {
+    bottom: 10px;
+    left: 0;
+    width: 40% !important;
+    // top: 98%;
+  }
+
+  @media screen and (max-width: 740px) {
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .swiper {
+    width: 100% !important;
+  }
+}
+.swiper {
+  margin-left: 10px !important;
+  margin-right: 0px !important;
+  display: flex;
+  justify-content: center;
+  // align-items: center;
+  flex-direction: column;
+  @media screen and (max-width: 740px) {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+}
+
+.swiper-pagination-bullet-active {
+  background: black !important;
+}
+
+.swiper-pagination-bullet {
+  height: 12px !important;
+  width: 12px !important;
+}
