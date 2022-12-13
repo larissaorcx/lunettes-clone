@@ -95,34 +95,27 @@ export const Box = styled.button<BoxProps>`
 
   position: relative;
 
-  ${props =>
-    props.colorBox.charAt(0) === '#'
-      ? css`
-          &::before {
-            content: '';
-            position: absolute;
-            top: 0.2px;
-            left: -0.5px;
-            width: 21px;
-            height: 21px;
-            background: rgb(0, 0, 0);
-            -webkit-animation: ${animationBackgroundButton} 0.9s both;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0.2px;
+    left: -0.5px;
+    width: 21px;
+    height: 21px;
+    ${props =>
+      props.colorBox.charAt(0) === '#'
+        ? css`
             background: ${props.colorBox};
-            animation: background ${animationBackgroundButton} 0.9s both;
-          }
-        `
-      : css`
-          &::before {
-            content: '';
-            position: absolute;
-            top: 0.2px;
-            left: -0.5px;
-            width: 21px;
-            height: 21px;
-            background: rgb(0, 0, 0);
-            -webkit-animation: ${animationBackgroundButton} 0.9s both;
+          `
+        : css`
             background-image: url(${props.colorBox});
-            animation: background ${animationBackgroundButton} 0.9s both;
-          }
-        `};
+          `};
+
+    ${props =>
+      props.selectColor &&
+      css`
+        -webkit-animation: ${animationBackgroundButton} 0.9s both;
+        animation: ${animationBackgroundButton} 0.9s both;
+      `}
+  }
 `;
