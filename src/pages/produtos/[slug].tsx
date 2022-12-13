@@ -26,7 +26,6 @@ interface ProductsProps {
   background: HeaderType;
   products: ProdDetalhe[];
   setLoading: (loading: boolean) => void;
-  query: any;
 }
 export type ProductProps = {
   _id: string;
@@ -55,19 +54,6 @@ type AllImages = {
   lg: string;
 };
 
-type ProductPropsTESTE = {
-  _id: string;
-  subcategories: string[];
-  price: number;
-  images: testProdImg[];
-  productName: string;
-  code: string;
-  isNewCollection: boolean;
-  discount: number;
-  formatedPrice?: string;
-  category: string;
-};
-
 type testProdImg = {
   id: string;
   url: string;
@@ -79,7 +65,6 @@ export default function Products({
   background,
   products,
   setLoading,
-  query,
 }: ProductsProps) {
   const router = useRouter();
   const tamSlug = router.query.slug?.length;
@@ -105,6 +90,7 @@ export default function Products({
   useEffect(() => {
     setBackupProd(loadproducts);
   }, []);
+
   return (
     <>
       <InternalBackground background={background} height="200px" />

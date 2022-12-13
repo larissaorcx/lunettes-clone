@@ -7,19 +7,22 @@ import React, { useState } from 'react';
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Mousewheel, Keyboard } from 'swiper';
+import swiper, { Mousewheel, Keyboard } from 'swiper';
 
 import { useSwiper } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/css';
-import ColorListProduct from '../ColorListProduct';
 
 type ImgProps = {
   images: ImagesProps[];
+  setSwiperInstanceListProd: (swiper: swiper) => void;
 };
 
-export default function ListProductsImages({ images }: ImgProps) {
+export default function ListProductsImages({
+  images,
+  setSwiperInstanceListProd,
+}: ImgProps) {
   return (
     <Swiper
       className="imageList"
@@ -30,14 +33,13 @@ export default function ListProductsImages({ images }: ImgProps) {
         enabled: true,
         onlyInViewport: false,
       }}
+      onSwiper={swiper => setSwiperInstanceListProd(swiper)}
     >
       {images.map(img => (
         <SwiperSlide key={img.idimage}>
           <Image alt="product" src={img.imglg} width={360} height={360} />
         </SwiperSlide>
       ))}
-
-      <ColorListProduct color={images} />
     </Swiper>
   );
 }

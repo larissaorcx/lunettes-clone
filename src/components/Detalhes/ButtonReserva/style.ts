@@ -21,7 +21,7 @@ export const BotaoReservaSacola = styled.button<ButtonBagProps>`
   font-family: 'Roboto Mono', monospace;
   font-size: 24px;
   width: ${props => (props.productInBag ? '248px' : '')};
-  height: ${props => (props.productInBag ? '70px' : '')};
+  height: ${props => (props.productInBag ? '60px' : '')};
 
   line-height: 1.5;
   color: #fff;

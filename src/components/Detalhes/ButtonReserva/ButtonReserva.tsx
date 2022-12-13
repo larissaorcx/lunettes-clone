@@ -62,6 +62,9 @@ export default function ButtonReserva({
     products => products.product.id === product._id
   );
 
+  console.log('product in the bag', productInTheBag);
+  console.log('carrinho', cart);
+
   return (
     <ContainerButton>
       {productInTheBag ? (

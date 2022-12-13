@@ -1,17 +1,21 @@
 import { useEffect, useState } from 'react';
+import swiper from 'swiper';
 import { useSwiper } from 'swiper/react';
 import { ImagesProps } from '../../pages/produtos/[slug]';
 import { BotaoCores, CoresContainer } from '../Product/style';
 
 interface ColorListProductsProps {
   color: ImagesProps[];
+  swiperInstanceListProd?: swiper;
 }
 
-export default function ColorListProduct({ color }: ColorListProductsProps) {
+export default function ColorListProduct({
+  color,
+  swiperInstanceListProd,
+}: ColorListProductsProps) {
   const newFilteredColos = color.filter(
     nameColor => nameColor.colorname !== 'NOTCOLOR'
   );
-  const swiper = useSwiper();
   const [activeColorId, setActiveColorId] = useState('');
 
   function handleClickButton(colorId: string) {
@@ -20,7 +24,7 @@ export default function ColorListProduct({ color }: ColorListProductsProps) {
       idImage => idImage.idimage === colorId
     );
     if (indexIdColor !== -1) {
-      swiper.slideTo(indexIdColor);
+      swiperInstanceListProd?.slideTo(indexIdColor);
     }
   }
 

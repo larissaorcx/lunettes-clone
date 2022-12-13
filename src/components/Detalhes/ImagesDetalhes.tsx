@@ -2,7 +2,7 @@ import { ImagesProps } from '../../pages/produtos/[slug]';
 
 import Image from 'next/image';
 
-import React, { useEffect } from 'react';
+import React from 'react';
 
 // Import Swiper React components
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
@@ -12,22 +12,15 @@ import { Pagination } from 'swiper';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { ProductDetalhesProps } from '../../pages/detalhes/[slug]';
 
 interface ImagesDetalhesProps {
-  product: ProductDetalhesProps;
   images: ImagesProps[];
-  activeColorId: string;
-  setActiveColorId: (arg: string) => void;
-  filteredColors: ImagesProps[];
+  setSwiperInstance: (swiper: swiper) => void;
 }
 
 export default function ImagesDetalhes({
-  product,
   images,
-  activeColorId,
-  setActiveColorId,
-  filteredColors,
+  setSwiperInstance,
 }: ImagesDetalhesProps) {
   const initialIndex = 1;
 
@@ -43,6 +36,7 @@ export default function ImagesDetalhes({
       }}
       pagination={true}
       initialSlide={initialIndex}
+      onSwiper={swiper => setSwiperInstance(swiper)}
     >
       {images.map(img => (
         <SwiperSlide key={img.idimage}>

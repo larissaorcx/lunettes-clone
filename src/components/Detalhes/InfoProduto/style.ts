@@ -5,9 +5,8 @@ export const ContainerConteudo = styled.div`
   flex-direction: column;
   width: 50vw;
   align-items: start;
-
   margin-bottom: 30px;
-
+  width: 70vw;
   @media screen and (max-width: 740px) {
     width: 95%;
   }

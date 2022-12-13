@@ -15,12 +15,14 @@ import ContadorProduct from '../ContadorProduct/ContadorProduct';
 import ButtonReserva from '../ButtonReserva/ButtonReserva';
 import { useEffect, useState } from 'react';
 import { ImagesProps } from '../../../pages/produtos/[slug]';
+import swiper from 'swiper';
 
 interface InfosProdutoProps {
   product: ProductDetalhesProps;
   activeColorId: string;
   setActiveColorId: (arg: string) => void;
   filteredColors: ImagesProps[];
+  swiperInstance?: swiper;
 }
 
 export default function InfosProduto({
@@ -28,6 +30,7 @@ export default function InfosProduto({
   activeColorId,
   setActiveColorId,
   filteredColors,
+  swiperInstance,
 }: InfosProdutoProps) {
   const [contador, setContador] = useState(1);
   return (
@@ -56,6 +59,7 @@ export default function InfosProduto({
         activeColorId={activeColorId}
         setActiveColorId={setActiveColorId}
         filteredColors={filteredColors}
+        swiperInstance={swiperInstance}
       />
       <ContadorProduct
         price={product.price}

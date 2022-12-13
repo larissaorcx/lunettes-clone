@@ -16,7 +16,7 @@ export const Conteiner = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 100vw;
+  width: 100%;
   /* display: grid;
   grid-template-columns: 700px 1fr;
   gap: 40px; */
@@ -74,9 +74,9 @@ export const Text = styled.span`
 export const ImgDiscountDetalhes = styled.div`
   display: flex;
   justify-content: start;
-  align-items: center;
+  align-items: start;
   flex-direction: row;
-  width: 100%;
+  width: 40%;
   @media screen and (max-width: 740px) {
     width: 100%;
   }
@@ -94,8 +94,8 @@ export const PorcentDiscountDetalhes = styled.div`
   padding: 10px 11px 10px 10px;
   background: rgb(239, 31, 95);
   z-index: 3;
-  top: 200px;
-  left: 90px;
+  top: 230px;
+  left: 55px;
 
   @media screen and (max-width: 740px) {
     width: 50px;
@@ -121,7 +121,7 @@ export const ConteinerDescricao = styled.div`
   margin-left: 10px;
   width: 45%;
   height: auto;
-  margin-left: 10px;
+  margin-left: 40px;
   @media screen and (max-width: 740px) {
     width: 95%;
     margin: 0px;

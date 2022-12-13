@@ -188,7 +188,7 @@ export const BotaoCores = styled.button<ListImagesProps>`
 `;
 export const BotaoReserva = styled.button`
   width: 248px;
-  height: 70px;
+  height: 60px;
   background: black;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
   font-family: 'Roboto Mono', monospace;
@@ -225,7 +225,7 @@ export const CoresContainer = styled.div`
   align-items: center;
   flex-direction: row;
 
-  margin: 10px 10px 0px 10px;
+  margin: 20px 10px 0px 10px;
 `;
 
 export const ImgDiscount = styled.div`

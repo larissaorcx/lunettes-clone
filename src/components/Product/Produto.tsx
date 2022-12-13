@@ -1,11 +1,14 @@
 import router, { useRouter } from 'next/router';
+import { useState } from 'react';
 import { BsFillHeartFill } from 'react-icons/bs';
 import { FaRegHeart } from 'react-icons/fa';
+import swiper from 'swiper';
 import { ProductDetalhesProps } from '../../pages/detalhes/[slug]';
 import { BotaoReservaSacola } from '../Detalhes/ButtonReserva/style';
 import { useCart } from '../hooks/useCart';
 import { useFilter } from '../hooks/useFilter';
 import ListProductsImages from '../ListProducts/CarroselListProducts/ListProductsImages';
+import ColorListProduct from '../ListProducts/ColorListProduct';
 import {
   BotaoReserva,
   CodigoProduto,
@@ -28,6 +31,9 @@ interface ProdProps {
 }
 
 export default function Produto({ product }: ProdProps) {
+  const [swiperInstanceListProd, setSwiperInstanceListProd] =
+    useState<swiper>();
+
   const router = useRouter();
   const { openBag, cart } = useCart();
 
@@ -42,12 +48,21 @@ export default function Produto({ product }: ProdProps) {
             <TitleDiscount>{`${product.discount}%`}</TitleDiscount>
             <Text>OFF</Text>
           </PorcentDiscount>
-          <ListProductsImages images={product.images} />
+          <ListProductsImages
+            images={product.images}
+            setSwiperInstanceListProd={setSwiperInstanceListProd}
+          />
         </ImgDiscount>
       ) : (
-        <ListProductsImages images={product.images} />
+        <ListProductsImages
+          images={product.images}
+          setSwiperInstanceListProd={setSwiperInstanceListProd}
+        />
       )}
-
+      <ColorListProduct
+        color={product.images}
+        swiperInstanceListProd={swiperInstanceListProd}
+      />
       <InfosProduto>
         <NomeProduto>{product.productName}</NomeProduto>
         {product.isNewCollection && <NewCollection>Nova coleção</NewCollection>}

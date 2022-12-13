@@ -29,11 +29,8 @@ export default function Bag({ scroll }: BagProps) {
   const [buttonBagFinalize, setButtonBagFinalize] = useState(false);
 
   const total = cart.reduce((sumTotal, product) => {
-    const priceDiscount =
-      product.product.price -
-      product.product.price * (product.product.discount / 100);
     if (product.product.discount > 0) {
-      return sumTotal + priceDiscount * product.product.amount;
+      return sumTotal + product.product.formatedPrice * product.product.amount;
     } else {
       return sumTotal + product.product.price * product.product.amount;
     }

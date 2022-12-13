@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import swiper from 'swiper';
 import { useSwiper } from 'swiper/react';
 import { Text } from '../../../pages/detalhes/style';
 import { ImagesProps } from '../../../pages/produtos/[slug]';
@@ -17,6 +18,7 @@ interface ColorProductProps {
   activeColorId: string;
   setActiveColorId: (arg: string) => void;
   filteredColors: ImagesProps[];
+  swiperInstance?: swiper;
 }
 
 export default function ColorProduct({
@@ -24,16 +26,15 @@ export default function ColorProduct({
   activeColorId,
   setActiveColorId,
   filteredColors,
+  swiperInstance,
 }: ColorProductProps) {
-  const swiper = useSwiper();
-
   function handleClickButton(colorId: string) {
     setActiveColorId(colorId);
     const indexIdColor = colors.findIndex(
       idImage => idImage.idimage === colorId
     );
     if (indexIdColor !== -1) {
-      swiper.slideTo(indexIdColor);
+      swiperInstance?.slideTo(indexIdColor);
     }
   }
 

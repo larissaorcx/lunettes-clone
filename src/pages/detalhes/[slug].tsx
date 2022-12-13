@@ -1,13 +1,19 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
+import { createClient } from '../../../prismicio';
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
+
 import InternalBackground from '../../components/InternalBackground';
 import { AboutType, HeaderType } from '../types';
 import dataHome from '../api/mockHome';
-import { ImagesProps, ProductProps } from '../produtos/[slug]';
-
+import { ImagesProps } from '../produtos/[slug]';
 import { useRouter } from 'next/router';
 import ImagesDetalhes from '../../components/Detalhes/ImagesDetalhes';
-
 import DescricaoAtendimento from '../../components/Contatos/DescriçãoAtendimento';
+import { TitleDiscount } from '../../components/Product/style';
+import ListProducts from '../../components/ListProducts';
+import InfosProduto from '../../components/Detalhes/InfoProduto/infoProduto';
+
 import {
   Conteiner,
   Icon,
@@ -27,14 +33,7 @@ import {
   ContainerDetalhes,
   ContainerInfoProdImage,
 } from './style';
-
-import { TitleDiscount } from '../../components/Product/style';
-import { useEffect, useState } from 'react';
-
-import Image from 'next/image';
-import ListProducts from '../../components/ListProducts';
-import { createClient } from '../../../prismicio';
-import InfosProduto from '../../components/Detalhes/InfoProduto/infoProduto';
+import swiper from 'swiper';
 
 interface DetalhesProps {
   background: HeaderType;
@@ -95,6 +94,7 @@ export default function Detalhes({
   const router = useRouter();
   const [activeColorId, setActiveColorId] = useState('');
   const [filteredColors, setFilteredColors] = useState<ImagesProps[]>([]);
+  const [swiperInstance, setSwiperInstance] = useState<swiper>();
 
   useEffect(() => {
     async function loadProducts() {
@@ -146,11 +146,8 @@ export default function Detalhes({
                     <TextDiscount>OFF</TextDiscount>
                   </PorcentDiscountDetalhes>
                   <ImagesDetalhes
-                    product={productSlug}
                     images={productSlug.images}
-                    activeColorId={activeColorId}
-                    setActiveColorId={setActiveColorId}
-                    filteredColors={filteredColors}
+                    setSwiperInstance={setSwiperInstance}
                   />
                 </ImgDiscountDetalhes>
                 <InfosProduto
@@ -158,17 +155,15 @@ export default function Detalhes({
                   activeColorId={activeColorId}
                   setActiveColorId={setActiveColorId}
                   filteredColors={filteredColors}
+                  swiperInstance={swiperInstance}
                 />
               </ContainerInfoProdImage>
             ) : (
               <ContainerInfoProdImage>
                 <ImgDiscountDetalhes>
                   <ImagesDetalhes
-                    product={productSlug}
                     images={productSlug.images}
-                    activeColorId={activeColorId}
-                    setActiveColorId={setActiveColorId}
-                    filteredColors={filteredColors}
+                    setSwiperInstance={setSwiperInstance}
                   />
                 </ImgDiscountDetalhes>
                 <InfosProduto
@@ -176,6 +171,7 @@ export default function Detalhes({
                   activeColorId={activeColorId}
                   setActiveColorId={setActiveColorId}
                   filteredColors={filteredColors}
+                  swiperInstance={swiperInstance}
                 />
               </ContainerInfoProdImage>
             )}
