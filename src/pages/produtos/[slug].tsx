@@ -104,7 +104,11 @@ export default function Products({
         </ContainerCaminho>
         {(tamSlug && tamSlug >= 3) || loadproducts.length === 0 ? (
           <ConatinerError>
-            <Titulo>{router.query?.category}</Titulo>
+            {router.query?.style ? (
+              <Titulo>{router.query?.style}</Titulo>
+            ) : (
+              <Titulo>{router.query?.category}</Titulo>
+            )}
             <Icon>
               <Image alt="error" src="/aviso.png" width={56} height={56} />
             </Icon>

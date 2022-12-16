@@ -37,7 +37,7 @@ export default function ListProductsImages({
     >
       {images.map(img => (
         <SwiperSlide key={img.idimage}>
-          <Image alt="product" src={img.imglg} width={360} height={360} />
+          <Image alt="product" src={img.imglg} width={560} height={560} />
         </SwiperSlide>
       ))}
     </Swiper>

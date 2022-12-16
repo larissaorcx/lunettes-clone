@@ -3,13 +3,21 @@ import { Container } from './style';
 
 export interface ModelFilterProps {
   products: string[];
+  setOpenButton: (arg: boolean) => void;
 }
 
-export default function ModelFilter({ products }: ModelFilterProps) {
+export default function ModelFilter({
+  products,
+  setOpenButton,
+}: ModelFilterProps) {
   return (
     <Container>
       {products.map(model => (
-        <ItemFilterModel key={model} model={model} />
+        <ItemFilterModel
+          key={model}
+          model={model}
+          setOpenButton={setOpenButton}
+        />
       ))}
     </Container>
   );

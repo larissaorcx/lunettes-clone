@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { animationCloseFilter, animationOpenFilter } from './animation';
 
 type ButtonColorProps = {
@@ -10,6 +10,10 @@ type ButtonOpen = {
 };
 type Filters = {
   noFilters: boolean;
+};
+
+type ButtonFilter = {
+  contadorFilter: number;
 };
 
 export const ContainerButton = styled.div<ButtonOpen>`
@@ -43,12 +47,14 @@ export const ButtonFilter = styled.div<ButtonOpen>`
 
 export const ButtonClose = styled.button<ButtonOpen>`
   display: none;
+
   @media screen and (max-width: 740px) {
     width: 100%;
     display: ${props => (props.openButton ? 'flex' : 'none')};
     justify-content: flex-end;
     border: none;
     margin: 21.6px 21.6px 38.3px 0;
+    background: transparent;
   }
 `;
 
@@ -59,7 +65,7 @@ export const ButtonCloseFilters = styled.button<ButtonOpen>`
   animation: ${animationCloseFilter} 0.6s ease-out 0.9s both; ;
 `;
 
-export const Button = styled.button`
+export const Button = styled.button<ButtonFilter>`
   display: none;
   align-items: center;
   padding: 8px 15px;
@@ -71,6 +77,28 @@ export const Button = styled.button`
 
   width: 116px;
   height: 40px;
+
+  position: relative;
+
+  ${props =>
+    props.contadorFilter !== 0 &&
+    css`
+      &::before {
+        content: '${props.contadorFilter}';
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        justify-content: center;
+        align-items: center;
+        left: -8px;
+        top: -8px;
+        font-size: 10px;
+        background: rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
+        display: flex;
+      }
+    `}
 
   @media screen and (max-width: 740px) {
     display: flex;
@@ -94,6 +122,9 @@ export const ContainerFilter = styled.div`
   align-items: center;
   flex-direction: column;
   width: 100%;
+
+  @media screen and (max-width: 740px) {
+  }
 `;
 
 export const Filter = styled.div`

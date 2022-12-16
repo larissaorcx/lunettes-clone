@@ -24,6 +24,7 @@ interface ContadorProps {
 export const Menu = styled.div<MenuProps>`
   display: flex;
   flex-direction: column;
+
   width: 100%;
 
   height: ${props => (props.openBag || props.openMenu ? '100vh' : '0px')};
@@ -38,7 +39,7 @@ export const Menu = styled.div<MenuProps>`
     top: 0;
     left: 0;
     width: 100%;
-    height: 100rem;
+    height: 80rem;
     background: rgb(0, 0, 0);
     z-index: -1;
 

@@ -7,8 +7,11 @@ export const ContainerConteudo = styled.div`
   align-items: start;
   margin-bottom: 30px;
   width: 70vw;
+  margin-left: 30px;
   @media screen and (max-width: 740px) {
     width: 95%;
+    padding: 0px 20px 20px;
+    margin-left: 0px;
   }
 `;
 
@@ -29,6 +32,7 @@ export const ContainerCaminhoDetalhes = styled.div`
   width: auto;
 
   @media screen and (max-width: 740px) {
+    margin-top: 30px;
   }
 `;
 

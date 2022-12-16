@@ -101,8 +101,8 @@ export const PorcentDiscountDetalhes = styled.div`
     width: 50px;
     height: 50px;
     padding: 6px 7px 6px 8px;
-    top: 100px;
-    left: 20px;
+    top: 90px;
+    left: 5px;
   }
 `;
 export const TextDiscount = styled.span`
@@ -123,8 +123,9 @@ export const ConteinerDescricao = styled.div`
   height: auto;
   margin-left: 40px;
   @media screen and (max-width: 740px) {
-    width: 95%;
+    width: 100%;
     margin: 0px;
+    padding: 0px 20px 20px;
   }
 `;
 
@@ -154,7 +155,8 @@ export const ContainerEspecificação = styled.div`
   flex-direction: column;
 
   @media screen and (max-width: 740px) {
-    width: 90%;
+    width: 100%;
+    padding: 0px 20px 20px;
   }
 `;
 
@@ -198,4 +200,9 @@ export const ContainerInfoProdImage = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: start;
+
+  @media screen and (max-width: 740px) {
+    flex-direction: column;
+  }
 `;

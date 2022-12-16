@@ -5,9 +5,13 @@ import { Box, Item } from './style';
 
 interface ItemFilterModelProps {
   model: string;
+  setOpenButton: (arg: boolean) => void;
 }
 
-export default function ItemFilterModel({ model }: ItemFilterModelProps) {
+export default function ItemFilterModel({
+  model,
+  setOpenButton,
+}: ItemFilterModelProps) {
   const [selectedFilterModel, setSelectedFilterModel] =
     useState<boolean>(false);
 
@@ -15,6 +19,7 @@ export default function ItemFilterModel({ model }: ItemFilterModelProps) {
 
   function handleActiveFilter() {
     setSelectedFilterModel(!selectedFilterModel);
+    setOpenButton(false);
   }
 
   useEffect(() => {

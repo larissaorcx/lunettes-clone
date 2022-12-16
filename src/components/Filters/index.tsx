@@ -40,7 +40,11 @@ export default function Filtrar({ products }: ButtonFiltrarProps) {
   return (
     <ContainerFilter>
       <ButtonFilter openButton={openButton}>
-        <Button type="button" onClick={() => handleOpenButtonFilter()}>
+        <Button
+          type="button"
+          onClick={() => handleOpenButtonFilter()}
+          contadorFilter={activeFilters.length}
+        >
           <Image alt="filtro" src="/filtro.png" width={17} height={17} />
           <Titulo>Filtrar</Titulo>
         </Button>
@@ -76,23 +80,39 @@ export default function Filtrar({ products }: ButtonFiltrarProps) {
           </ButtonFilterPreco>
         </Filter>
         {openFilter === 'color' && (
-          <ColorFilter products={filterColor({ products })} />
+          <ColorFilter
+            products={filterColor({ products })}
+            setOpenButton={setOpenButton}
+          />
         )}
         {openFilter === 'model' && (
-          <ModelFilter products={filterModel({ products })} />
+          <ModelFilter
+            products={filterModel({ products })}
+            setOpenButton={setOpenButton}
+          />
         )}
         {openFilter === 'price' && (
-          <PriceFilter products={filterPrice({ products })} />
+          <PriceFilter
+            products={filterPrice({ products })}
+            setOpenButton={setOpenButton}
+          />
         )}
+
+        <AllFilters noFilters={activeFilters.length === 0}>
+          {activeFilters.map(filter => (
+            <NameFilter key={filter}>{filter};</NameFilter>
+          ))}
+          <ButtonRemoreveFilter
+            type="button"
+            onClick={() => {
+              removeAllFilters();
+              setOpenButton(false);
+            }}
+          >
+            Limpar filtros
+          </ButtonRemoreveFilter>
+        </AllFilters>
       </ContainerButton>
-      <AllFilters noFilters={activeFilters.length === 0}>
-        {activeFilters.map(filter => (
-          <NameFilter key={filter}>{filter};</NameFilter>
-        ))}
-        <ButtonRemoreveFilter type="button" onClick={() => removeAllFilters()}>
-          Limpar filtros
-        </ButtonRemoreveFilter>
-      </AllFilters>
     </ContainerFilter>
   );
 }

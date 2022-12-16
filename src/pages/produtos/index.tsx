@@ -8,6 +8,8 @@ import dataHome from '../api/mockHome';
 import { createClient } from '../../../prismicio';
 
 import * as prismicH from '@prismicio/helpers';
+import { useEffect } from 'react';
+import { useFilter } from '../../components/hooks/useFilter';
 
 interface AllProductsProps {
   products: ProdDetalhe[];
@@ -18,13 +20,21 @@ interface AllProductsProps {
 export default function AllProducts({
   products,
   background,
-  productsPrismic,
 }: AllProductsProps) {
+  const { setBackupProd, produtoFiltered } = useFilter();
+
+  useEffect(() => {
+    setBackupProd(products);
+  }, []);
   return (
     <>
       <InternalBackground background={background} height="200px" />
       <Filtrar products={products} />
-      <ListProducts products={products} />
+      {produtoFiltered.length === 0 ? (
+        <ListProducts products={products} />
+      ) : (
+        <ListProducts products={produtoFiltered} />
+      )}
     </>
   );
 }
@@ -34,8 +44,6 @@ export const getServerSideProps: GetServerSideProps = async ({
 }) => {
   const client = createClient({ previewData });
   const productsPrismic = await client.getAllByType('produto');
-
-  console.log('querys', query);
 
   const products = productsPrismic.flatMap(prod => {
     let sub: string[] = [];

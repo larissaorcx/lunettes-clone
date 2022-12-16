@@ -12,7 +12,7 @@ type SelectColor = {
 
 export const Container = styled.ul`
   display: grid;
-  gap: 5px;
+  gap: 15px;
   padding: 25px;
   border: 1px solid rgb(238, 238, 238);
   grid-template-columns: repeat(4, 1fr);

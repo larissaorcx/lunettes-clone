@@ -16,9 +16,10 @@ interface ListMenuProps {
 }
 
 export const ListMenuContainer = styled.div<ListMenuProps>`
-  padding: 20px 20px;
+  padding: 20px 30px;
+  /* margin: 140px 0 30px 0; */
   margin-top: ${props => (props.scroll ? '90px' : '175px')};
-  /* background: black; */
+  /* background: black;  */
   @media screen and (max-width: 740px) {
     margin: 80px 0 0 0;
   }

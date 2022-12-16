@@ -47,7 +47,7 @@ export default function InfosProduto({
               <Simbolo>
                 <Image alt="next" src="/right.png" width={16} height={16} />
               </Simbolo>
-              <Caminho>Multi categorias</Caminho>
+              <Caminho>{product.subcategories}</Caminho>
             </>
           )}
         </>

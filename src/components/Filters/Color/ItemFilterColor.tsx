@@ -5,9 +5,13 @@ import { Box, ContainerCores, Item } from './styleColor';
 
 interface ItemFilterColorProps {
   color: Colorproducts;
+  setOpenButton: (arg: boolean) => void;
 }
 
-export default function ItemFilterColor({ color }: ItemFilterColorProps) {
+export default function ItemFilterColor({
+  color,
+  setOpenButton,
+}: ItemFilterColorProps) {
   const [selectedFilterColor, setSelectedFilterColor] =
     useState<boolean>(false);
 
@@ -15,6 +19,7 @@ export default function ItemFilterColor({ color }: ItemFilterColorProps) {
 
   function handleActiveFilter() {
     setSelectedFilterColor(!selectedFilterColor);
+    setOpenButton(false);
   }
 
   useEffect(() => {
@@ -33,6 +38,7 @@ export default function ItemFilterColor({ color }: ItemFilterColorProps) {
     <ContainerCores
       onClick={() => {
         handleActiveFilter();
+
         selectedFilterColor
           ? removeFilters(color.name)
           : filterColor(color.name);

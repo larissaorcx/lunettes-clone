@@ -7,7 +7,7 @@ type ClickItem = {
 
 export const Container = styled.ul`
   display: grid;
-  grid-gap: 40px;
+  gap: 15px;
   grid-template-columns: repeat(4, 1fr);
   border: 1px solid rgb(238, 238, 238);
   width: 100%;
