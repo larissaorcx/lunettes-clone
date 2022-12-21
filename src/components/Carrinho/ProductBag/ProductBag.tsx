@@ -13,7 +13,7 @@ import {
   Titleremore,
 } from '../style';
 import Image from 'next/image';
-import { useCart } from '../../hooks/useCart';
+import { useCart } from '../../../hooks/useCart';
 import { ProductCardProps } from '../../Detalhes/ButtonReserva/ButtonReserva';
 
 import {

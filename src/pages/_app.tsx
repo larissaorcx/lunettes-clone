@@ -7,8 +7,8 @@ import { ThemeProvider } from 'styled-components';
 import { useState } from 'react';
 import Layout from '../components/Layout';
 import Loading from '../components/Loading/Loading';
-import CartProvider, { useCart } from '../components/hooks/useCart';
-import ScrollPage from '../components/hooks/ProviderscrollPage';
+import CartProvider, { useCart } from '../hooks/useCart';
+import ScrollPage from '../hooks/ProviderscrollPage';
 import Link from 'next/link';
 
 //Prismic
@@ -16,7 +16,7 @@ import Link from 'next/link';
 import { PrismicProvider } from '@prismicio/react';
 import { PrismicPreview } from '@prismicio/next';
 import { repositoryName } from '../../prismicio';
-import FilterProvider from '../components/hooks/useFilter';
+import FilterProvider from '../hooks/useFilter';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [loading, setLoading] = useState(false);

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useFilter } from '../../hooks/useFilter';
+import { useFilter } from '../../../hooks/useFilter';
 import ItemFilterColor from './ItemFilterColor';
 import { Item, ContainerCores, Box, Container } from './styleColor';
 

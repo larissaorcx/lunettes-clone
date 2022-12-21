@@ -12,9 +12,9 @@ import Image from 'next/image';
 import { useCallback, useEffect, useState } from 'react';
 import ListMenu from '../ListMenu';
 import { Images, ImageLogo, ImageMenu, MenuFloating } from '../../pages/types';
-import { useCart } from '../hooks/useCart';
+import { useCart } from '../../hooks/useCart';
 import Bag from '../Carrinho/bag';
-import { useScroll } from '../hooks/ProviderscrollPage';
+import { useScroll } from '../../hooks/ProviderscrollPage';
 
 interface MenuProps {
   logoHome: ImageLogo;

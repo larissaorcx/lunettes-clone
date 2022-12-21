@@ -8,7 +8,7 @@ import {
 import { Text } from '../InfoProduto/style';
 import { useEffect, useState } from 'react';
 import { ContainerPrecos, Preco, PriceWithDiscount } from '../../Product/style';
-import { useCart } from '../../hooks/useCart';
+import { useCart } from '../../../hooks/useCart';
 
 interface ContadorProductProps {
   price: number;

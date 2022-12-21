@@ -8,7 +8,7 @@ import {
   ContainerButton,
 } from './style';
 import { TextoBotao } from '../../Product/style';
-import { useCart } from '../../hooks/useCart';
+import { useCart } from '../../../hooks/useCart';
 import { ProductDetalhesProps } from '../../../pages/detalhes/[slug]';
 import { Colorproducts } from '../../Filters/Color/ColorFilter';
 

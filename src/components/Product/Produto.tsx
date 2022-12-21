@@ -5,8 +5,8 @@ import { FaRegHeart } from 'react-icons/fa';
 import swiper from 'swiper';
 import { ProductDetalhesProps } from '../../pages/detalhes/[slug]';
 import { BotaoReservaSacola } from '../Detalhes/ButtonReserva/style';
-import { useCart } from '../hooks/useCart';
-import { useFilter } from '../hooks/useFilter';
+import { useCart } from '../../hooks/useCart';
+import { useFilter } from '../../hooks/useFilter';
 import ListProductsImages from '../ListProducts/CarroselListProducts/ListProductsImages';
 import ColorListProduct from '../ListProducts/ColorListProduct';
 import {

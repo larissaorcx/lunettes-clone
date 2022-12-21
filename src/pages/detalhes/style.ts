@@ -94,7 +94,7 @@ export const PorcentDiscountDetalhes = styled.div`
   padding: 10px 11px 10px 10px;
   background: rgb(239, 31, 95);
   z-index: 3;
-  top: 230px;
+  top: 190px;
   left: 55px;
 
   @media screen and (max-width: 740px) {

@@ -12,7 +12,6 @@ import dataHome from '../api/mockHome';
 import { GetServerSideProps } from 'next';
 import ListProducts, { ProdDetalhe } from '../../components/ListProducts';
 
-import { Colorproducts } from '../../components/Filters/Color/ColorFilter';
 import React, { useEffect, useState } from 'react';
 import Filtrar from '../../components/Filters';
 import Image from 'next/image';
@@ -20,7 +19,7 @@ import { useRouter } from 'next/router';
 import { Icon, Message } from '../detalhes/style';
 
 import { createClient } from '../../../prismicio';
-import { useFilter } from '../../components/hooks/useFilter';
+import { useFilter } from '../../hooks/useFilter';
 
 interface ProductsProps {
   background: HeaderType;
@@ -48,26 +47,12 @@ export type ImagesProps = {
   imgxs: string;
 };
 
-type AllImages = {
-  xs: string;
-  md: string;
-  lg: string;
-};
-
-type testProdImg = {
-  id: string;
-  url: string;
-  color: Colorproducts;
-  allImages: AllImages;
-};
-
 export default function Products({
   background,
   products,
   setLoading,
 }: ProductsProps) {
   const router = useRouter();
-  const tamSlug = router.query.slug?.length;
 
   const [loadproducts, setloadProducts] = useState<ProdDetalhe[]>(products);
 
@@ -102,7 +87,7 @@ export default function Products({
           </Simbolo>
           <Caminho>{router.query?.category}</Caminho>
         </ContainerCaminho>
-        {(tamSlug && tamSlug >= 3) || loadproducts.length === 0 ? (
+        {loadproducts.length === 0 ? (
           <ConatinerError>
             {router.query?.style ? (
               <Titulo>{router.query?.style}</Titulo>

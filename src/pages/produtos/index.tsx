@@ -2,14 +2,12 @@ import { GetServerSideProps, GetStaticProps } from 'next';
 import Filtrar from '../../components/Filters';
 import InternalBackground from '../../components/InternalBackground';
 import ListProducts, { ProdDetalhe } from '../../components/ListProducts';
-import mocklistProducts from '../../components/ListProducts/mocklistProducts';
 import { HeaderType } from '../types';
 import dataHome from '../api/mockHome';
 import { createClient } from '../../../prismicio';
 
-import * as prismicH from '@prismicio/helpers';
 import { useEffect } from 'react';
-import { useFilter } from '../../components/hooks/useFilter';
+import { useFilter } from '../../hooks/useFilter';
 
 interface AllProductsProps {
   products: ProdDetalhe[];

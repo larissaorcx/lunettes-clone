@@ -39,7 +39,6 @@ export default function Home({ conteudo, destaques, setLoading }: HomeProps) {
     loadProducts();
   }, [destaques, setLoading]);
 
-  console.log('destacado', destaques);
   return (
     <>
       <Background backgroundImages={conteudo.header} />
@@ -57,7 +56,6 @@ export const getServerSideProps: GetServerSideProps = async ({
   previewData,
 }) => {
   const client = createClient({ previewData });
-  console.log('dados priscmic', client);
 
   const productsPrismic = await client.getAllByTag('destacado');
 

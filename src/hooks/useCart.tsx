@@ -1,6 +1,12 @@
-import { createContext, ReactNode, useContext, useState } from 'react';
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
 
-import { ProductCardProps } from '../Detalhes/ButtonReserva/ButtonReserva';
+import { ProductCardProps } from '../components/Detalhes/ButtonReserva/ButtonReserva';
 
 import { useScroll } from './ProviderscrollPage';
 
@@ -37,7 +43,6 @@ export default function CartProvider({
   setOpenBag,
 }: CartProviderProps) {
   const [cart, setCart] = useState<CartProps[]>([]);
-  // const { openBag, setOpenBag } = useScroll();
 
   const addProduct = (productCart: ProductCardProps) => {
     let newCart: CartProps[] = [...cart];
@@ -50,6 +55,7 @@ export default function CartProvider({
         product: productCart,
       });
     }
+    localStorage.setItem('cart', JSON.stringify(newCart));
     setCart(newCart);
     setOpenBag(true);
   };
@@ -62,6 +68,7 @@ export default function CartProvider({
     if (remove !== -1) {
       newCart.splice(remove, 1);
     }
+    localStorage.setItem('cart', JSON.stringify(newCart));
     setCart(newCart);
 
     if (newCart.length === 0) {
@@ -81,9 +88,13 @@ export default function CartProvider({
         sameProduct.product.amount = amount;
       }
     }
-
+    localStorage.setItem('cart', JSON.stringify(newCart));
     setCart(newCart);
   };
+
+  useEffect(() => {
+    setCart(JSON.parse(localStorage.getItem('cart') ?? '[]'));
+  }, []);
 
   return (
     <CartContext.Provider

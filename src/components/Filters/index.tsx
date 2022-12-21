@@ -21,7 +21,7 @@ import ColorFilter from './Color/ColorFilter';
 import ModelFilter from './Model/ModelFilter';
 import PriceFilter from './Price/PriceModel';
 import Image from 'next/image';
-import { useFilter } from '../hooks/useFilter';
+import { useFilter } from '../../hooks/useFilter';
 
 interface ButtonFiltrarProps {
   products: ProductProps[];

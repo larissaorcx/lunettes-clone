@@ -3,7 +3,7 @@ import swiper from 'swiper';
 import { useSwiper } from 'swiper/react';
 import { Text } from '../../../pages/detalhes/style';
 import { ImagesProps } from '../../../pages/produtos/[slug]';
-import { useCart } from '../../hooks/useCart';
+import { useCart } from '../../../hooks/useCart';
 import {
   // BackgroundColor,
   Box,

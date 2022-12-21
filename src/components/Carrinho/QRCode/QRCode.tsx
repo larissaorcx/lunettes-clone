@@ -9,7 +9,7 @@ import {
 } from './style';
 
 import Image, { ImageLoaderProps } from 'next/image';
-import { useCart } from '../../hooks/useCart';
+import { useCart } from '../../../hooks/useCart';
 import router from 'next/router';
 
 interface QRCodeProps {

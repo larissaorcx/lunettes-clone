@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useContext, useState } from 'react';
-import { ProdDetalhe } from '../ListProducts';
+import { ProdDetalhe } from '../components/ListProducts';
 
 interface FilterProviderProps {
   children: ReactNode;
