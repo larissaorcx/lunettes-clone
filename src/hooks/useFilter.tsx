@@ -24,8 +24,6 @@ export default function FilterProvider({ children }: FilterProviderProps) {
   const [produtoFiltered, setProdutoFiltered] = useState<ProdDetalhe[]>([]);
   const [backupProd, setBackupProd] = useState<ProdDetalhe[]>([]);
   const [activeFilters, setActiveFilters] = useState<any[]>([]);
-  console.log('prod filtrados', produtoFiltered);
-  console.log('filtros act', activeFilters);
 
   const filterColor = (color: string) => {
     let filteredByColor: string[] = [...activeFilters];

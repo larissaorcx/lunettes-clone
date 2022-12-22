@@ -62,9 +62,6 @@ export default function ButtonReserva({
     products => products.product.id === product._id
   );
 
-  console.log('product in the bag', productInTheBag);
-  console.log('carrinho', cart);
-
   return (
     <ContainerButton>
       {productInTheBag ? (
@@ -90,10 +87,12 @@ export default function ButtonReserva({
             href="https://api.whatsapp.com/send/?phone=5511947584716&text=Lunettes%2C+gostaria+de+ter+informa%C3%A7%C3%B5es+sobre+um+produto.+%0A+%0A1+unidade+do+%C3%B3culos+Dricc+na+cor%3A+Rosa.+%0A&type=phone_number&app_absent=0"
             passHref
           >
-            <BotaoReservaWhats type="button">
-              <FaWhatsapp />
-              <TextoBotao>Comprar agora</TextoBotao>
-            </BotaoReservaWhats>
+            <a style={{ textDecoration: 'none' }}>
+              <BotaoReservaWhats type="button">
+                <FaWhatsapp />
+                <TextoBotao>Comprar agora</TextoBotao>
+              </BotaoReservaWhats>
+            </a>
           </Link>
         </>
       )}

@@ -45,7 +45,7 @@ export const ButtonFilter = styled.div<ButtonOpen>`
   margin-bottom: 20px;
 `;
 
-export const ButtonClose = styled.button<ButtonOpen>`
+export const ContainerButtonClose = styled.div<ButtonOpen>`
   display: none;
 
   @media screen and (max-width: 740px) {

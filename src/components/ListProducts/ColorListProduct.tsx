@@ -32,7 +32,7 @@ export default function ColorListProduct({
     <CoresContainer>
       {newFilteredColos.map(colors => (
         <BotaoCores
-          key={colors.imgxs}
+          key={colors.idimage}
           type="button"
           color={colors.backgroundcolor}
           active={activeColorId === colors.idimage}

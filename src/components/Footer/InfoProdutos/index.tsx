@@ -104,12 +104,14 @@ export default function InfosProduto({ info }: InfosProdutoProps) {
             {info.socialMedia.itens.map(button => (
               <BotaoRedes type="button" key={button.alt}>
                 <Link href={button.link} passHref>
-                  <Image
-                    alt={button.alt}
-                    src={button.img}
-                    width={42}
-                    height={42}
-                  />
+                  <a style={{ textDecoration: 'none' }}>
+                    <Image
+                      alt={button.alt}
+                      src={button.img}
+                      width={42}
+                      height={42}
+                    />
+                  </a>
                 </Link>
               </BotaoRedes>
             ))}

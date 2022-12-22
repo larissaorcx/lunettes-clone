@@ -29,7 +29,7 @@ export default function ListProducts({ products }: ListProductsProps) {
   return (
     <ContainerProducts>
       {loadproducts.map(product => (
-        <Produto product={product} key={product._id} />
+        <Produto key={product._id} product={product} />
       ))}
     </ContainerProducts>
   );

@@ -11,7 +11,7 @@ import {
   Button,
   Titulo,
   Filter,
-  ButtonClose,
+  ContainerButtonClose,
   ButtonCloseFilters,
   AllFilters,
   ButtonRemoreveFilter,
@@ -50,7 +50,7 @@ export default function Filtrar({ products }: ButtonFiltrarProps) {
         </Button>
       </ButtonFilter>
       <ContainerButton openButton={openButton}>
-        <ButtonClose openButton={openButton}>
+        <ContainerButtonClose openButton={openButton}>
           <ButtonCloseFilters
             type="button"
             onClick={() => handleOpenButtonFilter()}
@@ -58,7 +58,7 @@ export default function Filtrar({ products }: ButtonFiltrarProps) {
           >
             <Image alt="filtroClose" src="/close.png" width={25} height={25} />
           </ButtonCloseFilters>
-        </ButtonClose>
+        </ContainerButtonClose>
         <Filter>
           <ButtonFilterCor
             onClick={() => setOpenFilter('color')}
