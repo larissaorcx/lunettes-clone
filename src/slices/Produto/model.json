@@ -1,0 +1,131 @@
+{
+  "id": "produto",
+  "type": "SharedSlice",
+  "name": "Produto",
+  "description": "Produto",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "Produto",
+      "primary": {
+        "idprod": {
+          "type": "Text",
+          "config": {
+            "label": "idProd",
+            "placeholder": ""
+          }
+        },
+        "price": {
+          "type": "Number",
+          "config": {
+            "label": "price",
+            "placeholder": ""
+          }
+        },
+        "productname": {
+          "type": "StructuredText",
+          "config": {
+            "label": "productName",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "code": {
+          "type": "StructuredText",
+          "config": {
+            "label": "code",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "isnewcollection": {
+          "type": "Boolean",
+          "config": {
+            "label": "isNewCollection",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
+        },
+        "discount": {
+          "type": "Number",
+          "config": {
+            "label": "discount",
+            "placeholder": ""
+          }
+        },
+        "category": {
+          "type": "StructuredText",
+          "config": {
+            "label": "category",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "formatedprice": {
+          "type": "StructuredText",
+          "config": {
+            "label": "formatedPrice",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        }
+      },
+      "items": {
+        "subcategories": {
+          "type": "StructuredText",
+          "config": {
+            "label": "subcategories",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "idimage": {
+          "type": "StructuredText",
+          "config": {
+            "label": "idImage",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "urlimg": {
+          "type": "StructuredText",
+          "config": {
+            "label": "urlimg",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "colorname": {
+          "type": "StructuredText",
+          "config": {
+            "label": "colorName",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "backgroundcolor": {
+          "type": "StructuredText",
+          "config": {
+            "label": "backgroundcolor",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        }
+      },
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+    }
+  ]
+}
