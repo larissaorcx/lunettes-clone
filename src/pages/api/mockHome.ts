@@ -3,6 +3,10 @@ export default {
     background1: {
       img: '/background.jpg',
       alt: 'background',
+      backgroungMobile: {
+        img: '/mobile-content.jpg',
+        alt: 'backgroundMobile',
+      },
     },
     background2: {
       img: '/backgroundInternal.jpg',

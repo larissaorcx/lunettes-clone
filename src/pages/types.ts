@@ -58,6 +58,10 @@ export interface HeaderType {
   background1: {
     img: string;
     alt: string;
+    backgroungMobile: {
+      img: string;
+      alt: string;
+    };
   };
   background2: {
     img: string;

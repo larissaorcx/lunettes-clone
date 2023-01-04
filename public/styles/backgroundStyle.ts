@@ -17,10 +17,13 @@ export const Background = styled.div<BackgroundProps>`
   background-attachment: fixed;
 
   @media screen and (max-width: 740px) {
-    background: url(${props => props.backgroundImages.background1.img});
+    background: url(${props =>
+      props.backgroundImages.background1.backgroungMobile.img});
     background-size: cover;
     background-position: center;
     width: 100%;
     height: 640px;
+    background-attachment: fixed;
+    
   }
 `;
