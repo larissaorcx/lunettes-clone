@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Images, Text } from '../../../pages/types';
+import { Images, Text } from '../../../types';
 import { ContatoContainer, Paragrafo, TextContainer, Titulo } from './style';
 
 type AtendimentoProps = {

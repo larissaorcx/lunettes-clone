@@ -2,7 +2,7 @@ import { GetServerSideProps, GetStaticProps } from 'next';
 import Filtrar from '../../components/Filters';
 import InternalBackground from '../../components/InternalBackground';
 import ListProducts, { ProdDetalhe } from '../../components/ListProducts';
-import { HeaderType } from '../types';
+import { HeaderType } from '../../types';
 import dataHome from '../api/mockHome';
 import { createClient } from '../../../prismicio';
 

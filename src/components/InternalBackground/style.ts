@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { HeaderType } from '../../pages/types';
+import { HeaderType } from '../../types';
 
 interface InternalbgProps {
   background: HeaderType;

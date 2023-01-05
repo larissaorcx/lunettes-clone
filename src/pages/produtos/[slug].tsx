@@ -1,5 +1,5 @@
 import InternalBackground from '../../components/InternalBackground';
-import { HeaderType } from '../types';
+import { HeaderType } from '../../types';
 import {
   Caminho,
   Container,

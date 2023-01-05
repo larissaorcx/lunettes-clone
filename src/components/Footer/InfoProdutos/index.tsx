@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { Images, Media, Oculos } from '../../../pages/types';
+import { Images, Media, Oculos } from '../../../types';
 
 import {
   InfosProdutoContainer,

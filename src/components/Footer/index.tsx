@@ -1,4 +1,4 @@
-import { Images, Media, Oculos, Text } from '../../pages/types';
+import { Images, Media, Oculos, Text } from '../../types';
 import Hashtag from '../Footer/Hastag/index';
 import InfosProduto from './InfoProdutos';
 

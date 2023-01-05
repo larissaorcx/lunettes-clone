@@ -1,7 +1,7 @@
 import dataHome from './api/mockHome';
 
 import { GetServerSideProps } from 'next';
-import { HeaderType, AboutType, FooterType, MenuFloating } from './types';
+import { HeaderType, AboutType, FooterType, MenuFloating } from '../types';
 import About from '../components/Contatos';
 import { Background } from '../../public/styles/backgroundStyle';
 import ListProducts, { ProdDetalhe } from '../components/ListProducts';

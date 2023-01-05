@@ -8,7 +8,7 @@ import {
   TitleCategory,
 } from './style';
 import Image from 'next/image';
-import { MenuFloating } from '../../pages/types';
+import { MenuFloating } from '../../types';
 import { useRouter } from 'next/router';
 
 interface ListMenuProps {

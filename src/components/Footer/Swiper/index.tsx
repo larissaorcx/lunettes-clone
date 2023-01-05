@@ -8,7 +8,7 @@ import 'swiper/css/navigation';
 import { Autoplay, Navigation } from 'swiper';
 import Image from 'next/image';
 
-import { Images } from '../../../pages/types';
+import { Images } from '../../../types';
 
 interface SwiperProps {
   swiper: Images[];

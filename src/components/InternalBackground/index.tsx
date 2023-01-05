@@ -1,4 +1,4 @@
-import { HeaderType } from '../../pages/types';
+import { HeaderType } from '../../types';
 import { Internalbg } from './style';
 
 interface InternalBackgroundProps {

@@ -1,6 +1,6 @@
 import Atendimento from './Atendimento';
 import DescricaoAtendimento from './DescriçãoAtendimento';
-import { Images, Text, Icon } from '../../pages/types';
+import { Images, Text, Icon } from '../../types';
 
 interface AboutProps {
   atendimento: Images;

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { HeaderType } from '../../src/pages/types';
+import { HeaderType } from '../../src/types';
 
 interface BackgroundProps {
   backgroundImages: HeaderType;
@@ -24,6 +24,5 @@ export const Background = styled.div<BackgroundProps>`
     width: 100%;
     height: 640px;
     background-attachment: fixed;
-    
   }
 `;

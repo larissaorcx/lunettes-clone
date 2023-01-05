@@ -1,5 +1,5 @@
 import { TextoHashtag, TituloHastag, HashtagContainer } from './style';
-import { Text } from '../../../pages/types';
+import { Text } from '../../../types';
 
 interface HastagProps {
   hastag: Text;

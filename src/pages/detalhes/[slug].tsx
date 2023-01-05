@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
 import InternalBackground from '../../components/InternalBackground';
-import { AboutType, HeaderType } from '../types';
+import { AboutType, HeaderType } from '../../types';
 import dataHome from '../api/mockHome';
 import { ImagesProps } from '../produtos/[slug]';
 import { useRouter } from 'next/router';
