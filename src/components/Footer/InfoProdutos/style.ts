@@ -141,6 +141,26 @@ export const BotaoRedes = styled.button`
   border: none;
   padding-right: 18px;
 
+  a {
+    &:visited {
+      text-decoration: none;
+    }
+  }
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    border-radius: 100%;
+    width: 45px;
+    height: 45px;
+  }
+  .face {
+    weight: 100px !important;
+    height: 100px !important;
+  }
+
   &:hover {
     animation: ${animationRedes} 0.8s ease 0s 1 normal both;
   }

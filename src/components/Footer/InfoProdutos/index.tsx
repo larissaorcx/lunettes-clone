@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Images, Media, Oculos } from '../../../types';
+import { SiFacebook } from 'react-icons/si';
 
 import {
   InfosProdutoContainer,
@@ -104,13 +105,10 @@ export default function InfosProduto({ info }: InfosProdutoProps) {
             {info.socialMedia.itens.map(button => (
               <BotaoRedes type="button" key={button.alt}>
                 <Link href={button.link} passHref>
-                  <a style={{ textDecoration: 'none' }}>
-                    <Image
-                      alt={button.alt}
-                      src={button.img}
-                      width={42}
-                      height={42}
-                    />
+                  <a>
+                    <div>
+                      <SiFacebook size={'2rem'} />
+                    </div>
                   </a>
                 </Link>
               </BotaoRedes>

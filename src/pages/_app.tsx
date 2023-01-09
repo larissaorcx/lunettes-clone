@@ -11,6 +11,8 @@ import CartProvider, { useCart } from '../hooks/useCart';
 import ScrollPage from '../hooks/ProviderscrollPage';
 import Link from 'next/link';
 
+import { Roboto_Mono } from '@next/font/google';
+
 //Prismic
 
 import { PrismicProvider } from '@prismicio/react';
@@ -29,6 +31,12 @@ function MyApp({ Component, pageProps }: AppProps) {
     bag: openBag,
   };
 
+  const robotoMono = Roboto_Mono({
+    weight: ['400', '500', '600', '700'],
+    style: ['normal'],
+    subsets: ['latin'],
+  });
+
   return (
     // <ScrollPage>
     <PrismicProvider
@@ -46,11 +54,13 @@ function MyApp({ Component, pageProps }: AppProps) {
           <Layout openMenu={openMenu} setOpenMenu={setOpenMenu}>
             <FilterProvider>
               <PrismicPreview repositoryName={repositoryName}>
-                <Component
-                  {...pageProps}
-                  loading={loading}
-                  setLoading={setLoading}
-                />
+                <main className={robotoMono.className}>
+                  <Component
+                    {...pageProps}
+                    loading={loading}
+                    setLoading={setLoading}
+                  />
+                </main>
               </PrismicPreview>
             </FilterProvider>
           </Layout>
