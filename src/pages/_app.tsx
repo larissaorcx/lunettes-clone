@@ -20,6 +20,11 @@ import { PrismicPreview } from '@prismicio/next';
 import { repositoryName } from '../../prismicio';
 import FilterProvider from '../hooks/useFilter';
 
+const robotoMono = Roboto_Mono({
+  weight: ['400', '500', '600', '700'],
+  style: ['normal'],
+});
+
 function MyApp({ Component, pageProps }: AppProps) {
   const [loading, setLoading] = useState(false);
 
@@ -30,12 +35,6 @@ function MyApp({ Component, pageProps }: AppProps) {
     menu: openMenu,
     bag: openBag,
   };
-
-  const robotoMono = Roboto_Mono({
-    weight: ['400', '500', '600', '700'],
-    style: ['normal'],
-    subsets: ['latin'],
-  });
 
   return (
     // <ScrollPage>
@@ -54,13 +53,14 @@ function MyApp({ Component, pageProps }: AppProps) {
           <Layout openMenu={openMenu} setOpenMenu={setOpenMenu}>
             <FilterProvider>
               <PrismicPreview repositoryName={repositoryName}>
-                <main className={robotoMono.className}>
-                  <Component
-                    {...pageProps}
-                    loading={loading}
-                    setLoading={setLoading}
-                  />
-                </main>
+                {/* <main className={robotoMono.className}> */}
+                <Component
+                  {...pageProps}
+                  loading={loading}
+                  setLoading={setLoading}
+                  className={robotoMono.className}
+                />
+                {/* </main> */}
               </PrismicPreview>
             </FilterProvider>
           </Layout>
