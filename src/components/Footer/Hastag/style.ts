@@ -68,7 +68,7 @@ export const TituloHastag = styled.h2`
 `;
 export const TextoHashtag = styled.span`
   max-width: 460px;
-  font-family: 'Roboto Mono', monospace;
+
   font-size: 24px;
   color: rgb(255, 255, 255);
   text-align: center;

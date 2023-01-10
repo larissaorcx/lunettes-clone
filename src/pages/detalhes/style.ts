@@ -49,7 +49,6 @@ export const Message = styled.p`
   color: rgb(0, 0, 0);
   text-align: center;
   margin-top: 20px;
-  font-family: 'Roboto Mono', monospace;
 
   font-size: 16px;
   line-height: 2.25;
@@ -66,7 +65,6 @@ export const Text = styled.span`
   margin-bottom: 5px;
   margin-top: 20px;
 
-  font-family: 'Roboto Mono', monospace;
   color: rgb(154, 154, 154);
   font-size: 14px;
   line-height: 2.25;
@@ -106,7 +104,6 @@ export const PorcentDiscountDetalhes = styled.div`
   }
 `;
 export const TextDiscount = styled.span`
-  font-family: 'Roboto Mono', monospace;
   font-size: 16px;
 
   @media screen and (max-width: 740px) {
@@ -130,7 +127,6 @@ export const ConteinerDescricao = styled.div`
 `;
 
 export const TitleDescricao = styled.h4`
-  font-family: 'Roboto Mono', monospace;
   color: #000;
   font-size: 24px;
   line-height: 1.5;
@@ -139,7 +135,6 @@ export const TitleDescricao = styled.h4`
 `;
 
 export const Descricao = styled.p`
-  font-family: 'Roboto Mono', monospace;
   color: #9a9a9a;
   font-size: 16px;
   line-height: 1.5;
@@ -178,7 +173,6 @@ export const ListEspecificacoes = styled.li`
 `;
 
 export const TitleDetalhes = styled.h4`
-  font-family: 'Roboto Mono', monospace;
   color: #000;
   font-size: 16px;
   line-height: 1.5;
@@ -189,7 +183,6 @@ export const TitleDetalhes = styled.h4`
 `;
 
 export const Value = styled.p`
-  font-family: 'Roboto Mono', monospace;
   color: #9a9a9a;
   font-size: 16px;
   line-height: 1.5;

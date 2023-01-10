@@ -45,7 +45,6 @@ export const Sinal = styled.span<ContadorProps>`
   justify-content: center;
   align-items: center;
 
-  font-family: 'Roboto Mono', monospace;
   color: ${props => (props.openBag ? 'rgb(255, 255, 255)' : '#000')};
   font-size: 24px;
   line-height: 1.5;
@@ -60,7 +59,6 @@ export const Sinal = styled.span<ContadorProps>`
 `;
 
 export const ValueContador = styled.span<ContadorProps>`
-  font-family: 'Roboto Mono', monospace;
   font-weight: 500;
   color: ${props => (props.openBag ? 'rgb(255, 255, 255)' : '#000')};
   font-size: 24px;

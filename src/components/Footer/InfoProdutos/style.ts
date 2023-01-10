@@ -25,7 +25,6 @@ export const InfosProdutoContainer = styled.div`
   }
 `;
 export const TituloInfo = styled.h3`
-  font-family: 'Roboto Mono', monospace;
   font-size: 16px;
   line-height: 2.25;
   font-weight: bold;
@@ -87,7 +86,6 @@ export const SolarContainer = styled.div`
   }
 `;
 export const LinkCategorias = styled.button`
-  font-family: 'Roboto Mono', monospace;
   font-size: 16px;
   line-height: 2.25;
   font-weight: bold;
@@ -167,7 +165,6 @@ export const BotaoRedes = styled.button`
 `;
 
 export const TextoContato = styled.span`
-  font-family: 'Roboto Mono', monospace;
   font-size: 16px;
   color: #9a9a9a;
   margin-bottom: 20px;

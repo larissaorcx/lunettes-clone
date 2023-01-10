@@ -25,7 +25,6 @@ export const ContainerLoading = styled.div`
 `;
 
 export const Text = styled.h3`
-  font-family: 'Roboto Mono', monospace;
   font-size: 16px;
   line-height: 1.5;
   color: white;

@@ -23,6 +23,7 @@ import FilterProvider from '../hooks/useFilter';
 const robotoMono = Roboto_Mono({
   weight: ['400', '500', '600', '700'],
   style: ['normal'],
+  subsets: ['latin'],
 });
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -38,37 +39,32 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     // <ScrollPage>
+    // </ScrollPage>
     <PrismicProvider
       internalLinkComponent={(
         { href, ...props } //especifica qual componente usar para links internos
-      ) => (
-        <Link href={href}>
-          <a {...props} />
-        </Link>
-      )}
+      ) => <Link href={href} {...props}></Link>}
     >
-      <ThemeProvider theme={scroltheme}>
-        {loading && <Loading />}
-        <CartProvider openBag={openBag} setOpenBag={setOpenBag}>
-          <Layout openMenu={openMenu} setOpenMenu={setOpenMenu}>
-            <FilterProvider>
-              <PrismicPreview repositoryName={repositoryName}>
-                {/* <main className={robotoMono.className}> */}
-                <Component
-                  {...pageProps}
-                  loading={loading}
-                  setLoading={setLoading}
-                  className={robotoMono.className}
-                />
-                {/* </main> */}
-              </PrismicPreview>
-            </FilterProvider>
-          </Layout>
-          <GlobalStyle />
-        </CartProvider>
-      </ThemeProvider>
+      <main className={robotoMono.className}>
+        <ThemeProvider theme={scroltheme}>
+          {loading && <Loading />}
+          <CartProvider openBag={openBag} setOpenBag={setOpenBag}>
+            <GlobalStyle />
+            <Layout openMenu={openMenu} setOpenMenu={setOpenMenu}>
+              <FilterProvider>
+                <PrismicPreview repositoryName={repositoryName}>
+                  <Component
+                    {...pageProps}
+                    loading={loading}
+                    setLoading={setLoading}
+                  />
+                </PrismicPreview>
+              </FilterProvider>
+            </Layout>
+          </CartProvider>
+        </ThemeProvider>
+      </main>
     </PrismicProvider>
-    // </ScrollPage>
   );
 }
 

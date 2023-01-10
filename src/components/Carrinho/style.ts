@@ -150,13 +150,11 @@ export const Container = styled.div`
 `;
 
 export const CodeBag = styled.span`
-  font-family: 'Roboto Mono', monospace;
   font-size: 14px;
 
   color: #9a9a9a;
 `;
 export const NameProd = styled.h3`
-  font-family: 'Roboto Mono', monospace;
   text-transform: uppercase;
   line-height: 1.21;
   font-size: 24px;
@@ -188,7 +186,6 @@ export const RemoveBag = styled.button`
 `;
 
 export const Titleremore = styled.span`
-  font-family: 'Roboto Mono', monospace;
   font-size: 14px;
   color: rgb(255, 255, 255);
   background: transparent;
@@ -205,7 +202,6 @@ export const ContainerSumtotal = styled.div`
 `;
 
 export const PrecoTotal = styled.span`
-  font-family: 'Roboto Mono', monospace;
   font-size: 24px;
   font-weight: bold;
   line-height: 1.5;
@@ -231,7 +227,7 @@ export const ButtonsBag = styled.div`
 export const ButtonContinuarComprando = styled.button`
   background: #fff;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
-  font-family: 'Roboto Mono', monospace;
+
   font-size: 18px;
   font-weight: bold;
 
@@ -274,7 +270,7 @@ export const ButtonContinuarComprando = styled.button`
 export const ButtonFinalizarCompra = styled.button<buttonProps>`
   background: rgb(37, 211, 102);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
-  font-family: 'Roboto Mono', monospace;
+
   font-size: 18px;
   font-weight: bold;
 

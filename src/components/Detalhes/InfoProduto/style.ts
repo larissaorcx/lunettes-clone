@@ -42,7 +42,6 @@ export const Text = styled.span`
   margin-bottom: 5px;
   margin-top: 20px;
 
-  font-family: 'Roboto Mono', monospace;
   color: rgb(154, 154, 154);
   font-size: 14px;
   line-height: 2.25;

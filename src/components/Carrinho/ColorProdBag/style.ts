@@ -50,7 +50,6 @@ export const BoxBag = styled.div<BoxBagProps>`
 `;
 
 export const TextBoxBag = styled.span`
-  font-family: 'Roboto Mono', monospace;
   font-weight: 500;
   text-transform: uppercase;
   font-size: 14px;

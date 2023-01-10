@@ -54,7 +54,6 @@ export const Regras = styled.div`
   }
 `;
 export const TextoRegras = styled.span`
-  font-family: 'Roboto Mono', monospace;
   font-size: 16px;
   line-height: 2.25;
   font-weight: 200;

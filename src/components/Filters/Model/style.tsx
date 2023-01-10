@@ -86,7 +86,6 @@ export const ContainerFilter = styled.li<ClickItem>`
 `;
 
 export const Item = styled.span`
-  font-family: 'Roboto Mono', monospace;
   text-transform: uppercase;
   font-size: 16px;
   color: rgb(154, 154, 154);

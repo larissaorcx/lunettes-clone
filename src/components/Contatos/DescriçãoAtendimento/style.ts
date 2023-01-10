@@ -72,7 +72,6 @@ export const InfosContatos = styled.div`
 `;
 
 export const TituloContato = styled.h3`
-  font-family: 'Roboto Mono', monospace;
   font-weight: bold;
   font-size: 24px;
   line-height: 1.5;
@@ -88,7 +87,6 @@ export const TituloContato = styled.h3`
 `;
 
 export const TextContato = styled.span`
-  font-family: 'Roboto Mono', monospace;
   font-size: 16px;
   font-weight: 200;
   text-align: center;

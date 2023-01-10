@@ -117,7 +117,6 @@ export const Box = styled.button<BoxProps>`
 `;
 
 export const TextBox = styled.span`
-  font-family: 'Roboto Mono', monospace;
   font-weight: 300;
   text-transform: uppercase;
   font-size: 16px;

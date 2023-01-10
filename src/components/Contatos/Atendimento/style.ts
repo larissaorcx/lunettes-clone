@@ -57,7 +57,7 @@ export const Titulo = styled.h2`
 export const Paragrafo = styled.p`
   max-width: 546px;
   max-height: 144px;
-  font-family: 'Roboto Mono', monospace;
+
   font-size: 16px;
   line-height: 1.5;
   text-align: left;

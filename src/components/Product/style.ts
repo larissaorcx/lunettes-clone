@@ -42,7 +42,6 @@ export const InfosProduto = styled.div`
   flex-direction: row;
 `;
 export const NomeProduto = styled.h3`
-  font-family: 'Roboto Mono', monospace;
   font-size: 24px;
 
   line-height: 2.25;
@@ -52,8 +51,6 @@ export const NomeProduto = styled.h3`
   margin-top: 10px;
 `;
 export const CodigoProduto = styled.p`
-  font-family: 'Roboto Mono', monospace;
-
   font-size: 14px;
 
   line-height: 2.25;
@@ -72,7 +69,6 @@ export const NewCollection = styled.span`
   color: rgb(255, 255, 255);
   font-size: 12px;
   font-weight: 700;
-  font-family: 'Roboto Mono', monospace;
 `;
 export const ContainerPrecos = styled.div<PrecoProps>`
   display: flex;
@@ -84,7 +80,6 @@ export const ContainerPrecos = styled.div<PrecoProps>`
   } */
 `;
 export const Preco = styled.span<PrecoProps>`
-  font-family: 'Roboto Mono', monospace;
   font-size: 24px;
   font-weight: bold;
   line-height: 1.5;
@@ -92,7 +87,7 @@ export const Preco = styled.span<PrecoProps>`
 `;
 
 export const PrecoDiscount = styled.span<PrecoProps>`
-  font-family: 'Roboto Mono', monospace;
+  font-display: swap;
   font-size: ${props => (props.openBag ? '14px' : '24px')};
   font-weight: bold;
   line-height: 1.5;
@@ -100,7 +95,7 @@ export const PrecoDiscount = styled.span<PrecoProps>`
 `;
 export const PriceWithDiscount = styled.span<PrecoProps>`
   margin-left: ${props => (props.openBag ? '' : '10px')};
-  font-family: 'Roboto Mono', monospace;
+
   font-size: 24px;
   font-weight: bold;
 
@@ -191,7 +186,6 @@ export const BotaoReserva = styled.button`
   height: 60px;
   background: black;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
-  font-family: 'Roboto Mono', monospace;
   font-size: 24px;
 
   line-height: 1.5;
@@ -263,7 +257,6 @@ export const PorcentDiscount = styled.div`
   }
 `;
 export const Text = styled.span`
-  font-family: 'Roboto Mono', monospace;
   font-size: 16px;
 
   @media screen and (max-width: 740px) {
@@ -275,7 +268,6 @@ export const Text = styled.span`
 export const TitleDiscount = styled.h3`
   line-height: 24px;
 
-  font-family: 'Roboto Mono', monospace;
   font-size: 24px;
   color: rgb(0, 0, 0);
   font-weight: 900;

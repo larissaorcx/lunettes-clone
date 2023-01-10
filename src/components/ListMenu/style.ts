@@ -69,7 +69,6 @@ export const TitleCategory = styled.p`
   align-items: center;
   justify-content: center;
 
-  font-family: 'Roboto Mono', monospace;
   font-size: 16px;
   color: rgb(255, 255, 255);
   margin-bottom: 20px;

@@ -10,6 +10,10 @@ export const ContainerButton = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
+
+  a {
+    text-decoration: none;
+  }
   @media screen and (max-width: 740px) {
     flex-direction: column;
   }
@@ -18,7 +22,7 @@ export const ContainerButton = styled.div`
 export const BotaoReservaSacola = styled.button<ButtonBagProps>`
   background: ${props => (props.productInBag ? 'rgb(239, 31, 95)' : 'black')};
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
-  font-family: 'Roboto Mono', monospace;
+  
   font-size: 24px;
   width: ${props => (props.productInBag ? '248px' : '')};
   height: ${props => (props.productInBag ? '60px' : '')};
@@ -58,7 +62,7 @@ export const BotaoReservaSacola = styled.button<ButtonBagProps>`
 export const BotaoReservaWhats = styled.button`
   background: rgb(37, 211, 102);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
-  font-family: 'Roboto Mono', monospace;
+
   font-size: 24px;
 
   line-height: 1.5;

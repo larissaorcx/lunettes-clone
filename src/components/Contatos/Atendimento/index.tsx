@@ -13,8 +13,8 @@ export default function Atendimento({ atendimento, text }: AtendimentoProps) {
       <Image
         alt={atendimento.alt}
         src={atendimento.img}
-        width={960}
-        height={540}
+        width={860}
+        height={340}
       />
       <TextContainer>
         <Titulo>{text.title}</Titulo>

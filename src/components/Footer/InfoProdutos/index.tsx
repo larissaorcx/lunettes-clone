@@ -105,11 +105,11 @@ export default function InfosProduto({ info }: InfosProdutoProps) {
             {info.socialMedia.itens.map(button => (
               <BotaoRedes type="button" key={button.alt}>
                 <Link href={button.link} passHref>
-                  <a>
-                    <div>
-                      <SiFacebook size={'2rem'} />
-                    </div>
-                  </a>
+
+                  <div>
+                    <SiFacebook size={'2rem'} />
+                  </div>
+
                 </Link>
               </BotaoRedes>
             ))}

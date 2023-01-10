@@ -29,6 +29,10 @@ body {
 
 }
 
+button{
+  font-family: 'Roboto Mono';
+}
+
 li {
   list-style: none;
 }

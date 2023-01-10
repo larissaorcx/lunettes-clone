@@ -65,7 +65,6 @@ export const ContainerImgQRCode = styled.div`
 `;
 
 export const Title = styled.h3`
-  font-family: 'Roboto Mono', monospace;
   color: rgb(0, 0, 0);
   font-size: 20px;
   width: 100%;
@@ -73,7 +72,6 @@ export const Title = styled.h3`
 `;
 
 export const Discription = styled.span`
-  font-family: 'Roboto Mono', monospace;
   color: rgb(154, 154, 154);
   font-size: 16px;
   width: 90%;
@@ -100,7 +98,7 @@ export const ButtonFinalize = styled.button`
   padding: 15px;
 
   border-radius: 4px;
-  font-family: 'Roboto Mono', monospace;
+
   font-weight: 900;
   box-shadow: rgb(0, 0, 0) 0px 4px 8px 0px;
   font-size: 18px;

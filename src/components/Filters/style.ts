@@ -110,7 +110,7 @@ export const Titulo = styled.h2`
   color: rgb(154, 154, 154);
 
   line-height: 3;
-  font-family: 'Roboto Mono', monospace;
+
   font-size: 14px;
   text-align: left;
   margin-left: 5px;
@@ -145,11 +145,10 @@ export const ButtonFilterCor = styled.button<ButtonColorProps>`
   height: 70px;
   border: none;
 
-  font-family: 'Roboto Mono', monospace;
+  position: relative;
+
   text-transform: uppercase;
   font-size: 16px;
-
-  position: relative;
 
   &::before {
     content: '';
@@ -189,7 +188,6 @@ export const ButtonFilterModelo = styled.button<ButtonColorProps>`
   height: 70px;
   border: none;
 
-  font-family: 'Roboto Mono', monospace;
   text-transform: uppercase;
   font-size: 16px;
   color: ${props =>
@@ -233,7 +231,6 @@ export const ButtonFilterPreco = styled.button<ButtonColorProps>`
   height: 70px;
   border: none;
 
-  font-family: 'Roboto Mono', monospace;
   text-transform: uppercase;
   font-size: 16px;
   color: ${props =>
@@ -268,7 +265,6 @@ export const ButtonRemoreveFilter = styled.button`
     transition: all 0.2s linear 0s;
   }
 
-  font-family: 'Roboto Mono', monospace;
   font-size: 13px;
 `;
 
@@ -276,6 +272,6 @@ export const NameFilter = styled.p`
   margin-right: 3px;
   color: rgb(154, 154, 154);
   font-size: 14px;
-  font-family: 'Roboto Mono', monospace;
+
   text-transform: uppercase;
 `;
