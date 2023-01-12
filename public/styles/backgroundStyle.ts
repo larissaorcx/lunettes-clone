@@ -21,8 +21,11 @@ export const Background = styled.div<BackgroundProps>`
       props.backgroundImages.background1.backgroungMobile.img});
     background-size: cover;
     background-position: center;
-    width: 100%;
-    height: 640px;
+    img {
+      width: 100%;
+      height: 100vh;
+    }
+
     background-attachment: fixed;
   }
 `;

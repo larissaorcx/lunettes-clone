@@ -8,10 +8,11 @@ export const ContatoContainer = styled.div`
   align-items: center;
   background-color: #fff;
 
-  .fotocontato {
+  img {
+    background-size: cover;
+    width: 75vw;
     @media screen and (max-width: 740px) {
-      width: 359.9px;
-      height: 203px;
+      width: 100vw;
     }
   }
 
@@ -49,9 +50,8 @@ export const Titulo = styled.h2`
     width: 350px;
     height: 100px;
     font-size: 24px;
-    text-align: center;
-    line-height: 1.21;
     padding-left: 10px;
+    line-height: 1.21;
   }
 `;
 export const Paragrafo = styled.p`

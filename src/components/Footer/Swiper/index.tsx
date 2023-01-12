@@ -47,7 +47,7 @@ export default function SwiperSlides({ swiper }: SwiperProps) {
     >
       {swiper.map(image => (
         <SwiperSlide key={image.alt}>
-          <Image alt={image.alt} src={image.img} width={660} height={650} />
+          <Image alt={image.alt} src={image.img} width={360} height={350} />
         </SwiperSlide>
       ))}
     </Swiper>

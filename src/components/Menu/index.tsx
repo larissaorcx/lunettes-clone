@@ -15,6 +15,7 @@ import { Images, ImageLogo, ImageMenu, MenuFloating } from '../../types';
 import { useCart } from '../../hooks/useCart';
 import Bag from '../Carrinho/bag';
 import { useScroll } from '../../hooks/ProviderscrollPage';
+import { useRouter } from 'next/router';
 
 interface MenuProps {
   logoHome: ImageLogo;
@@ -60,9 +61,16 @@ export default function MenuHeader({
     };
   }, [handleScrollMenu]);
 
+  const router = useRouter();
+
   return (
     <Menu scroll={scroll} openMenu={openMenu} openBag={openBag}>
-      <MenuContainer scroll={scroll} openMenu={openMenu} openBag={openBag}>
+      <MenuContainer
+        scroll={scroll}
+        openMenu={openMenu}
+        openBag={openBag}
+        inHome={router.pathname === '/'}
+      >
         {openMenu ? (
           <BotaoMenuClose
             openBag={openBag}
@@ -100,8 +108,8 @@ export default function MenuHeader({
             <Image
               alt={logoHome.alt}
               src={logoHome.img}
-              width={245.3}
-              height={108.4}
+              width={215.3}
+              height={90.4}
             />
           )}
         </Logo>

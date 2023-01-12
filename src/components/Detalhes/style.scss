@@ -1,11 +1,16 @@
 .detalhes {
   display: flex;
   width: 510px !important;
-  height: 500px !important;
+  height: 540px !important;
   margin-left: 40px !important;
   @media screen and (max-width: 740px) {
     width: 595px !important;
     height: 560px;
     margin-left: 0px !important;
+
+    img {
+      width: 595px !important;
+      height: 560px;
+    }
   }
 }

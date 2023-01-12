@@ -40,7 +40,7 @@ export default function ImagesDetalhes({
     >
       {images.map(img => (
         <SwiperSlide key={img.idimage}>
-          <Image alt="product" src={img.imglg} width={700} height={700} />
+          <Image alt="product" src={img.imglg} width={500} height={500} />
         </SwiperSlide>
       ))}
     </Swiper>

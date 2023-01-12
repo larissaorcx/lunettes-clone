@@ -21,6 +21,13 @@ interface ContadorProps {
   openBag: boolean | null;
 }
 
+interface Menu {
+  scroll: boolean;
+  openMenu: boolean | null;
+  openBag: boolean | null;
+  inHome: boolean;
+}
+
 export const Menu = styled.div<MenuProps>`
   display: flex;
   flex-direction: column;
@@ -74,7 +81,7 @@ export const Menu = styled.div<MenuProps>`
   }
 `;
 
-export const MenuContainer = styled.div<MenuProps>`
+export const MenuContainer = styled.div<Menu>`
   display: flex;
   align-items: center;
   width: 100%;
@@ -102,7 +109,7 @@ export const MenuContainer = styled.div<MenuProps>`
     height: ${props => (props.scroll ? '65px' : '83px')};
     padding-right: 20px;
     padding-left: 20px;
-    background-color: rgb(15, 15, 15);
+    background-color: ${props => (props.inHome ? '' : 'black')};
   }
 `;
 export const BotaoMenu = styled.button<ButtonProps>`
@@ -168,9 +175,12 @@ export const Logo = styled.div<MenuProps>`
   z-index: 1;
 
   @media screen and (max-width: 740px) {
-    width: ${props => (props.scroll ? '43px' : '120px')};
-    height: ${props => (props.scroll ? '43px' : '53px')};
     padding: 0px;
+
+    img {
+      width: ${props => (props.scroll ? '43px' : '120px')};
+      height: ${props => (props.scroll ? '43px' : '53px')};
+    }
   }
 `;
 export const BotaoSacola = styled.button<ButtonProps>`

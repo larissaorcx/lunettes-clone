@@ -151,8 +151,8 @@ export const BotaoRedes = styled.button`
     align-items: center;
     background: white;
     border-radius: 100%;
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
   }
   .face {
     weight: 100px !important;
