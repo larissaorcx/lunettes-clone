@@ -18,6 +18,7 @@ export const GlobalStyle = createGlobalStyle<GlobalProps>`
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'Roboto Mono';
 }
 
 body {
@@ -29,9 +30,6 @@ body {
 
 }
 
-button{
-  font-family: 'Roboto Mono';
-}
 
 li {
   list-style: none;
