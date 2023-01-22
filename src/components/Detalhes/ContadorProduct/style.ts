@@ -23,7 +23,8 @@ export const Contador = styled.div<ContadorProps>`
   @media screen and (max-width: 740px) {
     width: ${props => (props.openBag ? '105px' : '130px')};
     height: ${props => (props.openBag ? '33px' : '60px')};
-    margin-left: ${props => (props.openBag ? '130px' : '')};
+    margin-left: ${props => (props.openBag ? '55px' : '')};
+    margin-top: ${props => (props.openBag ? '15px' : '')};
   }
 `;
 

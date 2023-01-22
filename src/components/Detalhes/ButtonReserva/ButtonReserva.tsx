@@ -46,7 +46,7 @@ export default function ButtonReserva({
 
   const productCart: ProductCardProps = {
     id: product._id,
-    image: selectColor[0].imglg,
+    image: selectColor[0].imgxs,
     color: colors,
     name: product.productName,
     code: product.code,
@@ -55,7 +55,7 @@ export default function ButtonReserva({
     discount: product.discount,
     formatedPrice: product.formatedPrice,
   };
-
+  console.log(selectColor, 'imagem selecionada');
   const { addProduct, deleteProduct, cart } = useCart();
 
   const productInTheBag = cart.find(

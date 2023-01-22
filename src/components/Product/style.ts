@@ -84,6 +84,9 @@ export const Preco = styled.span<PrecoProps>`
   font-weight: bold;
   line-height: 1.5;
   color: ${props => (props.openBag ? 'rgb(255, 255, 255) ' : '#000')};
+  @media screen and (max-width: 740px) {
+    font-size: 18px;
+  }
 `;
 
 export const PrecoDiscount = styled.span<PrecoProps>`
@@ -112,6 +115,9 @@ export const PriceWithDiscount = styled.span<PrecoProps>`
       props.openBag ? 'rgb(133, 133, 133)' : 'rgb(0, 0, 0)'};
     margin: ${props => (props.openBag ? '-10px' : '20px')};
     margin-left: ${props => (props.openBag ? '-2px' : '-142px')};
+  }
+  @media screen and (max-width: 740px) {
+    font-size: 18px;
   }
 `;
 export const BotaoCores = styled.button<ListImagesProps>`

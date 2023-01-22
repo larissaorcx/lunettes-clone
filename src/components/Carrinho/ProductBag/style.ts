@@ -22,6 +22,7 @@ export const ContainerContador = styled.div`
   @media screen and (max-width: 740px) {
     flex-direction: column;
     align-items: start;
+    justify-content: end;
     margin-left: 5px;
   }
 `;
@@ -37,6 +38,8 @@ export const ButtonRemove = styled.button`
 
   font-size: 16px;
   @media screen and (max-width: 740px) {
+    margin-left: 55px;
+    margin-top: 15px;
     display: flex;
   }
 `;

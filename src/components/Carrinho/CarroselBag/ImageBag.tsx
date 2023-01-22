@@ -1,6 +1,3 @@
-import { BotaoCores, CoresContainer } from '../../Product/style';
-import { ImagesProps } from '../../../pages/produtos/[slug]';
-
 import Image from 'next/image';
 
 import React, { useState } from 'react';
@@ -18,28 +15,10 @@ type ImgProps = {
 };
 
 export default function ListProductsImages({ products }: ImgProps) {
-  const [clickButton, setClickButton] = useState(false);
-
-  const swiper = useSwiper();
-
-  function handleClick() {
-    switch (swiper.activeIndex) {
-      case 0:
-        swiper.slideNext();
-        break;
-
-      case 2:
-        swiper.slidePrev();
-        break;
-
-      default:
-        break;
-    }
-  }
-
+  const initialIndex = 0;
   return (
     <>
-      <Swiper className="imageBag">
+      <Swiper className="bag" initialSlide={initialIndex}>
         <SwiperSlide key={products}>
           <Image alt="product" src={products} width={118} height={118} />
         </SwiperSlide>

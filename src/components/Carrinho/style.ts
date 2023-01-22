@@ -60,6 +60,7 @@ export const TitleInfo = styled.h2`
   color: #fff;
   @media screen and (max-width: 740px) {
     margin-right: 55px;
+    font-size: 18px;
   }
 `;
 
@@ -119,11 +120,19 @@ export const ContainerProdContador = styled.div`
 `;
 
 export const Containerimg = styled.div`
-  width: 118px;
+  width: 108px;
   margin: 30px 0px;
   display: flex;
   align-items: start;
   @media screen and (max-width: 740px) {
+    img {
+      width: 60px;
+      height: 50px;
+      padding-right: 5px;
+      border-radius: 4px;
+    }
+    width: 50px;
+    height: 50px;
     margin: 0;
   }
 `;
@@ -146,6 +155,7 @@ export const Container = styled.div`
   margin: 30px 0px;
   @media screen and (max-width: 740px) {
     margin: 0;
+    padding-left: 10px;
   }
 `;
 
@@ -160,6 +170,9 @@ export const NameProd = styled.h3`
   font-size: 24px;
 
   color: #fff;
+  @media screen and (max-width: 740px) {
+    font-size: 16px;
+  }
 `;
 
 export const ContainerRemove = styled.div`
@@ -209,6 +222,7 @@ export const PrecoTotal = styled.span`
   margin-right: 26.2%;
   @media screen and (max-width: 740px) {
     margin: 0px;
+    font-size: 18px;
   }
 `;
 

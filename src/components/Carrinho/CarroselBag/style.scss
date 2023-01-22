@@ -1,20 +1,18 @@
-.imageBag {
-  width: 118px !important;
-  height: 118px !important;
-
-  .swiper-slide img {
-    display: inline-flex;
-    width: 108px !important;
-    height: 108px !important;
-
-    @media screen and (max-width: 740px) {
-      width: 108px !important;
-      height: 108px !important;
+.bag {
+  @media screen and (max-width: 740px) {
+    img {
+      width: 60px;
     }
   }
-
-  .swiper {
-    width: 100px !important;
-    margin-left: 0 !important;
-  }
 }
+
+// .swiper-slide img {
+//   display: inline-flex;
+//   width: 108px !important;
+//   height: 108px !important;
+// }
+
+// .swiper {
+//   width: 100px !important;
+//   margin-left: 0 !important;
+// }

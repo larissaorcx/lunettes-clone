@@ -29,16 +29,16 @@ export const ContainerImgQRCode = styled.div`
   display: flex;
   margin: 0px;
   padding: 0px;
-  margin-left: 36px;
+  /* margin-left: 36px; */
   position: relative;
-  margin-top: 35px;
+  /* margin-top: 35px; */
 
   img {
     min-width: 220px !important;
     max-width: 220px !important;
     min-height: 220px !important;
     max-height: 220px !important;
-    inset: -20px !important;
+    inset: -19px !important;
     margin: 0px !important;
     z-index: -2 !important;
   }
@@ -59,8 +59,8 @@ export const ContainerImgQRCode = styled.div`
     width: 100%;
     height: 100%;
     border: 1px solid rgb(0, 0, 0);
-    bottom: 35px;
-    left: -35px;
+    bottom: 0px;
+    left: 2px;
   }
 `;
 
