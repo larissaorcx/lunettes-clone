@@ -19,6 +19,7 @@ export const GlobalStyle = createGlobalStyle<GlobalProps>`
   margin: 0;
   padding: 0;
   font-family: 'Roboto Mono';
+
 }
 
 body {
@@ -26,10 +27,7 @@ body {
   height: 100%;
   overflow: ${props =>
     props.theme.bag || props.theme.menu ? 'hidden' : 'hidden scroll'};
-
-
 }
-
 
 li {
   list-style: none;

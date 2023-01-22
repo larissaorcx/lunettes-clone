@@ -36,7 +36,7 @@ export const Menu = styled.div<MenuProps>`
 
   overflow-y: scroll;
   position: fixed;
-  z-index: 99;
+  z-index: 999;
 
   &::before {
     content: '';
@@ -44,7 +44,7 @@ export const Menu = styled.div<MenuProps>`
     top: 0;
     left: 0;
     width: 100vw;
-    height: 80rem;
+    min-height: 100vh;
     background: rgb(0, 0, 0);
     z-index: -1;
 
