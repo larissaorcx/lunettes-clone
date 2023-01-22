@@ -31,9 +31,7 @@ interface Menu {
 export const Menu = styled.div<MenuProps>`
   display: flex;
   flex-direction: column;
-
   width: 100%;
-
   height: ${props => (props.openBag || props.openMenu ? '100vh' : '0px')};
 
   overflow-y: scroll;
