@@ -47,7 +47,7 @@ export default class MyDocument extends Document {
               href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600;700;900&display=swap"
               rel="stylesheet"
             />
-            <link rel="icon" href="/lunettes.png" />
+            <link rel="icon" href="/logotipo-circle.png" />
           </Head>
           <body>
             <Main />
