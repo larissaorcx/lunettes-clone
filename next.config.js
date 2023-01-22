@@ -4,6 +4,7 @@ const nextConfig = {
   compiler: {
     // ssr and displayName are configured by default
     styledComponents: true,
+    presets: ['next/babel'],
   },
   images: {
     domains: ['upload-lunettes.s3.amazonaws.com'],

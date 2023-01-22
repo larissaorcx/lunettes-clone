@@ -253,7 +253,7 @@ export const PorcentDiscount = styled.div`
     height: 50px;
     padding: 6px 7px 6px 8px;
     top: 15px;
-    left: -25px;
+    left: 15px;
   }
 `;
 export const Text = styled.span`

@@ -45,7 +45,7 @@ export const Menu = styled.div<MenuProps>`
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     height: 80rem;
     background: rgb(0, 0, 0);
     z-index: -1;
@@ -84,7 +84,7 @@ export const Menu = styled.div<MenuProps>`
 export const MenuContainer = styled.div<Menu>`
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 100vw;
 
   height: ${props => (props.scroll ? '65px' : '130px')};
   flex-direction: row;
@@ -105,7 +105,7 @@ export const MenuContainer = styled.div<Menu>`
   z-index: 99;
 
   @media screen and (max-width: 740px) {
-    width: 100%;
+    width: 100vw;
     height: ${props => (props.scroll ? '65px' : '83px')};
     padding-right: 20px;
     padding-left: 20px;

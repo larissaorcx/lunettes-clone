@@ -10,9 +10,10 @@ export const ContatoContainer = styled.div`
 
   img {
     background-size: cover;
-    width: 75vw;
+    width: 50%;
     @media screen and (max-width: 740px) {
       width: 100vw;
+      height: 30vh;
     }
   }
 
@@ -25,12 +26,15 @@ export const ContatoContainer = styled.div`
 export const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
-
-  margin-left: 120px;
+  width: 50%;
+  padding-left: 120px;
 
   @media screen and (max-width: 740px) {
     font-size: 24px;
     margin: 0px;
+    padding-bottom: 50px;
+    padding-left: 0px;
+    width: 100vw;
   }
 `;
 
@@ -76,5 +80,6 @@ export const Paragrafo = styled.p`
     font-size: 14px;
     padding-top: 50px;
     padding-left: 10px;
+    width: 90vw;
   }
 `;
