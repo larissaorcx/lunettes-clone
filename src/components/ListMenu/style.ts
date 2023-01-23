@@ -21,6 +21,10 @@ export const ListMenuContainer = styled.div<ListMenuProps>`
   margin-top: ${props => (props.scroll ? '90px' : '175px')};
   /* background: black;  */
   overflow-y: scroll;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
   @media screen and (max-width: 740px) {
     margin: 80px 0 0 0;
   }

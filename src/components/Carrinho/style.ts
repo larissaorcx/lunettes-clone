@@ -19,6 +19,9 @@ export const ConteinerBag = styled.div<ConteinerBagProps>`
   margin: ${props => (props.scroll ? '105px 0 0 0' : '155px 0 0 0')};
   /* background: #000; */
   overflow-y: scroll;
+  ::-webkit-scrollbar {
+    display: none;
+  }
   @media screen and (max-width: 740px) {
     margin: 100px 0 0 0;
   }
