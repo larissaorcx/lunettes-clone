@@ -38,9 +38,13 @@ Ou
 $ npm run dev
 ```
 
+## Prismic
+
+No projeto é utilizado o CMS headles Prismic, para o gerenciamento da listagem de produtos.
+
 ### Tecnologias utilizadas:
 
-Next.js, Swiper, TypeScript, Prismic, Styled Components.
+Next.js, Swiper, TypeScript, Styled Components.
 
 ### Deploy
 
